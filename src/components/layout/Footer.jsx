@@ -1,3 +1,5 @@
+import React from 'react'
+
 export function Footer({ t, year }) {
     return (
         <footer className="footer">
@@ -6,4 +8,3 @@ export function Footer({ t, year }) {
         </footer>
     )
 }
-

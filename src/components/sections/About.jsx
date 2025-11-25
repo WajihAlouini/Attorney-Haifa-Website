@@ -1,3 +1,5 @@
+import React from 'react'
+
 export function About({ t }) {
     return (
         <section className="about" id="about">
@@ -22,4 +24,3 @@ export function About({ t }) {
         </section>
     )
 }
-

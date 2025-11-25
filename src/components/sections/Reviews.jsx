@@ -1,3 +1,5 @@
+import React from 'react'
+
 export function Reviews({ t, liveReviews, mapShareUrl, isLoading }) {
     const reviewsToRender = liveReviews ?? t.reviews
 
@@ -36,4 +38,3 @@ export function Reviews({ t, liveReviews, mapShareUrl, isLoading }) {
         </section>
     )
 }
-

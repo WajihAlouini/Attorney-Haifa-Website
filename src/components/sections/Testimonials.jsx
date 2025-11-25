@@ -1,3 +1,5 @@
+import React from 'react'
+
 export function Testimonials({ t }) {
     return (
         <section className="testimonials" id="testimonials">
@@ -16,4 +18,3 @@ export function Testimonials({ t }) {
         </section>
     )
 }
-

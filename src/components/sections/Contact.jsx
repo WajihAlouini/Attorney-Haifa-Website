@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react'
 
 export function Contact({
   t,
@@ -161,7 +161,7 @@ export function Contact({
         <div className="error-toast">
           <div className="error-icon">✕</div>
           <div>
-            <p style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}>Erreur d&apos;envoi</p>
+            <p style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}>Erreur d'envoi</p>
             <p style={{ fontSize: '0.9rem', opacity: 0.9 }}>Veuillez réessayer ou nous contacter par WhatsApp.</p>
           </div>
         </div>
@@ -187,4 +187,3 @@ export function Contact({
     </section>
   )
 }
-

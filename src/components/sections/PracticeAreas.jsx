@@ -1,3 +1,5 @@
+import React from 'react'
+
 export function PracticeAreas({ t }) {
     return (
         <section className="practice" id="practice">
@@ -5,7 +7,7 @@ export function PracticeAreas({ t }) {
                 <p className="section-eyebrow">{t.practiceEyebrow}</p>
                 <h2>{t.practiceHeading}</h2>
             </div>
-            <div className="section-grid practice-grid">
+            <div className="practice-grid">
                 {t.practiceAreas.map((area) => (
                     <article key={area.title} className="practice-card">
                         <h3>{area.title}</h3>
@@ -16,4 +18,3 @@ export function PracticeAreas({ t }) {
         </section>
     )
 }
-
