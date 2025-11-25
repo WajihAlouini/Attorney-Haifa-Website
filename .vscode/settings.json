@@ -1,0 +1,14 @@
+{
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "css.lint.unknownAtRules": "ignore",
+    "files.associations": {
+        "*.css": "css"
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
+}

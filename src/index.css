@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  font-family: 'Lato', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  --bg: #05080f;
+  --panel: rgba(18, 25, 38, 0.85);
+  --surface: rgba(13, 18, 28, 0.95);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #c5a059;
+  --accent-light: #e6c683;
+  --accent-soft: rgba(197, 160, 89, 0.12);
+  --border: rgba(197, 160, 89, 0.25);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 15% 15%, rgba(25, 35, 60, 0.4), transparent 60%),
+    radial-gradient(circle at 85% 85%, rgba(197, 160, 89, 0.08), transparent 50%),
+    var(--bg);
+  color: var(--text);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a:hover {
+  color: var(--accent);
+}
