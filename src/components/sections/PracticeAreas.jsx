@@ -1,5 +1,3 @@
-import React from 'react'
-
 export function PracticeAreas({ t }) {
     return (
         <section className="practice" id="practice">
@@ -18,3 +16,4 @@ export function PracticeAreas({ t }) {
         </section>
     )
 }
+

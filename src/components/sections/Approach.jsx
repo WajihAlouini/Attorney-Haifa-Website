@@ -1,5 +1,3 @@
-import React from 'react'
-
 export function Approach({ t }) {
     return (
         <section className="approach" id="approach">
@@ -18,3 +16,4 @@ export function Approach({ t }) {
         </section>
     )
 }
+

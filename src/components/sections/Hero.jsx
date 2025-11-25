@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useState, useEffect } from 'react';
 
 export function Hero({ t, whatsappLink }) {
     const [typedText, setTypedText] = useState('')
@@ -45,13 +45,13 @@ export function Hero({ t, whatsappLink }) {
                         <span>{t.ctas.secondary}</span>
                     </a>
                     <a
-                        className="btn whatsapp btn-pulse btn-magnetic"
-                        href={whatsappLink}
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <span>{t.ctas.whatsapp}</span>
-                    </a>
+                            className="btn whatsapp btn-pulse btn-magnetic"
+    href={whatsappLink}
+    target="_blank"
+    rel="noreferrer"
+>
+    <span>{t.ctas.whatsapp}</span>
+</a>
                 </div>
 
                 <div className="hero-metrics">
