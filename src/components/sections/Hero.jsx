@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useState, useEffect } from 'react';
 
 export function Hero({ t, whatsappLink }) {
     const [typedText, setTypedText] = useState('')
@@ -106,3 +106,4 @@ function CountUpMetric({ value, delay }) {
 
     return <span className="metric-value">{count}{suffix}</span>
 }
+

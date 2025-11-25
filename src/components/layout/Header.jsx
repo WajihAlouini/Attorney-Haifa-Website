@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react';
 import { translations } from '../../data/translations'
 
 export function Header({ locale, setLocale }) {
@@ -67,3 +67,4 @@ export function Header({ locale, setLocale }) {
         </nav>
     )
 }
+

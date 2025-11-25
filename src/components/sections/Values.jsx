@@ -1,5 +1,3 @@
-import React from 'react'
-
 export function Values({ t }) {
     return (
         <section className="values" id="values">
@@ -18,3 +16,4 @@ export function Values({ t }) {
         </section>
     )
 }
+

@@ -1,5 +1,3 @@
-import React from 'react'
-
 export function Gallery({ t, officePhotos }) {
     return (
         <section className="gallery">
@@ -18,3 +16,4 @@ export function Gallery({ t, officePhotos }) {
         </section>
     )
 }
+
