@@ -1,0 +1,19 @@
+/* src/styles/sections.css */
+/* Responsive grid for sections – mobile first single column */
+.section-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr; /* single column on phones */
+}
+
+@media (min-width: var(--bp-md)) {
+  .section-grid {
+    grid-template-columns: repeat(2, 1fr); /* two columns on tablets */
+  }
+}
+
+@media (min-width: var(--bp-lg)) {
+  .section-grid {
+    grid-template-columns: repeat(3, 1fr); /* three columns on larger screens */
+  }
+}

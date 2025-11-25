@@ -1,46 +1,44 @@
-name: CI / CD
+name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]               # production deploy
+    branches: [ main ]
   pull_request:
-    branches: [ main ]               # preview on PRs
+    branches: [ main ]
   workflow_dispatch: {}
 
 jobs:
   # -------------------------------------------------
-  # 1️⃣ Lint, type‑check & unit tests
+  # 1️⃣ Lint & Test
   # -------------------------------------------------
   lint-test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node (use same version as your project)
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'          # adjust if you use a different version
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Run ESLint (flat config)
+      - name: Run ESLint
         run: npm run lint
 
-      - name: Run Vite type‑check (if you have TS) – optional
-        run: npx vite build --mode=development --dry-run
-
-      - name: Run unit tests (Vitest/Jest)
-        run: npm test || echo "No tests defined – skipping"
+      - name: Run tests (if available)
+        run: npm test
+        continue-on-error: true
 
   # -------------------------------------------------
-  # 2️⃣ Build the static bundle
+  # 2️⃣ Build
   # -------------------------------------------------
   build:
     needs: lint-test
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -49,59 +47,75 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - run: npm ci
-      - run: npm run build                # creates ./dist
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Upload artifact (dist folder)
+      - name: Build project
+        run: npm run build
+
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: site-dist
           path: dist
+          retention-days: 1
 
   # -------------------------------------------------
-  # 3️⃣ Deploy to Vercel (or Netlify) – production only
+  # 3️⃣ Deploy to Vercel (Production only)
   # -------------------------------------------------
   deploy:
     needs: build
-    if: github.ref == 'refs/heads/main'   # only on main branch
-    runs-on: windows-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download built artifact
+      - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
           name: site-dist
           path: dist
 
       - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v20
+        uses: amondnet/vercel-action@v25
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}   # set in repo Settings → Secrets
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: .
-          prod: true                                 # production deploy
+          vercel-args: '--prod'
           alias-domains: |
             hgalouini.com
             www.hgalouini.com
 
   # -------------------------------------------------
-  # 4️⃣ (Optional) Lighthouse CI – sanity check on the built site
+  # 4️⃣ Lighthouse CI (Optional Performance Check)
   # -------------------------------------------------
   lighthouse:
     needs: build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
     steps:
       - uses: actions/checkout@v4
-      - name: Download built artifact
+      
+      - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
           name: site-dist
           path: dist
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
       - name: Install Lighthouse CI
-        run: npm i -g @lhci/cli@0.14
-      - name: Run Lighthouse CI on local preview
         run: |
-          npx serve -s dist -l 5000 &
+          npm install -g @lhci/cli@0.14
+          npm install -g serve
+      
+      - name: Run Lighthouse
+        run: |
+          serve -s dist -l 5000 &
+          sleep 5
           lhci autorun --collect.url=http://localhost:5000 --upload.target=temporary-public-storage

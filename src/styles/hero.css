@@ -1,0 +1,20 @@
+/* src/styles/hero.css */
+/* Hero section – mobile‑first padding, vertical CTA layout */
+.hero {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.hero .hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: var(--bp-md)) {
+  .hero .hero-ctas {
+    flex-direction: row;
+    justify-content: center;
+  }
+}

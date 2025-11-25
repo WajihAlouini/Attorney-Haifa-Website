@@ -1,0 +1,17 @@
+/* src/styles/contact.css */
+/* Contact form – larger inputs and spacing for mobile */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: var(--fs-base);
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  box-sizing: border-box;
+}
+
+.contact-form button {
+  width: 100%;
+  margin-top: 0.5rem;
+}

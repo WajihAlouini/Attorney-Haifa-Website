@@ -5,7 +5,7 @@ export function PracticeAreas({ t }) {
                 <p className="section-eyebrow">{t.practiceEyebrow}</p>
                 <h2>{t.practiceHeading}</h2>
             </div>
-            <div className="practice-grid">
+            <div className="section-grid practice-grid">
                 {t.practiceAreas.map((area) => (
                     <article key={area.title} className="practice-card">
                         <h3>{area.title}</h3>
