@@ -1467,3 +1467,34 @@ html {
   opacity: 0.6;
   cursor: not-allowed;
 }
+/* Enhanced mobile text fixes */
+@media (max-width: 768px) {
+  .hero-title-animated,
+  .hero-content h1 {
+    font-size: clamp(1.5rem, 8vw, 2.5rem) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    padding: 0 0.5rem;
+  }
+
+  .hero-lede {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    padding: 0 0.5rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  /* Ensure nothing overflows */
+  .hero {
+    overflow-x: hidden;
+  }
+  
+  * {
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+}
