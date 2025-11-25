@@ -30,6 +30,17 @@
     animation: fadeInUp 0.3s ease-out;
     z-index: 99;
 }
+.practice-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--gold); /* or whatever your gold color variable is */
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.practice-card:hover .practice-icon {
+    transform: translateY(-5px);
+}
 
 .scroll-to-top:hover {
     transform: translateY(-5px);

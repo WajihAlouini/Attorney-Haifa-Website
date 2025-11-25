@@ -83,9 +83,8 @@ export const translations = {
     ],
     testimonialsEyebrow: 'Client Testimonials',
     testimonialsHeading: 'Trusted by Clients Worldwide.',
-    reviewsEyebrow: 'Google Reviews',
-    reviewsHeading: 'Client Feedback on Google.',
-    reviewsNote: 'Verified reviews from our Google Business Profile.',
+    reviewsEyebrow: 'Client Voices',
+    reviewsHeading: 'What Our Clients Say.',
     reviews: [
       {
         rating: '★★★★★',
@@ -256,9 +255,8 @@ export const translations = {
     ],
     testimonialsEyebrow: 'Témoignages Clients',
     testimonialsHeading: 'La Confiance de Nos Clients.',
-    reviewsEyebrow: 'Avis Google',
-    reviewsHeading: 'Retours Clients sur Google.',
-    reviewsNote: 'Avis vérifiés de notre fiche Google Business.',
+    reviewsEyebrow: 'Témoignages',
+    reviewsHeading: 'Ce Que Disent Nos Clients.',
     reviews: [
       {
         rating: '★★★★★',
@@ -361,7 +359,7 @@ export const translations = {
     heroEyebrow: 'تونس · القيروان · دولي',
     heroTitle: 'التميز في المحاماة والاستشارات القانونية.',
     heroLede:
-      'تقدم الأستاذة حيفا قداهمي العويني تمثيلاً قانونياً خبيراً للأفراد والشركات في تونس والخارج، مع تخصص دقيق في قانون الأعمال، العقارات، وقانون الأسرة.',
+      'تقدم الأستاذة هيفاء القضامي العلويني تمثيلاً قانونياً خبيراً للأفراد والشركات في تونس والخارج، مع تخصص دقيق في قانون الأعمال، العقارات، وقانون الأسرة.',
     ctas: {
       primary: 'حجز موعد استشارة',
       secondary: 'مجالات تخصصنا',
@@ -375,7 +373,7 @@ export const translations = {
     aboutEyebrow: 'المحامية',
     aboutHeading: 'شريكك القانوني الموثوق.',
     aboutBody:
-      'الأستاذة حيفا قداهمي العويني محامية متميزة لدى المحاكم التونسية. بفضل فهم عميق للمشهد القانوني المحلي والمعايير الدولية، تقدم دفاعاً صارماً ومشورة استراتيجية لقاعدة متنوعة من العملاء، من العائلات التونسية إلى المستثمرين الدوليين.',
+      'الأستاذة هيفاء القضامي العلويني محامية متميزة لدى المحاكم التونسية. بفضل فهم عميق للمشهد القانوني المحلي والمعايير الدولية، تقدم دفاعاً صارماً ومشورة استراتيجية لقاعدة متنوعة من العملاء، من العائلات التونسية إلى المستثمرين الدوليين.',
     pillars: [
       {
         title: 'التقاضي وفض النزاعات',
@@ -415,14 +413,13 @@ export const translations = {
     ],
     testimonialsEyebrow: 'آراء العملاء',
     testimonialsHeading: 'ثقة عملائنا حول العالم.',
-    reviewsEyebrow: 'تقييمات جوجل',
-    reviewsHeading: 'آراء العملاء على جوجل.',
-    reviewsNote: 'تقييمات موثقة من صفحة مكتبنا على جوجل.',
+    reviewsEyebrow: 'آراء العملاء',
+    reviewsHeading: 'ماذا يقول عملاؤنا.',
     reviews: [
       {
         rating: '★★★★★',
         text:
-          'احترافية استثنائية. تعاملت الأستاذة العويني مع تأسيس شركتنا بسرعة ودقة.',
+          'احترافية استثنائية. تعاملت الأستاذة العلويني مع تأسيس شركتنا بسرعة ودقة.',
         author: 'توماس ر. · مدير تنفيذي',
       },
       {
@@ -441,7 +438,7 @@ export const translations = {
     testimonials: [
       {
         quote:
-          'تجمع الأستاذة العويني بين الخبرة القانونية والرؤية الاستراتيجية. كانت نصيحتها حاسمة لتوسعنا في السوق التونسية.',
+          'تجمع الأستاذة العلويني بين الخبرة القانونية والرؤية الاستراتيجية. كانت نصيحتها حاسمة لتوسعنا في السوق التونسية.',
         author: 'جان بيير ل.، مدير عمليات',
       },
       {
