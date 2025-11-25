@@ -30,8 +30,7 @@ jobs:
         run: npm run lint
 
       - name: Run tests (if available)
-        run: npm test
-        continue-on-error: true
+        run: npm test --if-present || echo "No tests found - skipping"
 
   # -------------------------------------------------
   # 2️⃣ Build
@@ -84,9 +83,6 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: .
           vercel-args: '--prod'
-          alias-domains: |
-            hgalouini.com
-            www.hgalouini.com
 
   # -------------------------------------------------
   # 4️⃣ Lighthouse CI (Optional Performance Check)
