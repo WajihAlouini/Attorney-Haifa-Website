@@ -39,7 +39,7 @@ class ErrorBoundary extends Component {
         }}>
           <div style={{ textAlign: 'center', maxWidth: '600px' }}>
             <h1 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#c5a059' }}>
-              Une erreur s'est produite
+              Une erreur s&apos;est produite
             </h1>
             <p style={{ marginBottom: '2rem', color: '#94a3b8' }}>
               Nous sommes désolés pour ce désagrément. Veuillez rafraîchir la page ou nous contacter si le problème persiste.

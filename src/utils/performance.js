@@ -34,7 +34,7 @@ export const measureWebVitals = (callback) => {
 
   try {
     observer.observe({ entryTypes: ['largest-contentful-paint'] });
-  } catch (e) {
+  } catch {
     // LCP not supported
   }
 
@@ -52,7 +52,7 @@ export const measureWebVitals = (callback) => {
 
   try {
     fidObserver.observe({ entryTypes: ['first-input'] });
-  } catch (e) {
+  } catch {
     // FID not supported
   }
 
@@ -73,7 +73,7 @@ export const measureWebVitals = (callback) => {
 
   try {
     clsObserver.observe({ entryTypes: ['layout-shift'] });
-  } catch (e) {
+  } catch {
     // CLS not supported
   }
 };
