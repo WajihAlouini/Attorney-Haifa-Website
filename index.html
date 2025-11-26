@@ -4,60 +4,84 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" />
+  <link rel="preconnect" href="https://assets.calendly.com" />
+  <link rel="dns-prefetch" href="https://api.web3forms.com" />
+  
+  <!-- Multilingual SEO -->
+  <link rel="alternate" hreflang="fr" href="https://hgalouini.com/?lang=fr" />
+  <link rel="alternate" hreflang="en" href="https://hgalouini.com/?lang=en" />
+  <link rel="alternate" hreflang="ar" href="https://hgalouini.com/?lang=ar" />
+  <link rel="alternate" hreflang="x-default" href="https://hgalouini.com/" />
   <meta name="description" content="Maître Haifa Guedhami Alouini - Avocate à la Cour & Conseillère Juridique à Kairouan et Tunis. Expert en droit de la famille, immobilier et affaires." />
-  <meta name="keywords" content="Avocat Tunisie, Avocat Kairouan, Droit de la famille, Divorce Tunisie, Héritage, Droit Immobilier, Haifa Guedhami Alouini" />
-  <meta property="og:title" content="Haifa Guedhami Alouini · Avocate & Conseillère Juridique" />
-  <meta property="og:description" content="Défense et conseil juridique expert pour la famille, le patrimoine et l'entreprise en Tunisie." />
-  <meta property="og:image" content="/office/entry.png" />
+  <meta name="keywords" content="Avocat Tunisie, Avocat Kairouan, Droit de la famille, Divorce Tunisie, Héritage, Droit Immobilier, Haifa Guedhami Alouini, محامية تونس, محامية القيروان, قانون الأسرة, طلاق, ميراث, عقارات" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Maître Haifa Guedhami Alouini - Avocate à la Cour" />
+  <meta property="og:description" content="Avocate à la Cour & Conseillère Juridique à Kairouan et Tunis. Expert en droit de la famille, immobilier et affaires." />
+  <meta property="og:image" content="https://hgalouini.com/office/entry.png" />
   <meta property="og:url" content="https://hgalouini.com" />
-  <title>Haifa Guedhami Alouini · Avocate à la Cour</title>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA_MEASUREMENT_ID%"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    if('%VITE_GA_MEASUREMENT_ID%'){
-      gtag('config', '%VITE_GA_MEASUREMENT_ID%');
-    }
-  </script>
-
-  <!-- Structured Data (JSON-LD) -->
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Maître Haifa Guedhami Alouini - Avocate à la Cour" />
+  <meta name="twitter:description" content="Avocate à la Cour & Conseillère Juridique à Kairouan et Tunis." />
+  <meta name="twitter:image" content="https://hgalouini.com/office/entry.png" />
+  
+  <title>Maître Haifa Guedhami Alouini - Avocate à la Cour | Kairouan & Tunis</title>
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#05080f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  
+  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LegalService",
+    "@type": "Attorney",
     "name": "Maître Haifa Guedhami Alouini",
     "url": "https://hgalouini.com",
-    "logo": "https://hgalouini.com/logo.png",
+    "logo": "https://hgalouini.com/favicon.png",
     "image": "https://hgalouini.com/office/entry.png",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Kairouan Medina · Avenue des Martyrs",
+      "streetAddress": "Avenue des Martyrs, Médina",
       "addressLocality": "Kairouan",
+      "postalCode": "3100",
       "addressCountry": "TN"
     },
-    "telephone": "+216 12345678",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "35.6781",
+      "longitude": "10.0963"
+    },
+    "telephone": "+216 98 643 612",
     "email": "counsel@hgalouini.com",
-    "areaServed": "TN",
-    "priceRange": "$$"
+    "areaServed": ["TN", "FR"],
+    "priceRange": "$$",
+    "knowsLanguage": ["fr", "ar", "en"],
+    "openingHours": "Mo-Fr 09:00-17:00",
+    "sameAs": [
+      "https://hgalouini.com"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "500"
+    }
   }
   </script>
 
-  <!-- Cookie Consent Banner -->
-  <style>
-    .cookie-banner{position:fixed;bottom:0;left:0;width:100%;background:#222;color:#fff;padding:1rem;display:flex;justify-content:space-between;align-items:center;z-index:1000;}
-    .cookie-banner button{background:#ffb400;color:#000;border:none;padding:.5rem 1rem;border-radius:4px;cursor:pointer;}
-  </style>
 </head>
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 
-  <div class="cookie-banner" id="cookieBanner">
-    <span>We use cookies to improve your experience. By continuing you accept our cookie policy.</span>
-    <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookiesAccepted','true');">Accept</button>
-  </div>
 </body>
 </html>

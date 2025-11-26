@@ -18,6 +18,7 @@ export const translations = {
       'Maître Haifa Guedhami Alouini provides expert legal representation for individuals and businesses in Tunisia and abroad, specializing in Business, Real Estate, and Family Law.',
     ctas: {
       primary: 'Request Consultation',
+      bookOnline: 'Book Online',
       secondary: 'Our Expertise',
       whatsapp: 'Contact via WhatsApp',
     },
@@ -157,7 +158,8 @@ export const translations = {
       },
       {
         title: 'Dedication',
-        detail: 'Relentless advocacy to achieve the best possible outcome for every client.',
+        detail:
+          'Relentless advocacy to achieve the best possible outcome for every client.',
       },
     ],
     impactEyebrow: 'Track Record',
@@ -170,7 +172,36 @@ export const translations = {
     ],
     footerBlurb:
       'Premier legal services for individuals and corporations in Tunisia.',
+    faqEyebrow: 'Common Questions',
+    faqHeading: 'Frequently Asked Questions',
+    faq: [
+      {
+        question: 'How much does a consultation cost?',
+        answer:
+          'Our consultation fees are transparent and discussed upfront. We offer a preliminary assessment to understand your needs before any commitment.',
+      },
+      {
+        question: 'Do you handle international cases?',
+        answer:
+          'Yes, we specialize in assisting international clients with legal matters in Tunisia, including business setup, real estate, and family law.',
+      },
+      {
+        question: 'What documents should I bring?',
+        answer:
+          'For a first consultation, please bring any relevant documents to your case (contracts, court notices, ID). We will provide a specific checklist after booking.',
+      },
+      {
+        question: 'How long will my case take?',
+        answer:
+          'Timelines vary by case type. During our strategy phase, we provide a realistic timeline based on current court schedules and procedures.',
+      },
+    ],
+    cookieText:
+      'We use cookies to enhance your experience and analyze our traffic. By continuing to visit this site you agree to our use of cookies.',
+    cookieAccept: 'Accept All',
+    cookieDecline: 'Decline',
   },
+
   fr: {
     shortLabel: 'FR',
     languageLabel: 'Choisir la langue',
@@ -190,6 +221,7 @@ export const translations = {
       'Maître Haifa Guedhami Alouini offre une représentation juridique experte aux particuliers et aux entreprises, en Tunisie et à l\'international, avec une spécialisation en Droit des Affaires, Immobilier et Famille.',
     ctas: {
       primary: 'Demander une Consultation',
+      bookOnline: 'Réserver en Ligne',
       secondary: 'Nos Domaines d\'Expertise',
       whatsapp: 'Contact WhatsApp',
     },
@@ -342,6 +374,29 @@ export const translations = {
     ],
     footerBlurb:
       'Services juridiques de premier plan pour particuliers et entreprises en Tunisie.',
+    faqEyebrow: 'Questions Fréquentes',
+    faqHeading: 'Foire Aux Questions',
+    faq: [
+      {
+        question: 'Combien coûte une consultation ?',
+        answer: 'Nos honoraires sont transparents et discutés au préalable. Nous proposons une évaluation initiale pour comprendre vos besoins sans engagement.',
+      },
+      {
+        question: 'Traitez-vous des dossiers internationaux ?',
+        answer: 'Oui, nous sommes spécialisés dans l\'assistance aux clients internationaux pour leurs affaires en Tunisie (création d\'entreprise, immobilier, famille).',
+      },
+      {
+        question: 'Quels documents dois-je apporter ?',
+        answer: 'Pour une première consultation, apportez tous les documents pertinents (contrats, convocations, pièce d\'identité). Nous vous fournirons une liste précise après la prise de rendez-vous.',
+      },
+      {
+        question: 'Combien de temps durera mon affaire ?',
+        answer: 'Les délais varient selon le type de dossier. Lors de la phase stratégique, nous vous donnons une estimation réaliste basée sur les délais actuels des tribunaux.',
+      },
+    ],
+    cookieText: 'Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. En continuant à visiter ce site, vous acceptez notre utilisation des cookies.',
+    cookieAccept: 'Tout Accepter',
+    cookieDecline: 'Refuser',
   },
   ar: {
     shortLabel: 'AR',
@@ -362,6 +417,7 @@ export const translations = {
       'تقدم الأستاذة هيفاء القضامي العلويني تمثيلاً قانونياً خبيراً للأفراد والشركات في تونس والخارج، مع تخصص دقيق في قانون الأعمال، العقارات، وقانون الأسرة.',
     ctas: {
       primary: 'حجز موعد استشارة',
+      bookOnline: 'احجز عبر الإنترنت',
       secondary: 'مجالات تخصصنا',
       whatsapp: 'تواصل عبر واتساب',
     },
@@ -499,5 +555,28 @@ export const translations = {
       { value: '24/7', label: 'دعم للحالات الطارئة' },
     ],
     footerBlurb: 'خدمات قانونية رائدة للأفراد والشركات في تونس.',
+    faqEyebrow: 'أسئلة شائعة',
+    faqHeading: 'الأسئلة المتكررة',
+    faq: [
+      {
+        question: 'كم تكلفة الاستشارة؟',
+        answer: 'أتعابنا شفافة وتتم مناقشتها مسبقاً. نقدم تقييماً أولياً لفهم احتياجاتكم قبل أي التزام.',
+      },
+      {
+        question: 'هل تتعاملون مع القضايا الدولية؟',
+        answer: 'نعم، نحن متخصصون في مساعدة العملاء الدوليين في شؤونهم القانونية في تونس، بما في ذلك تأسيس الشركات والعقارات وقانون الأسرة.',
+      },
+      {
+        question: 'ما هي الوثائق المطلوبة؟',
+        answer: 'للاستشارة الأولى، يرجى إحضار أي وثائق ذات صلة بقضيتكم (عقود، استدعاءات، هوية). سنزودكم بقائمة محددة بعد حجز الموعد.',
+      },
+      {
+        question: 'كم ستستغرق قضيتي؟',
+        answer: 'تختلف المدة حسب نوع القضية. خلال مرحلة الاستراتيجية، نقدم تقديراً واقعياً بناءً على جداول المحاكم والإجراءات الحالية.',
+      },
+    ],
+    cookieText: 'نحن نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل حركة المرور لدينا. من خلال الاستمرار في زيارة هذا الموقع، فإنك توافق على استخدامنا لملفات تعريف الارتباط.',
+    cookieAccept: 'قبول الكل',
+    cookieDecline: 'رفض',
   },
 }

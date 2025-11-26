@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import { translations } from '../../data/translations'
+import { trackLanguageChange } from '../utils/GoogleAnalytics';
 
 export function Header({ locale, setLocale }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const t = translations[locale]
+
+    const handleLanguageChange = (newLocale) => {
+        setLocale(newLocale)
+        trackLanguageChange(newLocale)
+    }
 
     const handleNavClick = (e) => {
         const href = e.currentTarget.getAttribute('href')
@@ -20,7 +26,7 @@ export function Header({ locale, setLocale }) {
     return (
         <nav className="nav">
             <div className="brand">
-                <span className="brand-mark">HG</span>
+                <img src="/favicon.png" alt="Logo" className="brand-mark" />
                 <div className="brand-copy">
                     <span>Haifa Guedhami Alouini</span>
                     <small>{t.brandTagline}</small>
@@ -56,7 +62,7 @@ export function Header({ locale, setLocale }) {
                             key={key}
                             type="button"
                             className={`lang-btn ${locale === key ? 'active' : ''}`}
-                            onClick={() => setLocale(key)}
+                            onClick={() => handleLanguageChange(key)}
                             aria-pressed={locale === key}
                         >
                             {translations[key].shortLabel}

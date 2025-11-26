@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { openCalendly } from '../../utils/calendly';
 
 export function Hero({ t, whatsappLink }) {
     const [typedText, setTypedText] = useState('')
@@ -38,9 +39,12 @@ export function Hero({ t, whatsappLink }) {
                 </h1>
                 <p className="hero-lede">{t.heroLede}</p>
                 <div className="hero-actions">
-                    <a className="btn primary btn-shine btn-magnetic" href="#consult">
-                        <span>{t.ctas.primary}</span>
-                    </a>
+                    <button 
+                        className="btn primary btn-shine btn-magnetic" 
+                        onClick={() => openCalendly(import.meta.env.VITE_CALENDLY_URL)}
+                    >
+                        <span>{t.ctas.bookOnline}</span>
+                    </button>
                     <a className="btn ghost btn-glow btn-magnetic" href="#practice">
                         <span>{t.ctas.secondary}</span>
                     </a>
