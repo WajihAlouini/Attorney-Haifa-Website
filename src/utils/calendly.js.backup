@@ -1,4 +1,4 @@
-import { trackCalendlyOpen } from './analyticsHelpers';
+import { trackCalendlyOpen } from '../components/utils/GoogleAnalytics';
 
 export const openCalendly = (calendlyUrl) => {
   const url = calendlyUrl || 'https://calendly.com/jomovlr03/30min'; // Fallback
