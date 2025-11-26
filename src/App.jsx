@@ -17,7 +17,8 @@ import { PracticeAreas } from './components/sections/PracticeAreas'
 import { Values } from './components/sections/Values'
 import { Approach } from './components/sections/Approach'
 import { CookieConsent } from './components/utils/CookieConsent'
-import { GoogleAnalytics, trackWhatsAppClick } from './components/utils/GoogleAnalytics'
+import { GoogleAnalytics } from './components/utils/GoogleAnalytics';
+import { trackWhatsAppClick } from './utils/analyticsHelpers';
 import { CalendlyWidget } from './components/utils/CalendlyWidget'
 import { reportWebVitals } from './utils/performance'
 

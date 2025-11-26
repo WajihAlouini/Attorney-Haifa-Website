@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { translations } from '../../data/translations'
-import { trackLanguageChange } from '../utils/GoogleAnalytics';
+import { trackLanguageChange } from '../../utils/analyticsHelpers';
 
 export function Header({ locale, setLocale }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
