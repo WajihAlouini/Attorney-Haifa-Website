@@ -25,7 +25,7 @@ export function Reviews({ t, liveReviews, mapShareUrl, isLoading }) {
                                     {item.author.charAt(0)}
                                 </div>
                                 <span className="review-rating">{item.rating}</span>
-                                <p className="review-text">"{item.text}"</p>
+                                <p className="review-text">&ldquo;{item.text}&rdquo;</p>
                                 <footer className="review-author">{item.author}</footer>
                             </article>
                         ))}
@@ -33,7 +33,7 @@ export function Reviews({ t, liveReviews, mapShareUrl, isLoading }) {
                     {mapShareUrl && (
                         <p className="reviews-cta">
                             <a href={mapShareUrl} target="_blank" rel="noreferrer">
-                                Voir plus d'avis →
+                                Voir plus d&apos;avis →
                             </a>
                         </p>
                     )}
