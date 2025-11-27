@@ -2,14 +2,19 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch: {}
+
+# Cancel in-progress runs for the same workflow
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   # -------------------------------------------------
-  # 1️⃣ Lint & Test
+  # 1️⃣ Lint & Test (Optimized with caching)
   # -------------------------------------------------
   lint-test:
     runs-on: ubuntu-latest
@@ -20,20 +25,27 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
+      # Cache ESLint for faster subsequent runs
+      - name: Cache ESLint
+        uses: actions/cache@v4
+        with:
+          path: .eslintcache
+          key: eslint-${{ runner.os }}-${{ hashFiles('**/*.js', '**/*.jsx') }}
+
       - name: Run ESLint
-        run: npm run lint
+        run: npm run lint -- --cache --cache-location .eslintcache
 
       - name: Run tests (if available)
         run: npm test --if-present || echo "No tests found - skipping"
 
   # -------------------------------------------------
-  # 2️⃣ Build
+  # 2️⃣ Build (Optimized with Vite caching)
   # -------------------------------------------------
   build:
     needs: lint-test
@@ -43,21 +55,33 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
+      # Set environment variables for production build
       - name: Build project
         run: npm run build
+        env:
+          NODE_ENV: production
+          VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.VITE_WEB3FORMS_ACCESS_KEY }}
+          VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
+          VITE_ENV: production
+          VITE_CALENDLY_URL: ${{ secrets.VITE_CALENDLY_URL }}
+
+      # Compress artifacts to save storage and transfer time
+      - name: Compress build artifacts
+        run: tar -czf dist.tar.gz dist
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: site-dist
-          path: dist
+          path: dist.tar.gz
           retention-days: 1
+          compression-level: 0 # Already compressed
 
   # -------------------------------------------------
   # 3️⃣ Deploy to Vercel (Production only)
@@ -66,6 +90,9 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://hgalouini.com
     steps:
       - uses: actions/checkout@v4
 
@@ -73,19 +100,34 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: site-dist
-          path: dist
+
+      - name: Extract build artifacts
+        run: tar -xzf dist.tar.gz
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
+        id: vercel-deploy
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: .
-          vercel-args: '--prod'
+          vercel-args: "--prod"
+
+      - name: Comment deployment URL on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ Deployed to Vercel: ${{ steps.vercel-deploy.outputs.preview-url }}'
+            })
 
   # -------------------------------------------------
-  # 4️⃣ Lighthouse CI (Optional Performance Check)
+  # 4️⃣ Lighthouse CI (Performance Check)
   # -------------------------------------------------
   lighthouse:
     needs: build
@@ -93,25 +135,67 @@ jobs:
     if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
           name: site-dist
-          path: dist
-      
+
+      - name: Extract build artifacts
+        run: tar -xzf dist.tar.gz
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      
-      - name: Install Lighthouse CI
+          node-version: "20"
+          cache: "npm"
+
+      # Use npx instead of global install
+      - name: Run Lighthouse CI
         run: |
-          npm install -g @lhci/cli@0.14
-          npm install -g serve
-      
-      - name: Run Lighthouse
-        run: |
-          serve -s dist -l 5000 &
+          npx serve -s dist -l 5000 &
+          SERVER_PID=$!
           sleep 5
-          lhci autorun --collect.url=http://localhost:5000 --upload.target=temporary-public-storage
+          npx @lhci/cli@0.14.x autorun \
+            --collect.url=http://localhost:5000 \
+            --collect.numberOfRuns=3 \
+            --upload.target=temporary-public-storage
+          kill $SERVER_PID
+
+      # Optional: Comment Lighthouse results on PR
+      - name: Comment Lighthouse results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🔍 Lighthouse CI completed. Check the logs for performance scores.'
+            })
+
+  # -------------------------------------------------
+  # 5️⃣ Security Audit (Optional but recommended)
+  # -------------------------------------------------
+  security:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run npm audit
+        run: npm audit --audit-level=moderate
+        continue-on-error: true
+
+      - name: Check for vulnerabilities
+        run: npx audit-ci --moderate
+        continue-on-error: true
