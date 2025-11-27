@@ -788,6 +788,12 @@ blockquote footer {
   padding-left: 0.5rem;
   border-left: 3px solid var(--accent);
 }
+[dir="rtl"] a[href^="tel:"],
+[dir="rtl"] .contact-list a {
+  direction: ltr;
+  display: inline-block;
+  unicode-bidi: embed;
+}
 
 .contact-icon-wrapper {
   display: flex;

@@ -5,6 +5,7 @@
 I've implemented **Web3Forms** - a free, professional email service for your contact form.
 
 ### Features:
+
 - ✅ **100% FREE** (unlimited emails)
 - ✅ **No backend needed**
 - ✅ **Spam protection**
@@ -19,7 +20,7 @@ I've implemented **Web3Forms** - a free, professional email service for your con
 
 1. Go to: **https://web3forms.com/**
 2. Click "**Get Started for Free**"
-3. Enter your email: **counsel@hgalouini.com**
+3. Enter your email: **maitrealouiniguedhami@gmail.com**
 4. Click "**Create Access Key**"
 5. You'll receive an email with your **Access Key**
 
@@ -28,13 +29,13 @@ I've implemented **Web3Forms** - a free, professional email service for your con
 Open `src/components/sections/Contact.jsx` and replace this line (line 19):
 
 ```javascript
-formData.append('access_key', '4c8f9e2d-1a3b-4f5e-9c7d-8e2f1a3b4c5d') // Replace with your actual key
+formData.append("access_key", "4c8f9e2d-1a3b-4f5e-9c7d-8e2f1a3b4c5d"); // Replace with your actual key
 ```
 
 With your actual key:
 
 ```javascript
-formData.append('access_key', 'YOUR_ACTUAL_KEY_HERE')
+formData.append("access_key", "YOUR_ACTUAL_KEY_HERE");
 ```
 
 ### Step 3: Test It!
@@ -53,7 +54,7 @@ When someone fills out the form:
 1. **User fills form** → Name, Organization, Message
 2. **Clicks "Envoyer la Demande"**
 3. **Form sends to Web3Forms** → Secure API
-4. **You receive email** → At counsel@hgalouini.com
+4. **You receive email** → At maitrealouiniguedhami@gmail.com
 5. **User sees success message** → "Message envoyé avec succès!"
 
 ## 📝 Email Format
@@ -74,6 +75,7 @@ J'ai besoin d'aide pour un litige commercial...
 ## 🎨 What Changed
 
 ### Added Features:
+
 - ✅ Real email sending (no more mailto:)
 - ✅ Loading state: "Envoi en cours..."
 - ✅ Success toast notification
@@ -83,6 +85,7 @@ J'ai besoin d'aide pour un litige commercial...
 - ✅ Form validation
 
 ### User Experience:
+
 - Form submits directly
 - No email client needed
 - Works on all devices
@@ -91,16 +94,21 @@ J'ai besoin d'aide pour un litige commercial...
 ## 🔧 Customization Options
 
 ### Change Email Subject:
+
 In `Contact.jsx`, line 21:
+
 ```javascript
-formData.append('subject', 'Your Custom Subject Here')
+formData.append("subject", "Your Custom Subject Here");
 ```
 
 ### Add Auto-Reply:
+
 In Web3Forms dashboard, you can set up automatic replies to users.
 
 ### Add More Fields:
+
 Just add more inputs to the form:
+
 ```jsx
 <input type="tel" name="phone" placeholder="Phone" />
 ```
@@ -108,11 +116,13 @@ Just add more inputs to the form:
 ## 🆘 Troubleshooting
 
 ### Not receiving emails?
+
 1. Check spam folder
 2. Verify access key is correct
 3. Check Web3Forms dashboard for submissions
 
 ### Form not submitting?
+
 1. Check browser console for errors
 2. Verify internet connection
 3. Make sure access key is added
@@ -120,6 +130,7 @@ Just add more inputs to the form:
 ## 📊 Monitoring
 
 View all submissions in your Web3Forms dashboard:
+
 - **https://web3forms.com/dashboard**
 - See all messages
 - Download as CSV

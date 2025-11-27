@@ -81,7 +81,13 @@ export function Contact({
                 <span>{t.contact.whatsapp}</span>
               </div>
               <div className="contact-item-with-copy">
-                <a href={whatsappLink} target="_blank" rel="noreferrer">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  dir="ltr"
+                  style={{ display: "inline-block" }}
+                >
                   {whatsappNumber}
                 </a>
                 <button
@@ -108,11 +114,13 @@ export function Contact({
                 <span>{t.contact.email}</span>
               </div>
               <div className="contact-item-with-copy">
-                <a href="mailto:counsel@hgalouini.com">counsel@hgalouini.com</a>
+                <a href="mailto:maitrealouiniguedhami@gmail.com">
+                  maitrealouiniguedhami@gmail.com
+                </a>
                 <button
                   className="copy-btn"
                   onClick={() =>
-                    copyToClipboard("counsel@hgalouini.com", "email")
+                    copyToClipboard("maitrealouiniguedhami@gmail.com", "email")
                   }
                   title="Copier"
                 >

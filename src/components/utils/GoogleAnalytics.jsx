@@ -1,15 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 export const GoogleAnalytics = () => {
   useEffect(() => {
     const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
-    
-    if (!measurementId || measurementId === 'G-XXXXXXXXXX') {
+
+    if (!measurementId || measurementId === "G-XXXXXXXXXX") {
       return;
     }
 
     // Load gtag.js
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
     script.async = true;
     document.head.appendChild(script);
@@ -20,9 +20,9 @@ export const GoogleAnalytics = () => {
       window.dataLayer.push(arguments);
     }
     window.gtag = gtag;
-    
-    gtag('js', new Date());
-    gtag('config', measurementId, {
+
+    gtag("js", new Date());
+    gtag("config", measurementId, {
       page_path: window.location.pathname,
     });
 

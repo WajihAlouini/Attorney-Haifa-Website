@@ -68,17 +68,19 @@ src/
 ## 🎨 Design System
 
 **Color Palette:**
+
 - Primary (Gold): `#c5a059`
 - Background (Navy): `#05080f`
 - Text: `#e2e8f0`
 
 **Typography:**
+
 - Headings: Playfair Display
 - Body: Lato
 
 ## 📧 Contact Information
 
-- **Email**: counsel@hgalouini.com
+- **Email**: maitrealouiniguedhami@gmail.com
 - **WhatsApp**: +216 98 643 612
 - **Office**: Kairouan Medina, Avenue des Martyrs
 - **Book Consultation**: [Calendly](your-calendly-link)
