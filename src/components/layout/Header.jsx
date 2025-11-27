@@ -1,14 +1,47 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { translations } from '../../data/translations'
 import { trackLanguageChange } from '../../utils/analyticsHelpers';
 
 export function Header({ locale, setLocale }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
     const t = translations[locale]
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20)
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [mobileMenuOpen])
+
+    // Close menu on click outside
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (mobileMenuOpen && !e.target.closest('.nav-meta')) {
+                setMobileMenuOpen(false)
+            }
+        }
+        document.addEventListener('click', handleClickOutside)
+        return () => document.removeEventListener('click', handleClickOutside)
+    }, [mobileMenuOpen])
 
     const handleLanguageChange = (newLocale) => {
         setLocale(newLocale)
         trackLanguageChange(newLocale)
+        setMobileMenuOpen(false) // Close menu on language change
     }
 
     const handleNavClick = (e) => {
@@ -17,14 +50,16 @@ export function Header({ locale, setLocale }) {
             e.preventDefault()
             const target = document.querySelector(href)
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                const offset = 80 // Account for fixed nav
+                const targetPosition = target.offsetTop - offset
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' })
                 setMobileMenuOpen(false)
             }
         }
     }
 
     return (
-        <nav className="nav">
+        <nav className={`nav ${isScrolled ? 'scrolled' : ''}`}>
             <div className="brand">
                 <img src="/favicon.png" alt="Logo" className="brand-mark" />
                 <div className="brand-copy">
@@ -36,7 +71,8 @@ export function Header({ locale, setLocale }) {
                 <button
                     className="mobile-menu-toggle"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    aria-label="Toggle menu"
+                    aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                    aria-expanded={mobileMenuOpen}
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                         {mobileMenuOpen ? (
@@ -65,6 +101,7 @@ export function Header({ locale, setLocale }) {
                             onClick={() => handleLanguageChange(key)}
                             aria-pressed={locale === key}
                         >
+                            <span className="flag-emoji">{translations[key].flag}</span>
                             {translations[key].shortLabel}
                         </button>
                     ))}

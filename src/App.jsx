@@ -1,61 +1,84 @@
-import { useEffect, useState, Suspense, lazy } from 'react'
-import './App.css'
-import { translations } from './data/translations'
+import { useEffect, useState, Suspense, lazy } from "react";
+import "./App.css";
+import "./styles/booking-modal.css";
+import "./styles/mobile.css";
+import { translations } from "./data/translations";
 import {
   whatsappNumber,
   mapShareUrl,
   mapEmbedSrc,
   GOOGLE_PLACE_ID,
   officePhotos,
-} from './data/constants'
+} from "./data/constants";
 
-import { Header } from './components/layout/Header'
-import { Footer } from './components/layout/Footer'
-import { Hero } from './components/sections/Hero'
-import { About } from './components/sections/About'
-import { PracticeAreas } from './components/sections/PracticeAreas'
-import { Values } from './components/sections/Values'
-import { Approach } from './components/sections/Approach'
-import { CookieConsent } from './components/utils/CookieConsent'
-import { GoogleAnalytics } from './components/utils/GoogleAnalytics';
-import { trackWhatsAppClick } from './utils/analyticsHelpers';
-import { CalendlyWidget } from './components/utils/CalendlyWidget'
-import { reportWebVitals } from './utils/performance'
+import { Header } from "./components/layout/Header";
+import { Footer } from "./components/layout/Footer";
+import { Hero } from "./components/sections/Hero";
+import { About } from "./components/sections/About";
+import { PracticeAreas } from "./components/sections/PracticeAreas";
+import { Values } from "./components/sections/Values";
+import { Approach } from "./components/sections/Approach";
+import { CookieConsent } from "./components/utils/CookieConsent";
+import { GoogleAnalytics } from "./components/utils/GoogleAnalytics";
+import { trackWhatsAppClick } from "./utils/analyticsHelpers";
+import { CalComWidget } from "./components/utils/CalComWidget";
+import { reportWebVitals } from "./utils/performance";
 
 // Lazy load below-the-fold sections
-const Reviews = lazy(() => import('./components/sections/Reviews').then(module => ({ default: module.Reviews })))
-const Contact = lazy(() => import('./components/sections/Contact').then(module => ({ default: module.Contact })))
-const Gallery = lazy(() => import('./components/sections/Gallery').then(module => ({ default: module.Gallery })))
-const FAQ = lazy(() => import('./components/sections/FAQ').then(module => ({ default: module.FAQ })))
+const Reviews = lazy(() =>
+  import("./components/sections/Reviews").then((module) => ({
+    default: module.Reviews,
+  }))
+);
+const Contact = lazy(() =>
+  import("./components/sections/Contact").then((module) => ({
+    default: module.Contact,
+  }))
+);
+const Gallery = lazy(() =>
+  import("./components/sections/Gallery").then((module) => ({
+    default: module.Gallery,
+  }))
+);
+const FAQ = lazy(() =>
+  import("./components/sections/FAQ").then((module) => ({
+    default: module.FAQ,
+  }))
+);
 
 function LoadingFallback() {
-  return <div className="section-loading"><div className="spinner"></div></div>
+  return (
+    <div className="section-loading">
+      <div className="spinner"></div>
+    </div>
+  );
 }
 
 function App() {
-  const [locale, setLocale] = useState('fr')
-  const [liveReviews, setLiveReviews] = useState(null)
-  const [isLoadingReviews, setIsLoadingReviews] = useState(false)
-  const [scrollProgress, setScrollProgress] = useState(0)
-  const [showScrollTop, setShowScrollTop] = useState(false)
-  const t = translations[locale]
-  const direction = locale === 'ar' ? 'rtl' : 'ltr'
-  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}`
-  const year = new Date().getFullYear()
-  const languageCode = locale === 'ar' ? 'ar' : locale
+  const [locale, setLocale] = useState("fr");
+  const [liveReviews, setLiveReviews] = useState(null);
+  const [isLoadingReviews, setIsLoadingReviews] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const t = translations[locale];
+  const direction = locale === "ar" ? "rtl" : "ltr";
+  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, "")}`;
+  const year = new Date().getFullYear();
+  const languageCode = locale === "ar" ? "ar" : locale;
 
   // Scroll progress indicator
   useEffect(() => {
     const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight
-      const progress = (window.scrollY / totalHeight) * 100
-      setScrollProgress(progress)
-      setShowScrollTop(window.scrollY > 500)
-    }
+      const totalHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
+      setShowScrollTop(window.scrollY > 500);
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Scroll animation observer
   useEffect(() => {
@@ -63,82 +86,84 @@ function App() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-visible')
+            entry.target.classList.add("fade-in-visible");
           }
-        })
+        });
       },
       { threshold: 0.1 }
-    )
+    );
 
-    const elements = document.querySelectorAll('.fade-in-section')
-    elements.forEach((el) => observer.observe(el))
+    const elements = document.querySelectorAll(".fade-in-section");
+    elements.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   // Magnetic button effect
   useEffect(() => {
     const handleMouseMove = (e) => {
-      const buttons = document.querySelectorAll('.btn-magnetic')
+      const buttons = document.querySelectorAll(".btn-magnetic");
       buttons.forEach((button) => {
-        const rect = button.getBoundingClientRect()
-        const x = e.clientX - rect.left - rect.width / 2
-        const y = e.clientY - rect.top - rect.height / 2
-        const distance = Math.sqrt(x * x + y * y)
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const distance = Math.sqrt(x * x + y * y);
 
         if (distance < 100) {
-          const strength = (100 - distance) / 100
-          button.style.transform = `translate(${x * strength * 0.2}px, ${y * strength * 0.2}px)`
+          const strength = (100 - distance) / 100;
+          button.style.transform = `translate(${x * strength * 0.2}px, ${
+            y * strength * 0.2
+          }px)`;
         } else {
-          button.style.transform = 'translate(0, 0)'
+          button.style.transform = "translate(0, 0)";
         }
-      })
-    }
+      });
+    };
 
-    document.addEventListener('mousemove', handleMouseMove)
-    return () => document.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+    document.addEventListener("mousemove", handleMouseMove);
+    return () => document.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
-    const apiKey = import.meta.env.VITE_GOOGLE_PLACES_KEY
+    const apiKey = import.meta.env.VITE_GOOGLE_PLACES_KEY;
     if (
       !apiKey ||
       !GOOGLE_PLACE_ID ||
-      GOOGLE_PLACE_ID.includes('REPLACE_WITH_GOOGLE_PLACE_ID')
+      GOOGLE_PLACE_ID.includes("REPLACE_WITH_GOOGLE_PLACE_ID")
     ) {
-      return
+      return;
     }
 
-    const controller = new AbortController()
+    const controller = new AbortController();
 
     const loadReviews = async () => {
-      setIsLoadingReviews(true)
+      setIsLoadingReviews(true);
       try {
         const response = await fetch(
           `https://places.googleapis.com/v1/${GOOGLE_PLACE_ID}?languageCode=${languageCode}`,
           {
             headers: {
-              'X-Goog-Api-Key': apiKey,
-              'X-Goog-FieldMask': 'reviews',
+              "X-Goog-Api-Key": apiKey,
+              "X-Goog-FieldMask": "reviews",
             },
             signal: controller.signal,
-          },
-        )
+          }
+        );
 
         if (!response.ok) {
-          throw new Error('Failed to load reviews')
+          throw new Error("Failed to load reviews");
         }
 
-        const data = await response.json()
+        const data = await response.json();
         if (Array.isArray(data.reviews) && data.reviews.length) {
           const normalized = data.reviews.slice(0, 6).map((review) => {
-            const ratingValue = Math.round(review.rating ?? 5)
-            const safeRating = Math.min(5, Math.max(1, ratingValue))
-            const stars = '★'.repeat(safeRating) + '☆'.repeat(5 - safeRating)
+            const ratingValue = Math.round(review.rating ?? 5);
+            const safeRating = Math.min(5, Math.max(1, ratingValue));
+            const stars = "★".repeat(safeRating) + "☆".repeat(5 - safeRating);
             return {
               rating: stars,
               text:
@@ -146,69 +171,135 @@ function App() {
                 review.text ||
                 translations[locale].reviewsNote,
               author:
-                review.authorAttribution?.displayName || 'Google Maps user',
-            }
-          })
-          setLiveReviews(normalized)
+                review.authorAttribution?.displayName || "Google Maps user",
+            };
+          });
+          setLiveReviews(normalized);
         }
       } catch (error) {
-        if (error.name !== 'AbortError') {
+        if (error.name !== "AbortError") {
           if (import.meta.env.DEV) {
-            console.warn('Google Reviews request skipped:', error.message)
+            console.warn("Google Reviews request skipped:", error.message);
           }
         }
       } finally {
-        setIsLoadingReviews(false)
+        setIsLoadingReviews(false);
       }
-    }
+    };
 
-    loadReviews()
+    loadReviews();
 
-    return () => controller.abort()
-  }, [languageCode, locale])
+    return () => controller.abort();
+  }, [languageCode, locale]);
 
   // Report Web Vitals for performance monitoring
   useEffect(() => {
-    reportWebVitals()
-  }, [])
+    reportWebVitals();
+  }, []);
 
   return (
     <div className="site-shell" dir={direction}>
       <GoogleAnalytics />
-      <CalendlyWidget />
+      <CalComWidget />
       <CookieConsent t={t} />
       {/* Scroll progress bar */}
-      <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }}></div>
+      <div
+        className="scroll-progress-bar"
+        style={{ width: `${scrollProgress}%` }}
+      ></div>
 
       <div className="glow glow-one" aria-hidden="true"></div>
       <div className="glow glow-two" aria-hidden="true"></div>
 
       <Header locale={locale} setLocale={setLocale} />
 
-      <Hero t={t} whatsappLink={whatsappLink} />
+      <Hero t={t} whatsappLink={whatsappLink} locale={locale} />
 
       <main>
-        <div className="fade-in-section"><About t={t} /></div>
-        <div className="fade-in-section"><PracticeAreas t={t} /></div>
-        <div className="fade-in-section"><Values t={t} /></div>
-        <div className="fade-in-section"><Approach t={t} /></div>
+        <div className="fade-in-section">
+          <About t={t} />
+        </div>
+        <div className="fade-in-section">
+          <PracticeAreas t={t} />
+        </div>
+        <div className="fade-in-section">
+          <Values t={t} />
+        </div>
+        <div className="fade-in-section">
+          <Approach t={t} />
+        </div>
         <section className="impact fade-in-section">
           <div className="section-header">
             <p className="section-eyebrow">{t.impactEyebrow}</p>
             <h2>{t.impactHeading}</h2>
           </div>
           <div className="impact-grid">
-            {t.impactStats.map((stat) => (
-              <article key={stat.label} className="impact-card">
-                <span>{stat.value}</span>
-                <p>{stat.label}</p>
-              </article>
-            ))}
+            {t.impactStats.map((stat, index) => {
+              const icons = [
+                // Calendar icon for years
+                <svg
+                  key="calendar"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>,
+                // Heart icon for satisfaction
+                <svg
+                  key="heart"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>,
+                // Folder icon for cases
+                <svg
+                  key="folder"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                </svg>,
+                // Clock icon for 24/7
+                <svg
+                  key="clock"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>,
+              ];
+
+              return (
+                <article key={stat.label} className="impact-card">
+                  <div className="impact-icon">{icons[index]}</div>
+                  <span>{stat.value}</span>
+                  <p>{stat.label}</p>
+                </article>
+              );
+            })}
           </div>
         </section>
         <div className="fade-in-section">
           <Suspense fallback={<LoadingFallback />}>
-            <Reviews t={t} liveReviews={liveReviews} mapShareUrl={mapShareUrl} isLoading={isLoadingReviews} />
+            <Reviews
+              t={t}
+              liveReviews={liveReviews}
+              mapShareUrl={mapShareUrl}
+              isLoading={isLoadingReviews}
+            />
           </Suspense>
         </div>
         <div className="fade-in-section">
@@ -266,7 +357,7 @@ function App() {
         </svg>
       </a>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

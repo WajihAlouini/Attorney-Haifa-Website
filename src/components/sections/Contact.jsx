@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export function Contact({
   t,
@@ -7,58 +7,58 @@ export function Contact({
   mapEmbedSrc,
   mapShareUrl,
 }) {
-  const [showSuccess, setShowSuccess] = useState(false)
-  const [showError, setShowError] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [copiedField, setCopiedField] = useState(null)
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [copiedField, setCopiedField] = useState(null);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setShowError(false)
+    e.preventDefault();
+    setIsSubmitting(true);
+    setShowError(false);
 
-    const formData = new FormData(e.target)
-    
+    const formData = new FormData(e.target);
+
     // Add Web3Forms access key from environment
-    formData.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY)
-    
+    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+
     // Send to this email address
-    formData.append('to_email', 'wajih.alouini@esprit.tn')
-    
+    formData.append("to_email", "wajih.alouini@esprit.tn");
+
     // Add additional info
-    formData.append('subject', 'Nouvelle demande de consultation - Site Web')
-    formData.append('from_name', 'Site Web - Haifa Guedhami Alouini')
+    formData.append("subject", "Nouvelle demande de consultation - Site Web");
+    formData.append("from_name", "Site Web - Haifa Guedhami Alouini");
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
         body: formData,
-      })
+      });
 
-      const data = await response.json()
+      const data = await response.json();
 
       if (data.success) {
-        setShowSuccess(true)
-        e.target.reset()
-        setTimeout(() => setShowSuccess(false), 5000)
+        setShowSuccess(true);
+        e.target.reset();
+        setTimeout(() => setShowSuccess(false), 5000);
       } else {
-        setShowError(true)
-        setTimeout(() => setShowError(false), 5000)
+        setShowError(true);
+        setTimeout(() => setShowError(false), 5000);
       }
     } catch (error) {
-      console.error('Error:', error)
-      setShowError(true)
-      setTimeout(() => setShowError(false), 5000)
+      console.error("Error:", error);
+      setShowError(true);
+      setTimeout(() => setShowError(false), 5000);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const copyToClipboard = (text, field) => {
-    navigator.clipboard.writeText(text)
-    setCopiedField(field)
-    setTimeout(() => setCopiedField(null), 2000)
-  }
+    navigator.clipboard.writeText(text);
+    setCopiedField(field);
+    setTimeout(() => setCopiedField(null), 2000);
+  };
 
   return (
     <section className="consult" id="consult">
@@ -68,35 +68,72 @@ export function Contact({
           <h2>{t.consultHeading}</h2>
           <ul className="contact-list">
             <li>
-              <span>{t.contact.whatsapp}</span>
+              <div className="contact-icon-wrapper">
+                <svg
+                  className="contact-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>{t.contact.whatsapp}</span>
+              </div>
               <div className="contact-item-with-copy">
                 <a href={whatsappLink} target="_blank" rel="noreferrer">
                   {whatsappNumber}
                 </a>
                 <button
                   className="copy-btn"
-                  onClick={() => copyToClipboard(whatsappNumber, 'whatsapp')}
+                  onClick={() => copyToClipboard(whatsappNumber, "whatsapp")}
                   title="Copier"
                 >
-                  {copiedField === 'whatsapp' ? '✓' : '📋'}
+                  {copiedField === "whatsapp" ? "✓" : "📋"}
                 </button>
               </div>
             </li>
             <li>
-              <span>{t.contact.email}</span>
+              <div className="contact-icon-wrapper">
+                <svg
+                  className="contact-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>{t.contact.email}</span>
+              </div>
               <div className="contact-item-with-copy">
                 <a href="mailto:counsel@hgalouini.com">counsel@hgalouini.com</a>
                 <button
                   className="copy-btn"
-                  onClick={() => copyToClipboard('counsel@hgalouini.com', 'email')}
+                  onClick={() =>
+                    copyToClipboard("counsel@hgalouini.com", "email")
+                  }
                   title="Copier"
                 >
-                  {copiedField === 'email' ? '✓' : '📋'}
+                  {copiedField === "email" ? "✓" : "📋"}
                 </button>
               </div>
             </li>
             <li>
-              <span>{t.contact.office}</span>
+              <div className="contact-icon-wrapper">
+                <svg
+                  className="contact-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>{t.contact.office}</span>
+              </div>
               {t.contactOffice}
             </li>
           </ul>
@@ -104,8 +141,12 @@ export function Contact({
 
         <form className="consult-form" onSubmit={handleSubmit}>
           {/* Hidden fields for Web3Forms */}
-          <input type="hidden" name="redirect" value="https://hgalouini.com/merci" />
-          <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
+          <input
+            type="hidden"
+            name="redirect"
+            value="https://hgalouini.com/merci"
+          />
+          <input type="checkbox" name="botcheck" style={{ display: "none" }} />
 
           <label>
             {t.form.nameLabel}
@@ -137,12 +178,8 @@ export function Contact({
             ></textarea>
           </label>
 
-          <button 
-            type="submit" 
-            className="btn primary"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? 'Envoi en cours...' : t.form.submit}
+          <button type="submit" className="btn primary" disabled={isSubmitting}>
+            {isSubmitting ? "Envoi en cours..." : t.form.submit}
           </button>
         </form>
       </div>
@@ -151,8 +188,12 @@ export function Contact({
         <div className="success-toast">
           <div className="success-icon">✓</div>
           <div>
-            <p style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}>Message envoyé avec succès!</p>
-            <p style={{ fontSize: '0.9rem', opacity: 0.9 }}>Nous vous répondrons dans les plus brefs délais.</p>
+            <p style={{ fontWeight: "bold", marginBottom: "0.25rem" }}>
+              Message envoyé avec succès!
+            </p>
+            <p style={{ fontSize: "0.9rem", opacity: 0.9 }}>
+              Nous vous répondrons dans les plus brefs délais.
+            </p>
           </div>
         </div>
       )}
@@ -161,8 +202,12 @@ export function Contact({
         <div className="error-toast">
           <div className="error-icon">✕</div>
           <div>
-            <p style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}>Erreur d&apos;envoi</p>
-            <p style={{ fontSize: '0.9rem', opacity: 0.9 }}>Veuillez réessayer ou nous contacter par WhatsApp.</p>
+            <p style={{ fontWeight: "bold", marginBottom: "0.25rem" }}>
+              Erreur d&apos;envoi
+            </p>
+            <p style={{ fontSize: "0.9rem", opacity: 0.9 }}>
+              Veuillez réessayer ou nous contacter par WhatsApp.
+            </p>
           </div>
         </div>
       )}
@@ -185,6 +230,5 @@ export function Contact({
         </a>
       </div>
     </section>
-  )
+  );
 }
-
