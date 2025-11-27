@@ -92,7 +92,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: https://hgalouini.com
+      url: https://attorney-haifa-website.vercel.app
     steps:
       - uses: actions/checkout@v4
 
@@ -176,11 +176,10 @@ jobs:
             })
 
   # -------------------------------------------------
-  # 5️⃣ Security Audit (Optional but recommended)
+  # 5️⃣ Security Audit (Runs on every push)
   # -------------------------------------------------
   security:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
     steps:
       - uses: actions/checkout@v4
 
