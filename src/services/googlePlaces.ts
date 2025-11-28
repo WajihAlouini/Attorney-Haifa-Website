@@ -1,11 +1,27 @@
 import { translations } from "@/data/translations";
+import { GoogleReview } from "@/types";
+
+interface GooglePlacesReview {
+  rating?: number;
+  originalText?: {
+    text: string;
+  };
+  text?: string;
+  authorAttribution?: {
+    displayName: string;
+  };
+}
+
+interface GooglePlacesResponse {
+  reviews?: GooglePlacesReview[];
+}
 
 export const fetchGoogleReviews = async (
-  placeId,
-  apiKey,
-  languageCode,
-  locale
-) => {
+  placeId: string,
+  apiKey: string,
+  languageCode: string,
+  locale: string
+): Promise<GoogleReview[] | null> => {
   if (!apiKey || !placeId || placeId.includes("REPLACE_WITH_GOOGLE_PLACE_ID")) {
     return null;
   }
@@ -24,7 +40,7 @@ export const fetchGoogleReviews = async (
     throw new Error("Failed to load reviews");
   }
 
-  const data = await response.json();
+  const data: GooglePlacesResponse = await response.json();
 
   if (Array.isArray(data.reviews) && data.reviews.length) {
     return data.reviews.slice(0, 6).map((review) => {
