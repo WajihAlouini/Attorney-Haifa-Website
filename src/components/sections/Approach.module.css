@@ -1,0 +1,31 @@
+.steps {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.steps article {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--panel);
+  border-left: 4px solid var(--accent);
+  align-items: center;
+}
+
+.steps span {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .steps article {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+}

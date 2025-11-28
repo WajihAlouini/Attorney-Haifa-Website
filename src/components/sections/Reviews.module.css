@@ -1,0 +1,70 @@
+.loading {
+  text-align: center;
+  padding: 4rem;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--panel);
+  padding: 2rem;
+  border: 1px solid var(--border);
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: #05080f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
+}
+
+.rating {
+  color: var(--accent);
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.text {
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.author {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.cta a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+  display: inline-block;
+}
+
+.cta a:hover {
+  opacity: 0.7;
+}
