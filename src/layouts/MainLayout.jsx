@@ -1,8 +1,8 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { CookieConsent } from "@/components/utils/CookieConsent";
-import { GoogleAnalytics } from "@/components/utils/GoogleAnalytics";
-import { CalComWidget } from "@/components/utils/CalComWidget";
+import { CookieConsent } from "@/components/common/CookieConsent";
+import { GoogleAnalytics } from "@/components/common/GoogleAnalytics";
+import { CalComWidget } from "@/components/common/CalComWidget";
 import { trackWhatsAppClick } from "@/utils/analyticsHelpers";
 
 export function MainLayout({

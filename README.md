@@ -1,90 +1,146 @@
-# Haifa Guedhami Alouini - Law Firm Website
+# Lawyer Website - Haifa Guedhami Alouini
 
-A modern, multilingual website for a Tunisian law firm specializing in Business Law, Real Estate, and Family Law.
+A modern, professional website for a law firm built with React, featuring a clean architecture and best practices.
 
-## ✨ Key Features
+## 🏗️ Project Structure
 
-- **Multilingual Support** - French, English, and Arabic with RTL support
-- **Responsive Design** - Mobile-first with smooth animations
-- **Google Reviews Integration** - Live reviews from Google Business Profile
-- **Calendly Integration** - Online appointment booking system
-- **Contact Integration** - Email forms and WhatsApp connectivity
-- **Premium UI/UX** - Gold & Navy theme with smooth scrolling and fade-in effects
+```
+src/
+├── components/          # React components
+│   ├── common/         # Shared utility components (Analytics, Cookies, etc.)
+│   ├── layout/         # Layout components (Header, Footer)
+│   ├── sections/       # Page sections (Hero, About, Contact, etc.)
+│   └── ui/             # Reusable UI components
+├── data/               # Static data and constants
+├── hooks/              # Custom React hooks
+├── layouts/            # Page layout wrappers
+├── pages/              # Page components
+├── services/           # API and external service integrations
+├── types/              # TypeScript type definitions
+├── utils/              # Utility functions
+└── styles/             # Legacy global styles (being phased out)
+```
 
-## 🚀 Quick Start
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
 
 ```bash
 # Install dependencies
 npm install
 
-# Run development server
+# Start development server
 npm run dev
 
 # Build for production
 npm run build
+
+# Run tests
+npm test
+
+# Lint code
+npm run lint
 ```
 
-## ⚙️ Configuration
+### Environment Variables
 
 Create a `.env` file in the root directory:
 
 ```env
-VITE_GOOGLE_PLACES_KEY=your_api_key_here
-VITE_CALENDLY_URL=your_calendly_link_here
+VITE_GOOGLE_PLACES_KEY=your_google_places_api_key
+VITE_WEB3FORMS_ACCESS_KEY=your_web3forms_key
 ```
 
-## 📁 Project Structure
+## 🎨 Architecture Decisions
 
+### CSS Modules
+
+All components use CSS Modules for scoped styling, preventing global style conflicts and improving maintainability.
+
+### Custom Hooks
+
+Business logic is extracted into reusable hooks:
+
+- `useGoogleReviews` - Fetches and manages Google reviews
+- `useScrollProgress` - Manages scroll position and scroll-to-top
+- `useMagneticButton` - Implements magnetic button effects
+- `useScrollAnimation` - Handles scroll-based animations
+
+### Clean Architecture
+
+- **Separation of Concerns**: Components, logic, and data are clearly separated
+- **Service Layer**: External API calls are isolated in the `services` directory
+- **Type Safety**: TypeScript types ensure data consistency
+- **Path Aliases**: `@/` prefix for cleaner imports
+
+## 🧪 Testing
+
+Tests are written using Vitest and React Testing Library:
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Generate coverage report
+npm run test:coverage
 ```
-src/
-├── components/
-│   ├── layout/
-│   │   ├── Header.jsx
-│   │   └── Footer.jsx
-│   └── sections/
-│       ├── Hero.jsx
-│       ├── About.jsx
-│       ├── PracticeAreas.jsx
-│       ├── Values.jsx
-│       ├── Approach.jsx
-│       ├── Reviews.jsx
-│       ├── Contact.jsx
-│       └── Gallery.jsx
-├── data/
-│   ├── translations.js
-│   └── constants.js
-├── App.jsx
-└── App.css
+
+## 📦 Build & Deployment
+
+The project uses Vite for building and is optimized for production:
+
+```bash
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-## 🛠️ Built With
+### CI/CD
 
-- React + Vite
-- CSS3 with custom properties
-- Google Places API
-- Calendly Embed
-- Intersection Observer API
+GitHub Actions automatically:
 
-## 🎨 Design System
+- Runs linting on every push
+- Runs tests on pull requests
+- Builds and deploys to production on merge to main
 
-**Color Palette:**
+## 🛠️ Tech Stack
 
-- Primary (Gold): `#c5a059`
-- Background (Navy): `#05080f`
-- Text: `#e2e8f0`
+- **Framework**: React 18
+- **Build Tool**: Vite
+- **Styling**: CSS Modules
+- **Type Safety**: TypeScript
+- **Testing**: Vitest + React Testing Library
+- **Linting**: ESLint
+- **CI/CD**: GitHub Actions
 
-**Typography:**
+## 📝 Code Style
 
-- Headings: Playfair Display
-- Body: Lato
+- **Component Structure**: Functional components with hooks
+- **Naming**: PascalCase for components, camelCase for functions
+- **File Organization**: Co-located styles with components
+- **Imports**: Absolute imports using `@/` alias
 
-## 📧 Contact Information
+## 🤝 Contributing
 
-- **Email**: maitrealouiniguedhami@gmail.com
-- **WhatsApp**: +216 98 643 612
-- **Office**: Kairouan Medina, Avenue des Martyrs
-- **Book Consultation**: [Calendly](your-calendly-link)
+1. Create a feature branch
+2. Make your changes
+3. Ensure tests pass and linting is clean
+4. Submit a pull request
 
----
+## 📄 License
 
-**Professional legal services in Tunisia**
+All rights reserved © 2025 Haifa Guedhami Alouini
+
+## 👨‍💻 Developer
+
+Developed by [Wajih Mokhtar Alouini](https://www.linkedin.com/in/wajih-mokhtar-alouini-8a7259231/)
