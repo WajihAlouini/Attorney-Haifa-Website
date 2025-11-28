@@ -52,7 +52,8 @@ export const fetchGoogleReviews = async (
         text:
           review.originalText?.text ||
           review.text ||
-          translations[locale].reviewsNote,
+          translations[locale]?.reviewsNote ||
+          "No review text available",
         author: review.authorAttribution?.displayName || "Google Maps user",
       };
     });
