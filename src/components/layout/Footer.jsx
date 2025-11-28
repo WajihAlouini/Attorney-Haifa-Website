@@ -1,15 +1,17 @@
+import styles from "./Footer.module.css";
+
 export function Footer({ t, year }) {
   return (
-    <footer className="footer">
+    <footer className={styles.footer}>
       <p>© {year} Haifa Guedhami Alouini. All rights reserved.</p>
       <p>{t.footerBlurb}</p>
-      <p className="developer-credit">
+      <p className={styles.credit}>
         Développé par{" "}
         <a
           href="https://www.linkedin.com/in/wajih-mokhtar-alouini-8a7259231/"
           target="_blank"
           rel="noopener noreferrer"
-          className="developer-link"
+          className={styles.link}
         >
           Wajih Mokhtar Alouini
         </a>

@@ -1,41 +1,43 @@
-import { useState } from 'react'
-import '../../styles/faq.css'
+import { useState } from "react";
+import styles from "./FAQ.module.css";
 
 export function FAQ({ t }) {
-  const [openIndex, setOpenIndex] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index)
-  }
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
-    <section className="faq-section" id="faq">
-      <div className="container">
+    <section className={styles.section} id="faq">
+      <div className={styles.container}>
         <div className="section-header">
           <p className="section-eyebrow">{t.faqEyebrow}</p>
           <h2>{t.faqHeading}</h2>
         </div>
 
-        <div className="faq-grid">
+        <div className={styles.grid}>
           {t.faq.map((item, index) => (
             <div
               key={index}
-              className={`faq-item ${openIndex === index ? 'active' : ''}`}
+              className={`${styles.item} ${
+                openIndex === index ? styles.active : ""
+              }`}
             >
               <button
-                className="faq-question"
+                className={styles.question}
                 onClick={() => toggleFAQ(index)}
                 aria-expanded={openIndex === index}
               >
                 <span>{item.question}</span>
-                <span className="faq-icon" aria-hidden="true">
-                  {openIndex === index ? '−' : '+'}
+                <span className={styles.icon} aria-hidden="true">
+                  {openIndex === index ? "−" : "+"}
                 </span>
               </button>
               <div
-                className="faq-answer"
+                className={styles.answer}
                 style={{
-                  maxHeight: openIndex === index ? '200px' : '0',
+                  maxHeight: openIndex === index ? "200px" : "0",
                   opacity: openIndex === index ? 1 : 0,
                 }}
               >
@@ -46,5 +48,5 @@ export function FAQ({ t }) {
         </div>
       </div>
     </section>
-  )
+  );
 }

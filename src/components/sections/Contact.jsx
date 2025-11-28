@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./Contact.module.css";
 
 export function Contact({
   t,
@@ -61,16 +62,16 @@ export function Contact({
   };
 
   return (
-    <section className="consult" id="consult">
-      <div className="consult-card">
+    <section className={styles.section} id="consult">
+      <div className={styles.card}>
         <div>
           <p className="section-eyebrow">{t.consultEyebrow}</p>
           <h2>{t.consultHeading}</h2>
-          <ul className="contact-list">
+          <ul className={styles.list}>
             <li>
-              <div className="contact-icon-wrapper">
+              <div className={styles.iconWrapper}>
                 <svg
-                  className="contact-icon"
+                  className={styles.icon}
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -80,7 +81,7 @@ export function Contact({
                 </svg>
                 <span>{t.contact.whatsapp}</span>
               </div>
-              <div className="contact-item-with-copy">
+              <div className={styles.itemWithCopy}>
                 <a
                   href={whatsappLink}
                   target="_blank"
@@ -91,7 +92,7 @@ export function Contact({
                   {whatsappNumber}
                 </a>
                 <button
-                  className="copy-btn"
+                  className={styles.copyBtn}
                   onClick={() => copyToClipboard(whatsappNumber, "whatsapp")}
                   title="Copier"
                 >
@@ -100,9 +101,9 @@ export function Contact({
               </div>
             </li>
             <li>
-              <div className="contact-icon-wrapper">
+              <div className={styles.iconWrapper}>
                 <svg
-                  className="contact-icon"
+                  className={styles.icon}
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -113,12 +114,12 @@ export function Contact({
                 </svg>
                 <span>{t.contact.email}</span>
               </div>
-              <div className="contact-item-with-copy">
+              <div className={styles.itemWithCopy}>
                 <a href="mailto:maitrealouiniguedhami@gmail.com">
                   maitrealouiniguedhami@gmail.com
                 </a>
                 <button
-                  className="copy-btn"
+                  className={styles.copyBtn}
                   onClick={() =>
                     copyToClipboard("maitrealouiniguedhami@gmail.com", "email")
                   }
@@ -129,9 +130,9 @@ export function Contact({
               </div>
             </li>
             <li>
-              <div className="contact-icon-wrapper">
+              <div className={styles.iconWrapper}>
                 <svg
-                  className="contact-icon"
+                  className={styles.icon}
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -147,7 +148,7 @@ export function Contact({
           </ul>
         </div>
 
-        <form className="consult-form" onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           {/* Hidden fields for Web3Forms */}
           <input
             type="hidden"
@@ -193,8 +194,8 @@ export function Contact({
       </div>
 
       {showSuccess && (
-        <div className="success-toast">
-          <div className="success-icon">✓</div>
+        <div className={styles.successToast}>
+          <div className={styles.successIcon}>✓</div>
           <div>
             <p style={{ fontWeight: "bold", marginBottom: "0.25rem" }}>
               Message envoyé avec succès!
@@ -207,8 +208,8 @@ export function Contact({
       )}
 
       {showError && (
-        <div className="error-toast">
-          <div className="error-icon">✕</div>
+        <div className={styles.errorToast}>
+          <div className={styles.errorIcon}>✕</div>
           <div>
             <p style={{ fontWeight: "bold", marginBottom: "0.25rem" }}>
               Erreur d&apos;envoi
@@ -220,7 +221,7 @@ export function Contact({
         </div>
       )}
 
-      <div className="map-card" aria-label={t.mapLabel}>
+      <div className={styles.mapCard} aria-label={t.mapLabel}>
         <iframe
           title="Kairouan Office Map"
           loading="lazy"
@@ -229,7 +230,7 @@ export function Contact({
           src={mapEmbedSrc}
         ></iframe>
         <a
-          className="map-link"
+          className={styles.mapLink}
           href={mapShareUrl}
           target="_blank"
           rel="noreferrer"

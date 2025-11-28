@@ -1,0 +1,216 @@
+.section {
+  padding: 4rem 0;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
+  background: var(--panel);
+  padding: 5rem;
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+}
+
+.list li {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.list li:hover {
+  padding-left: 0.5rem;
+  border-left: 3px solid var(--accent);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-family: "Playfair Display", serif;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.itemWithCopy {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.itemWithCopy a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.itemWithCopy a:hover {
+  color: var(--text);
+}
+
+.copyBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.copyBtn:hover {
+  opacity: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.form input,
+.form textarea {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  color: var(--text);
+  font-family: inherit;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.successToast,
+.errorToast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--surface);
+  border: 1px solid;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  animation: slideIn 0.3s ease;
+  max-width: 400px;
+}
+
+.successToast {
+  border-color: #22c55e;
+}
+
+.errorToast {
+  border-color: #ef4444;
+}
+
+.successIcon,
+.errorIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.successIcon {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}
+
+.errorIcon {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mapCard {
+  margin-top: 4rem;
+  position: relative;
+  height: 400px;
+  border: 1px solid var(--border);
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.mapCard:hover {
+  filter: grayscale(0%);
+}
+
+.mapCard iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.mapLink {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: var(--surface);
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.mapLink:hover {
+  opacity: 1;
+}
+
+@media (max-width: 968px) {
+  .card {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 2rem;
+  }
+}
