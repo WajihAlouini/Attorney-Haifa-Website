@@ -1,15 +1,17 @@
+import styles from "./About.module.css";
+
 export function About({ t }) {
   return (
-    <section className="about" id="about">
-      <div className="about-text">
+    <section className={styles.about} id="about">
+      <div className={styles.text}>
         <p className="section-eyebrow">{t.aboutEyebrow}</p>
         <h2>{t.aboutHeading}</h2>
         <p>{t.aboutBody}</p>
       </div>
-      <div className="about-card">
-        <h3 className="pillars-heading">
+      <div className={styles.card}>
+        <h3 className={styles.pillarsHeading}>
           <svg
-            className="pillars-icon"
+            className={styles.pillarsIcon}
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -21,7 +23,7 @@ export function About({ t }) {
           </svg>
           Domaines Clés
         </h3>
-        <div className="pillars">
+        <div className={styles.pillars}>
           {t.pillars.map((pillar) => (
             <div key={pillar.title}>
               <strong>{pillar.title}</strong>

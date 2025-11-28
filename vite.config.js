@@ -1,13 +1,18 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      "@": "/src",
+    },
+  },
   test: {
     globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/setupTests.js',
+    environment: "jsdom",
+    setupFiles: "./src/setupTests.js",
   },
   build: {
     // Optimize chunk size
@@ -16,15 +21,15 @@ export default defineConfig({
       output: {
         // Manual chunk splitting for better caching
         manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
+          "react-vendor": ["react", "react-dom"],
         },
       },
     },
     // Use esbuild for faster minification
-    minify: 'esbuild',
+    minify: "esbuild",
   },
   // Performance optimizations
   optimizeDeps: {
-    include: ['react', 'react-dom'],
+    include: ["react", "react-dom"],
   },
-})
+});

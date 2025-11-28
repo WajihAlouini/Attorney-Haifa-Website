@@ -1,0 +1,87 @@
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.text p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: var(--panel);
+  padding: 3.5rem;
+  border: 1px solid var(--border);
+  position: relative;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  border: 1px solid var(--border);
+  pointer-events: none;
+}
+
+.pillars {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.pillarsHeading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.pillarsIcon {
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
+}
+
+.pillars div {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.pillars div:hover {
+  border-left-color: var(--accent-light);
+  padding-left: 2rem;
+}
+
+.pillars strong {
+  display: block;
+  color: var(--text);
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  font-family: "Playfair Display", serif;
+}
+
+.pillars span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 968px) {
+  .about {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
