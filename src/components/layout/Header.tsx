@@ -20,8 +20,8 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
       <div className={styles.brand}>
         <img src={logoUrl} alt="Logo" className={styles.brandMark} />
         <div className={styles.brandCopy}>
-          <span>Maître Wajih Alouini</span>
-          <small>Avocat à la Cour</small>
+          <span>Maître Haifa Guedhami Alouini</span>
+          <small>Avocate à la Cour</small>
         </div>
       </div>
 

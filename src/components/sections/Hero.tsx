@@ -31,7 +31,7 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
         </div>
 
         <div className={styles.metrics}>
-          {t.heroStats.map((stat, index) => (
+          {t.heroStats?.map((stat, index) => (
             <div key={index} className={styles.metric}>
               <div className={styles.metricIcon}>
                 {index === 0 && (
