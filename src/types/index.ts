@@ -7,28 +7,39 @@ export interface Translation {
     values: string;
     approach: string;
     reviews: string;
+    testimonials?: string;
     consult: string;
   };
 
   // Brand
   brandTagline: string;
   languageLabel: string;
-  flag: string;
+  flag?: string;
   shortLabel: string;
 
   // Hero section
   heroEyebrow: string;
-  heroHeading: string;
-  heroSubheading: string;
-  heroStats: Array<{
+  heroTitle?: string;
+  heroHeading?: string;
+  heroLede?: string;
+  heroSubheading?: string;
+  heroStats?: Array<{
+    value: string;
+    label: string;
+  }>;
+  heroMetrics?: Array<{
     value: string;
     label: string;
   }>;
 
   // CTAs
   ctas: {
-    book: string;
-    contact: string;
+    book?: string;
+    contact?: string;
+    primary?: string;
+    bookOnline?: string;
+    secondary?: string;
+    whatsapp?: string;
   };
 
   // About section
@@ -67,10 +78,19 @@ export interface Translation {
   // Reviews
   reviewsEyebrow: string;
   reviewsHeading: string;
+  reviewsNote?: string;
   reviews: Array<{
     author: string;
     rating: string;
     text: string;
+  }>;
+
+  // Testimonials
+  testimonialsEyebrow?: string;
+  testimonialsHeading?: string;
+  testimonials?: Array<{
+    quote: string;
+    author: string;
   }>;
 
   // FAQ
@@ -99,9 +119,13 @@ export interface Translation {
   form: {
     nameLabel: string;
     namePlaceholder: string;
+    orgLabel?: string;
+    orgPlaceholder?: string;
     messageLabel: string;
     messagePlaceholder: string;
     submit: string;
+    defaultName?: string;
+    defaultOrg?: string;
   };
 
   // Map
@@ -118,6 +142,11 @@ export interface Translation {
     value: string;
     label: string;
   }>;
+
+  // Cookies
+  cookieText: string;
+  cookieAccept: string;
+  cookieDecline: string;
 }
 
 export interface Translations {

@@ -1,4 +1,6 @@
-export const translations = {
+import { Translations } from "@/types";
+
+export const translations: Translations = {
   en: {
     shortLabel: "EN",
     languageLabel: "Select language",
