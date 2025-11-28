@@ -1,8 +1,9 @@
 import { FC } from "react";
-import { LocaleProps } from "@/types";
+import { Translation } from "@/types";
 import styles from "./Footer.module.css";
 
-interface FooterProps extends LocaleProps {
+interface FooterProps {
+  t: Translation;
   year: number;
 }
 
