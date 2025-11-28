@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { FC, useState } from "react";
+import { TranslationProps } from "@/types";
 import styles from "./FAQ.module.css";
 
-export function FAQ({ t }) {
-  const [openIndex, setOpenIndex] = useState(null);
+export const FAQ: FC<TranslationProps> = ({ t }) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleFAQ = (index) => {
+  const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -49,4 +50,4 @@ export function FAQ({ t }) {
       </div>
     </section>
   );
-}
+};

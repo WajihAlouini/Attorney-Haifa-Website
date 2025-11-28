@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 
-export function useMagneticButton() {
+export function useMagneticButton(): void {
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      const buttons = document.querySelectorAll(".btn-magnetic");
+    const handleMouseMove = (e: MouseEvent) => {
+      const buttons = document.querySelectorAll<HTMLElement>(".btn-magnetic");
+
       buttons.forEach((button) => {
         const rect = button.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
@@ -12,8 +13,8 @@ export function useMagneticButton() {
 
         if (distance < 100) {
           const strength = (100 - distance) / 100;
-          button.style.transform = `translate(${x * strength * 0.2}px, ${
-            y * strength * 0.2
+          button.style.transform = `translate(${x * strength * 0.3}px, ${
+            y * strength * 0.3
           }px)`;
         } else {
           button.style.transform = "translate(0, 0)";

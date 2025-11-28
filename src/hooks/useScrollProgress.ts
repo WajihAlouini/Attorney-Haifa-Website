@@ -1,16 +1,26 @@
 import { useState, useEffect } from "react";
 
-export function useScrollProgress() {
+interface UseScrollProgressReturn {
+  scrollProgress: number;
+  showScrollTop: boolean;
+  scrollToTop: () => void;
+}
+
+export function useScrollProgress(): UseScrollProgressReturn {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const totalHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (window.scrollY / totalHeight) * 100;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY;
+
+      const totalScrollableHeight = documentHeight - windowHeight;
+      const progress = (scrollTop / totalScrollableHeight) * 100;
+
       setScrollProgress(progress);
-      setShowScrollTop(window.scrollY > 500);
+      setShowScrollTop(scrollTop > 300);
     };
 
     window.addEventListener("scroll", handleScroll);

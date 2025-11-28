@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export function useScrollAnimation() {
+export function useScrollAnimation(): void {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

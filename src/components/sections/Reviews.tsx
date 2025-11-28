@@ -1,6 +1,24 @@
+import { FC } from "react";
+import { GoogleReview } from "@/types";
 import styles from "./Reviews.module.css";
 
-export function Reviews({ t, liveReviews, mapShareUrl, isLoading }) {
+interface ReviewsProps {
+  t: {
+    reviewsEyebrow: string;
+    reviewsHeading: string;
+    reviews: GoogleReview[];
+  };
+  liveReviews: GoogleReview[] | null;
+  mapShareUrl: string;
+  isLoading: boolean;
+}
+
+export const Reviews: FC<ReviewsProps> = ({
+  t,
+  liveReviews,
+  mapShareUrl,
+  isLoading,
+}) => {
   const reviewsToRender = liveReviews ?? t.reviews;
 
   return (
@@ -41,4 +59,4 @@ export function Reviews({ t, liveReviews, mapShareUrl, isLoading }) {
       )}
     </section>
   );
-}
+};

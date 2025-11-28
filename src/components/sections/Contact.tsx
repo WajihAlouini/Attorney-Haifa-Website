@@ -1,24 +1,50 @@
-import { useState } from "react";
+import { FC, useState, FormEvent } from "react";
 import styles from "./Contact.module.css";
 
-export function Contact({
+interface ContactProps {
+  t: {
+    consultEyebrow: string;
+    consultHeading: string;
+    contact: {
+      whatsapp: string;
+      email: string;
+      office: string;
+    };
+    contactOffice: string;
+    form: {
+      nameLabel: string;
+      namePlaceholder: string;
+      messageLabel: string;
+      messagePlaceholder: string;
+      submit: string;
+    };
+    mapLabel: string;
+    mapLinkLabel: string;
+  };
+  whatsappLink: string;
+  whatsappNumber: string;
+  mapEmbedSrc: string;
+  mapShareUrl: string;
+}
+
+export const Contact: FC<ContactProps> = ({
   t,
   whatsappLink,
   whatsappNumber,
   mapEmbedSrc,
   mapShareUrl,
-}) {
+}) => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [copiedField, setCopiedField] = useState(null);
+  const [copiedField, setCopiedField] = useState<string | null>(null);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setShowError(false);
 
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.currentTarget);
 
     // Add Web3Forms access key from environment
     formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
@@ -40,7 +66,7 @@ export function Contact({
 
       if (data.success) {
         setShowSuccess(true);
-        e.target.reset();
+        e.currentTarget.reset();
         setTimeout(() => setShowSuccess(false), 5000);
       } else {
         setShowError(true);
@@ -55,7 +81,7 @@ export function Contact({
     }
   };
 
-  const copyToClipboard = (text, field) => {
+  const copyToClipboard = (text: string, field: string) => {
     navigator.clipboard.writeText(text);
     setCopiedField(field);
     setTimeout(() => setCopiedField(null), 2000);
@@ -181,7 +207,7 @@ export function Contact({
             {t.form.messageLabel}
             <textarea
               name="message"
-              rows="4"
+              rows={4}
               placeholder={t.form.messagePlaceholder}
               required
             ></textarea>
@@ -240,4 +266,4 @@ export function Contact({
       </div>
     </section>
   );
-}
+};

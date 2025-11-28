@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { FC, useState } from "react";
+import { OfficePhoto } from "@/types";
 import styles from "./Gallery.module.css";
 
-export function Gallery({ t, officePhotos }) {
-  const [selectedImage, setSelectedImage] = useState(null);
+interface GalleryProps {
+  t: {
+    galleryEyebrow: string;
+    galleryHeading: string;
+  };
+  officePhotos: OfficePhoto[];
+}
+
+export const Gallery: FC<GalleryProps> = ({ t, officePhotos }) => {
+  const [selectedImage, setSelectedImage] = useState<OfficePhoto | null>(null);
 
   return (
     <section className={styles.gallery}>
@@ -38,4 +47,4 @@ export function Gallery({ t, officePhotos }) {
       )}
     </section>
   );
-}
+};
