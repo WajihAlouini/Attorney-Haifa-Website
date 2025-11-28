@@ -1,7 +1,9 @@
+import { FC, ReactElement } from "react";
+import { TranslationProps } from "@/types";
 import styles from "./PracticeAreas.module.css";
 
-export function PracticeAreas({ t }) {
-  const icons = {
+export const PracticeAreas: FC<TranslationProps> = ({ t }) => {
+  const icons: Record<number, ReactElement> = {
     // Business & Corporate Law
     0: (
       <svg
@@ -61,4 +63,4 @@ export function PracticeAreas({ t }) {
       </div>
     </section>
   );
-}
+};

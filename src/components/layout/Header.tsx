@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { FC, useState, useEffect } from "react";
+import { LocaleProps } from "@/types";
 import styles from "./Header.module.css";
 import { logoUrl } from "@/data/constants";
 
-export function Header({ locale, setLocale }) {
+export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -64,4 +65,4 @@ export function Header({ locale, setLocale }) {
       </div>
     </nav>
   );
-}
+};
