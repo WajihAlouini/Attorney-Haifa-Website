@@ -1,6 +1,8 @@
+import { FC } from "react";
+import { TranslationProps } from "@/types";
 import styles from "./Values.module.css";
 
-export function Values({ t }) {
+export const Values: FC<TranslationProps> = ({ t }) => {
   return (
     <section className="values" id="values">
       <div className="section-header">
@@ -17,4 +19,4 @@ export function Values({ t }) {
       </div>
     </section>
   );
-}
+};

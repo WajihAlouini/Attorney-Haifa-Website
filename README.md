@@ -1,34 +1,8 @@
 # Lawyer Website - Haifa Guedhami Alouini
 
-A modern, professional website for a law firm built with React, featuring a clean architecture and best practices.
+A modern, professional website for a law firm built with React and TypeScript.
 
-## 🏗️ Project Structure
-
-```
-src/
-├── components/          # React components
-│   ├── common/         # Shared utility components (Analytics, Cookies, etc.)
-│   ├── layout/         # Layout components (Header, Footer)
-│   ├── sections/       # Page sections (Hero, About, Contact, etc.)
-│   └── ui/             # Reusable UI components
-├── data/               # Static data and constants
-├── hooks/              # Custom React hooks
-├── layouts/            # Page layout wrappers
-├── pages/              # Page components
-├── services/           # API and external service integrations
-├── types/              # TypeScript type definitions
-├── utils/              # Utility functions
-└── styles/             # Legacy global styles (being phased out)
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- npm or yarn
-
-### Installation
+## 🚀 Quick Start
 
 ```bash
 # Install dependencies
@@ -39,108 +13,61 @@ npm run dev
 
 # Build for production
 npm run build
-
-# Run tests
-npm test
-
-# Lint code
-npm run lint
 ```
 
-### Environment Variables
+## 📁 Project Structure
 
-Create a `.env` file in the root directory:
-
-```env
-VITE_GOOGLE_PLACES_KEY=your_google_places_api_key
-VITE_WEB3FORMS_ACCESS_KEY=your_web3forms_key
 ```
-
-## 🎨 Architecture Decisions
-
-### CSS Modules
-
-All components use CSS Modules for scoped styling, preventing global style conflicts and improving maintainability.
-
-### Custom Hooks
-
-Business logic is extracted into reusable hooks:
-
-- `useGoogleReviews` - Fetches and manages Google reviews
-- `useScrollProgress` - Manages scroll position and scroll-to-top
-- `useMagneticButton` - Implements magnetic button effects
-- `useScrollAnimation` - Handles scroll-based animations
-
-### Clean Architecture
-
-- **Separation of Concerns**: Components, logic, and data are clearly separated
-- **Service Layer**: External API calls are isolated in the `services` directory
-- **Type Safety**: TypeScript types ensure data consistency
-- **Path Aliases**: `@/` prefix for cleaner imports
-
-## 🧪 Testing
-
-Tests are written using Vitest and React Testing Library:
-
-```bash
-# Run all tests
-npm test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Generate coverage report
-npm run test:coverage
+src/
+├── components/
+│   ├── common/      # Shared utilities (Analytics, Cookies, etc.)
+│   ├── layout/      # Header, Footer
+│   ├── sections/    # Hero, About, Contact, etc.
+│   └── ui/          # Reusable UI components
+├── hooks/           # Custom React hooks
+├── services/        # API integrations
+├── types/           # TypeScript definitions
+└── data/            # Static content
 ```
-
-## 📦 Build & Deployment
-
-The project uses Vite for building and is optimized for production:
-
-```bash
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
-
-### CI/CD
-
-GitHub Actions automatically:
-
-- Runs linting on every push
-- Runs tests on pull requests
-- Builds and deploys to production on merge to main
 
 ## 🛠️ Tech Stack
 
-- **Framework**: React 18
-- **Build Tool**: Vite
-- **Styling**: CSS Modules
-- **Type Safety**: TypeScript
-- **Testing**: Vitest + React Testing Library
-- **Linting**: ESLint
-- **CI/CD**: GitHub Actions
+- React 18 + TypeScript
+- Vite
+- CSS Modules
+- Vitest
+- ESLint
 
-## 📝 Code Style
+## 📝 Environment Variables
 
-- **Component Structure**: Functional components with hooks
-- **Naming**: PascalCase for components, camelCase for functions
-- **File Organization**: Co-located styles with components
-- **Imports**: Absolute imports using `@/` alias
+```env
+VITE_GOOGLE_PLACES_KEY=your_key
+VITE_WEB3FORMS_ACCESS_KEY=your_key
+```
 
-## 🤝 Contributing
+## 📚 Documentation
 
-1. Create a feature branch
-2. Make your changes
-3. Ensure tests pass and linting is clean
-4. Submit a pull request
+- [Architecture](./docs/ARCHITECTURE.md) - System design
+- [Development](./docs/DEVELOPMENT.md) - Dev guide
+- [Contributing](./CONTRIBUTING.md) - How to contribute
+- [Roadmap](./docs/ROADMAP.md) - Future plans
 
-## 📄 License
+## 🧪 Scripts
 
-All rights reserved © 2025 Haifa Guedhami Alouini
+```bash
+npm run dev              # Development server
+npm run build            # Production build
+npm run lint             # Lint code
+npm run lint:fix         # Fix linting issues
+npm test                 # Run tests
+npm run test:watch       # Tests in watch mode
+npm run type-check       # Check TypeScript
+```
 
 ## 👨‍💻 Developer
 
 Developed by [Wajih Mokhtar Alouini](https://www.linkedin.com/in/wajih-mokhtar-alouini-8a7259231/)
+
+## 📄 License
+
+All rights reserved © 2025 Haifa Guedhami Alouini

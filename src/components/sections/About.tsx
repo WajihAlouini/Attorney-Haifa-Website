@@ -1,6 +1,8 @@
+import { FC } from "react";
+import { TranslationProps } from "@/types";
 import styles from "./About.module.css";
 
-export function About({ t }) {
+export const About: FC<TranslationProps> = ({ t }) => {
   return (
     <section className={styles.about} id="about">
       <div className={styles.text}>
@@ -34,4 +36,4 @@ export function About({ t }) {
       </div>
     </section>
   );
-}
+};

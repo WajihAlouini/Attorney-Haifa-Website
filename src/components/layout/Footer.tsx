@@ -1,6 +1,12 @@
+import { FC } from "react";
+import { LocaleProps } from "@/types";
 import styles from "./Footer.module.css";
 
-export function Footer({ t, year }) {
+interface FooterProps extends LocaleProps {
+  year: number;
+}
+
+export const Footer: FC<FooterProps> = ({ t, year }) => {
   return (
     <footer className={styles.footer}>
       <p>© {year} Haifa Guedhami Alouini. All rights reserved.</p>
@@ -18,4 +24,4 @@ export function Footer({ t, year }) {
       </p>
     </footer>
   );
-}
+};

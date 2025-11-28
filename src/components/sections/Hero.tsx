@@ -1,7 +1,11 @@
+import { FC } from "react";
+import { TranslationProps, WhatsAppProps } from "@/types";
 import styles from "./Hero.module.css";
 import { heroBg } from "@/data/constants";
 
-export function Hero({ t, whatsappLink }) {
+interface HeroProps extends TranslationProps, WhatsAppProps {}
+
+export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
   return (
     <section
       className={styles.hero}
@@ -73,4 +77,4 @@ export function Hero({ t, whatsappLink }) {
       </div>
     </section>
   );
-}
+};

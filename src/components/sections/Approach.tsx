@@ -1,6 +1,8 @@
+import { FC } from "react";
+import { TranslationProps } from "@/types";
 import styles from "./Approach.module.css";
 
-export function Approach({ t }) {
+export const Approach: FC<TranslationProps> = ({ t }) => {
   return (
     <section className="approach" id="approach">
       <div className="section-header">
@@ -17,4 +19,4 @@ export function Approach({ t }) {
       </div>
     </section>
   );
-}
+};
