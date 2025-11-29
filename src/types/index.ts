@@ -178,5 +178,5 @@ export interface TranslationProps {
 
 export interface WhatsAppProps {
   whatsappLink: string;
-  whatsappNumber: string;
+  whatsappNumber?: string;
 }

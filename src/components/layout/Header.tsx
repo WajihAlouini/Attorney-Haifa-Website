@@ -39,29 +39,29 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
               locale === "fr" ? styles.active : ""
             }`}
             onClick={() => setLocale("fr")}
+            title="Français"
           >
-            FR
+            🇫🇷 FR
           </button>
           <button
             className={`${styles.langBtn} ${
               locale === "ar" ? styles.active : ""
             }`}
             onClick={() => setLocale("ar")}
+            title="العربية"
           >
-            AR
+            🇹🇳 AR
           </button>
           <button
             className={`${styles.langBtn} ${
               locale === "en" ? styles.active : ""
             }`}
             onClick={() => setLocale("en")}
+            title="English"
           >
-            EN
+            🇬🇧 EN
           </button>
         </div>
-        <a href="#contact" className={styles.navCta}>
-          Prendre RDV
-        </a>
       </div>
     </nav>
   );

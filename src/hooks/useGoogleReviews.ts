@@ -20,7 +20,7 @@ export function useGoogleReviews(
       const apiKey = import.meta.env.VITE_GOOGLE_PLACES_KEY;
 
       if (!placeId || !apiKey) {
-        console.warn("Google Places credentials not configured");
+        // Google Places not configured - silently skip
         return;
       }
 
