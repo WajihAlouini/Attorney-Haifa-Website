@@ -3,12 +3,25 @@ import App from "./App";
 import { describe, it, expect } from "vitest";
 
 // Mock IntersectionObserver
-class MockIntersectionObserver {
+class MockIntersectionObserver implements IntersectionObserver {
+  readonly root: Element | null = null;
+  readonly rootMargin: string = "";
+  readonly thresholds: ReadonlyArray<number> = [];
+
   observe() {}
   unobserve() {}
   disconnect() {}
+  takeRecords(): IntersectionObserverEntry[] {
+    return [];
+  }
 }
-(window as any).IntersectionObserver = MockIntersectionObserver;
+
+(
+  window as typeof window & {
+    IntersectionObserver: typeof IntersectionObserver;
+  }
+).IntersectionObserver =
+  MockIntersectionObserver as unknown as typeof IntersectionObserver;
 
 describe("App", () => {
   it("renders the main application", async () => {

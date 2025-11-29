@@ -11,15 +11,15 @@ export function CalComWidget() {
 
     // Load Cal.com embed script
     (function (C: any, A: any, L: any) {
-      let p = function (a: any, ar: any) {
+      const p = function (a: any, ar: any) {
         a.q.push(ar);
       };
-      let d = C.document;
+      const d = C.document;
       C.Cal =
         C.Cal ||
         function () {
-          let cal = C.Cal;
-          let ar = arguments;
+          const cal = C.Cal;
+          const ar = arguments;
           if (!cal.loaded) {
             cal.ns = {};
             cal.q = cal.q || [];
