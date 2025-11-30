@@ -1,17 +1,25 @@
 import { FC } from "react";
 import styles from "./Hero.module.css";
 import { heroBg } from "@/data/constants";
+import { Translation } from "@/types";
 
 interface HeroProps {
-  t: any;
+  t: Translation;
   whatsappLink: string;
   locale: string;
+}
+
+interface CalWindow extends Window {
+  Cal?: {
+    (action: string, options: { calLink: string }): void;
+    ns?: Record<string, (action: string, options: { calLink: string }) => void>;
+  };
 }
 
 export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
   const handleBookingClick = () => {
     // Use the namespaced Cal instance
-    const Cal = (window as any).Cal;
+    const Cal = (window as CalWindow).Cal;
     if (Cal && Cal.ns && Cal.ns["wajjih-alouini-eis3ub"]) {
       Cal.ns["wajjih-alouini-eis3ub"]("modal", {
         calLink: "wajjih-alouini-eis3ub/30min",
@@ -57,20 +65,41 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
         </div>
 
         <div className={styles.metrics}>
-          {t.heroMetrics?.map((stat: any, index: number) => (
+          {t.heroMetrics?.map((stat, index) => (
             <div key={index} className={styles.metric}>
               <div className={styles.metricIcon}>
                 {index === 0 && (
+                  // Years of Excellence - Award/Badge Icon
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
                   >
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="M12 15c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z" />
+                    <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" />
                   </svg>
                 )}
                 {index === 1 && (
+                  // Cases Resolved - Gavel/Scale Icon
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <path d="M3 21h18" />
+                    <path d="M5 21v-7" />
+                    <path d="M19 21v-7" />
+                    <path d="M10 21v-4" />
+                    <path d="M14 21v-4" />
+                    <rect x="2" y="10" width="20" height="4" rx="1" />
+                    <path d="M12 10V3" />
+                    <path d="M8 6h8" />
+                  </svg>
+                )}
+                {index === 2 && (
+                  // Languages - Globe Icon
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -78,20 +107,8 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
                     strokeWidth="1.5"
                   >
                     <circle cx="12" cy="12" r="10" />
-                    <path d="M12 6v6l4 2" />
-                  </svg>
-                )}
-                {index === 2 && (
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    <path d="M2 12h20" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                   </svg>
                 )}
               </div>

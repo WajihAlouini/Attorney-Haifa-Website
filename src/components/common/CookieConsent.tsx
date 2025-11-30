@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import "../../styles/cookie-consent.css";
+import { Translation } from "@/types";
 
 interface CookieConsentProps {
-  t: any;
+  t: Translation;
 }
 
 export function CookieConsent({ t }: CookieConsentProps) {

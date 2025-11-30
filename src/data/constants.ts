@@ -10,8 +10,8 @@ export const logoUrl = "/favicon.png";
 export const heroBg = "/hero-bg.jpg";
 
 export const officePhotos: OfficePhoto[] = [
-  { src: "/office/entry.png", alt: "Office entry in Kairouan" },
-  { src: "/office/hallway.png", alt: "Hallway leading to consultation rooms" },
-  { src: "/office/office1.png", alt: "Primary consultation room" },
-  { src: "/office/office2.png", alt: "Workspace for document review" },
+  { src: "/office/entry.webp", alt: "Office entry in Kairouan" },
+  { src: "/office/hallway.webp", alt: "Hallway leading to consultation rooms" },
+  { src: "/office/office1.webp", alt: "Primary consultation room" },
+  { src: "/office/office2.webp", alt: "Workspace for document review" },
 ];

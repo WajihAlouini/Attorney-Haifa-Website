@@ -4,6 +4,7 @@ import { CookieConsent } from "@/components/common/CookieConsent";
 import { GoogleAnalytics } from "@/components/common/GoogleAnalytics";
 import { CalComWidget } from "@/components/common/CalComWidget";
 import { trackWhatsAppClick } from "@/utils/analyticsHelpers";
+import { Translation } from "@/types";
 
 import { ReactNode } from "react";
 
@@ -11,7 +12,7 @@ interface MainLayoutProps {
   children: ReactNode;
   locale: string;
   setLocale: (locale: string) => void;
-  t: any;
+  t: Translation;
   year: number;
   scrollProgress: number;
   showScrollTop: boolean;
@@ -42,6 +43,11 @@ export function MainLayout({
       <div
         className="scroll-progress-bar"
         style={{ width: `${scrollProgress}%` }}
+        role="progressbar"
+        aria-label="Page scroll progress"
+        aria-valuenow={scrollProgress}
+        aria-valuemin={0}
+        aria-valuemax={100}
       ></div>
 
       <div className="glow glow-one" aria-hidden="true"></div>

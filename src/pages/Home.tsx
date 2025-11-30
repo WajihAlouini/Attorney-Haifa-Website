@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { Hero } from "@/features/hero";
+import { Hero } from "@/features/hero/Hero";
 import { About } from "@/features/about";
 import { PracticeAreas } from "@/features/practice-areas";
 import { Values } from "@/features/values";
@@ -10,6 +10,7 @@ import { useGoogleReviews } from "@/hooks/useGoogleReviews";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useMagneticButton } from "@/hooks/useMagneticButton";
 import { mapShareUrl, mapEmbedSrc, officePhotos } from "@/data/constants";
+import { Translation } from "@/types";
 
 // Lazy load below-the-fold sections
 const Reviews = lazy(() =>
@@ -34,7 +35,7 @@ const FAQ = lazy(() =>
 );
 
 interface HomeProps {
-  t: any;
+  t: Translation;
   locale: string;
   whatsappLink: string;
   whatsappNumber: string;

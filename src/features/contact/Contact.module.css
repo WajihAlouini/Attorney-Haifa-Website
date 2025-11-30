@@ -175,12 +175,13 @@
   position: relative;
   height: 400px;
   border: 1px solid var(--border);
-  filter: grayscale(100%);
+  /* Removed grayscale filter */
+  filter: none;
   transition: filter 0.3s ease;
 }
 
 .mapCard:hover {
-  filter: grayscale(0%);
+  filter: none;
 }
 
 .mapCard iframe {

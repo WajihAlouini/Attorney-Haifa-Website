@@ -64,8 +64,10 @@
 .actions {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-bottom: 3rem;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .metrics {
@@ -74,27 +76,37 @@
   gap: 3rem;
   margin-top: 2rem;
   flex-wrap: wrap;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 2rem;
+  width: 100%;
 }
 
 .metric {
   text-align: center;
   position: relative;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metric:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 30px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .metricIcon {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 1rem;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
   color: var(--accent);
-  opacity: 0.8;
-  transition: all 0.3s ease;
-}
-
-.metric:hover .metricIcon {
-  opacity: 1;
-  transform: translateY(-5px) scale(1.1);
+  opacity: 0.9;
 }
 
 .metricIcon svg {
@@ -105,16 +117,49 @@
 .metric span {
   display: block;
   font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
-  color: var(--accent);
-  line-height: 1;
-  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
 }
 
 .metric p {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-size: 0.75rem;
   color: var(--muted);
   margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 6rem 1rem 4rem;
+    min-height: auto;
+  }
+
+  .content h1 {
+    font-size: 2.5rem;
+    word-wrap: break-word;
+  }
+
+  .metrics {
+    gap: 2rem;
+  }
+
+  .metric:not(:last-child)::after {
+    display: none;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .actions .btn {
+    width: 100%;
+    max-width: 300px;
+  }
 }

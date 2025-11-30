@@ -169,7 +169,9 @@ export const Contact: FC<ContactProps> = ({
                 </svg>
                 <span>{t.contact.office}</span>
               </div>
-              {t.contactOffice}
+              <div className={styles.itemWithCopy}>
+                <span>{t.contactOffice}</span>
+              </div>
             </li>
           </ul>
         </div>

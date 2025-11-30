@@ -1,4 +1,35 @@
+# robots.txt - Maître Haifa Guedhami Alouini
+# This file tells search engines how to crawl the website
+
+# Allow all search engines to crawl everything
 User-agent: *
 Allow: /
 
+# Crawl delay to prevent server overload (optional)
+# Crawl-delay: 1
+
+# Explicitly allow important pages (for clarity)
+Allow: /index.html
+Allow: /*.css$
+Allow: /*.js$
+
+# Block common bot traps and unnecessary files
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+Disallow: /*.json$
+Disallow: /package*.json$
+
+# Block development and build artifacts
+Disallow: /dist/
+Disallow: /.vite/
+
+# Sitemap location (helps search engines find all pages)
 Sitemap: https://hgalouini.com/sitemap.xml
+
+# Additional sitemaps (if you add blog or case studies later)
+# Sitemap: https://hgalouini.com/sitemap-blog.xml
+# Sitemap: https://hgalouini.com/sitemap-cases.xml
+
+# Host directive (preferred domain)
+Host: https://hgalouini.com

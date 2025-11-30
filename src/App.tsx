@@ -8,8 +8,11 @@ import { Home } from "@/pages/Home";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import { reportWebVitals } from "@/utils/performance";
 
+import { NotFound } from "@/pages/NotFound";
+
 function App() {
   const [locale, setLocale] = useState("fr");
+  const [path, setPath] = useState(window.location.pathname);
   const t = translations[locale];
   const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, "")}`;
   const year = new Date().getFullYear();
@@ -19,7 +22,15 @@ function App() {
   // Report Web Vitals for performance monitoring
   useEffect(() => {
     reportWebVitals();
+
+    // Handle browser back/forward buttons
+    const handlePopState = () => setPath(window.location.pathname);
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
+
+  // Simple routing check
+  const isHome = path === "/" || path === "/index.html";
 
   return (
     <MainLayout
@@ -32,12 +43,16 @@ function App() {
       scrollToTop={scrollToTop}
       whatsappLink={whatsappLink}
     >
-      <Home
-        t={t}
-        locale={locale}
-        whatsappLink={whatsappLink}
-        whatsappNumber={whatsappNumber}
-      />
+      {isHome ? (
+        <Home
+          t={t}
+          locale={locale}
+          whatsappLink={whatsappLink}
+          whatsappNumber={whatsappNumber}
+        />
+      ) : (
+        <NotFound t={t} locale={locale} />
+      )}
     </MainLayout>
   );
 }

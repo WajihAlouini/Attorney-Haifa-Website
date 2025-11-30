@@ -1,13 +1,13 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
 }
 
 .card {
   margin: 0;
   position: relative;
-  aspect-ratio: 4/3;
+  aspect-ratio: 16/9;
   overflow: hidden;
   border: 1px solid var(--border);
   transition: all 0.3s ease;

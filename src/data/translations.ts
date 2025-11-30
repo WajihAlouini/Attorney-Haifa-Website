@@ -129,7 +129,7 @@ export const translations: Translations = {
       email: "Email",
       office: "Office",
     },
-    contactOffice: "Kairouan Medina · Avenue des Martyrs",
+    contactOffice: "Beb Djelladine next to Dhib Pharmacy, Martyrs Street",
     form: {
       nameLabel: "Full Name",
       namePlaceholder: "Enter your full name",
@@ -336,7 +336,7 @@ export const translations: Translations = {
       email: "Email",
       office: "Bureau",
     },
-    contactOffice: "Médina de Kairouan · Avenue des Martyrs",
+    contactOffice: "Beb Djelladine à côté de pharmacie Dhib, Rue des Martyrs",
     form: {
       nameLabel: "Nom Complet",
       namePlaceholder: "Entrez votre nom complet",
@@ -538,7 +538,7 @@ export const translations: Translations = {
       email: "البريد الإلكتروني",
       office: "المكتب",
     },
-    contactOffice: "مدينة القيروان · شارع الشهداء",
+    contactOffice: "باب الجلادين بجانب صيدلية ذيب، نهج الشهداء",
     form: {
       nameLabel: "الاسم الكامل",
       namePlaceholder: "أدخل اسمك الكامل",
