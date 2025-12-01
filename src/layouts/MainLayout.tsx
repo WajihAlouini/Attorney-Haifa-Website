@@ -64,7 +64,7 @@ export function MainLayout({
         <button
           className="scroll-to-top"
           onClick={scrollToTop}
-          aria-label="Retour en haut"
+          aria-label={t.scrollToTop}
         >
           ↑
         </button>

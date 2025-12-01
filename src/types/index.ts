@@ -12,6 +12,7 @@ export interface Translation {
   };
 
   // Brand
+  brandName: string;
   brandTagline: string;
   languageLabel: string;
   flag?: string;
@@ -119,6 +120,7 @@ export interface Translation {
   form: {
     nameLabel: string;
     namePlaceholder: string;
+    emailPlaceholder: string;
     orgLabel?: string;
     orgPlaceholder?: string;
     messageLabel: string;
@@ -147,6 +149,17 @@ export interface Translation {
   cookieText: string;
   cookieAccept: string;
   cookieDecline: string;
+
+  // UI Text
+  seeMoreReviews: string;
+  emailLabel: string;
+  loading: string;
+  submitting: string;
+  successTitle: string;
+  successMessage: string;
+  errorTitle: string;
+  errorMessage: string;
+  scrollToTop: string;
 }
 
 export interface Translations {

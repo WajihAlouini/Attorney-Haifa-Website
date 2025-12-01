@@ -2,6 +2,7 @@ import { FC, useState, useEffect } from "react";
 import { LocaleProps } from "@/types";
 import styles from "./Header.module.css";
 import { logoUrl } from "@/data/constants";
+import { translations } from "@/data/translations";
 
 export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,8 +26,8 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
       <a href="/" className={styles.brand} aria-label="Home">
         <img src={logoUrl} alt="Logo" className={styles.brandMark} />
         <div className={styles.brandCopy}>
-          <span>Maître Haifa Guedhami Alouini</span>
-          <small>Avocate à la Cour</small>
+          <span>{translations[locale].brandName}</span>
+          <small>{translations[locale].brandTagline}</small>
         </div>
       </a>
 
@@ -37,16 +38,16 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
       >
         <div className={styles.navLinks}>
           <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>
-            À Propos
+            {translations[locale].nav.about}
           </a>
           <a href="#practice" onClick={() => setIsMobileMenuOpen(false)}>
-            Expertise
+            {translations[locale].nav.practice}
           </a>
           <a href="#values" onClick={() => setIsMobileMenuOpen(false)}>
-            Valeurs
+            {translations[locale].nav.values}
           </a>
           <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
-            Contact
+            {translations[locale].nav.consult}
           </a>
         </div>
 

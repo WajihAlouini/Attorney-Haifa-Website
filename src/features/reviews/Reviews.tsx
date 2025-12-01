@@ -7,6 +7,8 @@ interface ReviewsProps {
     reviewsEyebrow: string;
     reviewsHeading: string;
     reviews: GoogleReview[];
+    loading: string;
+    seeMoreReviews: string;
   };
   liveReviews: GoogleReview[] | null;
   mapShareUrl: string;
@@ -30,7 +32,7 @@ export const Reviews: FC<ReviewsProps> = ({
       {isLoading ? (
         <div className={styles.loading}>
           <div className="spinner"></div>
-          <p>Chargement...</p>
+          <p>{t.loading}</p>
         </div>
       ) : (
         <>
@@ -51,7 +53,7 @@ export const Reviews: FC<ReviewsProps> = ({
           {mapShareUrl && (
             <p className={styles.cta}>
               <a href={mapShareUrl} target="_blank" rel="noreferrer">
-                Voir plus d&apos;avis →
+                {t.seeMoreReviews}
               </a>
             </p>
           )}

@@ -14,12 +14,19 @@ interface ContactProps {
     form: {
       nameLabel: string;
       namePlaceholder: string;
+      emailPlaceholder: string;
       messageLabel: string;
       messagePlaceholder: string;
       submit: string;
     };
     mapLabel: string;
     mapLinkLabel: string;
+    emailLabel: string;
+    submitting: string;
+    successTitle: string;
+    successMessage: string;
+    errorTitle: string;
+    errorMessage: string;
   };
   whatsappLink: string;
   whatsappNumber: string;
@@ -196,11 +203,11 @@ export const Contact: FC<ContactProps> = ({
           </label>
 
           <label>
-            Email
+            {t.emailLabel}
             <input
               type="email"
               name="email"
-              placeholder="votre@email.com"
+              placeholder={t.form.emailPlaceholder}
               required
             />
           </label>
@@ -216,7 +223,7 @@ export const Contact: FC<ContactProps> = ({
           </label>
 
           <button type="submit" className="btn primary" disabled={isSubmitting}>
-            {isSubmitting ? "Envoi en cours..." : t.form.submit}
+            {isSubmitting ? t.submitting : t.form.submit}
           </button>
         </form>
       </div>
@@ -226,10 +233,10 @@ export const Contact: FC<ContactProps> = ({
           <div className={styles.successIcon}>✓</div>
           <div>
             <p style={{ fontWeight: "bold", marginBottom: "0.25rem" }}>
-              Message envoyé avec succès!
+              {t.successTitle}
             </p>
             <p style={{ fontSize: "0.9rem", opacity: 0.9 }}>
-              Nous vous répondrons dans les plus brefs délais.
+              {t.successMessage}
             </p>
           </div>
         </div>
@@ -240,11 +247,9 @@ export const Contact: FC<ContactProps> = ({
           <div className={styles.errorIcon}>✕</div>
           <div>
             <p style={{ fontWeight: "bold", marginBottom: "0.25rem" }}>
-              Erreur d&apos;envoi
+              {t.errorTitle}
             </p>
-            <p style={{ fontSize: "0.9rem", opacity: 0.9 }}>
-              Veuillez réessayer ou nous contacter par WhatsApp.
-            </p>
+            <p style={{ fontSize: "0.9rem", opacity: 0.9 }}>{t.errorMessage}</p>
           </div>
         </div>
       )}

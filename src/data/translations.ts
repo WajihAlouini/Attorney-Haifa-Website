@@ -4,6 +4,7 @@ export const translations: Translations = {
   en: {
     shortLabel: "EN",
     languageLabel: "Select language",
+    brandName: "Maître Haifa Guedhami Alouini",
     brandTagline: "Attorney at Law & Legal Counsel",
     nav: {
       about: "Profile",
@@ -133,6 +134,7 @@ export const translations: Translations = {
     form: {
       nameLabel: "Full Name",
       namePlaceholder: "Enter your full name",
+      emailPlaceholder: "your@email.com",
       orgLabel: "Company / Location",
       orgPlaceholder: "e.g., Company Ltd. or City",
       messageLabel: "Case Description",
@@ -207,10 +209,20 @@ export const translations: Translations = {
       "We use cookies to improve your experience and analyze our traffic. By continuing to visit this site, you agree to our use of cookies.",
     cookieAccept: "Accept All",
     cookieDecline: "Decline",
+    seeMoreReviews: "See more reviews →",
+    emailLabel: "Email",
+    loading: "Loading...",
+    submitting: "Sending...",
+    successTitle: "Message sent successfully!",
+    successMessage: "We will respond to you as soon as possible.",
+    errorTitle: "Sending error",
+    errorMessage: "Please try again or contact us via WhatsApp.",
+    scrollToTop: "Back to top",
   },
   fr: {
     shortLabel: "FR",
     languageLabel: "Choisir la langue",
+    brandName: "Maître Haifa Guedhami Alouini",
     brandTagline: "Avocate à la Cour & Conseillère Juridique",
     nav: {
       about: "Profil",
@@ -340,6 +352,7 @@ export const translations: Translations = {
     form: {
       nameLabel: "Nom Complet",
       namePlaceholder: "Entrez votre nom complet",
+      emailPlaceholder: "votre@email.com",
       orgLabel: "Société / Ville",
       orgPlaceholder: "ex: Société SARL ou Ville",
       messageLabel: "Description du Cas",
@@ -414,10 +427,20 @@ export const translations: Translations = {
       "Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre utilisation des cookies.",
     cookieAccept: "Tout Accepter",
     cookieDecline: "Refuser",
+    seeMoreReviews: "Voir plus d'avis →",
+    emailLabel: "Email",
+    loading: "Chargement...",
+    submitting: "Envoi en cours...",
+    successTitle: "Message envoyé avec succès!",
+    successMessage: "Nous vous répondrons dans les plus brefs délais.",
+    errorTitle: "Erreur d'envoi",
+    errorMessage: "Veuillez réessayer ou nous contacter par WhatsApp.",
+    scrollToTop: "Retour en haut",
   },
   ar: {
     shortLabel: "AR",
     languageLabel: "اختر اللغة",
+    brandName: "الأستاذة هيفاء القضامي العلويني",
     brandTagline: "محامية ومستشارة قانونية",
     nav: {
       about: "من أنا",
@@ -542,6 +565,7 @@ export const translations: Translations = {
     form: {
       nameLabel: "الاسم الكامل",
       namePlaceholder: "أدخل اسمك الكامل",
+      emailPlaceholder: "بريدك@الإلكتروني.com",
       orgLabel: "الشركة / المدينة",
       orgPlaceholder: "مثال: شركة أو مدينة",
       messageLabel: "وصف القضية",
@@ -612,5 +636,14 @@ export const translations: Translations = {
       "نحن نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل حركة المرور لدينا. من خلال الاستمرار في زيارة هذا الموقع، فإنك توافق على استخدامنا لملفات تعريف الارتباط.",
     cookieAccept: "قبول الكل",
     cookieDecline: "رفض",
+    seeMoreReviews: "عرض المزيد من التقييمات ←",
+    emailLabel: "البريد الإلكتروني",
+    loading: "جاري التحميل...",
+    submitting: "جاري الإرسال...",
+    successTitle: "تم إرسال الرسالة بنجاح!",
+    successMessage: "سنرد عليك في أقرب وقت ممكن.",
+    errorTitle: "خطأ في الإرسال",
+    errorMessage: "يرجى المحاولة مرة أخرى أو الاتصال بنا عبر واتساب.",
+    scrollToTop: "العودة إلى الأعلى",
   },
 };

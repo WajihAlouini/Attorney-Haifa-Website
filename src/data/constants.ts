@@ -3,7 +3,7 @@ import { OfficePhoto } from "@/types";
 export const whatsappNumber = "+216 98 643 612";
 export const mapShareUrl = "https://maps.app.goo.gl/PEre8Hhmj7QtZn226";
 export const mapEmbedSrc =
-  "https://www.google.com/maps?q=Haifa+Guedhami+Alouini,+Kairouan&output=embed";
+  "https://www.google.com/maps?q=Haifa+Guedhami+Alouini,+Kairouan&output=embed&t=h&z=19";
 export const GOOGLE_PLACE_ID = "places/REPLACE_WITH_GOOGLE_PLACE_ID";
 
 export const logoUrl = "/favicon.png";
