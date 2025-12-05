@@ -45,13 +45,6 @@ VITE_GOOGLE_PLACES_KEY=your_key
 VITE_WEB3FORMS_ACCESS_KEY=your_key
 ```
 
-## 📚 Documentation
-
-- [Architecture](./docs/ARCHITECTURE.md) - System design
-- [Development](./docs/DEVELOPMENT.md) - Dev guide
-- [Contributing](./CONTRIBUTING.md) - How to contribute
-- [Roadmap](./docs/ROADMAP.md) - Future plans
-
 ## 🧪 Scripts
 
 ```bash

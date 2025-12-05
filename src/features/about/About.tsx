@@ -8,7 +8,7 @@ export const About: FC<TranslationProps> = ({ t }) => {
       <div className={styles.imageColumn}>
         <div className={styles.imageWrapper}>
           <img
-            src="/portrait/portrait_v4.png"
+            src="/portrait/portrait.webp"
             alt="Maître Haifa Guedhami Alouini"
             className={styles.portrait}
           />

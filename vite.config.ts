@@ -1,5 +1,4 @@
-/// <reference types="vitest" />
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
@@ -10,6 +9,13 @@ export default defineConfig({
       "@": "/src",
     },
   },
+  // Handle client-side routing for SPA
+  server: {
+    open: true,
+  },
+  preview: {
+    open: true,
+  },
   build: {
     // Optimize chunk size
     chunkSizeWarningLimit: 1000,
@@ -19,7 +25,11 @@ export default defineConfig({
         manualChunks: (id) => {
           // Vendor chunks
           if (id.includes("node_modules")) {
-            if (id.includes("react") || id.includes("react-dom")) {
+            if (
+              id.includes("react") ||
+              id.includes("react-dom") ||
+              id.includes("react-router")
+            ) {
               return "react-vendor";
             }
             return "vendor";
@@ -55,7 +65,7 @@ export default defineConfig({
   },
   // Performance optimizations
   optimizeDeps: {
-    include: ["react", "react-dom"],
+    include: ["react", "react-dom", "react-router-dom"],
   },
   test: {
     globals: true,

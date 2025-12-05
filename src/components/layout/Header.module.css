@@ -100,6 +100,16 @@
   width: 100%;
 }
 
+/* Active route styling */
+.activeLink {
+  color: var(--accent) !important;
+}
+
+.activeLink::after {
+  width: 100% !important;
+  background: var(--accent) !important;
+}
+
 .navMeta {
   display: flex;
   align-items: center;

@@ -1,4 +1,5 @@
 import { FC, useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { LocaleProps } from "@/types";
 import styles from "./Header.module.css";
 import { logoUrl } from "@/data/constants";
@@ -7,6 +8,7 @@ import { translations } from "@/data/translations";
 export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,15 +23,27 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  // Check if current route is active
+  const isActive = (path: string) => location.pathname === path;
+
   return (
     <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`}>
-      <a href="/" className={styles.brand} aria-label="Home">
+      <Link
+        to="/"
+        className={styles.brand}
+        aria-label="Home"
+        onClick={closeMobileMenu}
+      >
         <img src={logoUrl} alt="Logo" className={styles.brandMark} />
         <div className={styles.brandCopy}>
           <span>{translations[locale].brandName}</span>
           <small>{translations[locale].brandTagline}</small>
         </div>
-      </a>
+      </Link>
 
       <div
         className={`${styles.navContent} ${
@@ -37,18 +51,34 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
         }`}
       >
         <div className={styles.navLinks}>
-          <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>
+          <Link
+            to="/about"
+            onClick={closeMobileMenu}
+            className={isActive("/about") ? styles.activeLink : ""}
+          >
             {translations[locale].nav.about}
-          </a>
-          <a href="#practice" onClick={() => setIsMobileMenuOpen(false)}>
+          </Link>
+          <Link
+            to="/services"
+            onClick={closeMobileMenu}
+            className={isActive("/services") ? styles.activeLink : ""}
+          >
             {translations[locale].nav.practice}
-          </a>
-          <a href="#values" onClick={() => setIsMobileMenuOpen(false)}>
+          </Link>
+          <Link
+            to="/values"
+            onClick={closeMobileMenu}
+            className={isActive("/values") ? styles.activeLink : ""}
+          >
             {translations[locale].nav.values}
-          </a>
-          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+          </Link>
+          <Link
+            to="/contact"
+            onClick={closeMobileMenu}
+            className={isActive("/contact") ? styles.activeLink : ""}
+          >
             {translations[locale].nav.consult}
-          </a>
+          </Link>
         </div>
 
         <div className={styles.navMeta}>

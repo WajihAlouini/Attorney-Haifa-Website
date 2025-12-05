@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Hero.module.css";
 import { heroBg } from "@/data/constants";
 import { Translation } from "@/types";
@@ -9,7 +10,7 @@ interface HeroProps {
   locale: string;
 }
 
-interface CalWindow extends Window {
+interface CalWindow {
   Cal?: {
     (action: string, options: { calLink: string }): void;
     ns?: Record<string, (action: string, options: { calLink: string }) => void>;
@@ -38,6 +39,7 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
     <section
       className={styles.hero}
       style={{ backgroundImage: `url(${heroBg})` }}
+      id="hero"
     >
       <div className={`${styles.content} fade-in-section`}>
         <span className={styles.eyebrow}>{t.heroEyebrow}</span>
@@ -59,9 +61,9 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
           >
             {t.ctas.bookOnline || "Book Online"}
           </button>
-          <a href="#contact" className="btn ghost btn-magnetic">
+          <Link to="/contact" className="btn ghost btn-magnetic">
             {t.ctas.primary || "Contact"}
-          </a>
+          </Link>
         </div>
 
         <div className={styles.metrics}>
