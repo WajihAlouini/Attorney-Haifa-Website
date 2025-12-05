@@ -2,7 +2,7 @@ export interface SEOData {
   title: string;
   description: string;
   keywords?: string;
-  structuredData?: Record<string, any>;
+  structuredData?: Record<string, unknown>;
 }
 
 // SEO metadata for each route (French - primary language)

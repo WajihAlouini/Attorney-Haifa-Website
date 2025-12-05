@@ -90,24 +90,27 @@ export const fr: Translation = {
   ],
   testimonialsEyebrow: "Témoignages",
   testimonialsHeading: "La Confiance de nos Clients.",
-  reviewsEyebrow: "Avis Google",
-  reviewsHeading: "Retours Clients sur Google.",
+  reviewsEyebrow: "Avis Clients",
+  reviewsHeading: "Ce que disent nos clients.",
   reviewsNote: "Avis vérifiés de notre profil Google Business.",
   reviews: [
     {
       rating: "★★★★★",
       text: "Professionnalisme exceptionnel. Maître Alouini a géré la création de notre société avec rapidité et précision.",
       author: "Thomas R. · CEO",
+      image: "/people/thomas.webp",
     },
     {
       rating: "★★★★★",
       text: "Une avocate qui écoute vraiment. Elle a résolu une affaire de succession difficile bloquée depuis des années.",
       author: "Leila B. · Paris",
+      image: "/people/leila.webp",
     },
     {
       rating: "★★★★☆",
       text: "Très compétente en droit immobilier. Hautement recommandée pour les transactions à Kairouan.",
       author: "Ahmed K. · Investisseur",
+      image: "/people/ahmed.webp",
     },
   ],
   testimonials: [

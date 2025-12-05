@@ -10,45 +10,136 @@
   gap: 1.5rem;
 }
 
-.card {
-  background: var(--panel);
-  padding: 2rem;
-  border: 1px solid var(--border);
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
-.avatar {
-  width: 60px;
-  height: 60px;
+.googleCard {
+  background: #ffffff;
+  color: #3c4043;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow:
+    0 1px 3px rgba(60, 64, 67, 0.3),
+    0 4px 8px 3px rgba(60, 64, 67, 0.15);
+  font-family: "Roboto", sans-serif; /* Google Font style */
+  flex: 1 1 300px;
+  max-width: 360px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.googleCard:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 2px 6px rgba(60, 64, 67, 0.3),
+    0 8px 14px 4px rgba(60, 64, 67, 0.15);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.avatarWrapper {
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.avatarImage {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  color: #05080f;
+  object-fit: cover;
+}
+
+.textAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #7e57c2; /* Material Deep Purple */
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  font-weight: 700;
-  font-family: "Playfair Display", serif;
-  margin: 0 auto 1rem;
-  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
-}
-
-.rating {
-  color: var(--accent);
   font-size: 1.2rem;
-  display: block;
-  margin-bottom: 1rem;
+  font-weight: 500;
 }
 
-.text {
-  font-style: italic;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--muted);
+.meta {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.author {
-  margin-top: 1rem;
+.authorRow {
+  margin-bottom: 2px;
+}
+
+.authorName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #202124;
+  text-decoration: none;
+}
+
+.authorName:hover {
+  text-decoration: underline;
+}
+
+.subtext {
+  font-size: 0.8rem;
+  color: #70757a;
+}
+
+.googleLogo {
+  width: 24px;
+  height: 24px;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.stars {
+  color: #fbbc04; /* Google Star Color */
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-right: 8px;
+}
+
+.timeAgo {
+  font-size: 0.8rem;
+  color: #70757a;
+}
+
+.reviewBody {
   font-size: 0.9rem;
+  line-height: 1.5;
+  color: #3c4043;
+}
+
+.authorLink {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--muted);
+  transition: color 0.2s;
+}
+
+.authorLink:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .cta {

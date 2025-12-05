@@ -90,24 +90,27 @@ export const en: Translation = {
   ],
   testimonialsEyebrow: "Client Testimonials",
   testimonialsHeading: "Trusted by Clients Worldwide.",
-  reviewsEyebrow: "Google Reviews",
-  reviewsHeading: "Client Feedback on Google.",
+  reviewsEyebrow: "Client Reviews",
+  reviewsHeading: "What our clients say.",
   reviewsNote: "Verified reviews from our Google Business Profile.",
   reviews: [
     {
       rating: "★★★★★",
       text: "Exceptional professionalism. Maître Alouini handled our company incorporation with speed and precision.",
       author: "Thomas R. · CEO, Tech Solutions",
+      image: "/people/thomas.webp",
     },
     {
       rating: "★★★★★",
       text: "A lawyer who truly listens. She resolved a difficult inheritance matter that had been stalled for years.",
       author: "Leila B. · Paris",
+      image: "/people/leila.webp",
     },
     {
       rating: "★★★★☆",
       text: "Very knowledgeable in real estate law. Highly recommended for property transactions in Kairouan.",
       author: "Ahmed K. · Real Estate Investor",
+      image: "/people/ahmed.webp",
     },
   ],
   testimonials: [

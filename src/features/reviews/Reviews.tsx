@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { GoogleReview } from "@/types";
 import styles from "./Reviews.module.css";
+import { GoogleLogo } from "@/components/ui/GoogleLogo";
 
 interface ReviewsProps {
   t: {
@@ -40,13 +41,63 @@ export const Reviews: FC<ReviewsProps> = ({
             {reviewsToRender.map((item, index) => (
               <article
                 key={item.author}
-                className={styles.card}
+                className={styles.googleCard}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className={styles.avatar}>{item.author.charAt(0)}</div>
-                <span className={styles.rating}>{item.rating}</span>
-                <p className={styles.text}>&ldquo;{item.text}&rdquo;</p>
-                <footer className={styles.author}>{item.author}</footer>
+                <header className={styles.cardHeader}>
+                  <div className={styles.avatarWrapper}>
+                    {item.image ? (
+                      <img
+                        src={item.image}
+                        alt={item.author}
+                        className={styles.avatarImage}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className={styles.textAvatar}>
+                        {item.author.charAt(0)}
+                      </div>
+                    )}
+                  </div>
+                  <div className={styles.meta}>
+                    <div className={styles.authorRow}>
+                      {item.link ? (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.authorName}
+                        >
+                          {item.author}
+                        </a>
+                      ) : (
+                        <span className={styles.authorName}>{item.author}</span>
+                      )}
+                    </div>
+                    <div className={styles.subtext}>
+                      Local Guide · 12 reviews
+                    </div>
+                  </div>
+                  <GoogleLogo className={styles.googleLogo} />
+                </header>
+
+                <div className={styles.ratingRow}>
+                  <span className={styles.stars}>{item.rating}</span>
+                  <span className={styles.timeAgo}>a week ago</span>
+                </div>
+
+                <p className={styles.reviewBody}>{item.text}</p>
+
+                {item.reviewImage && (
+                  <div className={styles.reviewImageWrapper}>
+                    <img
+                      src={item.reviewImage}
+                      alt="Review attachment"
+                      className={styles.reviewImage}
+                      loading="lazy"
+                    />
+                  </div>
+                )}
               </article>
             ))}
           </div>

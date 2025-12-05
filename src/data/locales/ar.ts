@@ -94,16 +94,19 @@ export const ar: Translation = {
       rating: "★★★★★",
       text: "احترافية استثنائية. تعاملت الأستاذة العلويني مع تأسيس شركتنا بسرعة ودقة.",
       author: "توماس ر. · مدير تنفيذي",
+      image: "/people/thomas.webp",
     },
     {
       rating: "★★★★★",
       text: "محامية تستمع حقاً. قامت بحل قضية ميراث صعبة كانت عالقة لسنوات.",
       author: "ليلى ب. · باريس",
+      image: "/people/leila.webp",
     },
     {
       rating: "★★★★☆",
       text: "متمكنة جداً في القانون العقاري. أنصح بها بشدة للمعاملات العقارية في القيروان.",
       author: "أحمد ك. · مستثمر عقاري",
+      image: "/people/ahmed.webp",
     },
   ],
   testimonials: [

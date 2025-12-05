@@ -80,11 +80,7 @@ export interface Translation {
   reviewsEyebrow: string;
   reviewsHeading: string;
   reviewsNote?: string;
-  reviews: Array<{
-    author: string;
-    rating: string;
-    text: string;
-  }>;
+  reviews: GoogleReview[];
 
   // Testimonials
   testimonialsEyebrow?: string;
@@ -191,8 +187,10 @@ export interface OfficePhoto {
 // Google Review type
 export interface GoogleReview {
   author: string;
+  image?: string;
   rating: string;
   text: string;
+  link?: string;
 }
 
 // Component prop types

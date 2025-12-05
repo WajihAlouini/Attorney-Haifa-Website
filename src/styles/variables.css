@@ -7,6 +7,10 @@
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
+  /* Typography */
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Lato", sans-serif;
+
   line-height: 1.6;
   font-weight: 400;
 
