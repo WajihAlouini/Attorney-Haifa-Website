@@ -89,6 +89,7 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
               }`}
               onClick={() => setLocale("fr")}
               title="Français"
+              aria-current={locale === "fr" ? "true" : undefined}
             >
               <svg
                 className={styles.flag}
@@ -107,6 +108,7 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
               }`}
               onClick={() => setLocale("ar")}
               title="العربية"
+              aria-current={locale === "ar" ? "true" : undefined}
             >
               <svg
                 className={styles.flag}
@@ -130,6 +132,7 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
               }`}
               onClick={() => setLocale("en")}
               title="English"
+              aria-current={locale === "en" ? "true" : undefined}
             >
               <svg
                 className={styles.flag}

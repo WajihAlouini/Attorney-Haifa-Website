@@ -1,6 +1,6 @@
 import { FC, useState, FormEvent } from "react";
-import { createPortal } from "react-dom";
 import styles from "./Contact.module.css";
+import { Toast, ToastType } from "@/components/ui/Toast";
 
 interface ContactProps {
   t: {
@@ -28,6 +28,7 @@ interface ContactProps {
     successMessage: string;
     errorTitle: string;
     errorMessage: string;
+    copy: string;
   };
   whatsappLink: string;
   whatsappNumber: string;
@@ -42,18 +43,24 @@ const ContactComponent: FC<ContactProps> = ({
   mapEmbedSrc,
   mapShareUrl,
 }) => {
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [showError, setShowError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);
-  const [isClosing, setIsClosing] = useState(false);
+  const [toast, setToast] = useState<{
+    show: boolean;
+    type: ToastType;
+    title: string;
+    message: string;
+  }>({
+    show: false,
+    type: "success",
+    title: "",
+    message: "",
+  });
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setShowError(false);
-    setShowSuccess(false);
-    setIsClosing(false);
+    setToast((prev) => ({ ...prev, show: false })); // Hide existing
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -72,47 +79,27 @@ const ContactComponent: FC<ContactProps> = ({
       const data = await response.json();
 
       if (data.success) {
-        setShowSuccess(true);
         form.reset();
-        setTimeout(() => {
-          setIsClosing(true);
-          setTimeout(() => {
-            setShowSuccess(false);
-            setIsClosing(false);
-          }, 300);
-        }, 5000);
+        setToast({
+          show: true,
+          type: "success",
+          title: t.successTitle,
+          message: t.successMessage,
+        });
       } else {
-        setShowError(true);
-        setTimeout(() => {
-          setIsClosing(true);
-          setTimeout(() => {
-            setShowError(false);
-            setIsClosing(false);
-          }, 300);
-        }, 5000);
+        throw new Error("Form submission failed");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      setShowError(true);
-      setTimeout(() => {
-        setIsClosing(true);
-        setTimeout(() => {
-          setShowError(false);
-          setIsClosing(false);
-        }, 300);
-      }, 5000);
+      setToast({
+        show: true,
+        type: "error",
+        title: t.errorTitle,
+        message: t.errorMessage,
+      });
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleCloseToast = () => {
-    setIsClosing(true);
-    setTimeout(() => {
-      setShowSuccess(false);
-      setShowError(false);
-      setIsClosing(false);
-    }, 300);
   };
 
   const copyToClipboard = (text: string, field: string) => {
@@ -129,6 +116,7 @@ const ContactComponent: FC<ContactProps> = ({
             <p className="section-eyebrow">{t.consultEyebrow}</p>
             <h2>{t.consultHeading}</h2>
             <ul className={styles.list}>
+              {/* WhatsApp */}
               <li>
                 <div className={styles.iconWrapper}>
                   <svg
@@ -142,7 +130,6 @@ const ContactComponent: FC<ContactProps> = ({
                   </svg>
                   <span>{t.contact.whatsapp}</span>
                 </div>
-
                 <div className={styles.itemWithCopy}>
                   <a
                     href={whatsappLink}
@@ -153,17 +140,18 @@ const ContactComponent: FC<ContactProps> = ({
                   >
                     {whatsappNumber}
                   </a>
-
                   <button
                     className={styles.copyBtn}
                     onClick={() => copyToClipboard(whatsappNumber, "whatsapp")}
-                    title="Copier"
+                    title={t.copy}
+                    aria-label={t.copy}
                   >
                     {copiedField === "whatsapp" ? "✓" : "📋"}
                   </button>
                 </div>
               </li>
 
+              {/* Email */}
               <li>
                 <div className={styles.iconWrapper}>
                   <svg
@@ -178,12 +166,10 @@ const ContactComponent: FC<ContactProps> = ({
                   </svg>
                   <span>{t.contact.email}</span>
                 </div>
-
                 <div className={styles.itemWithCopy}>
                   <a href="mailto:maitrealouiniguedhami@gmail.com">
                     maitrealouiniguedhami@gmail.com
                   </a>
-
                   <button
                     className={styles.copyBtn}
                     onClick={() =>
@@ -192,13 +178,15 @@ const ContactComponent: FC<ContactProps> = ({
                         "email"
                       )
                     }
-                    title="Copier"
+                    title={t.copy}
+                    aria-label={t.copy}
                   >
                     {copiedField === "email" ? "✓" : "📋"}
                   </button>
                 </div>
               </li>
 
+              {/* Office */}
               <li>
                 <div className={styles.iconWrapper}>
                   <svg
@@ -213,7 +201,6 @@ const ContactComponent: FC<ContactProps> = ({
                   </svg>
                   <span>{t.contact.office}</span>
                 </div>
-
                 <div className={styles.itemWithCopy}>
                   <span>{t.contactOffice}</span>
                 </div>
@@ -227,13 +214,11 @@ const ContactComponent: FC<ContactProps> = ({
               name="redirect"
               value="https://hgalouini.com/merci"
             />
-
             <input
               type="checkbox"
               name="botcheck"
               style={{ display: "none" }}
             />
-
             <label>
               {t.form.nameLabel}
               <input
@@ -243,7 +228,6 @@ const ContactComponent: FC<ContactProps> = ({
                 required
               />
             </label>
-
             <label>
               {t.emailLabel}
               <input
@@ -253,7 +237,6 @@ const ContactComponent: FC<ContactProps> = ({
                 required
               />
             </label>
-
             <label>
               {t.form.messageLabel}
               <textarea
@@ -263,7 +246,6 @@ const ContactComponent: FC<ContactProps> = ({
                 required
               ></textarea>
             </label>
-
             <button
               type="submit"
               className="btn primary"
@@ -282,7 +264,6 @@ const ContactComponent: FC<ContactProps> = ({
             referrerPolicy="no-referrer-when-downgrade"
             src={mapEmbedSrc}
           ></iframe>
-
           <a
             className={styles.mapLink}
             href={mapShareUrl}
@@ -294,65 +275,13 @@ const ContactComponent: FC<ContactProps> = ({
         </div>
       </section>
 
-      {showSuccess &&
-        createPortal(
-          <div
-            className={`${styles.successToast} ${
-              isClosing ? styles.toastExit : styles.toastEnter
-            }`}
-          >
-            <div className={styles.toastContent}>
-              <div className={styles.successIcon}>✓</div>
-              <div>
-                <p style={{ fontWeight: "bold", marginBottom: "0.25rem" }}>
-                  {t.successTitle}
-                </p>
-                <p style={{ fontSize: "0.9rem", opacity: 0.9 }}>
-                  {t.successMessage}
-                </p>
-              </div>
-              <button
-                className={styles.toastClose}
-                onClick={handleCloseToast}
-                aria-label="Close notification"
-              >
-                ×
-              </button>
-            </div>
-            <div className={styles.progressBar}></div>
-          </div>,
-          document.body
-        )}
-
-      {showError &&
-        createPortal(
-          <div
-            className={`${styles.errorToast} ${
-              isClosing ? styles.toastExit : styles.toastEnter
-            }`}
-          >
-            <div className={styles.toastContent}>
-              <div className={styles.errorIcon}>✕</div>
-              <div>
-                <p style={{ fontWeight: "bold", marginBottom: "0.25rem" }}>
-                  {t.errorTitle}
-                </p>
-                <p style={{ fontSize: "0.9rem", opacity: 0.9 }}>
-                  {t.errorMessage}
-                </p>
-              </div>
-              <button
-                className={styles.toastClose}
-                onClick={handleCloseToast}
-                aria-label="Close notification"
-              >
-                ×
-              </button>
-            </div>
-            <div className={styles.progressBar}></div>
-          </div>,
-          document.body
-        )}
+      <Toast
+        show={toast.show}
+        type={toast.type}
+        title={toast.title}
+        message={toast.message}
+        onClose={() => setToast((prev) => ({ ...prev, show: false }))}
+      />
     </>
   );
 };

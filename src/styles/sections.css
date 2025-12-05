@@ -1,19 +1,34 @@
-/* src/styles/sections.css */
-/* Responsive grid for sections – mobile first single column */
-.section-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: 1fr; /* single column on phones */
+/* Sections */
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
 }
 
-@media (min-width: var(--bp-md)) {
-  .section-grid {
-    grid-template-columns: repeat(2, 1fr); /* two columns on tablets */
-  }
+.section-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  display: block;
+  font-weight: 600;
 }
 
-@media (min-width: var(--bp-lg)) {
-  .section-grid {
-    grid-template-columns: repeat(3, 1fr); /* three columns on larger screens */
+.section-header h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin: 0;
+  color: #fff;
+  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 900px) {
+  .section-header h2 {
+    font-size: clamp(1.75rem, 5vw, 2.2rem);
   }
 }

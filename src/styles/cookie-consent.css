@@ -16,8 +16,10 @@
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 100px;
-  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.4),
-    0 8px 20px -4px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 16px 40px -8px rgba(0, 0, 0, 0.4),
+    0 8px 20px -4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   padding: 0.5rem 0.5rem 0.5rem 1.25rem;

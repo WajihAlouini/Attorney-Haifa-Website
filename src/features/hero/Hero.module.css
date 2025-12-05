@@ -1,10 +1,7 @@
 .hero {
   position: relative;
-  background: linear-gradient(
-      180deg,
-      rgba(3, 5, 8, 0) 0%,
-      rgba(3, 5, 8, 0.9) 100%
-    ),
+  background:
+    linear-gradient(180deg, rgba(3, 5, 8, 0) 0%, rgba(3, 5, 8, 0.9) 100%),
     radial-gradient(
       circle at 50% 50%,
       rgba(212, 175, 55, 0.03) 0%,

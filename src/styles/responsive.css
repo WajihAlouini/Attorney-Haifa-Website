@@ -1,18 +1,18 @@
 /* src/styles/responsive.css */
 :root {
   /* Breakpoints */
-  --bp-sm: 480px;   /* phones */
-  --bp-md: 768px;   /* tablets */
-  --bp-lg: 1024px;  /* small laptops */
+  --bp-sm: 480px; /* phones */
+  --bp-md: 768px; /* tablets */
+  --bp-lg: 1024px; /* small laptops */
 
   /* Typography scale */
-  --fs-base: 1rem;          /* 16px */
-  --fs-lg: 1.125rem;       /* 18px */
-  --fs-xl: 1.25rem;        /* 20px */
-  --fs-xxl: 1.5rem;        /* 24px */
+  --fs-base: 1rem; /* 16px */
+  --fs-lg: 1.125rem; /* 18px */
+  --fs-xl: 1.25rem; /* 20px */
+  --fs-xxl: 1.5rem; /* 24px */
 
   /* Touch‑friendly hit area */
-  --tap-min: 44px;          /* Minimum recommended tap target */
+  --tap-min: 44px; /* Minimum recommended tap target */
 }
 
 /* Fluid typography – optional but looks premium */

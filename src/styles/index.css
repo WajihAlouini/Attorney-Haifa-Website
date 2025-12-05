@@ -1,5 +1,24 @@
-/* Import all style modules */
-@import './base.css';
-@import './animations.css';
-@import './components.css';
-@import './utilities.css';
+/* Main CSS Entry Point */
+
+/* Variables & Base */
+@import "./variables.css";
+@import "./base.css";
+
+/* Core */
+@import "./layout.css";
+@import "./animations.css";
+
+/* Components */
+@import "./components.css";
+@import "./sections.css";
+
+/* Features (Global overrides only) */
+@import "./footer.css";
+@import "./header.css"; /* Minimal/Placeholder */
+@import "./hero.css"; /* Minimal/Placeholder */
+
+/* Utilites */
+@import "./utilities.css";
+
+/* Responsive Overrides */
+@import "./mobile.css";

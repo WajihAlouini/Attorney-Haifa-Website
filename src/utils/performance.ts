@@ -56,8 +56,8 @@ export const measureWebVitals = (
         lastEntry.renderTime < 2500
           ? "good"
           : lastEntry.renderTime < 4000
-          ? "needs-improvement"
-          : "poor",
+            ? "needs-improvement"
+            : "poor",
     });
   });
 
@@ -78,8 +78,8 @@ export const measureWebVitals = (
           entry.processingStart - entry.startTime < 100
             ? "good"
             : entry.processingStart - entry.startTime < 300
-            ? "needs-improvement"
-            : "poor",
+              ? "needs-improvement"
+              : "poor",
       });
     });
   });
@@ -103,8 +103,8 @@ export const measureWebVitals = (
             clsValue < 0.1
               ? "good"
               : clsValue < 0.25
-              ? "needs-improvement"
-              : "poor",
+                ? "needs-improvement"
+                : "poor",
         });
       }
     }

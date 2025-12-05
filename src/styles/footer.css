@@ -1,0 +1,52 @@
+/* Footer */
+
+.footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.footer p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.developer-credit {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.developer-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.developer-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.developer-link:hover {
+  opacity: 0.8;
+}
+
+.developer-link:hover::after {
+  width: 100%;
+}

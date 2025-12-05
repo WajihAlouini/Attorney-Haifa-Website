@@ -24,13 +24,17 @@
   height: auto;
   display: block;
   border-radius: 4px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(212, 175, 55, 0.2);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(212, 175, 55, 0.2);
   transition: all 0.4s ease;
 }
 
 .portrait:hover {
   transform: translateY(-8px);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.4);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(212, 175, 55, 0.4);
 }
 
 .contentColumn {

@@ -175,6 +175,7 @@ export interface Translation {
   errorTitle: string;
   errorMessage: string;
   scrollToTop: string;
+  copy: string;
 }
 
 export interface Translations {

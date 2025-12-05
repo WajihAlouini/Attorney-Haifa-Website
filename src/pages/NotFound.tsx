@@ -11,22 +11,22 @@ export const NotFound: FC<NotFoundProps> = ({ locale }) => {
     locale === "fr"
       ? "Page Non Trouvée"
       : locale === "ar"
-      ? "الصفحة غير موجودة"
-      : "Page Not Found";
+        ? "الصفحة غير موجودة"
+        : "Page Not Found";
 
   const description =
     locale === "fr"
       ? "Désolé, la page que vous recherchez n'existe pas ou a été déplacée."
       : locale === "ar"
-      ? "عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها."
-      : "Sorry, the page you are looking for does not exist or has been moved.";
+        ? "عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها."
+        : "Sorry, the page you are looking for does not exist or has been moved.";
 
   const buttonText =
     locale === "fr"
       ? "Retour à l'accueil"
       : locale === "ar"
-      ? "العودة إلى الصفحة الرئيسية"
-      : "Back to Home";
+        ? "العودة إلى الصفحة الرئيسية"
+        : "Back to Home";
 
   return (
     <div

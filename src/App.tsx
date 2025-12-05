@@ -1,15 +1,21 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
-import "./styles/mobile.css";
+import { HelmetProvider } from "react-helmet-async";
 import { translations } from "@/data/translations";
 import { whatsappNumber } from "@/data/constants";
 import { MainLayout } from "@/layouts/MainLayout";
 import { Home } from "@/pages/Home";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import { reportWebVitals } from "@/utils/performance";
-import { useSEO, useScrollToSection } from "@/hooks/useSEO";
-import { NotFound } from "@/pages/NotFound";
+import { useScrollToSection } from "@/hooks/useScrollToSection";
+import { SEO } from "@/components/common/SEO";
+import { Suspense, lazy } from "react";
+// ... imports
+import { LoadingFallback } from "@/components/ui/LoadingFallback";
+
+const NotFound = lazy(() =>
+  import("@/pages/NotFound").then((m) => ({ default: m.NotFound }))
+);
 
 // Wrapper component that uses router hooks
 function AppContent() {
@@ -20,8 +26,7 @@ function AppContent() {
 
   const { scrollProgress, showScrollTop, scrollToTop } = useScrollProgress();
 
-  // SEO and scroll management
-  useSEO();
+  // Scroll management
   useScrollToSection();
 
   // Report Web Vitals for performance monitoring
@@ -40,6 +45,7 @@ function AppContent() {
       scrollToTop={scrollToTop}
       whatsappLink={whatsappLink}
     >
+      <SEO />
       <Routes>
         {/* All these routes render the same Home page but with different SEO */}
         <Route
@@ -109,7 +115,14 @@ function AppContent() {
           }
         />
         {/* 404 for unknown routes */}
-        <Route path="*" element={<NotFound t={t} locale={locale} />} />
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <NotFound t={t} locale={locale} />
+            </Suspense>
+          }
+        />
       </Routes>
     </MainLayout>
   );
@@ -117,9 +130,11 @@ function AppContent() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 

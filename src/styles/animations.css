@@ -1,207 +1,201 @@
-/* All animation keyframes and effects */
+/* Animations */
 
-/* Fade in animations */
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0.15;
+  }
 }
 
-.fade-in-section.fade-in-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Shimmer effect */
-@keyframes shimmer {
-    to {
-        background-position: 200% center;
-    }
-}
-
-/* Float animation */
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0.3;
-    }
-
-    25% {
-        transform: translate(50px, -50px) scale(1.2);
-        opacity: 0.5;
-    }
-
-    50% {
-        transform: translate(-30px, -100px) scale(0.8);
-        opacity: 0.2;
-    }
-
-    75% {
-        transform: translate(70px, -70px) scale(1.1);
-        opacity: 0.4;
-    }
-}
-
-/* Pulse animation */
 @keyframes pulse {
-
-    0%,
-    100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-    }
-
-    50% {
-        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
-    }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
 }
 
-/* Bounce animation */
-@keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateX(-50%) translateY(0);
-    }
-
-    40% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-
-    60% {
-        transform: translateX(-50%) translateY(-5px);
-    }
+@keyframes float-icon {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-/* Scale in animation */
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(50px, -50px) scale(1.2);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-30px, -100px) scale(0.8);
+    opacity: 0.2;
+  }
+  75% {
+    transform: translate(70px, -70px) scale(1.1);
+    opacity: 0.4;
+  }
 }
 
-/* Slide in animation */
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
 @keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideInRight {
-    from {
-        transform: translateX(400px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-/* Ripple effect */
-@keyframes ripple {
-    0% {
-        width: 100%;
-        height: 100%;
-        opacity: 0.5;
-    }
-
-    100% {
-        width: 200%;
-        height: 200%;
-        opacity: 0;
-    }
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* Spin animation */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* Float icon */
-@keyframes float-icon {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
+@keyframes ripple {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+  }
+  100% {
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+  }
 }
 
-/* Cursor blink */
 @keyframes blink {
-
-    0%,
-    50% {
-        opacity: 1;
-    }
-
-    51%,
-    100% {
-        opacity: 0;
-    }
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
-/* Reduce animations for accessibility */
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .hero-content {
-        animation: fadeInScale 1s ease-out;
-    }
+/* Animation Classes */
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+  color: var(--accent);
+  margin-left: 4px;
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.fade-in-section.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

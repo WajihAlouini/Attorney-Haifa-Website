@@ -1,84 +1,45 @@
-/* Reusable utility classes */
+/* Utilities */
 
-/* Scroll progress bar */
-.scroll-progress-bar {
+/* Premium Background Effects */
+.glow {
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-light));
-  z-index: 1000;
-  transition: width 0.1s ease-out;
-  box-shadow: 0 0 10px var(--accent);
-}
-
-/* Scroll to top button */
-.scroll-to-top {
-  position: fixed;
-  bottom: 8rem;
-  right: 2rem;
-  width: 50px;
-  height: 50px;
-  background: var(--accent);
-  color: #05080f;
-  border: none;
+  width: 600px;
+  height: 600px;
+  filter: blur(120px);
+  opacity: 0.12;
+  z-index: -2;
+  pointer-events: none;
   border-radius: 50%;
-  font-size: 1.5rem;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.4);
-  transition: all 0.3s ease;
-  animation: fadeInUp 0.3s ease-out;
-  z-index: 99;
+  mix-blend-mode: screen;
+  animation: pulseGlow 10s infinite alternate;
 }
 
-.practice-icon {
-  width: 48px;
-  height: 48px;
-  color: var(--gold);
-  margin-bottom: 1.5rem;
-  transition: transform 0.3s ease;
+.glow-one {
+  top: -100px;
+  left: -100px;
+  background: radial-gradient(circle, var(--accent), transparent 70%);
 }
 
-.practice-card:hover .practice-icon {
-  transform: translateY(-5px);
+.glow-two {
+  bottom: -100px;
+  right: -100px;
+  background: radial-gradient(
+    circle,
+    #3b82f6,
+    transparent 70%
+  ); /* Subtle blue contrast */
+  animation-delay: 5s;
 }
 
-.scroll-to-top:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(197, 160, 89, 0.6);
-}
-
-/* Success toast */
-.success-toast {
-  position: fixed;
-  top: 2rem;
-  right: 2rem;
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+/* Loading Fallback */
+.section-loading {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  animation: slideInRight 0.3s ease-out;
-  z-index: 1000;
-}
-
-.success-icon {
-  width: 30px;
-  height: 30px;
-  background: white;
-  color: #10b981;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 1.2rem;
+  align-items: center;
+  padding: 4rem;
+  min-height: 200px;
 }
 
-/* Loading spinner */
 .reviews-loading {
   display: flex;
   flex-direction: column;
@@ -88,67 +49,27 @@
   gap: 1.5rem;
 }
 
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 3px solid var(--border);
-  border-top-color: var(--accent);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
 .reviews-loading p {
   color: var(--muted);
   font-size: 0.9rem;
 }
 
-/* Floating WhatsApp Button */
-.floating-whatsapp {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 60px;
-  height: 60px;
-  background-color: #25d366;
-  color: white;
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(197, 160, 89, 0.3);
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-  z-index: 1000;
-  transition: all 0.3s ease;
-  animation: fadeInUp 0.5s ease-out 1s backwards;
+  border-top-color: var(--accent);
+  animation: spin 1s ease-in-out infinite;
 }
 
-.floating-whatsapp:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
-}
-
-/* Mobile optimizations */
-@media (max-width: 768px) {
-  .scroll-to-top {
-    bottom: 6rem;
-    right: 1rem;
-    width: 45px;
-    height: 45px;
-  }
-
-  .floating-whatsapp {
-    bottom: 2rem;
-    right: 1rem;
-    width: 50px;
-    height: 50px;
-  }
-
-  .success-toast {
-    right: 1rem;
-    left: 1rem;
-    top: 1rem;
-  }
-
-  .scroll-progress-bar {
-    height: 2px;
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
