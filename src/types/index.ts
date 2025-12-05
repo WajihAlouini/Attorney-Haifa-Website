@@ -146,9 +146,24 @@ export interface Translation {
   }>;
 
   // Cookies
-  cookieText: string;
-  cookieAccept: string;
-  cookieDecline: string;
+  cookieTitle?: string;
+  cookieCompact?: string;
+  cookieText?: string;
+  cookieAccept?: string;
+  cookieAcceptAll?: string;
+  cookieDecline?: string;
+  cookieReject?: string;
+  cookieRejectAll?: string;
+  cookieSave?: string;
+  cookieSettingsTitle?: string;
+  cookieSettingsDesc?: string;
+  cookieEssential?: string;
+  cookieEssentialDesc?: string;
+  cookieRequired?: string;
+  cookieAnalytics?: string;
+  cookieAnalyticsDesc?: string;
+  cookieMarketing?: string;
+  cookieMarketingDesc?: string;
 
   // UI Text
   seeMoreReviews: string;
