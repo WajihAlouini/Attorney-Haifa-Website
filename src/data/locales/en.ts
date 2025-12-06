@@ -15,118 +15,120 @@ export const en: Translation = {
     consult: "Contact",
   },
   heroEyebrow: "Tunis · Kairouan · International",
-  heroTitle: "Excellence in Legal Advocacy & Strategic Counsel.",
+  heroTitle: "Your peace of mind is our mission.",
   heroLede:
-    "Maître Haifa Guedhami Alouini provides expert legal representation for individuals and businesses in Tunisia and abroad, specializing in Business, Real Estate, and Family Law.",
+    "You are not alone in this trial. Maître Haifa Guedhami Alouini accompanies you with compassion and expertise during your most important legal moments. Whether you are going through a difficult divorce, a commercial dispute, or a real estate challenge, we are by your side to protect your rights and your future.",
   ctas: {
-    primary: "Request Consultation",
+    primary: "First consultation",
     bookOnline: "Book Online",
     secondary: "Our Expertise",
     whatsapp: "Contact via WhatsApp",
   },
   heroMetrics: [
-    { value: "25+", label: "Years of Legal Excellence" },
+    { value: "25+", label: "Years of Experience" },
     { value: "2000+", label: "Cases Successfully Resolved" },
-    { value: "3", label: "Languages Spoken" },
+    { value: "3", label: "Languages to Better Understand You" },
   ],
-  aboutEyebrow: "The Attorney",
-  aboutHeading: "A Trusted Partner for Your Legal Matters.",
+  aboutEyebrow: "About Maître Haifa",
+  aboutHeading: "Listening Changes Everything.",
   aboutBody:
-    "Your success is our priority. With 25 years of experience, Maître Haifa Guedhami Alouini turns your legal challenges into opportunities. We don't just defend you; we build winning strategies with you to secure your future and protect your interests, both in Tunisia and internationally.",
+    "I know that looking for a lawyer means you are going through a tough time. For 25 years, I have had the privilege of accompanying people like you — parents worried about their children, entrepreneurs defending their life's work, families settling complex estates. My approach? Listening first. Understanding not just your legal situation, but also your fears, your priorities, and your hopes. Then, we build a clear strategy together to regain your serenity.",
   pillars: [
     {
-      title: "Litigation & Dispute Resolution",
+      title: "Compassion",
       detail:
-        "Tenacious representation in civil, commercial, and family courts.",
+        "You deserve a lawyer who cares as much about your well-being as your case.",
     },
     {
-      title: "Corporate & Investment",
+      title: "Clarity",
       detail:
-        "Legal structuring for businesses and protection of commercial interests.",
+        "Clear explanations in French, Arabic, or English — never in legal jargon.",
     },
   ],
   practiceEyebrow: "Areas of Practice",
-  practiceHeading: "Comprehensive Legal Solutions.",
+  practiceHeading: "Tailored Legal Solutions.",
   practiceAreas: [
     {
-      title: "Business & Corporate Law",
+      title: "Family & Inheritance Law",
       summary:
-        "Company formation, commercial contracts, mergers, and regulatory compliance for domestic and foreign investors.",
+        "Divorce proceedings, child custody, international family law, and complex estate liquidation.",
+    },
+    {
+      title: "Business & Corporate Law",
+      summary: "Company formation, commercial contracts, and mergers.",
     },
     {
       title: "Real Estate & Property",
       summary:
         "Transaction security, title disputes, construction law, and property management advisory.",
     },
-    {
-      title: "Family & Inheritance Law",
-      summary:
-        "Divorce proceedings, child custody, international family law, and complex estate liquidation.",
-    },
   ],
-  approachEyebrow: "Our Approach",
-  approachHeading: "Rigorous & Client-Centric Methodology.",
+  approachEyebrow: "How We Work Together",
+  approachHeading: "Step-by-Step Guidance.",
   approach: [
     {
-      phase: "01. Analysis",
+      phase: "01. First Meeting",
       detail:
-        "In-depth review of facts and legal merits to define the optimal strategy.",
+        "No Judgment. You share your story in a confidential and caring space.",
     },
     {
-      phase: "02. Strategy",
+      phase: "02. Clear Explanations",
       detail:
-        "Formulating a clear, actionable legal roadmap with transparent timelines and costs.",
+        "I explain your options in human language. You will understand exactly where you stand.",
     },
     {
-      phase: "03. Execution",
+      phase: "03. Transparent Plan",
       detail:
-        "Proactive representation in court or negotiations, ensuring your interests are paramount.",
+        "Strategy with realistic timelines and clear costs. No surprises, no hidden fees.",
     },
     {
-      phase: "04. Resolution",
-      detail:
-        "Ensuring full enforcement of judgments and long-term legal security.",
+      phase: "04. Guidance",
+      detail: "I am available to answer your questions throughout the process.",
+    },
+    {
+      phase: "05. Protection",
+      detail: "Determined but always respectful representation in court.",
     },
   ],
-  testimonialsEyebrow: "Client Testimonials",
-  testimonialsHeading: "Trusted by Clients Worldwide.",
+  testimonialsEyebrow: "What Our Clients Say",
+  testimonialsHeading: "The Trust of Our Clients.",
   reviewsEyebrow: "Client Reviews",
-  reviewsHeading: "What our clients say.",
-  reviewsNote: "Verified reviews from our Google Business Profile.",
+  reviewsHeading: "Your Words",
+  reviewsNote: "Verified reviews",
   reviews: [
     {
       rating: "★★★★★",
-      text: "Exceptional professionalism. Maître Alouini handled our company incorporation with speed and precision.",
-      author: "Thomas R. · CEO, Tech Solutions",
-      image: "/people/thomas.webp",
+      text: "Maître Alouini saved my business. More importantly, she reassured me during the most stressful moments.",
+      author: "Ahmed K. · Entrepreneur",
+      image: "/people/ahmed.webp",
     },
     {
       rating: "★★★★★",
-      text: "A lawyer who truly listens. She resolved a difficult inheritance matter that had been stalled for years.",
-      author: "Leila B. · Paris",
+      text: "She didn't just help me get custody of my children. She gave me hope again.",
+      author: "Leila M. · Mother",
       image: "/people/leila.webp",
     },
     {
-      rating: "★★★★☆",
-      text: "Very knowledgeable in real estate law. Highly recommended for property transactions in Kairouan.",
-      author: "Ahmed K. · Real Estate Investor",
-      image: "/people/ahmed.webp",
+      rating: "★★★★★",
+      text: "I am extremely grateful. She handled my case with professionalism and dedication.",
+      author: "Saousen Ouelhazi",
+      image: "/people/thomas.webp",
     },
   ],
   testimonials: [
     {
       quote:
-        "Maître Alouini combines legal expertise with a strategic mindset. Her advice was crucial for our expansion into the Tunisian market.",
-      author: "Jean-Pierre L., Director of Operations",
+        "Thanks to her, my business survived the litigation. An exceptional lawyer.",
+      author: "Client, Kairouan",
     },
     {
       quote:
-        "Professional, responsive, and effective. I felt supported throughout my entire legal process.",
-      author: "Sarah M., Tunis",
+        "She understood my pain and protected my children. I can never thank her enough.",
+      author: "Client, Tunis",
     },
   ],
-  consultEyebrow: "Contact Us",
-  consultHeading: "Schedule Your Consultation Today.",
+  consultEyebrow: "Contact",
+  consultHeading: "Ready to Regain Your Serenity?",
   contact: {
     whatsapp: "WhatsApp",
     email: "Email",
@@ -137,18 +139,18 @@ export const en: Translation = {
     nameLabel: "Full Name",
     namePlaceholder: "Enter your full name",
     emailPlaceholder: "your@email.com",
-    orgLabel: "Company / Location",
+    orgLabel: "Company / City",
     orgPlaceholder: "e.g., Company Ltd. or City",
     messageLabel: "Case Description",
-    messagePlaceholder: "Briefly describe your legal inquiry",
-    submit: "Submit Inquiry",
+    messagePlaceholder: "Briefly describe your situation",
+    submit: "Send Request",
     defaultName: "Prospective Client",
     defaultOrg: "Individual",
   },
-  mapLabel: "Office Location Map",
+  mapLabel: "Location Map",
   mapLinkLabel: "Open in Google Maps",
   galleryEyebrow: "The Firm",
-  galleryHeading: "Our Office in Kairouan.",
+  galleryHeading: "A Welcoming Space.",
   valuesEyebrow: "Core Values",
   valuesHeading: "Commitment to Integrity & Excellence.",
   values: [
@@ -172,38 +174,43 @@ export const en: Translation = {
         "Relentless advocacy to achieve the best possible outcome for every client.",
     },
   ],
-  impactEyebrow: "Track Record",
-  impactHeading: "Proven Results.",
+  impactEyebrow: "Impact",
+  impactHeading: "Our Impact.",
   impactStats: [
     { value: "25+", label: "Years Experience" },
     { value: "98%", label: "Client Satisfaction" },
-    { value: "2000+", label: "Cases Handled" },
+    { value: "2000+", label: "Cases Resolved" },
     { value: "24/7", label: "Emergency Support" },
   ],
   footerBlurb:
     "Premier legal services for individuals and corporations in Tunisia.",
-  faqEyebrow: "FAQ",
-  faqHeading: "Frequently Asked Questions",
+  faqEyebrow: "Your Questions",
+  faqHeading: "Answers",
   faq: [
     {
-      question: "How much does a consultation cost?",
+      question: "I'm afraid to go to court...",
       answer:
-        "Our fees are transparent and discussed in advance. We provide an initial assessment to understand your needs before any commitment.",
+        "It's normal. The good news? Most cases are settled before court. If we must go, I will be by your side at every step.",
     },
     {
-      question: "Do you handle international cases?",
+      question: "Is my information confidential?",
       answer:
-        "Yes, we specialize in assisting international clients with their legal matters in Tunisia, including business formation, real estate, and family law.",
+        "Absolutely. Professional secrecy is sacred. Everything you tell me stays between us. It's a promise.",
     },
     {
-      question: "What documents are required?",
+      question: "How much will it cost?",
       answer:
-        "For the first consultation, please bring any documents relevant to your case (contracts, summons, ID). We will provide a specific list after booking.",
+        "I understand this concern. I give you a clear estimate from the start and we discuss payment options suited to your budget.",
     },
     {
-      question: "How long will my case take?",
+      question: "How long will it take?",
       answer:
-        "Duration varies by case type. During the strategy phase, we provide a realistic estimate based on current court schedules and procedures.",
+        "Every situation is unique. I give you a realistic estimate and keep you informed at every step.",
+    },
+    {
+      question: "What happens during our first meeting?",
+      answer:
+        "You speak, I listen. You tell me your situation, then I explain your options. No pressure, just an honest conversation.",
     },
   ],
   cookieTitle: "Cookie Preferences",

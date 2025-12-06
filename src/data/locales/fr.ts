@@ -15,118 +15,122 @@ export const fr: Translation = {
     consult: "Contact",
   },
   heroEyebrow: "Tunis · Kairouan · International",
-  heroTitle: "Excellence en Plaidoyer & Conseil Stratégique.",
+  heroTitle: "Votre tranquillité d'esprit est notre mission.",
   heroLede:
-    "Maître Haifa Guedhami Alouini offre une représentation juridique experte pour les particuliers et les entreprises en Tunisie et à l'étranger, spécialisée en droit des affaires, immobilier et droit de la famille.",
+    "Vous n'êtes pas seul dans cette épreuve. Maître Haifa Guedhami Alouini vous accompagne avec compassion et expertise dans vos moments juridiques les plus importants. Que vous traversiez un divorce difficile, un litige commercial ou un défi immobilier, nous sommes à vos côtés pour protéger vos droits et votre avenir.",
   ctas: {
-    primary: "Demander une consultation",
+    primary: "Première consultation",
     bookOnline: "Réserver en ligne",
     secondary: "Notre Expertise",
     whatsapp: "Contact via WhatsApp",
   },
   heroMetrics: [
-    { value: "25+", label: "Années d'Excellence" },
+    { value: "25+", label: "Années d'Expérience" },
     { value: "2000+", label: "Dossiers Résolus" },
-    { value: "3", label: "Langues Parlées" },
+    { value: "3", label: "Langues pour Mieux Vous Comprendre" },
   ],
-  aboutEyebrow: "L'Avocate",
-  aboutHeading: "Un Partenaire de Confiance.",
+  aboutEyebrow: "À Propos de Maître Haifa",
+  aboutHeading: "Une Écoute qui Change Tout.",
   aboutBody:
-    "Votre succès est notre priorité. Forte de 25 ans d'expérience, Maître Haifa Guedhami Alouini transforme vos défis juridiques en opportunités. Nous ne nous contentons pas de vous défendre ; nous bâtissons avec vous des stratégies gagnantes pour sécuriser votre avenir et protéger vos intérêts, en Tunisie comme à l'international.",
+    "Je sais que chercher un avocat signifie que vous traversez un moment difficile. Depuis 25 ans, j'ai le privilège d'accompagner des personnes comme vous — des parents inquiets pour leurs enfants, des entrepreneurs qui défendent leur vie de travail, des familles qui règlent des successions complexes. Mon approche ? Vous écouter d'abord. Comprendre non seulement votre situation juridique, mais aussi vos peurs, vos priorités et vos espoirs. Ensuite, nous construisons ensemble une stratégie claire, pour retrouver votre sérénité.",
   pillars: [
     {
-      title: "Contentieux & Résolution de Litiges",
+      title: "Compassion",
       detail:
-        "Représentation tenace devant les tribunaux civils, commerciaux et de la famille.",
+        "Vous méritez un avocat qui se soucie autant de votre bien-être que de votre dossier.",
     },
     {
-      title: "Entreprises & Investissement",
+      title: "Clarté",
       detail:
-        "Structuration juridique pour les entreprises et protection des intérêts commerciaux.",
+        "Des explications claires en français, arabe ou anglais — jamais en jargon juridique.",
     },
   ],
   practiceEyebrow: "Domaines d'Expertise",
-  practiceHeading: "Solutions Juridiques Complètes.",
+  practiceHeading: "Solutions Juridiques Adaptées.",
   practiceAreas: [
     {
-      title: "Droit des Affaires",
+      title: "Droit de la Famille",
       summary:
-        "Création d'entreprises, contrats commerciaux, fusions et conformité réglementaire pour les investisseurs.",
+        "Procédures de divorce, garde d'enfants, droit international de la famille et liquidation de successions.",
+    },
+    {
+      title: "Droit des Affaires",
+      summary: "Création d'entreprises, contrats commerciaux et fusions.",
     },
     {
       title: "Droit Immobilier",
       summary:
         "Sécurité des transactions, litiges de propriété, droit de la construction et gestion immobilière.",
     },
-    {
-      title: "Droit de la Famille",
-      summary:
-        "Procédures de divorce, garde d'enfants, droit international de la famille et liquidation de successions.",
-    },
   ],
-  approachEyebrow: "Notre Approche",
-  approachHeading: "Méthodologie Rigoureuse.",
+  approachEyebrow: "Comment Nous Travaillons Ensemble",
+  approachHeading: "Un Accompagnement Pas à Pas.",
   approach: [
     {
-      phase: "01. Analyse",
+      phase: "01. Première Rencontre",
       detail:
-        "Examen approfondi des faits et du droit pour définir la stratégie optimale.",
+        "Sans Jugement. Vous partagez votre histoire dans un espace confidentiel et bienveillant.",
     },
     {
-      phase: "02. Stratégie",
+      phase: "02. Explications Claires",
       detail:
-        "Formulation d'une feuille de route juridique claire avec des délais et des coûts transparents.",
+        "Je vous explique vos options en langage humain. Vous comprendrez exactement où vous en êtes.",
     },
     {
-      phase: "03. Exécution",
+      phase: "03. Plan Transparent",
       detail:
-        "Représentation proactive au tribunal ou en négociation, en priorisant vos intérêts.",
+        "Stratégie avec délais réalistes et coûts clairs. Pas de surprises, pas de frais cachés.",
     },
     {
-      phase: "04. Résolution",
+      phase: "04. Accompagnement",
       detail:
-        "Garantir l'exécution complète des jugements et la sécurité juridique à long terme.",
+        "Je suis disponible pour répondre à vos questions tout au long du processus.",
+    },
+    {
+      phase: "05. Protection",
+      detail:
+        "Représentation déterminée mais toujours respectueuse devant les tribunaux.",
     },
   ],
-  testimonialsEyebrow: "Témoignages",
+  testimonialsEyebrow: "Ce Que Disent Nos Clients",
   testimonialsHeading: "La Confiance de nos Clients.",
   reviewsEyebrow: "Avis Clients",
-  reviewsHeading: "Ce que disent nos clients.",
-  reviewsNote: "Avis vérifiés de notre profil Google Business.",
+  reviewsHeading: "Vos Mots",
+  reviewsNote: "Avis vérifiés",
   reviews: [
     {
       rating: "★★★★★",
-      text: "Professionnalisme exceptionnel. Maître Alouini a géré la création de notre société avec rapidité et précision.",
-      author: "Thomas R. · CEO",
-      image: "/people/thomas.webp",
+      text: "Maître Alouini a sauvé mon entreprise. Plus important encore, elle m'a rassuré dans les moments les plus stressants.",
+      author: "Ahmed K. · Entrepreneur",
+      image: "/people/ahmed.webp",
     },
     {
       rating: "★★★★★",
-      text: "Une avocate qui écoute vraiment. Elle a résolu une affaire de succession difficile bloquée depuis des années.",
-      author: "Leila B. · Paris",
+      text: "Elle ne m'a pas seulement aidée à obtenir la garde de mes enfants. Elle m'a redonné espoir.",
+      author: "Leila M. · Mère de famille",
       image: "/people/leila.webp",
     },
     {
-      rating: "★★★★☆",
-      text: "Très compétente en droit immobilier. Hautement recommandée pour les transactions à Kairouan.",
-      author: "Ahmed K. · Investisseur",
-      image: "/people/ahmed.webp",
+      rating: "★★★★★",
+      text: "Je suis extrêmement reconnaissante. Elle a traité mon dossier avec professionnalisme et dévouement.",
+      author: "Saousen Ouelhazi",
+      image: "/people/thomas.webp",
     },
   ],
   testimonials: [
     {
       quote:
-        "Maître Alouini allie expertise juridique et vision stratégique. Son conseil a été crucial pour notre expansion.",
-      author: "Jean-Pierre L., Directeur des Opérations",
+        "Grâce à elle, mon entreprise a survécu au litige. Une avocate exceptionnelle.",
+      author: "Client, Kairouan",
     },
     {
       quote:
-        "Professionnelle, réactive et efficace. Je me suis sentie soutenue tout au long de ma procédure.",
-      author: "Sarah M., Tunis",
+        "Elle a compris ma douleur et protégé mes enfants. Je ne la remercierai jamais assez.",
+      author: "Cliente, Tunis",
     },
   ],
   consultEyebrow: "Contact",
-  consultHeading: "Prenez Rendez-vous Aujourd'hui.",
+  consultHeading: "Prêt(e) à Retrouver Votre Sérénité ?",
   contact: {
     whatsapp: "WhatsApp",
     email: "Email",
@@ -140,7 +144,7 @@ export const fr: Translation = {
     orgLabel: "Société / Ville",
     orgPlaceholder: "ex: Société SARL ou Ville",
     messageLabel: "Description du Cas",
-    messagePlaceholder: "Décrivez brièvement votre demande juridique",
+    messagePlaceholder: "Décrivez brièvement votre situation",
     submit: "Envoyer la Demande",
     defaultName: "Client Potentiel",
     defaultOrg: "Particulier",
@@ -148,7 +152,7 @@ export const fr: Translation = {
   mapLabel: "Plan d'accès",
   mapLinkLabel: "Ouvrir dans Google Maps",
   galleryEyebrow: "Le Cabinet",
-  galleryHeading: "Notre Bureau à Kairouan.",
+  galleryHeading: "Un Espace Accueillant.",
   valuesEyebrow: "Valeurs",
   valuesHeading: "Engagement envers l'Intégrité.",
   values: [
@@ -173,38 +177,43 @@ export const fr: Translation = {
         "Plaidoyer acharné pour obtenir le meilleur résultat possible pour chaque client.",
     },
   ],
-  impactEyebrow: "Palmarès",
-  impactHeading: "Résultats Prouvés.",
+  impactEyebrow: "Impact",
+  impactHeading: "Notre Impact.",
   impactStats: [
     { value: "25+", label: "Années d'Expérience" },
     { value: "98%", label: "Satisfaction Client" },
-    { value: "2000+", label: "Dossiers Traités" },
+    { value: "2000+", label: "Dossiers Résolus" },
     { value: "24/7", label: "Support d'Urgence" },
   ],
   footerBlurb:
     "Services juridiques de premier plan pour les particuliers et les entreprises en Tunisie.",
-  faqEyebrow: "FAQ",
-  faqHeading: "Questions Fréquentes",
+  faqEyebrow: "Vos Questions",
+  faqHeading: " Réponses",
   faq: [
     {
-      question: "Combien coûte une consultation ?",
+      question: "J'ai peur d'aller au tribunal...",
       answer:
-        "Nos honoraires sont transparents et discutés à l'avance. Nous fournissons une évaluation initiale pour comprendre vos besoins.",
+        "C'est normal. La bonne nouvelle ? La plupart des affaires se règlent avant. Si nous devons y aller, je serai à vos côtés à chaque étape.",
     },
     {
-      question: "Traitez-vous des affaires internationales ?",
+      question: "Est-ce que mes informations restent confidentielles ?",
       answer:
-        "Oui, nous sommes spécialisés dans l'assistance aux clients internationaux pour leurs affaires juridiques en Tunisie.",
+        "Absolument. Le secret professionnel est sacré. Tout ce que vous me dites reste entre nous. C'est une promesse.",
     },
     {
-      question: "Quels documents sont requis ?",
+      question: "Combien cela va-t-il coûter ?",
       answer:
-        "Pour la première consultation, veuillez apporter tout document pertinent à votre cas (contrats, convocations, pièce d'identité).",
+        "Je comprends cette préoccupation. Je vous donne une estimation claire dès le début et nous discutons des options adaptées à votre budget.",
     },
     {
-      question: "Combien de temps prendra mon affaire ?",
+      question: "Combien de temps cela prendra-t-il ?",
       answer:
-        "La durée varie selon le type d'affaire. Nous fournissons une estimation réaliste basée sur les calendriers judiciaires actuels.",
+        "Chaque situation est unique. Je vous donne une estimation réaliste et je vous tiens informé(e) à chaque étape.",
+    },
+    {
+      question: "Que se passe-t-il lors de notre première rencontre ?",
+      answer:
+        "Vous parlez, j'écoute. Vous me racontez votre situation, puis je vous explique vos options. Aucune pression, juste une conversation honnête.",
     },
   ],
   cookieTitle: "Préférences de cookies",
