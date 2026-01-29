@@ -33,6 +33,7 @@ export const fr: Translation = {
   aboutHeading: "Une Écoute qui Change Tout.",
   aboutBody:
     "Je sais que chercher un avocat signifie que vous traversez un moment difficile. Depuis 25 ans, j'ai le privilège d'accompagner des personnes comme vous — des parents inquiets pour leurs enfants, des entrepreneurs qui défendent leur vie de travail, des familles qui règlent des successions complexes. Mon approche ? Vous écouter d'abord. Comprendre non seulement votre situation juridique, mais aussi vos peurs, vos priorités et vos espoirs. Ensuite, nous construisons ensemble une stratégie claire, pour retrouver votre sérénité.",
+  pillarsEyebrow: "Domaines Clés",
   pillars: [
     {
       title: "Compassion",
@@ -187,6 +188,7 @@ export const fr: Translation = {
   ],
   footerBlurb:
     "Services juridiques de premier plan pour les particuliers et les entreprises en Tunisie.",
+  developedBy: "Développé par",
   faqEyebrow: "Vos Questions",
   faqHeading: " Réponses",
   faq: [

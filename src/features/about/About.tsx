@@ -35,7 +35,7 @@ export const About: FC<TranslationProps> = ({ t }) => {
               <path d="M2 17l10 5 10-5"></path>
               <path d="M2 12l10 5 10-5"></path>
             </svg>
-            Domaines Clés
+            {t.pillarsEyebrow}
           </h3>
           <div className={styles.pillars}>
             {t.pillars.map((pillar) => (

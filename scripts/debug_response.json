@@ -1,0 +1,248 @@
+{
+  "search_metadata": {
+    "id": "697b43fd550cc4a3eab5c6dc",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/e029cfe6a00144df/697b43fd550cc4a3eab5c6dc.json",
+    "created_at": "2026-01-29 11:26:53 UTC",
+    "processed_at": "2026-01-29 11:26:53 UTC",
+    "google_maps_url": "https://www.google.com/maps/search/Ma%C3%AEtre+Haifa+Guedhami+Alouini+Kairouan//?hl=en",
+    "raw_html_file": "https://serpapi.com/searches/a32fb9d6f5ce0ca6/697b43fd550cc4a3eab5c6dc.html",
+    "prettify_html_file": "https://serpapi.com/searches/31b204962ec10f19/697b43fd550cc4a3eab5c6dc.prettify",
+    "total_time_taken": 0.98
+  },
+  "search_parameters": {
+    "engine": "google_maps",
+    "type": "search",
+    "q": "Maître Haifa Guedhami Alouini Kairouan",
+    "google_domain": "google.com",
+    "hl": "en"
+  },
+  "search_information": {
+    "local_results_state": "Showing results for type: \"place\" instead of type: \"search\"",
+    "query_displayed": "Maître Haifa Guedhami Alouini Kairouan"
+  },
+  "place_results": {
+    "title": "مكتب الأستاذة هيفاء القضامي/Cabinet Maître Haifa Guedhami",
+    "place_id": "ChIJMzbOCmbF_RIR3xs7IZwpsiE",
+    "data_id": "0x12fdc5660ace3633:0x21b2299c213b1bdf",
+    "data_cid": "2428048899655277535",
+    "reviews_link": "https://serpapi.com/search.json?data_id=0x12fdc5660ace3633%3A0x21b2299c213b1bdf&engine=google_maps_reviews&hl=en",
+    "photos_link": "https://serpapi.com/search.json?data_id=0x12fdc5660ace3633%3A0x21b2299c213b1bdf&engine=google_maps_photos&hl=en",
+    "gps_coordinates": {
+      "latitude": 35.6749091,
+      "longitude": 10.101237
+    },
+    "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJMzbOCmbF_RIR3xs7IZwpsiE",
+    "provider_id": "/g/11thn3xgxh",
+    "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqD1LEVG4GEQPXO3LqSTqJh2izgiyIUSGWOFXoZ7E21E22aDiv6LjeoQ1l-wFQbEJknEMmSsnBq7EY359fMjFwCX46us-9LEiESZ96odEWPwmJB46SkZf1ByesQ_Z3YU8LhwxOV=w114-h86-k-no",
+    "serpapi_thumbnail": "https://serpapi.com/images/url/9lxuWHicBcHdToMwGADQJ-pIgZVh4sWQD5SUMFLHgJtlw0L5a4dl1vl-PoRv4zl_v2Jdb_rJsibhbDqluonfNf9slFy5XDeNmq3uplGjkbb2r8Xe8CXEFIrYjSE_lJlDF_a-JMLuf7r-8XZk8SmLSlV7YGOw7UvYfxE6cJXjCZkov0IySkhnpmWweFA5W79Nh8i8lC65a-RT6IHVPlEfcDqYOQlcwsa6xcGD6_xcO9VxR4X5zopng7GLxI6gEUn1DzHaQts",
+    "rating_summary": [
+      {
+        "stars": 1,
+        "amount": 0
+      },
+      {
+        "stars": 2,
+        "amount": 0
+      },
+      {
+        "stars": 3,
+        "amount": 0
+      },
+      {
+        "stars": 4,
+        "amount": 0
+      },
+      {
+        "stars": 5,
+        "amount": 3
+      }
+    ],
+    "rating": 5,
+    "reviews": 3,
+    "unclaimed_listing": true,
+    "type": [
+      "Attorney"
+    ],
+    "type_ids": [
+      "lawyer"
+    ],
+    "address": "M4F2+XF9, Kairouan, Tunisia",
+    "phone": "+216 98 643 612",
+    "open_state": "Open · Closes 5 PM",
+    "hours": [
+      {
+        "thursday": "8 AM–5 PM"
+      },
+      {
+        "friday": "8 AM–5 PM"
+      },
+      {
+        "saturday": "Closed"
+      },
+      {
+        "sunday": "Closed"
+      },
+      {
+        "monday": "8 AM–5 PM"
+      },
+      {
+        "tuesday": "8 AM–5 PM"
+      },
+      {
+        "wednesday": "8 AM–5 PM"
+      }
+    ],
+    "images": [
+      {
+        "title": "All",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqD1LEVG4GEQPXO3LqSTqJh2izgiyIUSGWOFXoZ7E21E22aDiv6LjeoQ1l-wFQbEJknEMmSsnBq7EY359fMjFwCX46us-9LEiESZ96odEWPwmJB46SkZf1ByesQ_Z3YU8LhwxOV=w397-h298-k-no",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/DhukH3icBcFRboIwGADgE1VCi2CX7EHmD47UIKki8mIUK0WglRVX3QG9g7fZ971fchxv5sNxOkkmtdZ1J-5G_FRajUKNk0r3Tn0zqDLIOPNlPrdiWLgM8tiLIVsXKWED3wyJxM1f3Ty_tzzepVGhywCwCxgfF82vz65CZ26HbJSdIGkVrHpuVDgEsCdTelldI_tVeP7dIMqgAV5SX59ht7Z9Eno-b8uLGz6FyQ4l2W9nTNpHmn9aQgMkMZ2hFin9D3WqQx4"
+      }
+    ],
+    "user_reviews": {
+      "most_relevant": [
+        {
+          "username": "Saousen Ouelhazi",
+          "rating": 5,
+          "contributor_id": "100567595876152687595",
+          "user_review_count": 2,
+          "user_photo_count": 0,
+          "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocKPp1qiKV5DvnR3D0ROqCCox_Lx6a5jBFTFDhwLRoTWjyQ3ZA=s120-c-rp-mo-br100",
+          "description": "I am extremely grateful for the excellent legal services provided by Attorney Haifa Alouini. She handled my case with professionalism, expertise, and dedication, ensuring that I was well-informed throughout the process. I highly recommend her to anyone seeking reliable and skilled legal counsel.",
+          "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNnbWVPeVhBEAE!2m1!1s0x0:0x21b2299c213b1bdf!3m1!1s2@1:CIHM0ogKEICAgMCgmeOyXA%7CCgwIwvrTvQYQ6Nj09AE%7C?hl=en-US",
+          "date": "11 months ago",
+          "date_iso8601": "2025-02-18T21:36:02+00:00"
+        },
+        {
+          "username": "Othman Ben",
+          "rating": 5,
+          "contributor_id": "107974279469636123703",
+          "user_review_count": 198,
+          "user_photo_count": 7,
+          "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjVf_OpSfgfN6Lf4z_TGm5LyB8h0w8NUksgFgTmcw6jwQeZyj-g=s120-c-rp-mo-ba4-br100",
+          "description": "J’ai eu une excellente expérience avec Maître Guedhami . Les échanges par mail/Whatssap de l’étranger ont été rapides, clairs et très professionnels. Elle a su faire preuve d’un grand sérieux, d’efficacité et d’un réel sens de l’écoute. Une avocate de confiance que je recommande sans hésitation.",
+          "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tocFRUbDFka1ZZZDJrelFscG5Za2huWkdOZlozYxAB!2m1!1s0x0:0x21b2299c213b1bdf!3m1!1s2@1:CAIQACodChtycF9oOkhpTTl1dkVYd2kzQlpnYkhnZGNfZ3c%7C0dIes1YxKeL%7C?hl=en-US",
+          "date": "a month ago",
+          "date_iso8601": "2025-12-26T15:47:14+00:00"
+        },
+        {
+          "username": "Dasha Masha",
+          "rating": 5,
+          "contributor_id": "114315800631365788686",
+          "user_review_count": 10,
+          "user_photo_count": 2,
+          "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocIUNnvxArAXbodWeBo6SiPpgItOB43O2u0wt97nqDO_FzLeQw=s120-c-rp-mo-br100",
+          "description": "Excellente avocate, sérieuse et compétente. Accompagnement clair et rassurant du début à la fin. Merci beaucoup",
+          "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2kxb2IwWndTVWt5ZEc5ek1VVkdlbWRpTkhGUVZsRRAB!2m1!1s0x0:0x21b2299c213b1bdf!3m1!1s2@1:CAIQACodChtycF9oOi1ob0ZwSUkydG9zMUVGemdiNHFQVlE%7C0dLhP0rUWlH%7C?hl=en-US",
+          "date": "3 weeks ago",
+          "date_iso8601": "2026-01-04T21:07:13+00:00"
+        }
+      ]
+    },
+    "people_also_search_for": [
+      {
+        "search_term": "People also search for",
+        "local_results": [
+          {
+            "position": 1,
+            "title": "Cabinet Avocat Maître Mohamed KEMICHA",
+            "data_id": "0x0:0x246ae76b27285e1",
+            "data_cid": "164010261268825569",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0x246ae76b27285e1&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0x246ae76b27285e1&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 35.672945899999995,
+              "longitude": 10.1037664
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0x246ae76b27285e1%218m2%213d35.672945899999995%214d10.1037664&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 3.7,
+            "reviews": 3,
+            "thumbnail": "https://www.google.com/maps/vt/data=zfWmhiuAzlfMiIsjhUkJOZOkq2KRWpw749jgqmxN2640wqxClphoycnhaIM115H1BMy4dvhL98qD-LP4c0nI-ys7K4zIQyVih4XVufRCPU9R477iQXbw_QwaVlnMNBp8cLenf3LDQv8nBiA7UNMi7tbV5xH0J5vsbeZTrISm6ytaRzcG",
+            "type": [
+              "General practice attorney"
+            ]
+          },
+          {
+            "position": 2,
+            "title": "Cabinet maître Haythem Hedfi",
+            "data_id": "0x0:0x79bc8168e2066ae6",
+            "data_cid": "8772028461679536870",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0x79bc8168e2066ae6&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0x79bc8168e2066ae6&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 35.6720134,
+              "longitude": 10.103292999999999
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0x79bc8168e2066ae6%218m2%213d35.6720134%214d10.103292999999999&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 0,
+            "reviews": 0,
+            "thumbnail": "https://lh3.googleusercontent.com/p/AF1QipOFxOPvmZQLyrnFEi7z8_WyVXsQq9yNqzo72wpU=w156-h156-n-k-no",
+            "type": [
+              "Attorney"
+            ]
+          },
+          {
+            "position": 3,
+            "title": "Maître bouzidi hafedh",
+            "data_id": "0x0:0x69c3fb60ba717716",
+            "data_cid": "7621211387304441622",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0x69c3fb60ba717716&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0x69c3fb60ba717716&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 35.6719769,
+              "longitude": 10.1023601
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0x69c3fb60ba717716%218m2%213d35.6719769%214d10.1023601&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 0,
+            "reviews": 0,
+            "thumbnail": "https://www.google.com/maps/vt/data=mTYXxm4u7kM2KRyTjKqmw2KE09BTQnZunsGE9ge_wzKHde4-Ybtb3vZEhKU4BSzow7DK219-hzQqXGHx9OytVJM238l9syDYOqXsjwf2EKlJV35538DQ3JYvxJmS7xGQsSFkCokBwHb-yrVm9IwhcH2rDb9FlCuPim1V01OmVdoGfk1l",
+            "type": [
+              "Attorney"
+            ]
+          },
+          {
+            "position": 4,
+            "title": "Khemais Kefi",
+            "data_id": "0x0:0xd6e3775e52966230",
+            "data_cid": "15484351190826115632",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0xd6e3775e52966230&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0xd6e3775e52966230&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 35.6705458,
+              "longitude": 10.103414599999999
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0xd6e3775e52966230%218m2%213d35.6705458%214d10.103414599999999&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 5,
+            "reviews": 2,
+            "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqRTCCVLSmDzD5CIHAdoUpOlKYwX7MYj5qxXmVY00zKHBXvU8B-NMZ6DD8S0VMSRgxyuT8HkJ1lYHjwNk3gBJND_w8hA-JXoQBuoMJ9a7zLkFX98a5EoOW0UNQwKU2C81f-I3UV=w156-h156-n-k-no",
+            "type": [
+              "Attorney"
+            ]
+          },
+          {
+            "position": 5,
+            "title": "Maître Ahmed Nagazi",
+            "data_id": "0x0:0xb8938bd77c8e073a",
+            "data_cid": "13300127882179118906",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0xb8938bd77c8e073a&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0xb8938bd77c8e073a&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 35.6709637,
+              "longitude": 10.1016403
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0xb8938bd77c8e073a%218m2%213d35.6709637%214d10.1016403&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 0,
+            "reviews": 0,
+            "thumbnail": "https://www.google.com/maps/vt/data=XO-kybwfiUgrJtnS63AG4PFgqqR6mbcblEZgT0V3a_MpJuMyoAxrppL5YzlHmryzFOYIeFWgG9XEGjRaxDU76Y0tFtp5sGnzPTXEFn5U2Fgx4Ic193Q6qAcpkc3W3QTl1upV9ghst2gZX1nqQJnZqpppghKIrjsMreQ6gSrIx729jr7Q",
+            "type": [
+              "Attorney"
+            ]
+          }
+        ]
+      }
+    ],
+    "web_results_link": "https://www.google.com/search?q=local+guide+program&ibp=gwp;0,26,OmoKaCJk2YXZg9iq2Kgg2KfZhNij2LPYqtin2LDYqSDZh9mK2YHYp9ihINin2YTZgti22KfZhdmKL0NhYmluZXQgTWHDrnRyZSBIYWlmYSBHdWVkaGFtaSBLYWlyb3VhbiwgVHVuaXNpYSgC&pcl=lp",
+    "serpapi_web_results_link": "https://serpapi.com/search.json?device=desktop&engine=google&google_domain=google.com&ibp=gwp%3B0%2C26%2COmoKaCJk2YXZg9iq2Kgg2KfZhNij2LPYqtin2LDYqSDZh9mK2YHYp9ihINin2YTZgti22KfZhdmKL0NhYmluZXQgTWHDrnRyZSBIYWlmYSBHdWVkaGFtaSBLYWlyb3VhbiwgVHVuaXNpYSgC&q=local+guide+program"
+  }
+}

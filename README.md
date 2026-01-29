@@ -56,6 +56,43 @@ The site is fully multilingual (English, French, Arabic):
 - **Data**: Content lives in `src/data/locales/*.ts`.
 - **RTL Support**: Built-in support for Arabic layouts.
 
+## ⭐ Automated Google Reviews
+
+The website automatically fetches and displays Google Maps reviews:
+
+- **Automation**: GitHub Actions workflow runs daily at 2 AM UTC
+- **Source**: Reviews are fetched from Google Maps via SerpAPI
+- **Storage**: Reviews are stored in `src/data/google-reviews.json`
+- **Manual Trigger**: Can be triggered manually from GitHub Actions tab
+
+### Setup Instructions
+
+1. **Get SerpAPI Key**:
+   - Sign up at [serpapi.com](https://serpapi.com/) (free tier: 100 searches/month)
+   - Copy your API key
+
+2. **Add to GitHub Secrets**:
+   - Go to your repository → Settings → Secrets and variables → Actions
+   - Create a new secret named `SERPAPI_KEY`
+   - Paste your API key
+
+3. **Verify**:
+   - The workflow will run automatically daily
+   - Or trigger manually: Actions tab → "Fetch Google Reviews" → Run workflow
+   - Check the logs to confirm successful execution
+
+### Local Development
+
+To manually fetch reviews locally:
+
+```bash
+# Add SERPAPI_KEY to your .env file
+echo "SERPAPI_KEY=your_key_here" >> .env
+
+# Run the fetch script
+node scripts/fetch-reviews.mjs
+```
+
 ## 🤝 Contributing
 
 1.  Ensure you have Node.js (v18+) installed.

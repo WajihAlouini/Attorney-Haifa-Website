@@ -17,6 +17,7 @@
     "clean": "rm -rf dist node_modules/.vite"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "lucide-react": "^0.556.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -37,6 +38,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "jsdom": "^27.2.0",
+    "playwright": "^1.57.0",
     "prettier": "^3.7.4",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.48.0",

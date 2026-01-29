@@ -47,6 +47,7 @@ export interface Translation {
   aboutEyebrow: string;
   aboutHeading: string;
   aboutBody: string;
+  pillarsEyebrow: string;
   pillars: Array<{
     title: string;
     detail: string;
@@ -132,6 +133,7 @@ export interface Translation {
 
   // Footer
   footerBlurb: string;
+  developedBy: string;
 
   // Impact
   impactEyebrow: string;
@@ -191,6 +193,12 @@ export interface GoogleReview {
   rating: string;
   text: string;
   link?: string;
+  reviewImage?: string;
+  // Reviewer metadata
+  reviewsCount?: number | null;
+  isLocalGuide?: boolean;
+  date?: string | null;
+  isoDate?: string | null;
 }
 
 // Component prop types

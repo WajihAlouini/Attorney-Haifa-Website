@@ -13,7 +13,7 @@ export const Footer: FC<FooterProps> = ({ t, year }) => {
       <p>© {year} Haifa Guedhami Alouini. All rights reserved.</p>
       <p>{t.footerBlurb}</p>
       <p className={styles.credit}>
-        Développé par{" "}
+        {t.developedBy}{" "}
         <a
           href="https://www.linkedin.com/in/wajih-mokhtar-alouini-8a7259231/"
           target="_blank"
