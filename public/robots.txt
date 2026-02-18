@@ -25,11 +25,11 @@ Disallow: /dist/
 Disallow: /.vite/
 
 # Sitemap location (helps search engines find all pages)
-Sitemap: https://hgalouini.com/sitemap.xml
+Sitemap: https://maitre-haifaguedhami.me/sitemap.xml
 
 # Additional sitemaps (if you add blog or case studies later)
 # Sitemap: https://hgalouini.com/sitemap-blog.xml
 # Sitemap: https://hgalouini.com/sitemap-cases.xml
 
 # Host directive (preferred domain)
-Host: https://hgalouini.com
+Host: https://maitre-haifaguedhami.me

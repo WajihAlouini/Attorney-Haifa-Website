@@ -4,7 +4,7 @@ export const en: Translation = {
   shortLabel: "EN",
   languageLabel: "Select language",
   brandName: "Maître Haifa Guedhami Alouini",
-  brandTagline: "Attorney at Law & Legal Counsel",
+  brandTagline: "More than a Lawyer. Your Strategic Ally.",
   nav: {
     about: "Profile",
     practice: "Expertise",
@@ -15,11 +15,11 @@ export const en: Translation = {
     consult: "Contact",
   },
   heroEyebrow: "Tunis · Kairouan · International",
-  heroTitle: "Your peace of mind is our mission.",
+  heroTitle: "Don't let the law decide your future. Master it.",
   heroLede:
-    "You are not alone in this trial. Maître Haifa Guedhami Alouini accompanies you with compassion and expertise during your most important legal moments. Whether you are going through a difficult divorce, a commercial dispute, or a real estate challenge, we are by your side to protect your rights and your future.",
+    "You are not alone in this trial. Attorney Haifa Guedhami Alouini accompanies you with compassion and expertise during your most important legal moments. Whether you are going through a difficult divorce, a commercial dispute, or a real estate challenge, we are by your side to protect your rights and your future.",
   ctas: {
-    primary: "First consultation",
+    primary: "Get Justice",
     bookOnline: "Book Online",
     secondary: "Our Expertise",
     whatsapp: "Contact via WhatsApp",
@@ -30,7 +30,7 @@ export const en: Translation = {
     { value: "3", label: "Languages to Better Understand You" },
   ],
   aboutEyebrow: "About Lawyer Haifa",
-  aboutHeading: "Listening Changes Everything.",
+  aboutHeading: "You deserve a defense that backs down from nothing.",
   aboutBody:
     "I know that looking for a lawyer means you are going through a tough time. For 25 years, I have had the privilege of accompanying people like you — parents worried about their children, entrepreneurs defending their life's work, families settling complex estates. My approach? Listening first. Understanding not just your legal situation, but also your fears, your priorities, and your hopes. Then, we build a clear strategy together to regain your serenity.",
   pillarsEyebrow: "Key Pillars",

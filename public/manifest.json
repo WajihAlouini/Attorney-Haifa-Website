@@ -1,0 +1,22 @@
+{
+  "name": "Maître Haifa Guedhami Alouini | Avocat Tunisie",
+  "short_name": "Maître Alouini",
+  "description": "Cabinet d'avocat à Kairouan et Tunis. Maître Haifa Guedhami Alouini - Experte en droit civil, pénal, commercial et familial.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#05080f",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

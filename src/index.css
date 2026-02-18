@@ -83,3 +83,30 @@ textarea {
 a:hover {
   color: var(--accent);
 }
+
+/* Premium Utilities */
+.text-gradient-gold {
+  background: linear-gradient(
+    135deg,
+    #fff 0%,
+    var(--accent-light) 40%,
+    var(--accent) 70%,
+    var(--accent-dark) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+}
+
+.btn-glow {
+  box-shadow: 0 0 20px var(--accent-glow);
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  box-shadow:
+    0 0 30px var(--accent-glow),
+    0 0 10px var(--accent);
+  transform: translateY(-2px);
+}

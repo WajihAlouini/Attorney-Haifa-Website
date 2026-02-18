@@ -45,7 +45,7 @@ function AppContent() {
       scrollToTop={scrollToTop}
       whatsappLink={whatsappLink}
     >
-      <SEO />
+      <SEO locale={locale} />
       <Routes>
         {/* All these routes render the same Home page but with different SEO */}
         <Route

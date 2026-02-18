@@ -4,7 +4,7 @@ export const fr: Translation = {
   shortLabel: "FR",
   languageLabel: "Choisir la langue",
   brandName: "Maître Haifa Guedhami Alouini",
-  brandTagline: "Avocate à la Cour & Conseillère Juridique",
+  brandTagline: "Plus qu'une Avocate. Votre Alliée Stratégique.",
   nav: {
     about: "Profil",
     practice: "Expertise",
@@ -15,11 +15,11 @@ export const fr: Translation = {
     consult: "Contact",
   },
   heroEyebrow: "Tunis · Kairouan · International",
-  heroTitle: "Votre tranquillité d'esprit est notre mission.",
+  heroTitle: "Ne laissez pas le droit décider de votre avenir. Maîtrisez-le.",
   heroLede:
     "Vous n'êtes pas seul dans cette épreuve. Maître Haifa Guedhami Alouini vous accompagne avec compassion et expertise dans vos moments juridiques les plus importants. Que vous traversiez un divorce difficile, un litige commercial ou un défi immobilier, nous sommes à vos côtés pour protéger vos droits et votre avenir.",
   ctas: {
-    primary: "Première consultation",
+    primary: "Obtenir Justice",
     bookOnline: "Réserver en ligne",
     secondary: "Notre Expertise",
     whatsapp: "Contact via WhatsApp",
@@ -30,7 +30,7 @@ export const fr: Translation = {
     { value: "3", label: "Langues pour Mieux Vous Comprendre" },
   ],
   aboutEyebrow: "À Propos de Maître Haifa",
-  aboutHeading: "Une Écoute qui Change Tout.",
+  aboutHeading: "Vous méritez une défense qui ne recule devant rien.",
   aboutBody:
     "Je sais que chercher un avocat signifie que vous traversez un moment difficile. Depuis 25 ans, j'ai le privilège d'accompagner des personnes comme vous — des parents inquiets pour leurs enfants, des entrepreneurs qui défendent leur vie de travail, des familles qui règlent des successions complexes. Mon approche ? Vous écouter d'abord. Comprendre non seulement votre situation juridique, mais aussi vos peurs, vos priorités et vos espoirs. Ensuite, nous construisons ensemble une stratégie claire, pour retrouver votre sérénité.",
   pillarsEyebrow: "Domaines Clés",

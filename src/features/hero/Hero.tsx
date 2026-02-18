@@ -43,7 +43,7 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
     >
       <div className={`${styles.content} fade-in-section`}>
         <span className={styles.eyebrow}>{t.heroEyebrow}</span>
-        <h1>{t.heroTitle}</h1>
+        <h1 className="text-gradient-gold">{t.heroTitle}</h1>
         <p className={styles.lede}>{t.heroLede}</p>
 
         <div className={styles.actions}>
@@ -57,7 +57,7 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
           </a>
           <button
             onClick={handleBookingClick}
-            className="btn primary btn-magnetic"
+            className="btn primary btn-magnetic btn-glow"
           >
             {t.ctas.bookOnline || "Book Online"}
           </button>
