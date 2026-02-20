@@ -1,9 +1,22 @@
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
+import { imagetools } from "vite-imagetools";
+import { compression } from "vite-plugin-compression2";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    imagetools(),
+    compression({
+      algorithms: ["brotliCompress"],
+      exclude: /\.(png|jpg|jpeg|webp|avif|gif|svg|ico)$/i,
+    }),
+    compression({
+      algorithms: ["gzip"],
+      exclude: /\.(png|jpg|jpeg|webp|avif|gif|svg|ico)$/i,
+    }),
+  ],
   resolve: {
     alias: {
       "@": "/src",
@@ -60,7 +73,7 @@ export default defineConfig({
     },
     // Use esbuild for faster minification
     minify: "esbuild",
-    // Source maps for production debugging
+    target: "es2020",
     sourcemap: false,
   },
   // Performance optimizations

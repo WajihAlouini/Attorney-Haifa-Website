@@ -13,6 +13,7 @@ export const fr: Translation = {
     reviews: "Avis",
     testimonials: "Témoignages",
     consult: "Contact",
+    actualites: "Actualités",
   },
   heroEyebrow: "Tunis · Kairouan · International",
   heroTitle: "Ne laissez pas le droit décider de votre avenir. Maîtrisez-le.",
@@ -246,4 +247,15 @@ export const fr: Translation = {
   errorMessage: "Veuillez réessayer ou nous contacter par WhatsApp.",
   scrollToTop: "Retour en haut",
   copy: "Copier dans le presse-papier",
+  trustBadgeMember: "Membre de l'Ordre National des Avocats de Tunisie",
+  trustBadgeRating: "Avis Clients Vérifiés · 4.9/5 Excellent",
+  trustBadgeCourt: "Cabinet habilité près la Cour de Cassation",
+  blog: {
+    eyebrow: "Publications & Actualités",
+    heading: "Le Journal Juridique",
+    lede: "Décryptage de l'actualité juridique tunisienne par Maître Haifa Guedhami Alouini.",
+    readMore: "Lire l'article",
+    backToList: "Retour aux actualités",
+    by: "Par",
+  },
 };

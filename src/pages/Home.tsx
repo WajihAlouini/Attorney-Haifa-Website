@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Hero } from "@/features/hero/Hero";
+import { TrustBadges } from "@/components/common/TrustBadges";
 import { About } from "@/features/about";
 import { PracticeAreas } from "@/features/practice-areas";
 import { Values } from "@/features/values";
@@ -52,6 +53,7 @@ export function Home({ t, locale, whatsappLink, whatsappNumber }: HomeProps) {
   return (
     <>
       <Hero t={t} whatsappLink={whatsappLink} locale={locale} />
+      <TrustBadges t={t} />
 
       <div className="fade-in-section">
         <About t={t} />

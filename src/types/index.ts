@@ -9,6 +9,7 @@ export interface Translation {
     reviews: string;
     testimonials?: string;
     consult: string;
+    actualites?: string;
   };
 
   // Brand
@@ -174,6 +175,21 @@ export interface Translation {
   errorMessage: string;
   scrollToTop: string;
   copy: string;
+
+  // Trust badges
+  trustBadgeMember?: string;
+  trustBadgeRating?: string;
+  trustBadgeCourt?: string;
+
+  // Blog
+  blog?: {
+    eyebrow: string;
+    heading: string;
+    lede: string;
+    readMore: string;
+    backToList: string;
+    by: string;
+  };
 }
 
 export interface Translations {
@@ -182,7 +198,12 @@ export interface Translations {
 
 // Office photo type
 export interface OfficePhoto {
-  src: string;
+  img: {
+    src: string;
+    w: number;
+    h: number;
+  };
+  sources: Record<string, string>;
   alt: string;
 }
 

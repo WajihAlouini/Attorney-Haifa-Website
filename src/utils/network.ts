@@ -19,7 +19,14 @@ export const onOnlineStatusChange = (callback: (isOnline: boolean) => void) => {
 };
 
 // Network quality detection
-export const getNetworkQuality = () => {
+declare global {
+  interface Navigator {
+    mozConnection?: any;
+    webkitConnection?: any;
+  }
+}
+
+export const getNetworkInfo = () => {
   if ("connection" in navigator) {
     const connection =
       navigator.connection ||

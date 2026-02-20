@@ -3,6 +3,28 @@ import { Link } from "react-router-dom";
 import styles from "./Hero.module.css";
 import { heroBg } from "@/data/constants";
 import { Translation } from "@/types";
+import { Magnetic } from "@/components/ui/Magnetic";
+import { motion, Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
 interface HeroProps {
   t: Translation;
@@ -41,32 +63,49 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
       style={{ backgroundImage: `url(${heroBg})` }}
       id="hero"
     >
-      <div className={`${styles.content} fade-in-section`}>
-        <span className={styles.eyebrow}>{t.heroEyebrow}</span>
-        <h1 className="text-gradient-gold">{t.heroTitle}</h1>
-        <p className={styles.lede}>{t.heroLede}</p>
+      <motion.div
+        className={styles.content}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.span variants={itemVariants} className={styles.eyebrow}>
+          {t.heroEyebrow}
+        </motion.span>
+        <motion.h1 variants={itemVariants} className="text-gradient-gold">
+          {t.heroTitle}
+        </motion.h1>
+        <motion.p variants={itemVariants} className={styles.lede}>
+          {t.heroLede}
+        </motion.p>
 
-        <div className={styles.actions}>
-          <a
-            href={whatsappLink}
-            className="btn whatsapp btn-magnetic"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t.ctas.whatsapp || "WhatsApp"}
-          </a>
-          <button
-            onClick={handleBookingClick}
-            className="btn primary btn-magnetic btn-glow"
-          >
-            {t.ctas.bookOnline || "Book Online"}
-          </button>
-          <Link to="/contact" className="btn ghost btn-magnetic">
-            {t.ctas.primary || "Contact"}
-          </Link>
-        </div>
+        <motion.div variants={itemVariants} className={styles.actions}>
+          <Magnetic intensity={0.15}>
+            <a
+              href={whatsappLink}
+              className="btn whatsapp btn-magnetic"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t.ctas.whatsapp || "WhatsApp"}
+            </a>
+          </Magnetic>
+          <Magnetic intensity={0.15}>
+            <button
+              onClick={handleBookingClick}
+              className="btn primary btn-magnetic btn-glow"
+            >
+              {t.ctas.bookOnline || "Book Online"}
+            </button>
+          </Magnetic>
+          <Magnetic intensity={0.15}>
+            <Link to="/contact" className="btn ghost btn-magnetic">
+              {t.ctas.primary || "Contact"}
+            </Link>
+          </Magnetic>
+        </motion.div>
 
-        <div className={styles.metrics}>
+        <motion.div variants={itemVariants} className={styles.metrics}>
           {t.heroMetrics?.map((stat, index) => (
             <div key={index} className={styles.metric}>
               <div className={styles.metricIcon}>
@@ -77,6 +116,7 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
+                    aria-hidden="true"
                   >
                     <path d="M12 15c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z" />
                     <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" />
@@ -89,6 +129,7 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
+                    aria-hidden="true"
                   >
                     <path d="M3 21h18" />
                     <path d="M5 21v-7" />
@@ -107,6 +148,7 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
+                    aria-hidden="true"
                   >
                     <circle cx="12" cy="12" r="10" />
                     <path d="M2 12h20" />
@@ -118,8 +160,8 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
               <p>{stat.label}</p>
             </div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

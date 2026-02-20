@@ -8,7 +8,7 @@
 
 .section-eyebrow {
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   font-size: 0.8rem;
   color: var(--accent);
   margin-bottom: 0.5rem;
@@ -19,6 +19,7 @@
 .section-header h2 {
   font-family: "Playfair Display", serif;
   font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 1.1;
   margin: 0;
   color: #fff;
   background: linear-gradient(135deg, #fff 0%, var(--accent-light) 100%);

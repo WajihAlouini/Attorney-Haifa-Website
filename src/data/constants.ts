@@ -9,9 +9,17 @@ export const GOOGLE_PLACE_ID = "ChIJRwtQ-P8PrkYRU8r2Ra2K8aA";
 export const logoUrl = "/favicon.png";
 export const heroBg = "/hero-bg.jpg";
 
+import entryOffice from "@/assets/office/entry.webp?format=avif;webp&w=1200&as=picture";
+import hallwayOffice from "@/assets/office/hallway.webp?format=avif;webp&w=1200&as=picture";
+import office1 from "@/assets/office/office1.webp?format=avif;webp&w=1200&as=picture";
+import office2 from "@/assets/office/office2.webp?format=avif;webp&w=1200&as=picture";
+
 export const officePhotos: OfficePhoto[] = [
-  { src: "/office/entry.webp", alt: "Office entry in Kairouan" },
-  { src: "/office/hallway.webp", alt: "Hallway leading to consultation rooms" },
-  { src: "/office/office1.webp", alt: "Primary consultation room" },
-  { src: "/office/office2.webp", alt: "Workspace for document review" },
+  { ...entryOffice, alt: "Office entry in Kairouan" } as OfficePhoto,
+  {
+    ...hallwayOffice,
+    alt: "Hallway leading to consultation rooms",
+  } as OfficePhoto,
+  { ...office1, alt: "Primary consultation room" } as OfficePhoto,
+  { ...office2, alt: "Workspace for document review" } as OfficePhoto,
 ];

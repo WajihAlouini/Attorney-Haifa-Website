@@ -1,5 +1,9 @@
 /* Mobile Optimizations */
 
+.mobile-sticky-bar {
+  display: none;
+}
+
 /* Tablets and below */
 @media (max-width: 768px) {
   /* Hero Section */
@@ -196,17 +200,72 @@
     padding: 0.75rem;
   }
 
-  /* WhatsApp floating button */
+  /* WhatsApp floating button - hidden on mobile in favor of sticky bar */
   .floating-whatsapp {
-    width: 56px;
-    height: 56px;
-    bottom: 1.5rem;
-    right: 1.5rem;
+    display: none;
   }
 
-  /* Main content */
+  /* Mobile Sticky Bar - Premium Glassmorphism */
+  .mobile-sticky-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.6);
+    background: rgba(
+      10,
+      15,
+      26,
+      0.85
+    ); /* Match site dark theme but translucent */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .sticky-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .sticky-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sticky-call {
+    background: transparent;
+    border-top: 1px solid transparent;
+    color: var(--accent);
+  }
+
+  .sticky-call:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .sticky-whatsapp {
+    background: #25d366;
+    color: white;
+  }
+
+  .sticky-whatsapp:hover {
+    background: #128c7e;
+  }
+
+  /* Main content padding adjustment to avoid overlap with sticky bar */
   main {
-    padding: 2.5rem 1rem;
+    padding: 2.5rem 1rem 5rem;
     gap: 3rem;
   }
 

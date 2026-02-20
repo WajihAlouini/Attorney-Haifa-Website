@@ -13,6 +13,7 @@ export const en: Translation = {
     reviews: "Reviews",
     testimonials: "Testimonials",
     consult: "Contact",
+    actualites: "Legal News",
   },
   heroEyebrow: "Tunis · Kairouan · International",
   heroTitle: "Don't let the law decide your future. Master it.",
@@ -242,4 +243,15 @@ export const en: Translation = {
   errorMessage: "Please try again or contact us via WhatsApp.",
   scrollToTop: "Back to top",
   copy: "Copy to clipboard",
+  trustBadgeMember: "Member of the Tunisian National Bar Association",
+  trustBadgeRating: "Verified Client Reviews · 4.9/5 Excellent",
+  trustBadgeCourt: "Firm Registered with the Court of Cassation",
+  blog: {
+    eyebrow: "Publications & Insights",
+    heading: "The Legal Journal",
+    lede: "Breaking down Tunisian legal news and key reforms by our firm's lawyers.",
+    readMore: "Read article",
+    backToList: "Back to articles",
+    by: "By",
+  },
 };

@@ -22,12 +22,17 @@ export const Gallery: FC<GalleryProps> = ({ t, officePhotos }) => {
       <div className={styles.grid}>
         {officePhotos.map((photo) => (
           <figure
-            key={photo.src}
+            key={photo.img.src}
             className={styles.card}
             onClick={() => setSelectedImage(photo)}
             style={{ cursor: "zoom-in" }}
           >
-            <img src={photo.src} alt={photo.alt} loading="lazy" />
+            <picture>
+              {Object.entries(photo.sources).map(([format, src]) => (
+                <source key={format} srcSet={src} type={`image/${format}`} />
+              ))}
+              <img src={photo.img.src} alt={photo.alt} loading="lazy" />
+            </picture>
           </figure>
         ))}
       </div>
@@ -41,7 +46,12 @@ export const Gallery: FC<GalleryProps> = ({ t, officePhotos }) => {
             >
               ×
             </button>
-            <img src={selectedImage.src} alt={selectedImage.alt} />
+            <picture>
+              {Object.entries(selectedImage.sources).map(([format, src]) => (
+                <source key={format} srcSet={src} type={`image/${format}`} />
+              ))}
+              <img src={selectedImage.img.src} alt={selectedImage.alt} />
+            </picture>
           </div>
         </div>
       )}

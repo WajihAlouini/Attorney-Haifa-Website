@@ -1,5 +1,11 @@
 import { Component, ReactNode, ErrorInfo } from "react";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 interface Props {
   children: ReactNode;
 }

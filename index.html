@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="manifest" href="/manifest.json" />
+    <link rel="preload" as="image" href="/hero-bg.jpg" fetchpriority="high" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Preconnect to external domains -->
@@ -115,41 +116,7 @@
       content="black-translucent"
     />
 
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Attorney",
-        "name": "Maître Haifa Guedhami Alouini",
-        "url": "https://maitre-haifaguedhami.me",
-        "logo": "https://maitre-haifaguedhami.me/favicon.png",
-        "image": "https://maitre-haifaguedhami.me/office/entry.webp",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Avenue des Martyrs, Médina",
-          "addressLocality": "Kairouan",
-          "postalCode": "3100",
-          "addressCountry": "TN"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "35.6781",
-          "longitude": "10.0963"
-        },
-        "telephone": "+216 98 643 612",
-        "email": "maitrealouiniguedhami@gmail.com",
-        "areaServed": ["TN", "FR"],
-        "priceRange": "$$",
-        "knowsLanguage": ["fr", "ar", "en"],
-        "openingHours": "Mo-Fr 09:00-17:00",
-        "sameAs": ["https://maitre-haifaguedhami.me"],
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "500"
-        }
-      }
-    </script>
+    <meta name="format-detection" content="telephone=no" />
   </head>
   <body>
     <noscript>

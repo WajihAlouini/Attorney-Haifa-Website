@@ -1,4 +1,5 @@
 import { FC, ReactElement } from "react";
+import { Link } from "react-router-dom";
 import { TranslationProps } from "@/types";
 import styles from "./PracticeAreas.module.css";
 
@@ -53,13 +54,24 @@ export const PracticeAreas: FC<TranslationProps> = ({ t }) => {
         <h2>{t.practiceHeading}</h2>
       </div>
       <div className={styles.grid}>
-        {t.practiceAreas.map((area, index) => (
-          <article key={area.title} className={styles.card}>
-            {icons[index]}
-            <h3>{area.title}</h3>
-            <p>{area.summary}</p>
-          </article>
-        ))}
+        {t.practiceAreas.map((area, index) => {
+          const urls: Record<number, string> = {
+            0: "/services/droit-de-la-famille",
+            1: "/services/droit-des-affaires",
+            2: "/services/droit-immobilier",
+          };
+          return (
+            <Link
+              key={area.title}
+              to={urls[index] || "/services"}
+              className={styles.card}
+            >
+              {icons[index]}
+              <h3>{area.title}</h3>
+              <p>{area.summary}</p>
+            </Link>
+          );
+        })}
       </div>
     </section>
   );

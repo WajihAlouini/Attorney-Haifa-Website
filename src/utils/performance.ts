@@ -117,7 +117,7 @@ export const measureWebVitals = (
   }
 };
 
-export const reportWebVitals = () => {
+export function reportWebVitals() {
   if (typeof window === "undefined") return;
 
   window.addEventListener("load", () => {
@@ -141,4 +141,4 @@ export const reportWebVitals = () => {
       });
     }
   });
-};
+}

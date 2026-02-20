@@ -13,6 +13,7 @@ export const ar: Translation = {
     reviews: "التقييمات",
     testimonials: "الشهادات",
     consult: "اتصل بنا",
+    actualites: "المستجدات",
   },
   heroEyebrow: "تونس · القيروان · دولي",
   heroTitle: "التميز في المحاماة والاستشارات القانونية.",
@@ -225,4 +226,15 @@ export const ar: Translation = {
   errorMessage: "يرجى المحاولة مرة أخرى أو الاتصال بنا عبر واتساب.",
   scrollToTop: "العودة إلى الأعلى",
   copy: "نسخ إلى الحافظة",
+  trustBadgeMember: "عضو في هيئة المحامين الوطنية التونسية",
+  trustBadgeRating: "تقييمات موثقة من العملاء · 4.9/5 ممتاز",
+  trustBadgeCourt: "مكتب محامٍ معتمد لدى محكمة التعقيب",
+  blog: {
+    eyebrow: "منشورات ومستجدات",
+    heading: "المجلة القانونية",
+    lede: "تحليلات المستجدات القانونية التونسية وأبرز الإصلاحات التشريعية.",
+    readMore: "قراءة المقال",
+    backToList: "العودة إلى المقالات",
+    by: "بقلم",
+  },
 };

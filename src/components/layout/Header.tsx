@@ -73,6 +73,13 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
             {translations[locale].nav.values}
           </Link>
           <Link
+            to="/actualites"
+            onClick={closeMobileMenu}
+            className={isActive("/actualites") ? styles.activeLink : ""}
+          >
+            {translations[locale].nav.actualites || "Actualités"}
+          </Link>
+          <Link
             to="/contact"
             onClick={closeMobileMenu}
             className={isActive("/contact") ? styles.activeLink : ""}
