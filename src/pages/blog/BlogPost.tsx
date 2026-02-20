@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -83,14 +83,18 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
-              code({ className, children, ...props }: any) {
+              code({
+                className,
+                children,
+                ...props
+              }: React.ComponentPropsWithoutRef<"code">) {
                 const match = /language-(\w+)/.exec(className || "");
                 return match ? (
                   <SyntaxHighlighter
-                    style={vscDarkPlus as any}
+                    style={vscDarkPlus as Record<string, React.CSSProperties>}
                     language={match[1]}
                     PreTag="div"
-                    {...props}
+                    {...(props as object)}
                   >
                     {String(children).replace(/\n$/, "")}
                   </SyntaxHighlighter>

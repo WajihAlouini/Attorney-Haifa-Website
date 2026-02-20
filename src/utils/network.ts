@@ -19,23 +19,31 @@ export const onOnlineStatusChange = (callback: (isOnline: boolean) => void) => {
 };
 
 // Network quality detection
+interface NetworkInformation {
+  effectiveType?: string;
+  downlink?: number;
+  rtt?: number;
+  saveData?: boolean;
+}
+
 declare global {
   interface Navigator {
-    mozConnection?: any;
-    webkitConnection?: any;
+    mozConnection?: NetworkInformation;
+    webkitConnection?: NetworkInformation;
   }
 }
 
 export const getNetworkInfo = () => {
   if ("connection" in navigator) {
     const connection =
-      navigator.connection ||
+      (navigator as Navigator & { connection?: NetworkInformation })
+        .connection ||
       navigator.mozConnection ||
       navigator.webkitConnection;
     return {
-      effectiveType: connection?.effectiveType || "unknown", // '4g', '3g', '2g', 'slow-2g'
-      downlink: connection?.downlink || null, // Mbps
-      rtt: connection?.rtt || null, // Round trip time in ms
+      effectiveType: connection?.effectiveType || "unknown",
+      downlink: connection?.downlink || null,
+      rtt: connection?.rtt || null,
       saveData: connection?.saveData || false,
     };
   }
