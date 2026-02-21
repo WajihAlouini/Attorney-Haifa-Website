@@ -9,7 +9,6 @@ export function LoadingFallback(): ReactNode {
         <div className={styles.ring}></div>
         <div className={styles.ring}></div>
       </div>
-      <p className={styles.text}>Chargement…</p>
     </div>
   );
 }
