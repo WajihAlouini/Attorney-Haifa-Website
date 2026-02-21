@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
 import styles from "./Hero.module.css";
 import { heroBg } from "@/data/constants";
 import { Translation } from "@/types";
@@ -99,9 +98,18 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink }) => {
             </button>
           </Magnetic>
           <Magnetic intensity={0.15}>
-            <Link to="/contact" className="btn ghost btn-magnetic">
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="btn ghost btn-magnetic"
+            >
               {t.ctas.primary || "Contact"}
-            </Link>
+            </a>
           </Magnetic>
         </motion.div>
 
