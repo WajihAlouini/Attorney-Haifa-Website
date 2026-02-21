@@ -34,27 +34,6 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
-        // Manual chunk splitting for better caching
-        manualChunks: (id) => {
-          // Vendor chunks
-          if (id.includes("node_modules")) {
-            if (
-              id.includes("react") ||
-              id.includes("react-dom") ||
-              id.includes("react-router")
-            ) {
-              return "react-vendor";
-            }
-            return "vendor";
-          }
-          // Feature-based chunks
-          if (id.includes("/features/")) {
-            const feature = id.split("/features/")[1]?.split("/")[0];
-            if (feature) {
-              return `feature-${feature}`;
-            }
-          }
-        },
         // Optimize asset file names
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name?.split(".");
