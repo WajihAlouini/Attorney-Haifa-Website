@@ -2,7 +2,7 @@
 title: "2025 Labour Code Reform: What Employers in Tunisia Need to Know"
 date: "2026-02-21"
 description: "A full breakdown of Law No. 2025-9: the end of labour outsourcing, strict limits on fixed-term contracts, and new powers for the Labour Inspectorate."
-author: "Maître Haifa Guedhami Alouini"
+
 image: "/blog-law.jpg"
 tags: ["Labour Law", "Business", "2025 Reform", "Employer"]
 ---

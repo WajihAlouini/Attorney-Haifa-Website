@@ -2,7 +2,7 @@
 title: "Nouveau Code des Changes (2026) : Fin du parcours du combattant pour les startups et les freelances"
 date: "2026-02-12"
 description: "Le projet de loi sur le nouveau Code des Changes tunisien en 2026. Ouverture des comptes en devises, crypto-monnaies et facilitation des exportations de services."
-author: "Maître Haifa Guedhami Alouini"
+
 image: "/blog-business.jpg"
 tags: ["Droit des Affaires", "Code des Changes", "Startups", "Freelance"]
 ---

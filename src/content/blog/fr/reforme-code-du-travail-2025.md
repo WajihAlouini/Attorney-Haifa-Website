@@ -2,7 +2,7 @@
 title: "Réforme du Code du Travail (2025) : Ce que les employeurs doivent savoir"
 date: "2026-02-21"
 description: "Analyse complète de la loi n° 2025-9 du 21 mai 2025 sur le Code du Travail en Tunisie. Fin de la sous-traitance et limitation des CDD."
-author: "Maître Haifa Guedhami Alouini"
+
 image: "/blog-law.jpg"
 tags: ["Droit du Travail", "Entreprise", "Réforme 2025", "Employeur"]
 ---

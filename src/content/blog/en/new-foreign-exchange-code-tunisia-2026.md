@@ -2,7 +2,7 @@
 title: "Tunisia's New Foreign Exchange Code 2026: A Game-Changer for Startups and Freelancers"
 date: "2026-02-12"
 description: "The proposed new Tunisian Foreign Exchange Code allows residents to hold foreign currency accounts, eases crypto regulation, and eliminates criminal penalties for minor infractions."
-author: "Maître Haifa Guedhami Alouini"
+
 image: "/blog-business.jpg"
 tags: ["Business Law", "Foreign Exchange", "Startups", "Freelance"]
 ---

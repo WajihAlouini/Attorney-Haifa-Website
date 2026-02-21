@@ -2,7 +2,7 @@
 title: "Immobilier : Le guide pour les étrangers achetant en Tunisie"
 date: "2026-02-18"
 description: "Autorisation du Gouverneur, régime fiscal et nouvelles réformes : Tout ce qu'un non-résident ou étranger doit savoir pour acheter un bien immobilier en Tunisie."
-author: "Maître Haifa Guedhami Alouini"
+
 image: "/blog-realestate.jpg"
 tags: ["Droit Immobilier", "Investissement Étranger", "Achat"]
 ---

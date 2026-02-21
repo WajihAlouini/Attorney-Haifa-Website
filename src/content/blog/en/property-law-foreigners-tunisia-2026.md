@@ -2,7 +2,7 @@
 title: "Foreigners Buying Property in Tunisia: A 2026 Legal Guide"
 date: "2026-02-18"
 description: "The Governor's Permit, currency transfer rules, and upcoming reforms — everything a non-resident or foreign investor must know to legally purchase real estate in Tunisia."
-author: "Maître Haifa Guedhami Alouini"
+
 image: "/blog-realestate.jpg"
 tags: ["Property Law", "Foreign Investment", "Real Estate"]
 ---

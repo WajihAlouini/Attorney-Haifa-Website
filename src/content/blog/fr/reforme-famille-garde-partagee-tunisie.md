@@ -2,7 +2,7 @@
 title: "Réforme de la Famille : La révolution de la Garde Partagée en Tunisie"
 date: "2026-02-15"
 description: "Discussion autour du projet de modernisation du Code du Statut Personnel tunisien et l'introduction potentielle de la garde alternée (coparentalité)."
-author: "Maître Haifa Guedhami Alouini"
+
 image: "/blog-family.jpg"
 tags: ["Droit de la Famille", "Divorce", "Garde des Enfants"]
 ---
