@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LocaleProps } from "@/types";
 import styles from "./Header.module.css";
 import { logoUrl } from "@/data/constants";
@@ -9,6 +9,24 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // Scroll to a section on the homepage
+  const scrollToSection = (sectionId: string) => {
+    closeMobileMenu();
+    if (location.pathname === "/") {
+      // Already on homepage — just scroll
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate to homepage first, then scroll after render
+      navigate("/");
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,27 +69,36 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
         }`}
       >
         <div className={styles.navLinks}>
-          <Link
-            to="/about"
-            onClick={closeMobileMenu}
-            className={isActive("/about") ? styles.activeLink : ""}
+          <a
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("about");
+            }}
+            className={styles.navLink}
           >
             {translations[locale].nav.about}
-          </Link>
-          <Link
-            to="/services"
-            onClick={closeMobileMenu}
-            className={isActive("/services") ? styles.activeLink : ""}
+          </a>
+          <a
+            href="#practice"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("practice");
+            }}
+            className={styles.navLink}
           >
             {translations[locale].nav.practice}
-          </Link>
-          <Link
-            to="/values"
-            onClick={closeMobileMenu}
-            className={isActive("/values") ? styles.activeLink : ""}
+          </a>
+          <a
+            href="#values"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("values");
+            }}
+            className={styles.navLink}
           >
             {translations[locale].nav.values}
-          </Link>
+          </a>
           <Link
             to="/actualites"
             onClick={closeMobileMenu}
@@ -79,13 +106,16 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
           >
             {translations[locale].nav.actualites || "Actualités"}
           </Link>
-          <Link
-            to="/contact"
-            onClick={closeMobileMenu}
-            className={isActive("/contact") ? styles.activeLink : ""}
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("contact");
+            }}
+            className={styles.navLink}
           >
             {translations[locale].nav.consult}
-          </Link>
+          </a>
         </div>
 
         <div className={styles.navMeta}>

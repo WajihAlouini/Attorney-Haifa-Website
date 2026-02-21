@@ -27,9 +27,7 @@ import { FamilyLawPage } from "@/pages/services/FamilyLawPage";
 import { BusinessLawPage } from "@/pages/services/BusinessLawPage";
 import { RealEstateLawPage } from "@/pages/services/RealEstateLawPage";
 
-const BlogIndex = lazy(() =>
-  import("@/pages/blog/BlogIndex").then((m) => ({ default: m.default }))
-);
+import BlogIndex from "@/pages/blog/BlogIndex";
 const BlogPost = lazy(() =>
   import("@/pages/blog/BlogPost").then((m) => ({ default: m.default }))
 );
@@ -209,9 +207,7 @@ function AppContent() {
             path="/actualites"
             element={
               <AnimatedPage>
-                <Suspense fallback={<LoadingFallback />}>
-                  <BlogIndex locale={locale} t={t} />
-                </Suspense>
+                <BlogIndex locale={locale} t={t} />
               </AnimatedPage>
             }
           />
