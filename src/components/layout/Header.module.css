@@ -130,7 +130,7 @@
 .langBtn {
   border: none;
   background: transparent;
-  color: var(--muted);
+  color: var(--text-dim);
   font-size: 0.75rem;
   padding: 0.35rem 0.8rem;
   border-radius: 4px;
