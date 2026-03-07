@@ -53,7 +53,7 @@
 }
 
 .backLink:hover {
-  color: var(--accent);
+  color: var(--accent-fg);
 }
 
 .tags {
@@ -68,12 +68,12 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(212, 175, 55, 0.1);
-  color: var(--accent-light);
+  background: var(--accent-soft);
+  color: var(--accent-fg);
   padding: 0.3rem 0.8rem;
   border-radius: 4px;
   font-size: 0.8rem;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--border-hover);
 }
 
 .header h1 {
@@ -124,7 +124,7 @@
 .content h2 {
   font-family: "Playfair Display", serif;
   font-size: 2rem;
-  color: var(--accent);
+  color: var(--accent-fg);
   margin: 3rem 0 1.5rem;
   line-height: 1.2;
 }
@@ -141,14 +141,14 @@
 }
 
 .content a {
-  color: var(--accent);
+  color: var(--accent-fg);
   text-decoration: underline;
   text-underline-offset: 4px;
   transition: color 0.2s ease;
 }
 
 .content a:hover {
-  color: var(--accent-light);
+  color: var(--accent-fg-hover);
 }
 
 .content ul,
@@ -163,7 +163,7 @@
 }
 
 .content li::marker {
-  color: var(--accent);
+  color: var(--accent-fg);
 }
 
 .content blockquote {
@@ -184,12 +184,92 @@
 }
 
 .inlineCode {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--accent-soft);
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
   font-family: monospace;
   font-size: 0.9em;
-  color: var(--accent-light);
+  color: var(--accent-fg);
+}
+
+.codeBlock {
+  margin: 2rem 0;
+  padding: 1.2rem;
+  border-radius: 8px;
+  background: rgba(5, 8, 15, 0.75);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+.codeBlock .inlineCode {
+  background: transparent;
+  color: #dbe6f8;
+  padding: 0;
+}
+
+.resources {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.resourceCard {
+  padding: 1.5rem;
+}
+
+.resourceHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.resourceHeader h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--accent-fg);
+}
+
+.resourceGrid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.resourceLink {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--panel-elevated) 90%, transparent);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.resourceLink:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover);
+}
+
+.resourceLink div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.resourceLink strong {
+  color: var(--text);
+}
+
+.resourceLink span {
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+:global([dir="rtl"]) .resourceLink svg {
+  transform: scaleX(-1);
 }
 
 @media (max-width: 768px) {

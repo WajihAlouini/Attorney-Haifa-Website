@@ -3,291 +3,429 @@ export interface SEOData {
   description: string;
   keywords?: string;
   image?: string;
-  structuredData?: Record<string, unknown>;
 }
 
-// SEO metadata for each route (French - primary language)
-export const seoData: Record<string, SEOData> = {
+export interface LocalizedSEOData {
+  fr: SEOData;
+  en: SEOData;
+  ar: SEOData;
+}
+
+// Route-level metadata — localized per FR / EN / AR.
+// Used by SEO.tsx to set title, description, keywords, canonical and OG tags.
+export const seoData: Record<string, LocalizedSEOData> = {
   "/": {
-    title:
-      "Maître Haifa Guedhami Alouini | Avocat à Kairouan et Tunis, Tunisie",
-    description:
-      "Cabinet d'avocat à Kairouan et Tunis. Maître Haifa Guedhami Alouini - Experte en droit civil, pénal, commercial et familial. Consultation juridique professionnelle en Tunisie.",
-    keywords:
-      "avocat Kairouan, avocat Tunis, avocat Tunisie, cabinet avocat, consultation juridique, droit civil, droit pénal, droit commercial, droit familial",
-    image: "https://maitre-haifaguedhami.me/office/entry.webp",
-    structuredData: {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": ["LegalService", "LocalBusiness"],
-          "@id": "https://maitre-haifaguedhami.me/#business",
-          name: "Cabinet Maître Haifa Guedhami Alouini",
-          alternateName: "مكتب الأستاذة هيفاء قدّامي علويني",
-          url: "https://maitre-haifaguedhami.me",
-          logo: "https://maitre-haifaguedhami.me/favicon.png",
-          image: "https://maitre-haifaguedhami.me/office/entry.webp",
-          description:
-            "Cabinet d'avocat à Kairouan et Tunis. Maître Haifa Guedhami Alouini — experte en droit de la famille, divorce, immobilier et droit des affaires. Consultation juridique professionnelle.",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Beb Djelladine, Rue des Martyrs",
-            addressLocality: "Kairouan",
-            postalCode: "3100",
-            addressCountry: "TN",
-          },
-          geo: {
-            "@type": "GeoCoordinates",
-            latitude: "35.6781",
-            longitude: "10.0963",
-          },
-          telephone: "+21698643612",
-          email: "maitrealouiniguedhami@gmail.com",
-          openingHours: ["Mo-Fr 09:00-18:00", "Sa 09:00-13:00"],
-          priceRange: "$$",
-          areaServed: [
-            { "@type": "City", name: "Kairouan" },
-            { "@type": "City", name: "Tunis" },
-            { "@type": "Country", name: "Tunisie" },
-          ],
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.9",
-            reviewCount: "47",
-            bestRating: "5",
-          },
-          hasOfferCatalog: {
-            "@type": "OfferCatalog",
-            name: "Services Juridiques",
-            itemListElement: [
-              {
-                "@type": "Offer",
-                itemOffered: {
-                  "@type": "Service",
-                  name: "Droit de la Famille & Divorce",
-                  url: "https://maitre-haifaguedhami.me/services/droit-de-la-famille",
-                },
-              },
-              {
-                "@type": "Offer",
-                itemOffered: {
-                  "@type": "Service",
-                  name: "Droit des Affaires",
-                  url: "https://maitre-haifaguedhami.me/services/droit-des-affaires",
-                },
-              },
-              {
-                "@type": "Offer",
-                itemOffered: {
-                  "@type": "Service",
-                  name: "Droit Immobilier",
-                  url: "https://maitre-haifaguedhami.me/services/droit-immobilier",
-                },
-              },
-            ],
-          },
-        },
-        {
-          "@type": "Person",
-          "@id": "https://maitre-haifaguedhami.me/#attorney",
-          name: "Haifa Guedhami Alouini",
-          alternateName: "هيفاء قدّامي علويني",
-          jobTitle: "Avocate à la Cour",
-          worksFor: { "@id": "https://maitre-haifaguedhami.me/#business" },
-          url: "https://maitre-haifaguedhami.me/about",
-          image: "https://maitre-haifaguedhami.me/portrait/portrait.webp",
-          knowsAbout: [
-            "Droit de la famille",
-            "Divorce en Tunisie",
-            "Droit immobilier tunisien",
-            "Droit des affaires",
-            "Droit pénal",
-            "Succession",
-          ],
-        },
-      ],
+    fr: {
+      title:
+        "Maître Haifa Guedhami Alouini | Avocat à Kairouan et Tunis, Tunisie",
+      description:
+        "Cabinet d'avocat en Tunisie à Kairouan et Tunis. Droit de la famille, immobilier, affaires et contentieux.",
+      keywords:
+        "avocat tunisie, avocat kairouan, avocat tunis, droit de la famille, divorce tunisie, droit immobilier, droit des affaires",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+    en: {
+      title:
+        "Attorney Haifa Guedhami Alouini | Lawyer in Kairouan & Tunis, Tunisia",
+      description:
+        "Law firm in Tunisia based in Kairouan and Tunis. Family law, real estate, business and litigation.",
+      keywords:
+        "lawyer tunisia, lawyer kairouan, lawyer tunis, family law, divorce tunisia, real estate law, business law",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+    ar: {
+      title: "الأستاذة حيفاء قذامي العلويني | محامية في القيروان وتونس",
+      description:
+        "مكتب محاماة في تونس، القيروان وتونس العاصمة. قانون الأسرة، العقاري، الأعمال والنزاعات.",
+      keywords:
+        "محامي تونس, محامي القيروان, محامي قانون الاسرة, طلاق تونس, قانون عقاري, قانون اعمال",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
     },
   },
+
   "/about": {
-    title: "À Propos | Maître Haifa Guedhami Alouini - Avocat Tunisie",
-    description:
-      "Découvrez le parcours et l'expertise de Maître Haifa Guedhami Alouini, avocate expérimentée basée à Kairouan et Tunis. Formation, expérience et valeurs professionnelles.",
-    keywords:
-      "avocat Kairouan, biographie avocat, expérience juridique, formation avocat Tunisie",
-    image: "https://maitre-haifaguedhami.me/portrait/portrait.webp",
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      mainEntity: {
-        "@type": "Person",
-        name: "Maître Haifa Guedhami Alouini",
-        jobTitle: "Avocate à la Cour",
-        description:
-          "Avocate expérimentée basée à Kairouan et Tunis, spécialisée en droit civil, pénal, commercial et familial.",
-        url: "https://maitre-haifaguedhami.me/about",
-      },
+    fr: {
+      title: "À Propos | Maître Haifa Guedhami Alouini - Avocat Tunisie",
+      description:
+        "Parcours, expérience et approche de Maître Haifa Guedhami Alouini, avocate à Kairouan et Tunis.",
+      keywords:
+        "biographie avocat tunisie, experience juridique, avocat kairouan tunis",
+      image: "https://maitre-haifaguedhami.me/portrait/portrait.webp",
+    },
+    en: {
+      title: "About | Attorney Haifa Guedhami Alouini - Lawyer Tunisia",
+      description:
+        "Career, experience and approach of Attorney Haifa Guedhami Alouini, lawyer in Kairouan and Tunis, Tunisia.",
+      keywords:
+        "lawyer biography tunisia, legal experience, attorney kairouan tunis",
+      image: "https://maitre-haifaguedhami.me/portrait/portrait.webp",
+    },
+    ar: {
+      title: "نبذة عني | المحامية حيفاء قذامي العلويني - محامية تونس",
+      description:
+        "مسار، تجربة ومنهجية المحامية حيفاء قذامي العلويني، محامية في القيروان وتونس.",
+      keywords: "سيرة ذاتية محامي تونس, تجربة قانونية, محامية القيروان تونس",
+      image: "https://maitre-haifaguedhami.me/portrait/portrait.webp",
     },
   },
+
   "/services": {
-    title: "Domaines de Pratique | Avocat Kairouan - Haifa Guedhami Alouini",
-    description:
-      "Services juridiques complets: droit civil, droit pénal, droit commercial, droit de la famille, droit immobilier. Cabinet d'avocat à Kairouan et Tunis.",
-    keywords:
-      "services juridiques, droit civil Tunisie, droit pénal, droit commercial, droit famille, avocat immobilier Kairouan",
-    image: "https://maitre-haifaguedhami.me/office/hallway.webp",
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      serviceType: "Legal Services",
-      provider: {
-        "@type": "Attorney",
-        name: "Maître Haifa Guedhami Alouini",
-      },
-      areaServed: {
-        "@type": "Country",
-        name: "Tunisie",
-      },
-      hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: "Services Juridiques",
-        itemListElement: [
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Droit de la Famille",
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Droit des Affaires",
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Droit Immobilier",
-            },
-          },
-        ],
-      },
+    fr: {
+      title: "Domaines de Pratique | Avocat Kairouan et Tunis",
+      description:
+        "Services juridiques en Tunisie: droit de la famille, droit immobilier et droit des affaires.",
+      keywords:
+        "services juridiques tunisie, avocat famille, avocat immobilier, avocat affaires",
+      image: "https://maitre-haifaguedhami.me/office/hallway.webp",
+    },
+    en: {
+      title: "Practice Areas | Lawyer Kairouan & Tunis, Tunisia",
+      description:
+        "Legal services in Tunisia: family law, real estate law and business law in Kairouan and Tunis.",
+      keywords:
+        "legal services tunisia, family lawyer, real estate lawyer, business lawyer",
+      image: "https://maitre-haifaguedhami.me/office/hallway.webp",
+    },
+    ar: {
+      title: "مجالات الممارسة | محامية القيروان وتونس",
+      description:
+        "خدمات قانونية في تونس: قانون الأسرة، العقاري والأعمال في القيروان وتونس.",
+      keywords: "خدمات قانونية تونس, محامي اسرة, محامي عقاري, محامي اعمال",
+      image: "https://maitre-haifaguedhami.me/office/hallway.webp",
     },
   },
+
   "/services/droit-de-la-famille": {
-    title: "Avocat Droit de la Famille | Divorce & Garde | Kairouan - Tunis",
-    description:
-      "Expertise en droit de la famille en Tunisie: Procédure de divorce, garde d'enfants, pension alimentaire, et successions. Protégez vos droits avec Maître Haifa Guedhami Alouini.",
-    keywords:
-      "avocat divorce Tunisie, avocat droit de la famille, garde d'enfants, avocat succession, pension alimentaire, Kairouan, Tunis",
-    image: "https://maitre-haifaguedhami.me/office/office2.webp",
-  },
-  "/services/droit-des-affaires": {
-    title:
-      "Avocat Droit des Affaires | Création de Sociétés | Kairouan - Tunis",
-    description:
-      "Cabinet d'avocat spécialisé en droit des affaires en Tunisie. Création d'entreprises, contrats commerciaux, litiges entre associés. Sécurisez votre croissance.",
-    keywords:
-      "avocat affaires Tunisie, avocat entreprise, création de société, contrat commercial, litige commercial, Kairouan, Tunis",
-    image: "https://maitre-haifaguedhami.me/office/office1.webp",
-  },
-  "/services/droit-immobilier": {
-    title: "Avocat Droit Immobilier | Achat & Litiges | Kairouan - Tunis",
-    description:
-      "Sécurisez vos transactions immobilières en Tunisie. Avocat expert en achat/vente, promesses de vente, litiges de propriété et baux commerciaux.",
-    keywords:
-      "avocat immobilier Tunisie, achat immobilier, litige propriété, baux commerciaux, avocat foncier, Kairouan, Tunis",
-    image: "https://maitre-haifaguedhami.me/office/office2.webp",
-  },
-  "/values": {
-    title: "Nos Valeurs | Maître Haifa Guedhami Alouini - Avocat Tunisie",
-    description:
-      "Intégrité, excellence et engagement client. Découvrez les valeurs qui guident notre pratique juridique à Kairouan et Tunis.",
-    keywords: "valeurs avocat, éthique juridique, engagement client, intégrité",
-    image: "https://maitre-haifaguedhami.me/office/office2.webp",
-  },
-  "/contact": {
-    title: "Contact | Avocat Kairouan & Tunis - Maître Haifa Guedhami Alouini",
-    description:
-      "Contactez Maître Haifa Guedhami Alouini pour une consultation juridique. Cabinet situé à Kairouan, Beb Djelladine. WhatsApp, email et rendez-vous disponibles.",
-    keywords:
-      "contact avocat Kairouan, rendez-vous avocat, consultation juridique Tunis, WhatsApp avocat Tunisie",
-    image: "https://maitre-haifaguedhami.me/office/entry.webp",
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      mainEntity: {
-        "@type": "Attorney",
-        name: "Maître Haifa Guedhami Alouini",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Avenue des Martyrs, Médina",
-          addressLocality: "Kairouan",
-          postalCode: "3100",
-          addressCountry: "TN",
-        },
-        telephone: "+216 98 643 612",
-        email: "maitrealouiniguedhami@gmail.com",
-      },
+    fr: {
+      title: "Avocat Droit de la Famille | Divorce et Garde | Kairouan - Tunis",
+      description:
+        "Accompagnement en divorce, garde d'enfants, pension alimentaire et succession en Tunisie.",
+      keywords:
+        "avocat divorce tunisie, droit de la famille, garde d'enfants, pension alimentaire",
+      image: "https://maitre-haifaguedhami.me/office/office2.webp",
+    },
+    en: {
+      title:
+        "Family Law Attorney | Divorce & Custody | Kairouan - Tunis, Tunisia",
+      description:
+        "Legal support for divorce, child custody, alimony and succession in Tunisia.",
+      keywords:
+        "family lawyer tunisia, divorce attorney, child custody tunisia, alimony",
+      image: "https://maitre-haifaguedhami.me/office/office2.webp",
+    },
+    ar: {
+      title: "محامي قانون الأسرة | طلاق وحضانة | القيروان - تونس",
+      description:
+        "مرافقة قانونية في الطلاق والحضانة والنفقة والميراث في تونس.",
+      keywords: "محامي طلاق تونس, قانون الاسرة, حضانة اطفال, نفقة تونس",
+      image: "https://maitre-haifaguedhami.me/office/office2.webp",
     },
   },
+
+  "/services/droit-des-affaires": {
+    fr: {
+      title: "Avocat Droit des Affaires | Entreprises | Kairouan - Tunis",
+      description:
+        "Conseil et contentieux pour entreprises: création, contrats commerciaux et litiges d'affaires.",
+      keywords:
+        "avocat affaires tunisie, contrat commercial, creation societe, litige commercial",
+      image: "https://maitre-haifaguedhami.me/office/office1.webp",
+    },
+    en: {
+      title:
+        "Business Law Attorney | Companies & Contracts | Kairouan - Tunis, Tunisia",
+      description:
+        "Legal advisory for companies: formation, commercial contracts, and business disputes in Tunisia.",
+      keywords:
+        "business lawyer tunisia, commercial contract, company formation, commercial dispute",
+      image: "https://maitre-haifaguedhami.me/office/office1.webp",
+    },
+    ar: {
+      title: "محامي قانون الأعمال | شركات وعقود | القيروان - تونس",
+      description:
+        "استشارة وتمثيل قانوني للشركات: تأسيس، عقود تجارية ونزاعات أعمال في تونس.",
+      keywords: "محامي اعمال تونس, عقد تجاري, تأسيس شركة, نزاع تجاري",
+      image: "https://maitre-haifaguedhami.me/office/office1.webp",
+    },
+  },
+
+  "/services/droit-immobilier": {
+    fr: {
+      title:
+        "Avocat Droit Immobilier | Transactions et Litiges | Kairouan - Tunis",
+      description:
+        "Sécurisez vos transactions immobilières et vos litiges de propriété en Tunisie.",
+      keywords:
+        "avocat immobilier tunisie, litige propriete, transaction immobiliere, bail commercial",
+      image: "https://maitre-haifaguedhami.me/office/office2.webp",
+    },
+    en: {
+      title:
+        "Real Estate Lawyer | Transactions & Disputes | Kairouan - Tunis, Tunisia",
+      description:
+        "Secure your property transactions and resolve real estate disputes in Tunisia.",
+      keywords:
+        "real estate lawyer tunisia, property dispute, property transaction, commercial lease",
+      image: "https://maitre-haifaguedhami.me/office/office2.webp",
+    },
+    ar: {
+      title: "محامي عقاري | معاملات ونزاعات | القيروان - تونس",
+      description: "تأمين معاملاتك العقارية وحل نزاعات الملكية في تونس.",
+      keywords: "محامي عقاري تونس, نزاع ملكية, معاملة عقارية, كراء تجاري",
+      image: "https://maitre-haifaguedhami.me/office/office2.webp",
+    },
+  },
+
+  "/avocat-divorce-tunisie": {
+    fr: {
+      title:
+        "Avocat Divorce Tunisie | Kairouan, Tunis et à distance | Maître Haifa Guedhami Alouini",
+      description:
+        "Accompagnement en divorce, garde d'enfants, pension alimentaire et exécution des jugements en Tunisie.",
+      keywords:
+        "avocat divorce tunisie, avocat famille tunisie, garde enfants tunisie, pension alimentaire tunisie",
+      image: "https://maitre-haifaguedhami.me/office/office2.webp",
+    },
+    en: {
+      title:
+        "Divorce Lawyer Tunisia | Kairouan, Tunis & Remote | Haifa Guedhami Alouini",
+      description:
+        "Legal support for divorce, child custody, alimony and judgment enforcement in Tunisia.",
+      keywords:
+        "divorce lawyer tunisia, family lawyer tunisia, child custody tunisia, alimony tunisia",
+      image: "https://maitre-haifaguedhami.me/office/office2.webp",
+    },
+    ar: {
+      title:
+        "محامي طلاق في تونس | القيروان وتونس وعن بعد | حيفاء قذامي العلويني",
+      description:
+        "مرافقة قانونية في الطلاق والحضانة والنفقة وتنفيذ الأحكام في تونس.",
+      keywords: "محامي طلاق تونس, محامي اسرة تونس, حضانة اطفال تونس, نفقة تونس",
+      image: "https://maitre-haifaguedhami.me/office/office2.webp",
+    },
+  },
+
+  "/avocat-immobilier-tunisie": {
+    fr: {
+      title:
+        "Avocat Immobilier Tunisie | Transactions, Titres et Litiges | Kairouan - Tunis",
+      description:
+        "Vérification foncière, contrats immobiliers et contentieux de propriété en Tunisie.",
+      keywords:
+        "avocat immobilier tunisie, verification fonciere, litige propriete tunisie, bail commercial tunisie",
+      image: "https://maitre-haifaguedhami.me/office/office1.webp",
+    },
+    en: {
+      title:
+        "Real Estate Lawyer Tunisia | Transactions, Titles & Disputes | Kairouan - Tunis",
+      description:
+        "Title verification, real estate contracts and property litigation in Tunisia.",
+      keywords:
+        "real estate lawyer tunisia, title verification, property dispute tunisia, commercial lease tunisia",
+      image: "https://maitre-haifaguedhami.me/office/office1.webp",
+    },
+    ar: {
+      title: "محامي عقاري في تونس | معاملات وسندات ونزاعات | القيروان - تونس",
+      description: "تدقيق الملكية وعقود العقارات والنزاعات العقارية في تونس.",
+      keywords:
+        "محامي عقاري تونس, تدقيق ملكية, نزاع عقاري تونس, كراء تجاري تونس",
+      image: "https://maitre-haifaguedhami.me/office/office1.webp",
+    },
+  },
+
+  "/avocat-affaires-tunisie": {
+    fr: {
+      title:
+        "Avocat Affaires Tunisie | Contrats, Sociétés et Litiges Commerciaux",
+      description:
+        "Conseil juridique pour entreprises en Tunisie: création de société, contrats commerciaux et défense en litige.",
+      keywords:
+        "avocat affaires tunisie, creation societe tunisie, contrat commercial tunisie, litige commercial",
+      image: "https://maitre-haifaguedhami.me/office/hallway.webp",
+    },
+    en: {
+      title:
+        "Business Lawyer Tunisia | Contracts, Companies & Commercial Disputes",
+      description:
+        "Legal advisory for companies in Tunisia: company formation, commercial contracts and litigation defense.",
+      keywords:
+        "business lawyer tunisia, company formation tunisia, commercial contract tunisia, commercial dispute",
+      image: "https://maitre-haifaguedhami.me/office/hallway.webp",
+    },
+    ar: {
+      title: "محامي أعمال في تونس | عقود وشركات ونزاعات تجارية",
+      description:
+        "استشارة قانونية للشركات في تونس: تأسيس شركات، عقود تجارية والدفاع في النزاعات.",
+      keywords: "محامي اعمال تونس, تأسيس شركة تونس, عقد تجاري تونس, نزاع تجاري",
+      image: "https://maitre-haifaguedhami.me/office/hallway.webp",
+    },
+  },
+
+  "/avocat-kairouan": {
+    fr: {
+      title:
+        "Avocat a Kairouan | Divorce, immobilier, affaires et consultation",
+      description:
+        "Cabinet d'avocat a Kairouan pour les particuliers et entreprises: divorce, immobilier, affaires et consultation juridique.",
+      keywords:
+        "avocat kairouan, avocat a kairouan, cabinet avocat kairouan, consultation juridique kairouan",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+    en: {
+      title:
+        "Lawyer in Kairouan | Divorce, real estate, business and legal consultation",
+      description:
+        "Law firm in Kairouan for individuals and companies: divorce, real estate, business law and legal consultation.",
+      keywords:
+        "lawyer kairouan, attorney kairouan, law firm kairouan, legal consultation kairouan",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+    ar: {
+      title: "محامية في القيروان | طلاق وعقار واعمال واستشارة قانونية",
+      description:
+        "مكتب محاماة في القيروان لفائدة الافراد والمؤسسات: طلاق وعقار واعمال واستشارة قانونية.",
+      keywords:
+        "محامي القيروان, محامية القيروان, مكتب محاماة القيروان, استشارة قانونية القيروان",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+  },
+
+  "/consultation-juridique-tunisie": {
+    fr: {
+      title: "Consultation Juridique Tunisie | Avocat à Kairouan et Tunis",
+      description:
+        "Consultation juridique rapide avec plan d'action clair pour particuliers et entreprises en Tunisie.",
+      keywords:
+        "consultation juridique tunisie, rendez-vous avocat tunisie, conseil juridique kairouan tunis",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+    en: {
+      title: "Legal Consultation Tunisia | Lawyer in Kairouan & Tunis",
+      description:
+        "Fast legal consultation with a clear action plan for individuals and companies in Tunisia.",
+      keywords:
+        "legal consultation tunisia, lawyer appointment tunisia, legal advice kairouan tunis",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+    ar: {
+      title: "استشارة قانونية في تونس | محامي في القيروان وتونس",
+      description:
+        "استشارة قانونية سريعة مع خطة عمل واضحة للأفراد والشركات في تونس.",
+      keywords:
+        "استشارة قانونية تونس, موعد محامي تونس, نصيحة قانونية القيروان تونس",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+  },
+
+  "/values": {
+    fr: {
+      title: "Nos Valeurs | Cabinet Maître Haifa Guedhami Alouini",
+      description:
+        "Intégrité, transparence et excellence dans l'accompagnement juridique à Kairouan et Tunis.",
+      keywords:
+        "valeurs cabinet avocat, ethique juridique, transparence honoraires",
+      image: "https://maitre-haifaguedhami.me/office/office2.webp",
+    },
+    en: {
+      title: "Our Values | Law Firm of Haifa Guedhami Alouini, Tunisia",
+      description:
+        "Integrity, transparency and excellence in legal services in Kairouan and Tunis, Tunisia.",
+      keywords: "law firm values, legal ethics, transparent fees tunisia",
+      image: "https://maitre-haifaguedhami.me/office/office2.webp",
+    },
+    ar: {
+      title: "قيمنا | مكتب المحامية حيفاء قذامي العلويني",
+      description:
+        "النزاهة والشفافية والتميز في الخدمات القانونية بالقيروان وتونس.",
+      keywords: "قيم مكتب محاماة, اخلاقيات قانونية, شفافية أتعاب تونس",
+      image: "https://maitre-haifaguedhami.me/office/office2.webp",
+    },
+  },
+
+  "/contact": {
+    fr: {
+      title:
+        "Contact | Avocat Kairouan et Tunis - Maître Haifa Guedhami Alouini",
+      description:
+        "Contactez le cabinet pour une consultation juridique en Tunisie: WhatsApp, email et rendez-vous.",
+      keywords:
+        "contact avocat tunisie, consultation juridique tunis, avocat kairouan whatsapp",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+    en: {
+      title: "Contact | Lawyer Kairouan & Tunis - Haifa Guedhami Alouini",
+      description:
+        "Contact the firm for a legal consultation in Tunisia: WhatsApp, email and appointments.",
+      keywords:
+        "contact lawyer tunisia, legal consultation tunis, lawyer kairouan whatsapp",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+    ar: {
+      title: "تواصل معنا | محامي القيروان وتونس - حيفاء قذامي العلويني",
+      description:
+        "تواصل مع المكتب لاستشارة قانونية في تونس: واتساب، بريد إلكتروني ومواعيد.",
+      keywords: "تواصل محامي تونس, استشارة قانونية تونس, محامي القيروان واتساب",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+  },
+
   "/faq": {
-    title: "Questions Fréquentes | Avocat Kairouan - Haifa Guedhami Alouini",
-    description:
-      "Réponses aux questions fréquentes sur nos services juridiques, tarifs, et procédures. Guide pratique pour vos démarches légales en Tunisie.",
-    keywords:
-      "FAQ avocat, questions juridiques, tarifs avocat Tunisie, procédures légales",
-    image: "https://maitre-haifaguedhami.me/office/office1.webp",
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "J'ai peur d'aller au tribunal...",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "C'est normal. La bonne nouvelle ? La plupart des affaires se règlent avant. Si nous devons y aller, je serai à vos côtés à chaque étape.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Est-ce que mes informations restent confidentielles ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Absolument. Le secret professionnel est sacré. Tout ce que vous me dites reste entre nous. C'est une promesse.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Combien cela va-t-il coûter ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Je comprends cette préoccupation. Je vous donne une estimation claire dès le début et nous discutons des options adaptées à votre budget.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Combien de temps cela prendra-t-il ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Chaque situation est unique. Je vous donne une estimation réaliste et je vous tiens informé(e) à chaque étape.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Que se passe-t-il lors de notre première rencontre ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Vous parlez, j'écoute. Vous me racontez votre situation, puis je vous explique vos options. Aucune pression, juste une conversation honnête.",
-          },
-        },
-      ],
+    fr: {
+      title: "Questions Fréquentes | Cabinet Maître Haifa Guedhami Alouini",
+      description:
+        "Réponses aux questions fréquentes sur les procédures, les délais et les honoraires en Tunisie.",
+      keywords: "faq avocat tunisie, procedure divorce, honoraires avocat",
+      image: "https://maitre-haifaguedhami.me/office/office1.webp",
+    },
+    en: {
+      title: "Frequently Asked Questions | Law Firm of Haifa Guedhami Alouini",
+      description:
+        "Answers to frequently asked questions about procedures, timelines and fees in Tunisia.",
+      keywords: "faq lawyer tunisia, divorce procedure, attorney fees tunisia",
+      image: "https://maitre-haifaguedhami.me/office/office1.webp",
+    },
+    ar: {
+      title: "الأسئلة المتكررة | مكتب المحامية حيفاء قذامي العلويني",
+      description:
+        "إجابات على الأسئلة الشائعة حول الإجراءات والآجال والأتعاب في تونس.",
+      keywords: "اسئلة متكررة محامي تونس, إجراءات طلاق, أتعاب محامي تونس",
+      image: "https://maitre-haifaguedhami.me/office/office1.webp",
+    },
+  },
+
+  "/actualites": {
+    fr: {
+      title: "Actualités Juridiques | Maître Haifa Guedhami Alouini",
+      description:
+        "Analyses et actualités juridiques en Tunisie par Maître Haifa Guedhami Alouini.",
+      keywords: "actualites juridiques tunisie, blog avocat tunisie",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+    en: {
+      title: "Legal News & Insights | Haifa Guedhami Alouini Law Firm",
+      description:
+        "Legal analysis and news from Tunisia by Attorney Haifa Guedhami Alouini.",
+      keywords: "legal news tunisia, law blog tunisia, attorney insights",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+    ar: {
+      title: "المستجدات القانونية | مكتب حيفاء قذامي العلويني",
+      description:
+        "تحليلات وأخبار قانونية من تونس بقلم المحامية حيفاء قذامي العلويني.",
+      keywords: "اخبار قانونية تونس, مدونة محامي تونس",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
     },
   },
 };
+
+// Helper to get locale-specific SEO data for a route, with FR fallback.
+export function getSEOData(path: string, locale: "fr" | "en" | "ar"): SEOData {
+  const localized = seoData[path];
+  if (localized) {
+    return localized[locale] ?? localized["fr"];
+  }
+  return seoData["/"]["fr"];
+}
 
 export const routeToSection: Record<string, string> = {
   "/": "hero",
@@ -296,6 +434,4 @@ export const routeToSection: Record<string, string> = {
   "/values": "values",
   "/contact": "contact",
   "/faq": "faq",
-  // Map standard routes to home sections if they are just anchors
-  // or keep them if they are separate pages (current app seems to be SPA with sections on Home)
 };

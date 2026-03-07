@@ -1,11 +1,7 @@
 import { Suspense, lazy } from "react";
 import { Hero } from "@/features/hero/Hero";
 import { TrustBadges } from "@/components/common/TrustBadges";
-import { About } from "@/features/about";
-import { PracticeAreas } from "@/features/practice-areas";
-import { Values } from "@/features/values";
-import { Approach } from "@/features/approach";
-import { Impact } from "@/features/impact";
+import { SEOHubLinks } from "@/components/common/SEOHubLinks";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
 import { useGoogleReviews } from "@/hooks/useGoogleReviews";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -17,6 +13,31 @@ import { Translation } from "@/types";
 const Reviews = lazy(() =>
   import("@/features/reviews").then((module) => ({
     default: module.Reviews,
+  }))
+);
+const About = lazy(() =>
+  import("@/features/about").then((module) => ({
+    default: module.About,
+  }))
+);
+const PracticeAreas = lazy(() =>
+  import("@/features/practice-areas").then((module) => ({
+    default: module.PracticeAreas,
+  }))
+);
+const Values = lazy(() =>
+  import("@/features/values").then((module) => ({
+    default: module.Values,
+  }))
+);
+const Approach = lazy(() =>
+  import("@/features/approach").then((module) => ({
+    default: module.Approach,
+  }))
+);
+const Impact = lazy(() =>
+  import("@/features/impact").then((module) => ({
+    default: module.Impact,
   }))
 );
 const Contact = lazy(() =>
@@ -56,19 +77,34 @@ export function Home({ t, locale, whatsappLink, whatsappNumber }: HomeProps) {
       <TrustBadges t={t} />
 
       <div className="fade-in-section">
-        <About t={t} />
+        <Suspense fallback={null}>
+          <About t={t} />
+        </Suspense>
+      </div>
+      <div className="fade-in-section section-alt">
+        <SEOHubLinks locale={locale} />
       </div>
       <div className="fade-in-section">
-        <PracticeAreas t={t} />
+        <Suspense fallback={null}>
+          <PracticeAreas t={t} />
+        </Suspense>
+      </div>
+      <div className="fade-in-section section-alt">
+        <Suspense fallback={null}>
+          <Values t={t} />
+        </Suspense>
       </div>
       <div className="fade-in-section">
-        <Values t={t} />
-      </div>
-      <div className="fade-in-section">
-        <Approach t={t} />
+        <Suspense fallback={null}>
+          <Approach t={t} />
+        </Suspense>
       </div>
 
-      <Impact t={t} />
+      <div className="section-alt">
+        <Suspense fallback={null}>
+          <Impact t={t} />
+        </Suspense>
+      </div>
 
       <div className="fade-in-section">
         <Suspense fallback={<LoadingFallback />}>
@@ -80,7 +116,7 @@ export function Home({ t, locale, whatsappLink, whatsappNumber }: HomeProps) {
           />
         </Suspense>
       </div>
-      <div className="fade-in-section">
+      <div className="fade-in-section section-alt">
         <Suspense fallback={<LoadingFallback />}>
           <FAQ t={t} />
         </Suspense>
@@ -96,7 +132,7 @@ export function Home({ t, locale, whatsappLink, whatsappNumber }: HomeProps) {
           />
         </Suspense>
       </div>
-      <div className="fade-in-section">
+      <div className="fade-in-section section-alt">
         <Suspense fallback={<LoadingFallback />}>
           <Gallery t={t} officePhotos={officePhotos} />
         </Suspense>

@@ -14,6 +14,7 @@ export const fr: Translation = {
     testimonials: "Témoignages",
     consult: "Contact",
     actualites: "Actualités",
+    guides: "Guides",
   },
   heroEyebrow: "Tunis · Kairouan · International",
   heroTitle: "Ne laissez pas le droit décider de votre avenir. Maîtrisez-le.",
@@ -104,7 +105,7 @@ export const fr: Translation = {
       rating: "★★★★★",
       text: "Maître Alouini a sauvé mon entreprise. Plus important encore, elle m'a rassuré dans les moments les plus stressants.",
       author: "Ahmed K. · Entrepreneur",
-      image: "/people/ahmed.webp",
+      image: "/people/thomas.webp",
     },
     {
       rating: "★★★★★",
@@ -237,6 +238,8 @@ export const fr: Translation = {
     "Nous aident à comprendre comment les visiteurs utilisent notre site.",
   cookieMarketing: "Marketing",
   cookieMarketingDesc: "Utilisés pour diffuser des publicités personnalisées.",
+  callAction: "Appeler",
+  allRightsReserved: "Tous droits réservés.",
   seeMoreReviews: "Voir plus d'avis →",
   emailLabel: "Email",
   loading: "Chargement...",
@@ -257,5 +260,76 @@ export const fr: Translation = {
     readMore: "Lire l'article",
     backToList: "Retour aux actualités",
     by: "Par",
+  },
+  servicePages: {
+    family: {
+      title: "Droit de la Famille",
+      description:
+        "Procedures de divorce, garde d'enfants, pension alimentaire et successions. Un accompagnement a la fois humain et determine pour proteger vos interets et ceux de vos enfants.",
+      sectionHeading: "Nos Services en Droit Familial",
+      services: [
+        {
+          title: "Procedure de Divorce",
+          description:
+            "Qu'il s'agisse d'un divorce par consentement mutuel, pour faute ou pour prejudice, nous vous guidons vers la meilleure issue legale.",
+        },
+        {
+          title: "Garde d'Enfants et Pension Alimentaire",
+          description:
+            "Defense rigoureuse de vos droits parentaux et du niveau de vie de vos enfants.",
+        },
+        {
+          title: "Successions et Heritage",
+          description:
+            "Assistance dans le partage, les indivisions et les litiges afin de faire respecter vos droits successoraux.",
+        },
+      ],
+    },
+    business: {
+      title: "Droit des Affaires",
+      description:
+        "Creation d'entreprises, redaction de contrats commerciaux et resolution de litiges entre associes ou avec des tiers. Un accompagnement global pour securiser la croissance de votre entreprise en Tunisie.",
+      sectionHeading: "Nos Services en Droit des Affaires",
+      services: [
+        {
+          title: "Creation de Societes",
+          description:
+            "Choix de la forme juridique (SUARL, SARL, SA), redaction des statuts et immatriculation.",
+        },
+        {
+          title: "Contrats Commerciaux",
+          description:
+            "Redaction et revision de baux commerciaux, contrats de franchise, conditions generales de vente et partenariats.",
+        },
+        {
+          title: "Contentieux Commercial",
+          description:
+            "Recouvrement de creances, concurrence deloyale et resolution des conflits entre actionnaires, fournisseurs ou partenaires.",
+        },
+      ],
+    },
+    realEstate: {
+      title: "Droit Immobilier",
+      description:
+        "Securisez vos transactions immobilieres, reglez vos litiges de propriete et assurez une gestion saine de votre patrimoine avec des conseils adaptes au contexte tunisien.",
+      sectionHeading: "Nos Services en Droit Immobilier",
+      services: [
+        {
+          title: "Achat et Vente",
+          description:
+            "Verification du titre foncier, audit legal de la propriete et redaction securisee des actes de vente et promesses d'achat.",
+        },
+        {
+          title: "Litiges de Propriete et Bornage",
+          description:
+            "Assistance dans les actions en revendication, servitudes, troubles de voisinage et litiges lies a l'immatriculation fonciere.",
+        },
+        {
+          title: "Baux Civils et Commerciaux",
+          description:
+            "Redaction des contrats de location, gestion des impayes, procedures d'expulsion et renouvellement du droit au bail.",
+        },
+      ],
+    },
   },
 };

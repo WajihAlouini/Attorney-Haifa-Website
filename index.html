@@ -2,11 +2,17 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/webp" href="/logo-sm.webp" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="preload"
+      as="image"
+      href="/office/entry.webp"
+      fetchpriority="high"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,134 +29,89 @@
     </noscript>
     <link rel="dns-prefetch" href="https://api.web3forms.com" />
 
-    <!-- Google Search Console Verification -->
     <meta
       name="google-site-verification"
       content="fMnMvDYWvlWx8aFRZxGoIyAFIJP9ofuoC43netCNp2Q"
     />
 
-    <!-- Multilingual SEO -->
-    <link
-      rel="alternate"
-      hreflang="fr"
-      href="https://maitre-haifaguedhami.me/?lang=fr"
-    />
-    <link
-      rel="alternate"
-      hreflang="en"
-      href="https://maitre-haifaguedhami.me/?lang=en"
-    />
-    <link
-      rel="alternate"
-      hreflang="ar"
-      href="https://maitre-haifaguedhami.me/?lang=ar"
-    />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://maitre-haifaguedhami.me/"
-    />
-
-    <!-- Canonical URL (prevents duplicate content issues) -->
-    <link rel="canonical" href="https://maitre-haifaguedhami.me/" />
-
-    <meta
-      name="description"
-      content="Avocat Tunisie - Maître Haifa Guedhami Alouini, avocate à la Cour à Kairouan et Tunis. Spécialiste en droit de la famille, divorce, héritage, droit immobilier et droit des affaires. Consultation juridique professionnelle."
-    />
-    <meta
-      name="keywords"
-      content="avocat tunisie, avocat kairouan, avocat tunis, avocate tunisie, droit de la famille tunisie, divorce tunisie, héritage tunisie, droit immobilier tunisie, droit des affaires tunisie, consultation juridique, conseil juridique, Haifa Guedhami Alouini, محامية تونس, محامية القيروان, محامي تونس, قانون الأسرة, طلاق, ميراث, عقارات, استشارة قانونية"
-    />
-
-    <!-- Author and Copyright -->
-    <meta name="author" content="Maître Haifa Guedhami Alouini" />
-    <meta name="copyright" content="© 2025 Maître Haifa Guedhami Alouini" />
-
-    <!-- Geo Tags for Local SEO -->
+    <meta name="author" content="Maitre Haifa Guedhami Alouini" />
+    <meta name="copyright" content="Copyright 2026 Maitre Haifa Guedhami Alouini" />
     <meta name="geo.region" content="TN-32" />
     <meta name="geo.placename" content="Kairouan" />
     <meta name="geo.position" content="35.6781;10.0963" />
     <meta name="ICBM" content="35.6781, 10.0963" />
-
-    <!-- Business Information -->
     <meta name="rating" content="General" />
     <meta name="revisit-after" content="7 days" />
     <meta name="language" content="French, Arabic, English" />
 
-    <!-- Open Graph Meta Tags -->
-    <meta
-      property="og:title"
-      content="Avocat Tunisie, Kairouan & Tunis - Maître Haifa Guedhami Alouini"
-    />
-    <meta
-      property="og:description"
-      content="Avocate à la Cour & Conseillère Juridique à Kairouan et Tunis. Expert en droit de la famille, immobilier et affaires."
-    />
-    <meta
-      property="og:image"
-      content="https://maitre-haifaguedhami.me/office/entry.webp"
-    />
-    <meta property="og:url" content="https://maitre-haifaguedhami.me" />
-    <meta property="og:type" content="website" />
+    <title>Avocat Tunisie, Kairouan & Tunis - Maitre Haifa Guedhami Alouini</title>
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Maître Haifa Guedhami Alouini - Avocate à la Cour"
-    />
-    <meta
-      name="twitter:description"
-      content="Avocate à la Cour & Conseillère Juridique à Kairouan et Tunis."
-    />
-    <meta
-      name="twitter:image"
-      content="https://maitre-haifaguedhami.me/office/entry.webp"
-    />
-
-    <title>
-      Avocat Tunisie, Kairouan & Tunis - Maître Haifa Guedhami Alouini
-    </title>
-
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#05080f" />
+    <meta name="theme-color" content="#f7f7f5" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta
       name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
+      content="default"
     />
+    <script>
+      (() => {
+        const themeKey = "theme";
+        const darkThemeColor = "#05080f";
+        const lightThemeColor = "#f7f7f5";
+
+        try {
+          const storedTheme = localStorage.getItem(themeKey);
+          const theme =
+            storedTheme === "dark" || storedTheme === "light"
+              ? storedTheme
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+
+          document.documentElement.setAttribute("data-theme", theme);
+          const themeColorMeta = document.querySelector(
+            'meta[name="theme-color"]'
+          );
+          themeColorMeta?.setAttribute(
+            "content",
+            theme === "dark" ? darkThemeColor : lightThemeColor
+          );
+        } catch {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
 
     <meta name="format-detection" content="telephone=no" />
   </head>
   <body>
     <noscript>
-      <h1>Avocat Tunisie, Kairouan & Tunis - Maître Haifa Guedhami Alouini</h1>
+      <h1>Avocat Tunisie, Kairouan & Tunis - Maitre Haifa Guedhami Alouini</h1>
       <p>
-        Maître Haifa Guedhami Alouini offre une représentation juridique experte
-        pour les particuliers et les entreprises en Tunisie et à l'étranger,
-        spécialisée en droit des affaires, immobilier et droit de la famille.
+        Maitre Haifa Guedhami Alouini offre une representation juridique pour
+        les particuliers et les entreprises en Tunisie et a l'etranger,
+        specialisee en droit des affaires, immobilier et droit de la famille.
       </p>
-      <h2>Domaines d'Expertise</h2>
+      <h2>Domaines d'expertise</h2>
       <ul>
         <li>
-          <strong>Droit des Affaires:</strong> Création d'entreprises, contrats
-          commerciaux, fusions et conformité réglementaire.
+          <strong>Droit des affaires:</strong> creation d'entreprises, contrats
+          commerciaux, fusions et conformite reglementaire.
         </li>
         <li>
-          <strong>Droit Immobilier:</strong> Sécurité des transactions, litiges
-          de propriété, droit de la construction.
+          <strong>Droit immobilier:</strong> securite des transactions, litiges
+          de propriete, droit de la construction.
         </li>
         <li>
-          <strong>Droit de la Famille:</strong> Procédures de divorce, garde
+          <strong>Droit de la famille:</strong> procedures de divorce, garde
           d'enfants, droit international de la famille.
         </li>
       </ul>
       <h2>Contact</h2>
       <address>
-        Avenue des Martyrs, Médina<br />
+        Avenue des Martyrs, Medina<br />
         Kairouan, 3100, Tunisie<br />
-        Tél: +216 98 643 612<br />
+        Tel: +216 98 643 612<br />
         Email: maitrealouiniguedhami@gmail.com
       </address>
     </noscript>

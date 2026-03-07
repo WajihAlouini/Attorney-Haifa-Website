@@ -1,15 +1,27 @@
 import { FC, useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { LocaleProps } from "@/types";
+import { Translation } from "@/types";
 import styles from "./Header.module.css";
 import { logoUrl } from "@/data/constants";
-import { translations } from "@/data/translations";
 
-export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
+interface HeaderProps {
+  locale: string;
+  setLocale: (locale: string) => void;
+  t: Translation;
+  theme: "light" | "dark";
+  toggleTheme: () => void;
+}
+
+export const Header: FC<HeaderProps> = ({ locale, setLocale, t, theme, toggleTheme }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const localeSearch = locale === "fr" ? "" : `?lang=${locale}`;
+  const withLocaleSearch = (pathname: string) => ({
+    pathname,
+    search: localeSearch,
+  });
 
   // Scroll to a section on the homepage
   const scrollToSection = (sectionId: string) => {
@@ -20,7 +32,7 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
       if (el) el.scrollIntoView({ behavior: "smooth" });
     } else {
       // Navigate to homepage first, then scroll after render
-      navigate("/");
+      navigate(withLocaleSearch("/"));
       setTimeout(() => {
         const el = document.getElementById(sectionId);
         if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -51,15 +63,15 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
   return (
     <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`}>
       <Link
-        to="/"
+        to={withLocaleSearch("/")}
         className={styles.brand}
         aria-label="Home"
         onClick={closeMobileMenu}
       >
         <img src={logoUrl} alt="Logo" className={styles.brandMark} />
         <div className={styles.brandCopy}>
-          <span>{translations[locale].brandName}</span>
-          <small>{translations[locale].brandTagline}</small>
+          <span>{t.brandName}</span>
+          <small>{t.brandTagline}</small>
         </div>
       </Link>
 
@@ -77,7 +89,7 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
             }}
             className={styles.navLink}
           >
-            {translations[locale].nav.about}
+            {t.nav.about}
           </a>
           <a
             href="#practice"
@@ -87,7 +99,7 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
             }}
             className={styles.navLink}
           >
-            {translations[locale].nav.practice}
+            {t.nav.practice}
           </a>
           <a
             href="#values"
@@ -97,14 +109,24 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
             }}
             className={styles.navLink}
           >
-            {translations[locale].nav.values}
+            {t.nav.values}
+          </a>
+          <a
+            href="#guides"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("guides");
+            }}
+            className={styles.navLink}
+          >
+            {t.nav.guides || "Guides"}
           </a>
           <Link
-            to="/actualites"
+            to={withLocaleSearch("/actualites")}
             onClick={closeMobileMenu}
             className={isActive("/actualites") ? styles.activeLink : ""}
           >
-            {translations[locale].nav.actualites || "Actualités"}
+            {t.nav.actualites || "Actualités"}
           </Link>
           <a
             href="#contact"
@@ -114,11 +136,34 @@ export const Header: FC<LocaleProps> = ({ locale, setLocale }) => {
             }}
             className={styles.navLink}
           >
-            {translations[locale].nav.consult}
+            {t.nav.consult}
           </a>
         </div>
 
         <div className={styles.navMeta}>
+          <button
+            className={styles.themeToggle}
+            onClick={toggleTheme}
+            aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+          >
+            {theme === "light" ? (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+            )}
+          </button>
           <div className={styles.langToggle}>
             <button
               className={`${styles.langBtn} ${

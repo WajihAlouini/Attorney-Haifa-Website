@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { PhoneNumber } from "@/components/common/PhoneNumber";
 import styles from "./Contact.module.css";
 
 interface ContactProps {
@@ -128,10 +129,9 @@ const ContactComponent: FC<ContactProps> = ({
                   href={whatsappLink}
                   target="_blank"
                   rel="noreferrer"
-                  dir="ltr"
                   style={{ display: "inline-block" }}
                 >
-                  {whatsappNumber}
+                  <PhoneNumber number={whatsappNumber} />
                 </a>
                 <button
                   className={styles.copyBtn}

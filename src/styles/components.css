@@ -29,15 +29,15 @@
 
 .btn.primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  color: #05080f;
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--accent-contrast);
+  box-shadow: 0 4px 20px var(--accent-glow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn.primary:hover {
   background: linear-gradient(135deg, var(--accent-light), var(--accent));
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 8px 30px var(--accent-glow);
 }
 
 .btn.primary:active {
@@ -47,14 +47,14 @@
 .btn.ghost {
   border: 1px solid var(--border);
   color: var(--text);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--btn-ghost-bg);
   backdrop-filter: blur(4px);
 }
 
 .btn.ghost:hover {
   border-color: var(--accent);
-  color: var(--accent);
-  background: rgba(212, 175, 55, 0.05);
+  color: var(--accent-fg);
+  background: var(--btn-ghost-hover-bg);
 }
 
 .btn.whatsapp {
@@ -126,7 +126,7 @@ blockquote {
   border: 1px solid var(--border);
   margin: 0;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 blockquote::before {
@@ -150,7 +150,7 @@ blockquote p {
 }
 
 blockquote footer {
-  color: var(--accent);
+  color: var(--accent-fg);
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -377,7 +377,7 @@ blockquote footer {
   bottom: 6rem;
   right: 2rem;
   background: var(--accent);
-  color: #05080f;
+  color: var(--accent-contrast);
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -423,7 +423,7 @@ blockquote footer {
 
 .copy-btn:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-fg);
   transform: scale(1.1);
 }
 
@@ -445,6 +445,27 @@ blockquote footer {
 .consult-form input[aria-invalid="true"],
 .consult-form textarea[aria-invalid="true"] {
   border-color: #ef4444;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .glass-panel {
+  backdrop-filter: blur(24px) saturate(120%);
+  -webkit-backdrop-filter: blur(24px) saturate(120%);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--card-shadow-hover);
 }
 
 /* Misc */

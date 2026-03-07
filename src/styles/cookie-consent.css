@@ -13,13 +13,12 @@
 
 .cookie-banner {
   pointer-events: auto;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, var(--panel) 0%, var(--surface) 100%);
+  border: 1px solid var(--border);
   border-radius: 100px;
-  box-shadow:
-    0 16px 40px -8px rgba(0, 0, 0, 0.4),
-    0 8px 20px -4px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: var(--card-shadow-hover);
+  backdrop-filter: blur(24px) saturate(130%);
+  -webkit-backdrop-filter: blur(24px) saturate(130%);
   display: flex;
   align-items: center;
   padding: 0.5rem 0.5rem 0.5rem 1.25rem;
@@ -38,7 +37,7 @@
   width: 1.75rem;
   height: 1.75rem;
   flex-shrink: 0;
-  color: #06d6a0;
+  color: var(--accent-fg);
 }
 
 .cookie-icon-small svg {
@@ -49,7 +48,7 @@
 .cookie-message-compact {
   margin: 0;
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-dim);
   line-height: 1.4;
   white-space: nowrap;
 }
@@ -68,18 +67,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
+  background: var(--btn-ghost-bg);
+  border: 1px solid var(--border);
   border-radius: 50%;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--muted);
   cursor: pointer;
   transition: all 0.2s ease;
   flex-shrink: 0;
 }
 
 .btn-cookie-settings:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  background: var(--btn-ghost-hover-bg);
+  color: var(--text);
   transform: rotate(60deg);
 }
 
@@ -95,7 +94,7 @@
   background: transparent;
   border: none;
   border-radius: 100px;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--muted);
   font-size: 0.75rem;
   font-weight: 500;
   cursor: pointer;
@@ -104,28 +103,28 @@
 }
 
 .btn-cookie-reject:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  background: var(--btn-ghost-bg);
 }
 
-/* Accept Button - Vibrant teal/mint for attention */
+/* Accept Button - Theme accent */
 .btn-cookie-accept {
   padding: 0.5rem 1.25rem;
-  background: linear-gradient(135deg, #06d6a0 0%, #00b894 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
   border: none;
   border-radius: 100px;
-  color: #0a1628;
+  color: var(--accent-contrast);
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(6, 214, 160, 0.35);
+  box-shadow: 0 4px 12px var(--accent-glow);
 }
 
 .btn-cookie-accept:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(6, 214, 160, 0.45);
+  box-shadow: 0 6px 16px var(--accent-glow);
 }
 
 .btn-cookie-accept:active {
@@ -156,7 +155,7 @@
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text);
 }
 
 .btn-close-settings {
@@ -165,10 +164,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
+  background: var(--btn-ghost-bg);
+  border: 1px solid var(--border);
   border-radius: 50%;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--muted);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -186,7 +185,7 @@
 .cookie-settings-desc {
   margin: 0 0 1rem;
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--muted);
   line-height: 1.5;
 }
 
@@ -204,13 +203,13 @@
   justify-content: space-between;
   gap: 0.75rem;
   padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--btn-ghost-bg);
+  border: 1px solid var(--border);
   border-radius: 0.75rem;
 }
 
 .cookie-category:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--btn-ghost-hover-bg);
 }
 
 .category-info {
@@ -241,8 +240,8 @@
 }
 
 .category-icon.essential {
-  background: rgba(6, 214, 160, 0.15);
-  color: #06d6a0;
+  background: var(--accent-soft);
+  color: var(--accent-fg);
 }
 
 .category-icon.analytics {
@@ -258,7 +257,7 @@
 .category-name {
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text);
 }
 
 .category-badge {
@@ -268,14 +267,14 @@
   text-transform: uppercase;
   letter-spacing: 0.03em;
   border-radius: 0.25rem;
-  background: rgba(6, 214, 160, 0.15);
-  color: #06d6a0;
+  background: var(--accent-soft);
+  color: var(--accent-fg);
 }
 
 .category-desc {
   margin: 0;
   font-size: 0.6875rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--muted);
   line-height: 1.4;
 }
 
@@ -297,7 +296,8 @@
 .toggle-slider {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--lang-toggle-bg);
+  border: 1px solid var(--border);
   border-radius: 0.625rem;
   transition: all 0.3s ease;
 }
@@ -310,14 +310,14 @@
   transform: translateY(-50%);
   width: 1rem;
   height: 1rem;
-  background: #fff;
+  background: var(--nav-bg-solid);
   border-radius: 50%;
   transition: all 0.3s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-switch input:checked + .toggle-slider {
-  background: #06d6a0;
+  background: var(--accent);
 }
 
 .toggle-switch input:checked + .toggle-slider::before {
@@ -329,7 +329,7 @@
 }
 
 .toggle-switch.disabled .toggle-slider {
-  background: #06d6a0;
+  background: var(--accent);
 }
 
 .toggle-switch.disabled .toggle-slider::before {
@@ -351,10 +351,10 @@
 .btn-cookie-save {
   flex: 1;
   padding: 0.625rem 1rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--btn-ghost-bg);
   border: none;
   border-radius: 0.5rem;
-  color: #fff;
+  color: var(--text);
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
@@ -362,7 +362,7 @@
 }
 
 .btn-cookie-save:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--btn-ghost-hover-bg);
 }
 
 /* Animations */

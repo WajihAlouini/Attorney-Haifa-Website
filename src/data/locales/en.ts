@@ -14,6 +14,7 @@ export const en: Translation = {
     testimonials: "Testimonials",
     consult: "Contact",
     actualites: "Legal News",
+    guides: "Guides",
   },
   heroEyebrow: "Tunis · Kairouan · International",
   heroTitle: "Don't let the law decide your future. Master it.",
@@ -102,7 +103,7 @@ export const en: Translation = {
       rating: "★★★★★",
       text: "Maître Alouini saved my business. More importantly, she reassured me during the most stressful moments.",
       author: "Ahmed K. · Entrepreneur",
-      image: "/people/ahmed.webp",
+      image: "/people/thomas.webp",
     },
     {
       rating: "★★★★★",
@@ -233,6 +234,8 @@ export const en: Translation = {
     "Help us understand how visitors interact with our site.",
   cookieMarketing: "Marketing",
   cookieMarketingDesc: "Used to deliver personalized advertisements.",
+  callAction: "Call",
+  allRightsReserved: "All rights reserved.",
   seeMoreReviews: "See more reviews →",
   emailLabel: "Email",
   loading: "Loading...",
@@ -253,5 +256,76 @@ export const en: Translation = {
     readMore: "Read article",
     backToList: "Back to articles",
     by: "By",
+  },
+  servicePages: {
+    family: {
+      title: "Family Law",
+      description:
+        "Divorce proceedings, child custody, child support, and succession matters. Compassionate and determined guidance to protect your interests and your children.",
+      sectionHeading: "Our Family Law Services",
+      services: [
+        {
+          title: "Divorce Proceedings",
+          description:
+            "Whether by mutual consent, fault, or harm, we guide you toward the most appropriate legal outcome.",
+        },
+        {
+          title: "Child Custody and Support",
+          description:
+            "Strong protection of your parental rights and your children's financial stability.",
+        },
+        {
+          title: "Succession and Inheritance",
+          description:
+            "Assistance with estate division, co-ownership issues, and inheritance disputes.",
+        },
+      ],
+    },
+    business: {
+      title: "Business Law",
+      description:
+        "Company formation, commercial contracts, and disputes between partners or third parties. End-to-end legal support to secure your company's growth in Tunisia.",
+      sectionHeading: "Our Business Law Services",
+      services: [
+        {
+          title: "Company Formation",
+          description:
+            "Selection of the right legal form (SUARL, SARL, SA), drafting articles of association, and registration formalities.",
+        },
+        {
+          title: "Commercial Contracts",
+          description:
+            "Drafting and reviewing commercial leases, franchise agreements, terms and conditions, and partnerships.",
+        },
+        {
+          title: "Commercial Litigation",
+          description:
+            "Debt recovery, unfair competition, and disputes between shareholders, suppliers, or commercial partners.",
+        },
+      ],
+    },
+    realEstate: {
+      title: "Real Estate Law",
+      description:
+        "Secure your transactions, resolve title disputes, and protect the sound management of your assets with practical guidance for investments in Tunisia.",
+      sectionHeading: "Our Real Estate Law Services",
+      services: [
+        {
+          title: "Purchases and Sales",
+          description:
+            "Title verification, legal due diligence, and secure drafting of sale deeds and preliminary sale agreements.",
+        },
+        {
+          title: "Property and Boundary Disputes",
+          description:
+            "Representation in ownership claims, easements, neighborhood conflicts, and land registration disputes.",
+        },
+        {
+          title: "Residential and Commercial Leases",
+          description:
+            "Drafting lease agreements, managing unpaid rent, eviction procedures, and renewal issues.",
+        },
+      ],
+    },
   },
 };

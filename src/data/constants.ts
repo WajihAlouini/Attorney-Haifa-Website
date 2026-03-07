@@ -7,7 +7,7 @@ export const mapEmbedSrc =
 export const GOOGLE_PLACE_ID = "ChIJRwtQ-P8PrkYRU8r2Ra2K8aA";
 
 export const logoUrl = "/logo-sm.webp";
-export const heroBg = "/hero-bg.jpg";
+export const heroBg = "/office/entry.webp";
 
 import entryOffice from "@/assets/office/entry.webp?format=avif;webp&w=1200&as=picture";
 import hallwayOffice from "@/assets/office/hallway.webp?format=avif;webp&w=1200&as=picture";

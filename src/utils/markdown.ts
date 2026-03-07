@@ -82,6 +82,8 @@ const markdownFiles = import.meta.glob("../content/blog/**/*.md", {
   eager: true,
 });
 
+const BLOG_LANGS = ["fr", "en", "ar"];
+
 export function getAllPosts(lang = "fr"): BlogPostMeta[] {
   const posts: BlogPostMeta[] = [];
 
@@ -122,25 +124,37 @@ export function getAllPosts(lang = "fr"): BlogPostMeta[] {
   );
 }
 
-export function getPostBySlug(slug: string, lang = "fr"): BlogPost | null {
-  const path = `../content/blog/${lang}/${slug}.md`;
-  const fileContent = markdownFiles[path] as string;
+export function getPostBySlug(
+  slug: string,
+  lang = "fr",
+  fallbackAcrossLocales = true
+): BlogPost | null {
+  const localeChain = fallbackAcrossLocales
+    ? [lang, ...BLOG_LANGS.filter((item) => item !== lang)]
+    : [lang];
 
-  if (!fileContent) return null;
+  for (const candidateLang of localeChain) {
+    const path = `../content/blog/${candidateLang}/${slug}.md`;
+    const fileContent = markdownFiles[path] as string;
 
-  const { data, content } = parseFrontmatter(fileContent);
+    if (!fileContent) continue;
 
-  return {
-    meta: {
-      slug,
-      lang,
-      title: (data.title as string) || "Untitled",
-      date: (data.date as string) || "1970-01-01",
-      description: (data.description as string) || "",
-      author: (data.author as string) || "Maître Haifa Guedhami Alouini",
-      image: data.image as string | undefined,
-      tags: (data.tags as string[]) || [],
-    },
-    content,
-  };
+    const { data, content } = parseFrontmatter(fileContent);
+
+    return {
+      meta: {
+        slug,
+        lang: candidateLang,
+        title: (data.title as string) || "Untitled",
+        date: (data.date as string) || "1970-01-01",
+        description: (data.description as string) || "",
+        author: (data.author as string) || "Maître Haifa Guedhami Alouini",
+        image: data.image as string | undefined,
+        tags: (data.tags as string[]) || [],
+      },
+      content,
+    };
+  }
+
+  return null;
 }

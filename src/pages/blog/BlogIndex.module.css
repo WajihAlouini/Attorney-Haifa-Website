@@ -55,7 +55,7 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  color: var(--accent);
+  color: var(--accent-fg);
   font-size: 0.85rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -80,7 +80,7 @@
 }
 
 .content h2 a:hover {
-  color: var(--accent);
+  color: var(--accent-fg-hover);
 }
 
 .content p {
@@ -98,19 +98,19 @@
 }
 
 .tag {
-  background: rgba(212, 175, 55, 0.1);
-  color: var(--accent-light);
+  background: var(--accent-soft);
+  color: var(--accent-fg);
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
   font-size: 0.75rem;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--border-hover);
 }
 
 .readMore {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--accent) !important;
+  color: var(--accent-fg) !important;
   font-weight: 600;
   font-size: 0.95rem;
   text-transform: uppercase;

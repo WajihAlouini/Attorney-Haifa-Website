@@ -1,0 +1,230 @@
+.page {
+  padding: 7rem clamp(1.25rem, 4vw, 3rem) 0;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.breadcrumbs a {
+  color: var(--accent-fg);
+}
+
+.hero {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  display: grid;
+  gap: 1.5rem;
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 18%, transparent), transparent 45%),
+    linear-gradient(180deg, color-mix(in srgb, var(--panel-elevated) 90%, transparent), var(--panel));
+}
+
+.heroCopy {
+  max-width: 760px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  margin-bottom: 0.9rem;
+  color: var(--accent-fg);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.lede {
+  max-width: 720px;
+  color: var(--text-dim);
+  font-size: 1.08rem;
+  line-height: 1.85;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.heroButton {
+  min-height: 3.25rem;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.card,
+.step,
+.faq {
+  padding: 1.5rem;
+}
+
+.card h2,
+.sectionHeader h2,
+.step h3,
+.faq h3 {
+  margin: 0 0 0.9rem;
+}
+
+.copy {
+  color: var(--text-dim);
+  line-height: 1.85;
+}
+
+.subSection {
+  margin-top: 1.75rem;
+}
+
+.subSection h3 {
+  margin-bottom: 0.8rem;
+  color: var(--accent-fg);
+}
+
+.list,
+.documentList {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-dim);
+  line-height: 1.75;
+}
+
+.list li::marker,
+.documentList li::marker {
+  color: var(--accent-fg);
+}
+
+.section {
+  display: grid;
+  gap: 1rem;
+}
+
+.sectionHeader {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.sectionHeader p {
+  color: var(--text-dim);
+  margin: 0;
+}
+
+.processGrid,
+.faqGrid,
+.relatedGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+.processGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.faqGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.step p,
+.faq p {
+  margin: 0;
+  color: var(--text-dim);
+  line-height: 1.75;
+}
+
+.relatedGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.relatedLink {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 1.25rem;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--panel-elevated) 88%, transparent);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.relatedLink:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.16);
+}
+
+.relatedLink div {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.relatedLink strong {
+  color: var(--text);
+}
+
+.relatedLink span {
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+
+.linkIcon {
+  color: var(--accent-fg);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+:global([dir="rtl"]) .breadcrumbs {
+  justify-content: flex-end;
+}
+
+:global([dir="rtl"]) .linkIcon {
+  transform: scaleX(-1);
+}
+
+@media (max-width: 960px) {
+  .mainGrid,
+  .processGrid,
+  .faqGrid,
+  .relatedGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding-top: 6rem;
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .heroButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

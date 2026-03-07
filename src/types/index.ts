@@ -10,6 +10,7 @@ export interface Translation {
     testimonials?: string;
     consult: string;
     actualites?: string;
+    guides?: string;
   };
 
   // Brand
@@ -165,6 +166,8 @@ export interface Translation {
   cookieMarketingDesc?: string;
 
   // UI Text
+  callAction?: string;
+  allRightsReserved?: string;
   seeMoreReviews: string;
   emailLabel: string;
   loading: string;
@@ -189,6 +192,28 @@ export interface Translation {
     readMore: string;
     backToList: string;
     by: string;
+  };
+
+  // Service detail pages
+  servicePages?: {
+    family: {
+      title: string;
+      description: string;
+      sectionHeading: string;
+      services: Array<{ title: string; description: string }>;
+    };
+    business: {
+      title: string;
+      description: string;
+      sectionHeading: string;
+      services: Array<{ title: string; description: string }>;
+    };
+    realEstate: {
+      title: string;
+      description: string;
+      sectionHeading: string;
+      services: Array<{ title: string; description: string }>;
+    };
   };
 }
 

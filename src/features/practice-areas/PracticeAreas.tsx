@@ -1,9 +1,12 @@
 import { FC, ReactElement } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { TranslationProps } from "@/types";
 import styles from "./PracticeAreas.module.css";
 
 export const PracticeAreas: FC<TranslationProps> = ({ t }) => {
+  const location = useLocation();
+  const lang = new URLSearchParams(location.search).get("lang");
+  const localeSearch = lang === "en" || lang === "ar" ? `?lang=${lang}` : "";
   const icons: Record<number, ReactElement> = {
     // Business & Corporate Law
     0: (
@@ -63,7 +66,10 @@ export const PracticeAreas: FC<TranslationProps> = ({ t }) => {
           return (
             <Link
               key={area.title}
-              to={urls[index] || "/services"}
+              to={{
+                pathname: urls[index] || "/services",
+                search: localeSearch,
+              }}
               className={styles.card}
             >
               {icons[index]}

@@ -1,14 +1,16 @@
 .hero {
   position: relative;
   background:
-    linear-gradient(180deg, rgba(3, 5, 8, 0) 0%, rgba(3, 5, 8, 0.9) 100%),
+    linear-gradient(
+      180deg,
+      var(--hero-overlay-start) 0%,
+      var(--hero-overlay-end) 100%
+    ),
     radial-gradient(
-      circle at 50% 50%,
-      rgba(212, 175, 55, 0.03) 0%,
-      transparent 50%
+      circle at 50% 40%,
+      rgba(212, 175, 55, 0.1) 0%,
+      transparent 55%
     );
-  background-size: cover;
-  background-attachment: fixed;
   padding: clamp(6rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
   display: flex;
   flex-direction: column;
@@ -41,10 +43,9 @@
   font-size: clamp(3rem, 6vw, 5.5rem);
   line-height: 1.05;
   margin: 0 0 2rem;
-  color: #fff;
+  color: var(--text);
   font-weight: 500;
-  text-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(to bottom right, #fff, #e2e8f0);
+  background: linear-gradient(to bottom right, var(--hero-h1-from), var(--hero-h1-to));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -73,7 +74,7 @@
   gap: 3rem;
   margin-top: 2rem;
   flex-wrap: wrap;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--separator);
   padding-top: 2rem;
   width: 100%;
 }
@@ -95,7 +96,7 @@
   transform: translateY(-50%);
   height: 30px;
   width: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--separator);
 }
 
 .metricIcon {
@@ -115,7 +116,7 @@
   display: block;
   font-family: "Playfair Display", serif;
   font-size: 1.75rem;
-  color: #fff;
+  color: var(--text);
   line-height: 1.2;
   margin-bottom: 0.25rem;
   font-weight: 500;
@@ -134,15 +135,31 @@
   .hero {
     padding: 6rem 1rem 4rem;
     min-height: auto;
+    background-attachment: scroll;
+    background-image:
+      linear-gradient(
+        180deg,
+        var(--hero-overlay-start) 0%,
+        var(--hero-overlay-end) 100%
+      ),
+      radial-gradient(
+        circle at 50% 30%,
+        rgba(212, 175, 55, 0.08) 0%,
+        transparent 65%
+      );
   }
 
   .content h1 {
     font-size: 2.5rem;
     word-wrap: break-word;
+    text-shadow: none;
+    background: none;
+    color: var(--text);
+    -webkit-text-fill-color: var(--text);
   }
 
   .metrics {
-    gap: 2rem;
+    display: none;
   }
 
   .metric:not(:last-child)::after {

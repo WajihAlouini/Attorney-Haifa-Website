@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "prerender": "node scripts/prerender.mjs",
+    "build:prerender": "npm run build && npm run prerender",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "preview": "vite preview",

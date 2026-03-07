@@ -18,13 +18,12 @@
 }
 
 .googleCard {
-  background: #ffffff;
-  color: #3c4043;
+  background: var(--panel);
+  color: var(--text-dim);
   border-radius: 12px;
   padding: 16px;
-  box-shadow:
-    0 1px 3px rgba(60, 64, 67, 0.3),
-    0 4px 8px 3px rgba(60, 64, 67, 0.15);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
   font-family: "Roboto", sans-serif; /* Google Font style */
   flex: 1 1 300px;
   max-width: 360px;
@@ -37,10 +36,9 @@
 }
 
 .googleCard:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 2px 6px rgba(60, 64, 67, 0.3),
-    0 8px 14px 4px rgba(60, 64, 67, 0.15);
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .cardHeader {
@@ -65,8 +63,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #7e57c2; /* Material Deep Purple */
-  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--accent-contrast);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +86,7 @@
 .authorName {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #202124;
+  color: var(--text);
   text-decoration: none;
 }
 
@@ -98,7 +96,7 @@
 
 .subtext {
   font-size: 0.8rem;
-  color: #70757a;
+  color: var(--muted);
 }
 
 .googleLogo {
@@ -121,13 +119,13 @@
 
 .timeAgo {
   font-size: 0.8rem;
-  color: #70757a;
+  color: var(--muted);
 }
 
 .reviewBody {
   font-size: 0.9rem;
   line-height: 1.5;
-  color: #3c4043;
+  color: var(--text-dim);
 }
 
 .authorLink {
@@ -138,8 +136,8 @@
 }
 
 .authorLink:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  color: var(--accent-fg);
+  border-bottom-color: var(--accent-fg);
 }
 
 .cta {
@@ -148,7 +146,7 @@
 }
 
 .cta a {
-  color: var(--accent);
+  color: var(--accent-fg);
   text-decoration: none;
   font-size: 1rem;
   font-weight: 600;
@@ -172,8 +170,8 @@
 
 /* Navigation Buttons */
 .navButton {
-  background: #ffffff;
-  border: 1px solid #dadce0;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 50%;
   width: 48px;
   height: 48px;
@@ -183,14 +181,15 @@
   cursor: pointer;
   transition: all 0.2s;
   flex-shrink: 0;
-  color: #5f6368;
-  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
+  color: var(--text-dim);
+  box-shadow: var(--card-shadow);
 }
 
 .navButton:hover:not(:disabled) {
-  background: #f8f9fa;
-  box-shadow: 0 2px 6px rgba(60, 64, 67, 0.3);
-  color: #202124;
+  background: var(--panel);
+  box-shadow: var(--card-shadow-hover);
+  color: var(--accent-fg);
+  border-color: var(--border-hover);
 }
 
 .navButton:disabled {
@@ -224,7 +223,7 @@
 
 .paginationText {
   font-size: 0.9rem;
-  color: #5f6368;
+  color: var(--muted);
   font-weight: 500;
 }
 

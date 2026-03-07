@@ -7,7 +7,6 @@ import { MobileStickyBar } from "@/components/common/MobileStickyBar";
 import { Toaster } from "react-hot-toast";
 import { trackWhatsAppClick } from "@/utils/analyticsHelpers";
 import { Translation } from "@/types";
-
 import { ReactNode } from "react";
 
 interface MainLayoutProps {
@@ -21,6 +20,8 @@ interface MainLayoutProps {
   scrollToTop: () => void;
   whatsappLink: string;
   whatsappNumber: string;
+  theme: "light" | "dark";
+  toggleTheme: () => void;
 }
 
 export function MainLayout({
@@ -34,6 +35,8 @@ export function MainLayout({
   scrollToTop,
   whatsappLink,
   whatsappNumber,
+  theme,
+  toggleTheme,
 }: MainLayoutProps) {
   const direction = locale === "ar" ? "rtl" : "ltr";
 
@@ -43,7 +46,6 @@ export function MainLayout({
       <CalComWidget />
       <CookieConsent t={t} />
 
-      {/* Scroll progress bar */}
       <div
         className="scroll-progress-bar"
         style={{ width: `${scrollProgress}%` }}
@@ -57,11 +59,11 @@ export function MainLayout({
       <div className="glow glow-one" aria-hidden="true"></div>
       <div className="glow glow-two" aria-hidden="true"></div>
 
-      <Header locale={locale} setLocale={setLocale} />
+      <Header locale={locale} setLocale={setLocale} t={t} theme={theme} toggleTheme={toggleTheme} />
 
       <main>{children}</main>
 
-      <Footer t={t} year={year} />
+      <Footer t={t} year={year} locale={locale} />
       <Toaster
         position="bottom-right"
         toastOptions={{
@@ -76,14 +78,13 @@ export function MainLayout({
         }}
       />
 
-      {/* Scroll to top button */}
       {showScrollTop && (
         <button
           className="scroll-to-top"
           onClick={scrollToTop}
           aria-label={t.scrollToTop}
         >
-          ↑
+          {"\u2191"}
         </button>
       )}
 

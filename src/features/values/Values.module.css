@@ -11,18 +11,22 @@
 
 .card {
   position: relative;
-  background: rgba(255, 255, 255, 0.03); /* Extremely subtle fill */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Very light border initially */
+  background: var(--panel);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden; /* For inner glow effects */
-  text-align: left; /* Reset to left align for formal look */
+  overflow: hidden;
+  text-align: left;
+  box-shadow: var(--card-shadow);
+}
+
+:global([data-theme="dark"]) .card {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 /* Subtle gradient overlay */
@@ -42,9 +46,9 @@
 
 .card:hover {
   transform: translateY(-8px);
-  border-color: var(--accent); /* Gold border on hover */
-  background: rgba(20, 25, 35, 0.6); /* Slightly darker, richer background */
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5); /* Deep shadow */
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .card:hover::before {
@@ -67,7 +71,7 @@
 
 .card:hover .iconWrapper {
   background: var(--accent);
-  color: #05080f; /* Dark contrast text */
+  color: #fff;
   border-color: var(--accent);
   transform: scale(1.1) rotate(3deg); /* Dynamic subtle movement */
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); /* Gold glow */

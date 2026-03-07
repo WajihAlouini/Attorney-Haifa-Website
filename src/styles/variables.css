@@ -14,25 +14,55 @@
   line-height: 1.6;
   font-weight: 400;
 
-  /* Premium Dark Theme Palette */
-  --bg: #030508; /* Darker, deeper black/blue */
-  --panel: rgba(20, 25, 35, 0.7); /* More transparent for glassmorphism */
-  --surface: rgba(15, 20, 30, 0.8);
-  --text: #e2e8f0;
-  --text-dim: #94a3b8;
-  --muted: #64748b;
+  /* Premium Light Theme Palette */
+  --bg: #F7F7F5;
+  --bg-alt: #EFECE6; /* Alternating section background */
+  --panel: #FFFFFF;
+  --surface: #F0EDE8;
+  --text: #1c1917;
+  --text-dim: #3D3530;
+  --muted: #5C534D;
 
-  /* Refined Gold Accent */
-  --accent: #d4af37; /* Metallic Gold */
-  --accent-light: #f3e5ab; /* Champagne */
-  --accent-dark: #aa8c2c;
-  --accent-soft: rgba(212, 175, 55, 0.1);
-  --accent-glow: rgba(212, 175, 55, 0.3);
+  /* Refined Gold Accent (Darker for light theme contrast) */
+  --accent: #b8860b;
+  --accent-light: #d4af37;
+  --accent-dark: #8b6508;
+  --accent-fg: #8b6508;
+  --accent-fg-hover: #6f5206;
+  --accent-contrast: #1c1917;
+  --accent-soft: rgba(184, 134, 11, 0.12);
+  --accent-glow: rgba(184, 134, 11, 0.25);
 
-  --border: rgba(212, 175, 55, 0.15);
-  --border-hover: rgba(212, 175, 55, 0.4);
+  --border: rgba(28, 25, 23, 0.18);
+  --border-hover: rgba(184, 134, 11, 0.4);
 
-  /* Breakpoints (implied usage in components) */
+  /* Card-specific */
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+
+  /* Theme-specific helpers (referenced by module CSS) */
+  --nav-bg: rgba(247, 247, 245, 0.8);
+  --nav-bg-scrolled: rgba(247, 247, 245, 0.95);
+  --nav-bg-solid: #F7F7F5;
+  --hero-overlay-start: rgba(247, 247, 245, 0.3);
+  --hero-overlay-end: rgba(247, 247, 245, 0.95);
+  --separator: rgba(0, 0, 0, 0.06);
+  --glass-inset: rgba(255, 255, 255, 0.6);
+  --glass-shadow: rgba(0, 0, 0, 0.06);
+  --hero-h1-from: #1c1917;
+  --hero-h1-to: #8B7355;
+  --btn-ghost-bg: rgba(28, 25, 23, 0.02);
+  --btn-ghost-hover-bg: rgba(184, 134, 11, 0.06);
+  --lang-toggle-bg: rgba(28, 25, 23, 0.04);
+  --lang-hover-bg: rgba(28, 25, 23, 0.07);
+
+  /* Footer */
+  --footer-bg: #141210;
+  --footer-text: #a8a29e;
+  --footer-heading: #f5f5f4;
+  --footer-border: rgba(255, 255, 255, 0.06);
+
+  /* Breakpoints */
   --bp-sm: 640px;
   --bp-md: 768px;
   --bp-lg: 1024px;
@@ -42,4 +72,52 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color-scheme: light;
+}
+
+/* ── Dark Theme ── */
+[data-theme="dark"] {
+  --bg: #030508;
+  --bg-alt: #0a0d14;
+  --panel: rgba(20, 25, 35, 0.7);
+  --surface: rgba(15, 20, 30, 0.8);
+  --text: #e2e8f0;
+  --text-dim: #94a3b8;
+  --muted: #64748b;
+
+  --accent: #d4af37;
+  --accent-light: #f3e5ab;
+  --accent-dark: #aa8c2c;
+  --accent-fg: #f3e5ab;
+  --accent-fg-hover: #ffffff;
+  --accent-contrast: #05080f;
+  --accent-soft: rgba(212, 175, 55, 0.1);
+  --accent-glow: rgba(212, 175, 55, 0.3);
+
+  --border: rgba(212, 175, 55, 0.15);
+  --border-hover: rgba(212, 175, 55, 0.4);
+
+  --card-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.3);
+
+  --nav-bg: rgba(3, 5, 8, 0.75);
+  --nav-bg-scrolled: rgba(3, 5, 8, 0.95);
+  --nav-bg-solid: #030508;
+  --hero-overlay-start: rgba(3, 5, 8, 0.3);
+  --hero-overlay-end: rgba(3, 5, 8, 0.95);
+  --separator: rgba(255, 255, 255, 0.06);
+  --glass-inset: rgba(255, 255, 255, 0.04);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+  --hero-h1-from: #fff;
+  --hero-h1-to: var(--accent-light);
+  --btn-ghost-bg: rgba(255, 255, 255, 0.02);
+  --btn-ghost-hover-bg: rgba(212, 175, 55, 0.08);
+  --lang-toggle-bg: rgba(255, 255, 255, 0.04);
+  --lang-hover-bg: rgba(255, 255, 255, 0.08);
+
+  --footer-bg: #0a0a0f;
+  --footer-text: #a8a29e;
+  --footer-heading: #f5f5f4;
+  --footer-border: rgba(255, 255, 255, 0.05);
+  color-scheme: dark;
 }

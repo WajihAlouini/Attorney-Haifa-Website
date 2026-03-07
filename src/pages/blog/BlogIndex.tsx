@@ -1,7 +1,6 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, Variants } from "framer-motion";
-import { SEO } from "@/components/common/SEO";
 import { getAllPosts } from "@/utils/markdown";
 import { Calendar, ArrowRight } from "lucide-react";
 import { Translation } from "@/types";
@@ -11,7 +10,14 @@ const BlogIndex: FC<{ locale?: string; t?: Translation }> = ({
   locale = "fr",
   t,
 }) => {
+  const location = useLocation();
+  const lang = new URLSearchParams(location.search).get("lang");
+  const localeSearch = lang === "en" || lang === "ar" ? `?lang=${lang}` : "";
   const posts = getAllPosts(locale);
+  const buildPostLink = (slug: string) => ({
+    pathname: `/actualites/${slug}`,
+    search: localeSearch,
+  });
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -29,7 +35,6 @@ const BlogIndex: FC<{ locale?: string; t?: Translation }> = ({
 
   return (
     <>
-      <SEO title="Actualités Juridiques | Maître Haifa Guedhami Alouini" />
       <div className={styles.container}>
         <div className="section-header">
           <span className="section-eyebrow">
@@ -39,8 +44,7 @@ const BlogIndex: FC<{ locale?: string; t?: Translation }> = ({
             {t?.blog?.heading ?? "Le Journal Juridique"}
           </h1>
           <p style={{ color: "var(--muted)", marginTop: "1rem" }}>
-            {t?.blog?.lede ??
-              "Décryptage de l'actualité juridique tunisienne par Maître Haifa Guedhami Alouini."}
+            {t?.blog?.lede ?? "Décryptage de l'actualité juridique tunisienne."}
           </p>
         </div>
 
@@ -85,7 +89,7 @@ const BlogIndex: FC<{ locale?: string; t?: Translation }> = ({
                 </div>
 
                 <h2>
-                  <Link to={`/actualites/${post.slug}`}>{post.title}</Link>
+                  <Link to={buildPostLink(post.slug)}>{post.title}</Link>
                 </h2>
 
                 <p>{post.description}</p>
@@ -100,10 +104,7 @@ const BlogIndex: FC<{ locale?: string; t?: Translation }> = ({
                   </div>
                 )}
 
-                <Link
-                  to={`/actualites/${post.slug}`}
-                  className={styles.readMore}
-                >
+                <Link to={buildPostLink(post.slug)} className={styles.readMore}>
                   {t?.blog?.readMore ?? "Lire l'article"}{" "}
                   <ArrowRight size={16} />
                 </Link>
