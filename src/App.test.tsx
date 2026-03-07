@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 import App from "./App";
-import { describe, it, expect } from "vitest";
 
 // Mock IntersectionObserver
 class MockIntersectionObserver implements IntersectionObserver {
   readonly root: Element | null = null;
-  readonly rootMargin: string = "";
+  readonly rootMargin = "";
   readonly thresholds: ReadonlyArray<number> = [];
 
   observe() {}
@@ -27,14 +27,15 @@ describe("App", () => {
   it("renders the main application", async () => {
     render(<App />);
 
-    // Check for the brand name in the header (updated to match actual text)
-    expect(
-      screen.getByText("Maître Haifa Guedhami Alouini")
-    ).toBeInTheDocument();
+    // Brand text appears in both the header and footer.
+    expect(screen.getAllByText(/Haifa Guedhami Alouini/i).length).toBeGreaterThan(
+      0
+    );
 
-    // Check for the hero eyebrow text (default language is FR)
     expect(
-      screen.getByText(/Tunis · Kairouan · International/i)
+      await screen.findByRole("heading", {
+        name: /avenir/i,
+      })
     ).toBeInTheDocument();
   });
 });
