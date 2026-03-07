@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "preprerender": "node scripts/ensure-playwright-browser.mjs",
     "prerender": "node scripts/prerender.mjs",
     "build:prerender": "npm run build && npm run prerender",
     "lint": "eslint src",
