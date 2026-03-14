@@ -18,6 +18,7 @@
   --bg: #F7F7F5;
   --bg-alt: #EFECE6; /* Alternating section background */
   --panel: #FFFFFF;
+  --panel-elevated: #fcfbf8;
   --surface: #F0EDE8;
   --text: #1c1917;
   --text-dim: #3D3530;
@@ -39,6 +40,33 @@
   /* Card-specific */
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.06);
   --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+  --shadow-soft: rgba(0, 0, 0, 0.1);
+  --shadow-strong: rgba(0, 0, 0, 0.3);
+
+  --selection-bg: var(--accent-light);
+  --selection-text: #1c1917;
+  --field-bg: rgba(28, 25, 23, 0.03);
+  --field-focus-bg: rgba(28, 25, 23, 0.05);
+  --surface-overlay: rgba(255, 255, 255, 0.05);
+  --overlay-strong: rgba(0, 0, 0, 0.85);
+  --code-bg: rgba(17, 24, 39, 0.96);
+  --code-text: #e5eefb;
+
+  --success: #059669;
+  --success-strong: #047857;
+  --success-soft: rgba(5, 150, 105, 0.16);
+  --success-contrast: #f8fffb;
+  --danger: #dc2626;
+  --danger-strong: #b91c1c;
+  --danger-soft: rgba(220, 38, 38, 0.16);
+  --danger-contrast: #fff5f5;
+  --info: #2563eb;
+  --info-soft: rgba(37, 99, 235, 0.16);
+  --warning: #ea580c;
+  --warning-soft: rgba(234, 88, 12, 0.16);
+  --whatsapp: #25d366;
+  --whatsapp-hover: #20ba5a;
+  --whatsapp-glow: rgba(37, 211, 102, 0.28);
 
   /* Theme-specific helpers (referenced by module CSS) */
   --nav-bg: rgba(247, 247, 245, 0.8);
@@ -80,6 +108,7 @@
   --bg: #030508;
   --bg-alt: #0a0d14;
   --panel: rgba(20, 25, 35, 0.7);
+  --panel-elevated: rgba(18, 23, 33, 0.92);
   --surface: rgba(15, 20, 30, 0.8);
   --text: #e2e8f0;
   --text-dim: #94a3b8;
@@ -99,6 +128,33 @@
 
   --card-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.3);
+  --shadow-soft: rgba(0, 0, 0, 0.22);
+  --shadow-strong: rgba(0, 0, 0, 0.5);
+
+  --selection-bg: var(--accent-light);
+  --selection-text: #05080f;
+  --field-bg: rgba(255, 255, 255, 0.03);
+  --field-focus-bg: rgba(212, 175, 55, 0.08);
+  --surface-overlay: rgba(255, 255, 255, 0.04);
+  --overlay-strong: rgba(3, 5, 8, 0.88);
+  --code-bg: rgba(5, 8, 15, 0.82);
+  --code-text: #dbe6f8;
+
+  --success: #34d399;
+  --success-strong: #10b981;
+  --success-soft: rgba(52, 211, 153, 0.2);
+  --success-contrast: #05150f;
+  --danger: #f87171;
+  --danger-strong: #ef4444;
+  --danger-soft: rgba(248, 113, 113, 0.2);
+  --danger-contrast: #1f0909;
+  --info: #60a5fa;
+  --info-soft: rgba(96, 165, 250, 0.2);
+  --warning: #fb923c;
+  --warning-soft: rgba(251, 146, 60, 0.2);
+  --whatsapp: #25d366;
+  --whatsapp-hover: #1fb759;
+  --whatsapp-glow: rgba(37, 211, 102, 0.34);
 
   --nav-bg: rgba(3, 5, 8, 0.75);
   --nav-bg-scrolled: rgba(3, 5, 8, 0.95);

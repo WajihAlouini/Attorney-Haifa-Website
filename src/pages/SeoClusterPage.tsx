@@ -45,6 +45,27 @@ export const SeoClusterPage: FC<SeoClusterPageProps> = ({
   const relatedGuides = getSeoClusterPages(locale).filter(
     (item) => item.path !== pageData.path
   );
+  const detailSections = [
+    {
+      title: pageData.proofTitle,
+      items: pageData.proofPoints,
+    },
+    {
+      title: pageData.processTitle,
+      items: pageData.process,
+    },
+    {
+      title: pageData.serviceAreaTitle,
+      items: pageData.serviceAreas,
+    },
+  ].filter(
+    (
+      section
+    ): section is {
+      title: string;
+      items: string[];
+    } => Boolean(section.title && section.items && section.items.length > 0)
+  );
 
   return (
     <div className={styles.page}>
@@ -90,6 +111,24 @@ export const SeoClusterPage: FC<SeoClusterPageProps> = ({
             </ul>
           </article>
         </section>
+
+        {detailSections.length > 0 && (
+          <section className={styles.detailGrid}>
+            {detailSections.map((section) => (
+              <article
+                key={section.title}
+                className={`glass-panel ${styles.detailCard}`}
+              >
+                <h3>{section.title}</h3>
+                <ul>
+                  {section.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </section>
+        )}
 
         <section className={styles.section}>
           <div className={styles.sectionHeader}>

@@ -1,5 +1,7 @@
 import { Suspense, lazy } from "react";
+import { useLocation } from "react-router-dom";
 import { Contact } from "@/features/contact/Contact";
+import { SEOHubLinks } from "@/components/common/SEOHubLinks";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useMagneticButton } from "@/hooks/useMagneticButton";
@@ -19,6 +21,10 @@ interface PageProps {
 }
 
 export function ContactPage({ t, whatsappLink, whatsappNumber }: PageProps) {
+  const location = useLocation();
+  const lang = new URLSearchParams(location.search).get("lang");
+  const locale = lang === "en" || lang === "ar" ? lang : "fr";
+
   useScrollAnimation();
   useMagneticButton();
 
@@ -56,6 +62,9 @@ export function ContactPage({ t, whatsappLink, whatsappNumber }: PageProps) {
           mapEmbedSrc={mapEmbedSrc}
           mapShareUrl={mapShareUrl}
         />
+      </div>
+      <div className="fade-in-section section-alt">
+        <SEOHubLinks locale={locale} />
       </div>
 
       <div className="fade-in-section">

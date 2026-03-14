@@ -31,6 +31,12 @@
   animation-delay: 5s;
 }
 
+@media (max-width: 768px) {
+  .glow {
+    display: none;
+  }
+}
+
 /* Loading Fallback */
 .section-loading {
   display: flex;

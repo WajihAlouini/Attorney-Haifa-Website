@@ -6,9 +6,19 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  // Global ignores
+  // Global ignores — replaces .eslintignore (flat-config style)
   {
-    ignores: ["dist/**", "node_modules/**", "build/**", "coverage/**"],
+    ignores: [
+      "dist/**",
+      "build/**",
+      "node_modules/**",
+      "coverage/**",
+      "public/sw.js",
+      "*.config.js",
+      "*.config.ts",
+      "!vite.config.ts",
+      "!eslint.config.js",
+    ],
   },
 
   js.configs.recommended,

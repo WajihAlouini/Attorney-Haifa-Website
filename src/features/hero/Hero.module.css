@@ -1,179 +1,364 @@
+/* ============================================================
+   HERO — Compact: portrait + copy side-by-side above the fold
+   ============================================================ */
+
 .hero {
+  --hero-bg: #f4efe7;
+  --hero-bg-soft: #ece6dc;
+  --hero-veil: rgba(244, 239, 231, 0.96);
+  --hero-text: #1b1713;
+  --hero-text-soft: #5b534b;
+  --hero-accent: #c5a059;
+  --hero-divider: rgba(27, 23, 19, 0.08);
   position: relative;
+  overflow: clip;
+  color: var(--hero-text);
   background:
-    linear-gradient(
-      180deg,
-      var(--hero-overlay-start) 0%,
-      var(--hero-overlay-end) 100%
-    ),
-    radial-gradient(
-      circle at 50% 40%,
-      rgba(212, 175, 55, 0.1) 0%,
-      transparent 55%
-    );
-  padding: clamp(6rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
-  display: flex;
-  flex-direction: column;
-  gap: 3.5rem;
-  border-bottom: 1px solid var(--border);
-  min-height: 90vh;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    radial-gradient(ellipse 80% 60% at 72% 30%, rgba(197, 160, 89, 0.07), transparent),
+    linear-gradient(180deg, var(--hero-bg) 0%, var(--hero-bg-soft) 100%);
+  border-bottom: 1px solid var(--hero-divider);
 }
 
-.content {
-  max-width: 900px;
+:global([data-theme="dark"]) .hero {
+  --hero-bg: #0a0f16;
+  --hero-bg-soft: #070b11;
+  --hero-veil: rgba(10, 15, 22, 0.96);
+  --hero-text: #f0ebe4;
+  --hero-text-soft: #9f9a92;
+  --hero-accent: #c5a059;
+  --hero-divider: rgba(255, 255, 255, 0.06);
+  background:
+    radial-gradient(ellipse 80% 60% at 72% 30%, rgba(197, 160, 89, 0.1), transparent),
+    linear-gradient(180deg, var(--hero-bg) 0%, var(--hero-bg-soft) 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.04);
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1320px;
   margin: 0 auto;
-  text-align: center;
+  padding:
+    clamp(6rem, 8vw, 8rem)
+    clamp(1.25rem, 5vw, 4.5rem)
+    0;
+}
+
+/* ---- Stage: two columns, vertically centered ---- */
+.stage {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+  min-height: min(72vh, 620px);
+}
+
+/* ---- Copy ---- */
+.copyColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 600px;
 }
 
 .eyebrow {
+  color: var(--hero-accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  letter-spacing: 0.3em;
-  font-size: 0.85rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-  display: block;
-  font-weight: 600;
+  margin-bottom: 1.2rem;
 }
 
-.content h1 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  line-height: 1.05;
-  margin: 0 0 2rem;
-  color: var(--text);
-  font-weight: 500;
-  background: linear-gradient(to bottom right, var(--hero-h1-from), var(--hero-h1-to));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.brand {
+  margin: 0 0 0.3rem;
+  color: var(--hero-text-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.heading {
+  display: block;
+  margin: 0;
+  color: var(--hero-text);
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 3.6vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.heading em {
+  display: block;
+  color: var(--hero-accent);
+  font-style: italic;
+  font-weight: 400;
+  margin-top: 0.08em;
 }
 
 .lede {
-  color: var(--muted);
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
-  max-width: 700px;
-  margin: 0 auto 2.5rem;
-  font-weight: 300;
+  max-width: 46ch;
+  margin: 1.2rem 0 0;
+  color: var(--hero-text-soft);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.75;
 }
 
+/* ---- CTAs — compact, all on one row ---- */
 .actions {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
   flex-wrap: wrap;
-  width: 100%;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
 }
 
-.metrics {
+.primaryButton,
+.ghostButton,
+.whatsappButton {
+  border-radius: 0;
+  padding: 0.72rem 1.25rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.primaryButton {
+  background: var(--hero-accent);
+  color: #111;
+  border: 1px solid var(--hero-accent);
+}
+
+.primaryButton:hover {
+  background: #d0ab63;
+  border-color: #d0ab63;
+  transform: translateY(-2px);
+}
+
+.whatsappButton,
+.ghostButton {
+  background: transparent;
+  color: var(--hero-text);
+  border: 1px solid var(--hero-divider);
+}
+
+:global([data-theme="light"]) .whatsappButton,
+:global([data-theme="light"]) .ghostButton {
+  border-color: rgba(27, 23, 19, 0.16);
+}
+
+.whatsappButton:hover,
+.ghostButton:hover {
+  color: var(--hero-accent);
+  border-color: var(--hero-accent);
+  background: rgba(197, 160, 89, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ---- Figure column ---- */
+.figureColumn {
+  position: relative;
+  isolation: isolate;
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 3rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-  border-top: 1px solid var(--separator);
-  padding-top: 2rem;
+}
+
+.figureColumn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(to right, var(--hero-veil) 0%, transparent 10%),
+    linear-gradient(to top, var(--hero-bg-soft) 0%, transparent 12%);
+  pointer-events: none;
+}
+
+.figureGlow {
+  position: absolute;
+  inset: 10%;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    rgba(197, 160, 89, 0.1),
+    transparent 70%
+  );
+  filter: blur(36px);
+}
+
+.figureInner {
+  position: relative;
+  z-index: 1;
   width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+}
+
+.portrait {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 15%;
+  filter: brightness(0.88) contrast(1.06) saturate(0.85);
+  -webkit-mask-image:
+    linear-gradient(to bottom, #000 80%, transparent 100%);
+  mask-image:
+    linear-gradient(to bottom, #000 80%, transparent 100%);
+}
+
+/* ---- Metrics rail ---- */
+.metricsRail {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--hero-divider);
 }
 
 .metric {
-  text-align: center;
-  position: relative;
-  min-width: 100px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-}
-
-.metric:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  right: -1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 30px;
-  width: 1px;
-  background: var(--separator);
+  gap: 0.7rem;
 }
 
 .metricIcon {
-  width: 32px;
-  height: 32px;
-  margin-bottom: 0.5rem;
-  color: var(--accent);
-  opacity: 0.9;
+  display: grid;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  color: var(--hero-accent);
+  opacity: 0.65;
 }
 
 .metricIcon svg {
-  width: 100%;
-  height: 100%;
+  width: 0.95rem;
+  height: 0.95rem;
 }
 
-.metric span {
+.metricBody span {
   display: block;
-  font-family: "Playfair Display", serif;
-  font-size: 1.75rem;
-  color: var(--text);
-  line-height: 1.2;
-  margin-bottom: 0.25rem;
-  font-weight: 500;
+  color: var(--hero-text);
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  line-height: 1;
 }
 
-.metric p {
-  font-size: 0.75rem;
-  color: var(--muted);
-  margin: 0;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+.metricBody p {
+  margin: 0.2rem 0 0;
+  color: var(--hero-text-soft);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   RTL — dir="rtl" on parent auto-reverses grid column order,
+   so copy stays first in DOM but renders on the right visually.
+   We only need to fix the gradient blend direction.
+   ============================================================ */
+
+.hero[data-rtl="true"] .copyColumn {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.hero[data-rtl="true"] .figureColumn::before {
+  background:
+    linear-gradient(to left, var(--hero-veil) 0%, transparent 10%),
+    linear-gradient(to top, var(--hero-bg-soft) 0%, transparent 12%);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1100px) {
+  .heading {
+    font-size: clamp(2.2rem, 3.4vw, 3.2rem);
+  }
+
+  .stage,
+  .hero[data-rtl="true"] .stage {
+    grid-template-columns: 1fr 0.75fr;
+  }
+
+  .figureInner {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 920px) {
+  .shell {
+    padding-top: clamp(5.5rem, 7vw, 6.5rem);
+  }
+
+  .stage,
+  .hero[data-rtl="true"] .stage {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 1.5rem;
+  }
+
+  .copyColumn,
+  .hero[data-rtl="true"] .copyColumn {
+    grid-column: auto;
+    order: 1;
+    align-items: flex-start;
+    text-align: start;
+  }
+
+  .figureColumn,
+  .hero[data-rtl="true"] .figureColumn {
+    grid-column: auto;
+    order: 0;
+    justify-content: center;
+  }
+
+  .figureColumn::before,
+  .hero[data-rtl="true"] .figureColumn::before {
+    background:
+      linear-gradient(to top, var(--hero-bg-soft) 0%, transparent 20%);
+  }
+
+  .figureInner {
+    max-width: 320px;
+  }
 }
 
 @media (max-width: 768px) {
-  .hero {
-    padding: 6rem 1rem 4rem;
-    min-height: auto;
-    background-attachment: scroll;
-    background-image:
-      linear-gradient(
-        180deg,
-        var(--hero-overlay-start) 0%,
-        var(--hero-overlay-end) 100%
-      ),
-      radial-gradient(
-        circle at 50% 30%,
-        rgba(212, 175, 55, 0.08) 0%,
-        transparent 65%
-      );
+  .shell {
+    padding-inline: 1.25rem;
   }
 
-  .content h1 {
-    font-size: 2.5rem;
-    word-wrap: break-word;
-    text-shadow: none;
-    background: none;
-    color: var(--text);
-    -webkit-text-fill-color: var(--text);
-  }
-
-  .metrics {
-    display: none;
-  }
-
-  .metric:not(:last-child)::after {
-    display: none;
+  .heading {
+    font-size: clamp(2rem, 8vw, 3rem);
   }
 
   .actions {
+    width: 100%;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
   }
 
-  .actions .btn {
+  .primaryButton,
+  .ghostButton,
+  .whatsappButton {
     width: 100%;
-    max-width: 300px;
+    justify-content: center;
+  }
+
+  .metricsRail {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .figureInner {
+    max-width: 260px;
   }
 }

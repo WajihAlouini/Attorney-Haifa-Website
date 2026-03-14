@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
+import { CheckCircle2, X, XCircle } from "lucide-react";
 import styles from "./Toast.module.css";
 
 export type ToastType = "success" | "error";
@@ -62,7 +63,9 @@ export function Toast({
       role="alert"
     >
       <div className={styles.content}>
-        <div className={styles.icon}>{type === "success" ? "✓" : "✕"}</div>
+        <div className={styles.icon}>
+          {type === "success" ? <CheckCircle2 /> : <XCircle />}
+        </div>
         <div>
           <p className={styles.title}>{title}</p>
           <p className={styles.message}>{message}</p>
@@ -72,7 +75,7 @@ export function Toast({
           onClick={handleClose}
           aria-label="Close"
         >
-          ×
+          <X size={18} />
         </button>
       </div>
       <div className={`${styles.progressBar} ${styles[`progress-${type}`]}`} />

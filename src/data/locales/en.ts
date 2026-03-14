@@ -35,6 +35,13 @@ export const en: Translation = {
   aboutHeading: "You deserve a defense that backs down from nothing.",
   aboutBody:
     "I know that looking for a lawyer means you are going through a tough time. For 25 years, I have had the privilege of accompanying people like you — parents worried about their children, entrepreneurs defending their life's work, families settling complex estates. My approach? Listening first. Understanding not just your legal situation, but also your fears, your priorities, and your hopes. Then, we build a clear strategy together to regain your serenity.",
+  aboutTrustTitle: "Clear trust signals",
+  aboutTrustPoints: [
+    "25+ years of legal practice across advisory work and litigation.",
+    "Firm based in Kairouan with case follow-up in Tunis and remotely.",
+    "Consultations available in French, Arabic and English.",
+    "Support in family, real estate, business and strategic disputes.",
+  ],
   pillarsEyebrow: "Key Pillars",
   pillars: [
     {

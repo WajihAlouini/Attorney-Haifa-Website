@@ -30,8 +30,8 @@
 }
 
 .list li:hover {
-  padding-left: 0.5rem;
-  border-left: 3px solid var(--accent);
+  padding-inline-start: 0.5rem;
+  border-inline-start: 3px solid var(--accent);
 }
 
 .iconWrapper {
@@ -74,7 +74,9 @@
   border: none;
   cursor: pointer;
   padding: 4px;
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0.5;
   transition: opacity 0.2s;
 }
@@ -101,7 +103,7 @@
 
 .form input,
 .form textarea {
-  background: rgba(28, 25, 23, 0.03);
+  background: var(--field-bg);
   border: 1px solid var(--border);
   padding: 1rem;
   color: var(--text);
@@ -114,7 +116,7 @@
 .form textarea:focus {
   outline: none;
   border-color: var(--accent);
-  background: rgba(28, 25, 23, 0.05);
+  background: var(--field-focus-bg);
 }
 
 .mapCard {
@@ -140,7 +142,7 @@
 .mapLink {
   position: absolute;
   bottom: 1rem;
-  right: 1rem;
+  inset-inline-end: 1rem;
   background: var(--surface);
   padding: 0.5rem 1rem;
   font-size: 0.8rem;

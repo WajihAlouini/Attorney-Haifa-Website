@@ -79,69 +79,69 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
         eyebrow: "Kairouan . Tunis . Droit de la famille",
         title: "Avocat en droit de la famille en Tunisie",
         lede:
-          "Divorce, garde, pension, filiation et succession avec une strategie claire et une vraie preparation du dossier.",
-        introTitle: "Une direction utile des le premier rendez-vous",
+          "Divorce, garde, pension, filiation et succession avec une stratégie claire et une vraie préparation du dossier.",
+        introTitle: "Une direction utile dès le premier rendez-vous",
         intro:
-          "Les conflits familiaux melangent urgence, emotions et consequences durables. Le cabinet construit un plan concret: pieces a reunir, voie procedurale la plus adaptee, mesures de protection si necessaire et calendrier realiste.",
-        highlightsTitle: "Situations frequentes accompagnees",
+          "Les conflits familiaux mélangent urgence, émotions et conséquences durables. Le cabinet construit un plan concret : pièces à réunir, voie procédurale la plus adaptée, mesures de protection si nécessaire et calendrier réaliste.",
+        highlightsTitle: "Situations fréquentes accompagnées",
         highlights: [
-          "Divorce amiable ou contentieux et organisation des consequences pratiques.",
-          "Garde, droit de visite, pension alimentaire et execution des jugements.",
-          "Successions, indivisions et blocages entre heritiers.",
+          "Divorce amiable ou contentieux et organisation des conséquences pratiques.",
+          "Garde, droit de visite, pension alimentaire et exécution des jugements.",
+          "Successions, indivisions et blocages entre héritiers.",
         ],
         processTitle: "Comment le dossier avance",
         process: [
           {
             title: "1. Lecture du dossier",
             description:
-              "Analyse des faits, des priorites de la famille et des preuves deja disponibles.",
+              "Analyse des faits, des priorités de la famille et des preuves déjà disponibles.",
           },
           {
-            title: "2. Strategie procedurale",
+            title: "2. Stratégie procédurale",
             description:
-              "Choix de la bonne voie entre negotiation, mesures urgentes et action en justice.",
+              "Choix de la bonne voie entre négociation, mesures urgentes et action en justice.",
           },
           {
-            title: "3. Suivi jusqu'a l'execution",
+            title: "3. Suivi jusqu'à l'exécution",
             description:
-              "Chaque audience, delai et formalite utile sont suivis jusqu'au resultat concret.",
+              "Chaque audience, délai et formalité utile sont suivis jusqu'au résultat concret.",
           },
         ],
-        documentsTitle: "Documents utiles a preparer",
+        documentsTitle: "Documents utiles à préparer",
         documents: [
-          "Actes d'etat civil, jugement anterieur ou convention deja signee.",
+          "Actes d'état civil, jugement antérieur ou convention déjà signée.",
           "Preuves de revenus, charges et besoins des enfants.",
-          "Echanges et elements utiles pour etablir la situation familiale.",
+          "Échanges et éléments utiles pour établir la situation familiale.",
         ],
-        faqTitle: "Questions frequentes",
+        faqTitle: "Questions fréquentes",
         faqs: [
           {
             question: "Combien de temps peut durer un divorce en Tunisie ?",
             answer:
-              "Le delai depend du niveau de conflit, des pieces disponibles et de la juridiction. Une estimation serieuse est donnee apres lecture du dossier.",
+              "Le délai dépend du niveau de conflit, des pièces disponibles et de la juridiction. Une estimation sérieuse est donnée après lecture du dossier.",
           },
           {
-            question: "Puis-je agir depuis l'etranger ?",
+            question: "Puis-je agir depuis l'étranger ?",
             answer:
-              "Oui. Le cabinet accompagne les clients a distance avec preparation des actes et representation locale quand le dossier le permet.",
+              "Oui. Le cabinet accompagne les clients à distance avec préparation des actes et représentation locale quand le dossier le permet.",
           },
           {
             question: "Comment renforcer une demande de garde ?",
             answer:
-              "Il faut un dossier prouvant la stabilite, les besoins de l'enfant et les ressources reelles de chaque partie.",
+              "Il faut un dossier prouvant la stabilité, les besoins de l'enfant et les ressources réelles de chaque partie.",
           },
         ],
-        relatedTitle: "Ressources a consulter ensuite",
+        relatedTitle: "Ressources à consulter ensuite",
         relatedLinks: [
           {
             path: "/avocat-divorce-tunisie",
             label: "Guide divorce Tunisie",
-            description: "Une page ciblee sur le divorce, la garde et l'execution.",
+            description: "Une page ciblée sur le divorce, la garde et l'exécution.",
           },
           {
             path: familyArticlePath("fr"),
-            label: "Article sur la garde partagee",
-            description: "Une analyse juridique reliee aux recherches familiales.",
+            label: "Article sur la garde partagée",
+            description: "Une analyse juridique reliée aux recherches familiales.",
           },
           {
             path: "/consultation-juridique-tunisie",
@@ -318,64 +318,64 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
         eyebrow: "Kairouan . Tunis . Droit des affaires",
         title: "Avocat en droit des affaires en Tunisie",
         lede:
-          "Creation de societe, contrats, prevention du risque et contentieux commercial pour dirigeants, investisseurs et PME.",
+          "Création de société, contrats, prévention du risque et contentieux commercial pour dirigeants, investisseurs et PME.",
         introTitle: "Un cadre juridique qui soutient la croissance",
         intro:
-          "Le droit des affaires ne sert pas seulement a reagir apres un conflit. Le cabinet aide aussi a structurer l'activite, securiser les engagements, clarifier la gouvernance et rendre les litiges plus maitrisables.",
-        highlightsTitle: "Interventions a forte valeur",
+          "Le droit des affaires ne sert pas seulement à réagir après un conflit. Le cabinet aide aussi à structurer l'activité, sécuriser les engagements, clarifier la gouvernance et rendre les litiges plus maîtrisables.",
+        highlightsTitle: "Interventions à forte valeur",
         highlights: [
-          "Constitution de societes, pactes et organisation de la gouvernance.",
-          "Redaction et relecture de contrats commerciaux et accords strategiques.",
-          "Recouvrement, rupture contractuelle et litiges entre associes.",
+          "Constitution de sociétés, pactes et organisation de la gouvernance.",
+          "Rédaction et relecture de contrats commerciaux et accords stratégiques.",
+          "Recouvrement, rupture contractuelle et litiges entre associés.",
         ],
-        processTitle: "Methode de travail",
+        processTitle: "Méthode de travail",
         process: [
           {
-            title: "1. Lecture economique du dossier",
+            title: "1. Lecture économique du dossier",
             description:
-              "Le cabinet identifie l'objectif reel, le risque financier et les clauses decisives.",
+              "Le cabinet identifie l'objectif réel, le risque financier et les clauses décisives.",
           },
           {
             title: "2. Architecture juridique",
             description:
-              "Les actes utiles sont rediges ou renegocies pour proteger l'activite et reduire le flou.",
+              "Les actes utiles sont rédigés ou renégociés pour protéger l'activité et réduire le flou.",
           },
           {
-            title: "3. Resolution ou defense",
+            title: "3. Résolution ou défense",
             description:
-              "Si le conflit est ouvert, le dossier est prepare pour negocier fort ou agir en justice.",
+              "Si le conflit est ouvert, le dossier est préparé pour négocier fort ou agir en justice.",
           },
         ],
-        documentsTitle: "Elements utiles a reunir",
+        documentsTitle: "Éléments utiles à réunir",
         documents: [
-          "Statuts, extrait d'immatriculation, pactes et delegations existantes.",
+          "Statuts, extrait d'immatriculation, pactes et délégations existantes.",
           "Contrats, bons de commande, factures et mises en demeure.",
           "Tout document montrant les flux financiers, obligations et manquements.",
         ],
-        faqTitle: "Questions frequentes",
+        faqTitle: "Questions fréquentes",
         faqs: [
           {
             question: "Le cabinet accompagne-t-il les PME et les fondateurs ?",
             answer:
-              "Oui. L'approche est adaptee a la taille de l'entreprise, a son cycle de croissance et au niveau de risque.",
+              "Oui. L'approche est adaptée à la taille de l'entreprise, à son cycle de croissance et au niveau de risque.",
           },
           {
             question: "Quand faut-il faire relire un contrat ?",
             answer:
-              "Avant signature idealement, mais aussi avant renouvellement, rupture ou execution difficile.",
+              "Avant signature idéalement, mais aussi avant renouvellement, rupture ou exécution difficile.",
           },
           {
-            question: "Que faire face a un impaye important ?",
+            question: "Que faire face à un impayé important ?",
             answer:
               "Il faut consolider les preuves, choisir le bon levier de mise en demeure et engager vite la voie de recouvrement utile.",
           },
         ],
-        relatedTitle: "Ressources a consulter ensuite",
+        relatedTitle: "Ressources à consulter ensuite",
         relatedLinks: [
           {
             path: "/avocat-affaires-tunisie",
             label: "Guide avocat affaires Tunisie",
-            description: "Une page ciblee sur les contrats, societes et litiges commerciaux.",
+            description: "Une page ciblée sur les contrats, sociétés et litiges commerciaux.",
           },
           {
             path: businessArticlePath("fr"),
@@ -385,7 +385,7 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
           {
             path: "/consultation-juridique-tunisie",
             label: "Demander une consultation",
-            description: "Pour cadrer rapidement une decision, un contrat ou une procedure.",
+            description: "Pour cadrer rapidement une décision, un contrat ou une procédure.",
           },
         ],
         primaryCta: "Demander une consultation",
@@ -557,74 +557,74 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
         eyebrow: "Kairouan . Tunis . Droit immobilier",
         title: "Avocat en droit immobilier en Tunisie",
         lede:
-          "Audit foncier, contrats, baux et contentieux pour particuliers, heritiers, investisseurs et entreprises en Tunisie.",
-        introTitle: "Securiser avant de signer, reagir vite en cas de blocage",
+          "Audit foncier, contrats, baux et contentieux pour particuliers, héritiers, investisseurs et entreprises en Tunisie.",
+        introTitle: "Sécuriser avant de signer, réagir vite en cas de blocage",
         intro:
-          "Les dossiers immobiliers deviennent couteux quand la verification arrive trop tard. Le cabinet intervient avant l'achat, pendant la negociation ou au moment du litige pour verifier les titres, relire les clauses et proteger la valeur economique du bien.",
-        highlightsTitle: "Operations et litiges traites",
+          "Les dossiers immobiliers deviennent coûteux quand la vérification arrive trop tard. Le cabinet intervient avant l'achat, pendant la négociation ou au moment du litige pour vérifier les titres, relire les clauses et protéger la valeur économique du bien.",
+        highlightsTitle: "Opérations et litiges traités",
         highlights: [
-          "Achat, vente, promesse, verification de titre et audit juridique du bien.",
-          "Baux civils et commerciaux, impayes, renouvellement et sortie du locataire.",
-          "Bornage, servitudes, indivision, empiement et contentieux de propriete.",
+          "Achat, vente, promesse, vérification de titre et audit juridique du bien.",
+          "Baux civils et commerciaux, impayés, renouvellement et sortie du locataire.",
+          "Bornage, servitudes, indivision, empiétement et contentieux de propriété.",
         ],
         processTitle: "Comment le cabinet intervient",
         process: [
           {
-            title: "1. Verification du dossier",
+            title: "1. Vérification du dossier",
             description:
-              "Analyse des titres, de la situation du bien et des points de blocage caches.",
+              "Analyse des titres, de la situation du bien et des points de blocage cachés.",
           },
           {
-            title: "2. Securisation des actes",
+            title: "2. Sécurisation des actes",
             description:
-              "Les promesses, ventes, baux ou courriers utiles sont ajustes pour proteger vos droits.",
+              "Les promesses, ventes, baux ou courriers utiles sont ajustés pour protéger vos droits.",
           },
           {
-            title: "3. Defense et execution",
+            title: "3. Défense et exécution",
             description:
-              "En cas de conflit, le dossier est porte vers la solution la plus rapide entre nego, expertise ou contentieux.",
+              "En cas de conflit, le dossier est porté vers la solution la plus rapide entre négociation, expertise ou contentieux.",
           },
         ],
-        documentsTitle: "Documents utiles a reunir",
+        documentsTitle: "Documents utiles à réunir",
         documents: [
           "Titre foncier, contrats, promesses, baux, quittances et plans.",
           "Correspondances avec le vendeur, le locataire ou l'administration.",
-          "Tout element prouvant paiements, occupation, bornage ou trouble subi.",
+          "Tout élément prouvant paiements, occupation, bornage ou trouble subi.",
         ],
-        faqTitle: "Questions frequentes",
+        faqTitle: "Questions fréquentes",
         faqs: [
           {
-            question: "Pourquoi faire verifier un bien avant de signer ?",
+            question: "Pourquoi faire vérifier un bien avant de signer ?",
             answer:
-              "Parce qu'un audit juridique peut reveler des charges, des incoherences de titre ou des risques de litige beaucoup plus couteux apres signature.",
+              "Parce qu'un audit juridique peut révéler des charges, des incohérences de titre ou des risques de litige beaucoup plus coûteux après signature.",
           },
           {
-            question: "Le cabinet gere-t-il les baux commerciaux ?",
+            question: "Le cabinet gère-t-il les baux commerciaux ?",
             answer:
-              "Oui. Redaction, renegociation, impayes, renouvellement, conge et defense contentieuse font partie des interventions frequentes.",
+              "Oui. Rédaction, renégociation, impayés, renouvellement, congé et défense contentieuse font partie des interventions fréquentes.",
           },
           {
             question: "Que faire si un terrain ou un bien est bloque ?",
             answer:
-              "Il faut verifier les titres, figer les preuves utiles et choisir rapidement entre voie amiable, expertise ou action judiciaire.",
+              "Il faut vérifier les titres, figer les preuves utiles et choisir rapidement entre voie amiable, expertise ou action judiciaire.",
           },
         ],
-        relatedTitle: "Ressources a consulter ensuite",
+        relatedTitle: "Ressources à consulter ensuite",
         relatedLinks: [
           {
             path: "/avocat-immobilier-tunisie",
             label: "Guide avocat immobilier Tunisie",
-            description: "Une page ciblee sur la verification fonciere et les litiges.",
+            description: "Une page ciblée sur la vérification foncière et les litiges.",
           },
           {
             path: realEstateArticlePath("fr"),
-            label: "Article sur l'immobilier des etrangers",
+            label: "Article sur l'immobilier des étrangers",
             description: "Une analyse utile pour investisseurs et familles.",
           },
           {
             path: "/consultation-juridique-tunisie",
             label: "Demander une consultation",
-            description: "Pour relire un acte, verifier un titre ou cadrer une strategie.",
+            description: "Pour relire un acte, vérifier un titre ou cadrer une stratégie.",
           },
         ],
         primaryCta: "Demander une consultation",

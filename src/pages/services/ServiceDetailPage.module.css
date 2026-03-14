@@ -9,6 +9,12 @@
   gap: 1.5rem;
 }
 
+.trustWrap :global(.trustBadges) {
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--panel-elevated) 88%, transparent);
+}
+
 .breadcrumbs {
   display: flex;
   flex-wrap: wrap;
@@ -106,7 +112,7 @@
   display: grid;
   gap: 0.8rem;
   margin: 0;
-  padding-left: 1.2rem;
+  padding-inline-start: 1.2rem;
   color: var(--text-dim);
   line-height: 1.75;
 }
@@ -119,6 +125,20 @@
 .section {
   display: grid;
   gap: 1rem;
+}
+
+.insightGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.insightCard {
+  padding: 1.4rem;
+}
+
+.insightCard h3 {
+  margin: 0 0 0.9rem;
 }
 
 .sectionHeader {
@@ -155,6 +175,12 @@
 
 .relatedGrid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.localGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .relatedLink {
@@ -207,9 +233,11 @@
 
 @media (max-width: 960px) {
   .mainGrid,
+  .insightGrid,
   .processGrid,
   .faqGrid,
-  .relatedGrid {
+  .relatedGrid,
+  .localGrid {
     grid-template-columns: 1fr;
   }
 }

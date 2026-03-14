@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 import { Translation } from "@/types";
 
 interface NotFoundProps {
@@ -7,6 +8,11 @@ interface NotFoundProps {
 }
 
 export const NotFound: FC<NotFoundProps> = ({ locale }) => {
+  const homeLink = {
+    pathname: "/",
+    search: locale === "fr" ? "" : `?lang=${locale}`,
+  };
+
   const title =
     locale === "fr"
       ? "Page Non Trouvée"
@@ -72,8 +78,8 @@ export const NotFound: FC<NotFoundProps> = ({ locale }) => {
       >
         {description}
       </p>
-      <a
-        href="/"
+      <Link
+        to={homeLink}
         className="btn primary btn-magnetic"
         style={{
           marginTop: "1rem",
@@ -82,7 +88,7 @@ export const NotFound: FC<NotFoundProps> = ({ locale }) => {
         }}
       >
         {buttonText}
-      </a>
+      </Link>
     </div>
   );
 };

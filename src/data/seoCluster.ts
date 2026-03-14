@@ -1,3 +1,5 @@
+import { kairouanLandingPages } from "@/data/kairouanLandingPages";
+
 export type ClusterLocale = "fr" | "en" | "ar";
 
 export interface SeoClusterFaq {
@@ -14,6 +16,12 @@ export interface SeoClusterPageLocalized {
   highlights: string[];
   checklistTitle: string;
   checklist: string[];
+  proofTitle?: string;
+  proofPoints?: string[];
+  processTitle?: string;
+  process?: string[];
+  serviceAreaTitle?: string;
+  serviceAreas?: string[];
   faqs: SeoClusterFaq[];
 }
 
@@ -84,6 +92,7 @@ const UI_COPY: Record<ClusterLocale, SeoClusterUiCopy> = {
         path: "/services/droit-des-affaires",
         label: "Service : Droit des affaires",
       },
+      { path: "/faq", label: "Questions fréquentes" },
       { path: "/actualites", label: "Actualités juridiques" },
     ],
   },
@@ -101,6 +110,7 @@ const UI_COPY: Record<ClusterLocale, SeoClusterUiCopy> = {
       { path: "/services/droit-de-la-famille", label: "Service: Family law" },
       { path: "/services/droit-immobilier", label: "Service: Real estate law" },
       { path: "/services/droit-des-affaires", label: "Service: Business law" },
+      { path: "/faq", label: "Frequently asked questions" },
       { path: "/actualites", label: "Legal news" },
     ],
   },
@@ -118,6 +128,7 @@ const UI_COPY: Record<ClusterLocale, SeoClusterUiCopy> = {
       { path: "/services/droit-de-la-famille", label: "الخدمة: قانون الأسرة" },
       { path: "/services/droit-immobilier", label: "الخدمة: القانون العقاري" },
       { path: "/services/droit-des-affaires", label: "الخدمة: قانون الأعمال" },
+      { path: "/faq", label: "الأسئلة المتكررة" },
       { path: "/actualites", label: "المستجدات القانونية" },
     ],
   },
@@ -589,44 +600,220 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
       },
     },
   },
+  "/code-du-travail-tunisie": {
+    path: "/code-du-travail-tunisie",
+    localized: {
+      fr: {
+        navLabel: "Code du travail Tunisie",
+        heading:
+          "Code du travail en Tunisie 2025 : droits, obligations et réforme",
+        lede: "Décryptage du code du travail tunisien et de la réforme 2025 : contrats, licenciement, congés, heures supplémentaires et droits des salariés du secteur privé.",
+        description:
+          "Guide complet sur le code du travail en Tunisie 2025. Droits des salariés, contrats, licenciement, congés et réforme du droit du travail tunisien.",
+        keywords:
+          "code de travail tunisie 2025, code du travail tunisie, loi de travail 2025, code de travail tunisie secteur privé, droit du travail tunisie",
+        highlights: [
+          "Analyse des droits et obligations du salarié et de l'employeur selon le code du travail tunisien.",
+          "Accompagnement en cas de licenciement abusif, rupture de contrat ou litige prud'homal.",
+          "Conseil sur les nouvelles dispositions de la réforme du code du travail 2025.",
+        ],
+        checklistTitle: "Sujets couverts",
+        checklist: [
+          "Contrat de travail : CDD, CDI, période d'essai et clauses essentielles.",
+          "Licenciement : procédure, indemnités, contestation et délais.",
+          "Congés, heures supplémentaires, salaire minimum et droits sociaux.",
+        ],
+        proofTitle: "Pourquoi consulter un avocat en droit du travail",
+        proofPoints: [
+          "Protection contre le licenciement abusif et les sanctions irrégulières.",
+          "Calcul exact des indemnités et des droits de fin de contrat.",
+          "Représentation devant les juridictions sociales et conseil stratégique.",
+        ],
+        processTitle: "Comment se déroule l'accompagnement",
+        process: [
+          "Analyse du contrat de travail et de la situation professionnelle.",
+          "Identification des manquements et des droits mobilisables.",
+          "Mise en demeure, négociation ou représentation devant le tribunal.",
+        ],
+        faqs: [
+          {
+            question:
+              "Quels sont les principaux changements du code du travail 2025 ?",
+            answer:
+              "La réforme renforce la protection des salariés en matière de licenciement, actualise les dispositions sur le travail à distance et révise les conditions du contrat à durée déterminée.",
+          },
+          {
+            question:
+              "Comment contester un licenciement abusif en Tunisie ?",
+            answer:
+              "Le salarié peut saisir le tribunal compétent dans les délais légaux. Un dossier solide avec preuves et historique du contrat est indispensable.",
+          },
+          {
+            question:
+              "Le code du travail s'applique-t-il au secteur privé uniquement ?",
+            answer:
+              "Le code du travail régit principalement le secteur privé. La fonction publique est soumise au statut général des agents de l'État.",
+          },
+          {
+            question: "Quels sont les droits du salarié en période d'essai ?",
+            answer:
+              "Le salarié en période d'essai bénéficie des droits fondamentaux (salaire, sécurité) mais la rupture peut intervenir sans indemnité selon les conditions légales.",
+          },
+        ],
+      },
+      en: {
+        navLabel: "Tunisia Labour Code",
+        heading:
+          "Tunisia Labour Code 2025: rights, obligations and reform",
+        lede: "Understanding the Tunisian labour code and the 2025 reform: contracts, dismissal, leave, overtime and private sector employee rights.",
+        description:
+          "Complete guide to the Tunisia labour code 2025. Employee rights, contracts, dismissal, leave and labour law reform in Tunisia.",
+        keywords:
+          "tunisia labour code 2025, labor law tunisia, employment law tunisia, worker rights tunisia, labour code reform tunisia",
+        highlights: [
+          "Analysis of employee and employer rights under Tunisian labour law.",
+          "Support for wrongful dismissal, contract breach or labour disputes.",
+          "Advice on new provisions from the 2025 labour code reform.",
+        ],
+        checklistTitle: "Topics covered",
+        checklist: [
+          "Employment contracts: fixed-term, permanent, probation and key clauses.",
+          "Dismissal: procedure, compensation, challenge and deadlines.",
+          "Leave, overtime, minimum wage and social rights.",
+        ],
+        proofTitle: "Why consult an employment lawyer",
+        proofPoints: [
+          "Protection against wrongful dismissal and irregular sanctions.",
+          "Accurate calculation of severance and end-of-contract entitlements.",
+          "Representation before labour courts and strategic advice.",
+        ],
+        processTitle: "How the support works",
+        process: [
+          "Analysis of the employment contract and professional situation.",
+          "Identification of breaches and available legal remedies.",
+          "Formal notice, negotiation or tribunal representation.",
+        ],
+        faqs: [
+          {
+            question:
+              "What are the main changes in the 2025 labour code?",
+            answer:
+              "The reform strengthens employee protection in dismissal matters, updates remote work provisions and revises fixed-term contract conditions.",
+          },
+          {
+            question: "How to challenge wrongful dismissal in Tunisia?",
+            answer:
+              "The employee can file with the competent court within legal deadlines. A strong file with evidence and contract history is essential.",
+          },
+          {
+            question:
+              "Does the labour code apply only to the private sector?",
+            answer:
+              "The labour code primarily governs the private sector. Civil servants are subject to the general statute of state employees.",
+          },
+          {
+            question:
+              "What are employee rights during probation?",
+            answer:
+              "Employees on probation enjoy fundamental rights (salary, safety) but termination may occur without compensation under legal conditions.",
+          },
+        ],
+      },
+      ar: {
+        navLabel: "مجلة الشغل تونس",
+        heading:
+          "مجلة الشغل في تونس 2025: حقوق والتزامات وإصلاح",
+        lede: "فهم مجلة الشغل التونسية وإصلاح 2025: العقود والطرد والعطل والساعات الإضافية وحقوق العاملين في القطاع الخاص.",
+        description:
+          "دليل شامل حول مجلة الشغل في تونس 2025. حقوق العمال والعقود والطرد والعطل وإصلاح قانون الشغل التونسي.",
+        keywords:
+          "مجلة الشغل تونس 2025, قانون الشغل تونس, حقوق العمال تونس, إصلاح مجلة الشغل, code de travail tunisie",
+        highlights: [
+          "تحليل حقوق والتزامات الأجير والمؤجر حسب مجلة الشغل التونسية.",
+          "مرافقة في حالات الطرد التعسفي وفسخ العقد والنزاعات الشغلية.",
+          "استشارة حول الأحكام الجديدة لإصلاح مجلة الشغل 2025.",
+        ],
+        checklistTitle: "المواضيع المغطاة",
+        checklist: [
+          "عقد الشغل: محدد المدة وغير محدد المدة وفترة التجربة والبنود الأساسية.",
+          "الطرد: الإجراءات والتعويضات والطعن والآجال.",
+          "العطل والساعات الإضافية والأجر الأدنى والحقوق الاجتماعية.",
+        ],
+        proofTitle: "لماذا استشارة محامي في قانون الشغل",
+        proofPoints: [
+          "حماية من الطرد التعسفي والعقوبات غير القانونية.",
+          "احتساب دقيق للتعويضات وحقوق نهاية العقد.",
+          "تمثيل أمام المحاكم الشغلية واستشارة استراتيجية.",
+        ],
+        processTitle: "كيف تتم المرافقة",
+        process: [
+          "تحليل عقد الشغل والوضعية المهنية.",
+          "تحديد الإخلالات والحقوق القابلة للتفعيل.",
+          "إنذار قانوني أو تفاوض أو تمثيل أمام المحكمة.",
+        ],
+        faqs: [
+          {
+            question: "ما هي أهم تغييرات مجلة الشغل 2025؟",
+            answer:
+              "يعزز الإصلاح حماية العمال في مجال الطرد ويحدث أحكام العمل عن بعد ويراجع شروط العقود محددة المدة.",
+          },
+          {
+            question: "كيف يتم الطعن في الطرد التعسفي في تونس؟",
+            answer:
+              "يمكن للأجير اللجوء إلى المحكمة المختصة في الآجال القانونية مع ملف قوي يتضمن الأدلة وتاريخ العقد.",
+          },
+          {
+            question: "هل تنطبق مجلة الشغل على القطاع الخاص فقط؟",
+            answer:
+              "مجلة الشغل تحكم أساسا القطاع الخاص. الموظفون العموميون يخضعون للنظام الأساسي العام لأعوان الدولة.",
+          },
+          {
+            question: "ما هي حقوق الأجير خلال فترة التجربة؟",
+            answer:
+              "يتمتع الأجير في فترة التجربة بالحقوق الأساسية (الأجر والسلامة) لكن يمكن إنهاء العلاقة دون تعويض حسب الشروط القانونية.",
+          },
+        ],
+      },
+    },
+  },
   "/avocat-kairouan": {
     path: "/avocat-kairouan",
     localized: {
       fr: {
-        navLabel: "Avocat a Kairouan",
+        navLabel: "Avocat à Kairouan",
         heading:
-          "Avocat a Kairouan : conseil local, suivi rapide et strategie claire",
-        lede: "Cabinet installe a Kairouan pour les particuliers, familles, dirigeants et investisseurs ayant besoin d'un suivi reactif et d'une vision pratique du dossier.",
+          "Avocat à Kairouan : conseil local, suivi rapide et stratégie claire",
+        lede: "Cabinet installé à Kairouan pour les particuliers, familles, dirigeants et investisseurs ayant besoin d'un suivi réactif et d'une vision pratique du dossier.",
         description:
-          "Avocat a Kairouan pour divorce, immobilier, affaires et consultation juridique. Cabinet local avec suivi des dossiers a Kairouan, Tunis et a distance.",
+          "Avocat à Kairouan pour divorce, immobilier, affaires et consultation juridique. Cabinet local avec suivi des dossiers à Kairouan, Tunis et à distance.",
         keywords:
           "avocat kairouan, avocat a kairouan, cabinet avocat kairouan, consultation juridique kairouan",
         highlights: [
-          "Cabinet local a Kairouan avec accompagnement sur les dossiers sensibles et urgents.",
-          "Preparation claire des pieces, delais et options procedurales.",
-          "Coordination possible avec des clients a Tunis, en regions voisines et a l'etranger.",
+          "Cabinet local à Kairouan avec accompagnement sur les dossiers sensibles et urgents.",
+          "Préparation claire des pièces, délais et options procédurales.",
+          "Coordination possible avec des clients à Tunis, en régions voisines et à l'étranger.",
         ],
-        checklistTitle: "Pourquoi consulter a Kairouan",
+        checklistTitle: "Pourquoi consulter à Kairouan",
         checklist: [
-          "Un interlocuteur de proximite pour rendez-vous, depot de pieces et suivi.",
+          "Un interlocuteur de proximité pour rendez-vous, dépôt de pièces et suivi.",
           "Une approche transversale sur la famille, l'immobilier, les contrats et les litiges.",
-          "Un plan d'action concret avant de vous engager dans une procedure lourde.",
+          "Un plan d'action concret avant de vous engager dans une procédure lourde.",
         ],
         faqs: [
           {
-            question: "Le cabinet intervient-il uniquement a Kairouan ?",
+            question: "Le cabinet intervient-il uniquement à Kairouan ?",
             answer:
-              "Non. Le cabinet suit des dossiers a Kairouan, Tunis et a distance selon la nature du dossier.",
+              "Non. Le cabinet suit des dossiers à Kairouan, Tunis et à distance selon la nature du dossier.",
           },
           {
             question: "Puis-je prendre rendez-vous rapidement ?",
             answer:
-              "Oui. Selon l'urgence, un premier echange peut etre organise rapidement pour cadrer la situation.",
+              "Oui. Selon l'urgence, un premier échange peut être organisé rapidement pour cadrer la situation.",
           },
           {
-            question: "Quels dossiers sont les plus frequents ?",
+            question: "Quels dossiers sont les plus fréquents ?",
             answer:
-              "Les demandes portent souvent sur le divorce, la garde, les litiges immobiliers, les contrats et la consultation strategique.",
+              "Les demandes portent souvent sur le divorce, la garde, les litiges immobiliers, les contrats et la consultation stratégique.",
           },
         ],
       },
@@ -707,6 +894,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
       },
     },
   },
+  ...kairouanLandingPages,
 };
 
 function resolveClusterLocale(locale: string): ClusterLocale {

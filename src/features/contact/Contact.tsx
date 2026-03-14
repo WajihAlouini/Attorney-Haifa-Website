@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Check, Copy } from "lucide-react";
 import toast from "react-hot-toast";
 import { PhoneNumber } from "@/components/common/PhoneNumber";
 import styles from "./Contact.module.css";
@@ -139,7 +140,7 @@ const ContactComponent: FC<ContactProps> = ({
                   title={t.copy}
                   aria-label={t.copy}
                 >
-                  {copiedField === "whatsapp" ? "✓" : "📋"}
+                  {copiedField === "whatsapp" ? <Check size={14} /> : <Copy size={14} />}
                 </button>
               </div>
             </li>
@@ -171,7 +172,7 @@ const ContactComponent: FC<ContactProps> = ({
                   title={t.copy}
                   aria-label={t.copy}
                 >
-                  {copiedField === "email" ? "✓" : "📋"}
+                  {copiedField === "email" ? <Check size={14} /> : <Copy size={14} />}
                 </button>
               </div>
             </li>

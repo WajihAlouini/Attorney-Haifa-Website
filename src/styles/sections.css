@@ -21,8 +21,8 @@
   font-size: clamp(2rem, 3vw, 2.8rem);
   line-height: 1.1;
   margin: 0;
-  color: #fff;
-  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 100%);
+  color: var(--text);
+  background: linear-gradient(135deg, var(--text) 0%, var(--accent-dark) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

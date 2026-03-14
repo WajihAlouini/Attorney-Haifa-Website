@@ -35,11 +35,6 @@ const Approach = lazy(() =>
     default: module.Approach,
   }))
 );
-const Impact = lazy(() =>
-  import("@/features/impact").then((module) => ({
-    default: module.Impact,
-  }))
-);
 const Contact = lazy(() =>
   import("@/features/contact").then((module) => ({
     default: module.Contact,
@@ -97,12 +92,6 @@ export function Home({ t, locale, whatsappLink, whatsappNumber }: HomeProps) {
       <div className="fade-in-section">
         <Suspense fallback={null}>
           <Approach t={t} />
-        </Suspense>
-      </div>
-
-      <div className="section-alt">
-        <Suspense fallback={null}>
-          <Impact t={t} />
         </Suspense>
       </div>
 

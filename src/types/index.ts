@@ -49,6 +49,8 @@ export interface Translation {
   aboutEyebrow: string;
   aboutHeading: string;
   aboutBody: string;
+  aboutTrustTitle: string;
+  aboutTrustPoints: string[];
   pillarsEyebrow: string;
   pillars: Array<{
     title: string;

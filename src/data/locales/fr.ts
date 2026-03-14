@@ -35,6 +35,13 @@ export const fr: Translation = {
   aboutHeading: "Vous méritez une défense qui ne recule devant rien.",
   aboutBody:
     "Je sais que chercher un avocat signifie que vous traversez un moment difficile. Depuis 25 ans, j'ai le privilège d'accompagner des personnes comme vous — des parents inquiets pour leurs enfants, des entrepreneurs qui défendent leur vie de travail, des familles qui règlent des successions complexes. Mon approche ? Vous écouter d'abord. Comprendre non seulement votre situation juridique, mais aussi vos peurs, vos priorités et vos espoirs. Ensuite, nous construisons ensemble une stratégie claire, pour retrouver votre sérénité.",
+  aboutTrustTitle: "Repères concrets",
+  aboutTrustPoints: [
+    "25+ ans d'expérience en accompagnement judiciaire et conseil.",
+    "Cabinet basé à Kairouan avec suivi des dossiers à Tunis et à distance.",
+    "Consultations en français, arabe et anglais selon votre situation.",
+    "Intervention en droit de la famille, immobilier, affaires et contentieux.",
+  ],
   pillarsEyebrow: "Domaines Clés",
   pillars: [
     {
@@ -265,21 +272,21 @@ export const fr: Translation = {
     family: {
       title: "Droit de la Famille",
       description:
-        "Procedures de divorce, garde d'enfants, pension alimentaire et successions. Un accompagnement a la fois humain et determine pour proteger vos interets et ceux de vos enfants.",
+        "Procédures de divorce, garde d'enfants, pension alimentaire et successions. Un accompagnement à la fois humain et déterminé pour protéger vos intérêts et ceux de vos enfants.",
       sectionHeading: "Nos Services en Droit Familial",
       services: [
         {
-          title: "Procedure de Divorce",
+          title: "Procédure de Divorce",
           description:
-            "Qu'il s'agisse d'un divorce par consentement mutuel, pour faute ou pour prejudice, nous vous guidons vers la meilleure issue legale.",
+            "Qu'il s'agisse d'un divorce par consentement mutuel, pour faute ou pour préjudice, nous vous guidons vers la meilleure issue légale.",
         },
         {
           title: "Garde d'Enfants et Pension Alimentaire",
           description:
-            "Defense rigoureuse de vos droits parentaux et du niveau de vie de vos enfants.",
+            "Défense rigoureuse de vos droits parentaux et du niveau de vie de vos enfants.",
         },
         {
-          title: "Successions et Heritage",
+          title: "Successions et Héritage",
           description:
             "Assistance dans le partage, les indivisions et les litiges afin de faire respecter vos droits successoraux.",
         },
@@ -288,46 +295,46 @@ export const fr: Translation = {
     business: {
       title: "Droit des Affaires",
       description:
-        "Creation d'entreprises, redaction de contrats commerciaux et resolution de litiges entre associes ou avec des tiers. Un accompagnement global pour securiser la croissance de votre entreprise en Tunisie.",
+        "Création d'entreprises, rédaction de contrats commerciaux et résolution de litiges entre associés ou avec des tiers. Un accompagnement global pour sécuriser la croissance de votre entreprise en Tunisie.",
       sectionHeading: "Nos Services en Droit des Affaires",
       services: [
         {
-          title: "Creation de Societes",
+          title: "Création de Sociétés",
           description:
-            "Choix de la forme juridique (SUARL, SARL, SA), redaction des statuts et immatriculation.",
+            "Choix de la forme juridique (SUARL, SARL, SA), rédaction des statuts et immatriculation.",
         },
         {
           title: "Contrats Commerciaux",
           description:
-            "Redaction et revision de baux commerciaux, contrats de franchise, conditions generales de vente et partenariats.",
+            "Rédaction et révision de baux commerciaux, contrats de franchise, conditions générales de vente et partenariats.",
         },
         {
           title: "Contentieux Commercial",
           description:
-            "Recouvrement de creances, concurrence deloyale et resolution des conflits entre actionnaires, fournisseurs ou partenaires.",
+            "Recouvrement de créances, concurrence déloyale et résolution des conflits entre actionnaires, fournisseurs ou partenaires.",
         },
       ],
     },
     realEstate: {
       title: "Droit Immobilier",
       description:
-        "Securisez vos transactions immobilieres, reglez vos litiges de propriete et assurez une gestion saine de votre patrimoine avec des conseils adaptes au contexte tunisien.",
+        "Sécurisez vos transactions immobilières, réglez vos litiges de propriété et assurez une gestion saine de votre patrimoine avec des conseils adaptés au contexte tunisien.",
       sectionHeading: "Nos Services en Droit Immobilier",
       services: [
         {
           title: "Achat et Vente",
           description:
-            "Verification du titre foncier, audit legal de la propriete et redaction securisee des actes de vente et promesses d'achat.",
+            "Vérification du titre foncier, audit légal de la propriété et rédaction sécurisée des actes de vente et promesses d'achat.",
         },
         {
-          title: "Litiges de Propriete et Bornage",
+          title: "Litiges de Propriété et Bornage",
           description:
-            "Assistance dans les actions en revendication, servitudes, troubles de voisinage et litiges lies a l'immatriculation fonciere.",
+            "Assistance dans les actions en revendication, servitudes, troubles de voisinage et litiges liés à l'immatriculation foncière.",
         },
         {
           title: "Baux Civils et Commerciaux",
           description:
-            "Redaction des contrats de location, gestion des impayes, procedures d'expulsion et renouvellement du droit au bail.",
+            "Rédaction des contrats de location, gestion des impayés, procédures d'expulsion et renouvellement du droit au bail.",
         },
       ],
     },

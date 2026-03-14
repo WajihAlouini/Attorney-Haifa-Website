@@ -102,7 +102,7 @@
   height: 400px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--card-shadow-hover);
   border: 1px solid var(--border);
 }
 
@@ -169,7 +169,7 @@
 .content blockquote {
   margin: 2.5rem 0;
   padding: 1.5rem 2rem;
-  background: rgba(212, 175, 55, 0.05);
+  background: var(--accent-soft);
   border-left: 4px solid var(--accent);
   font-style: italic;
   font-size: 1.25rem;
@@ -180,7 +180,7 @@
   max-width: 100%;
   border-radius: 8px;
   margin: 2.5rem 0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px var(--shadow-strong);
 }
 
 .inlineCode {
@@ -196,14 +196,14 @@
   margin: 2rem 0;
   padding: 1.2rem;
   border-radius: 8px;
-  background: rgba(5, 8, 15, 0.75);
+  background: var(--code-bg);
   border: 1px solid var(--border);
   overflow-x: auto;
 }
 
 .codeBlock .inlineCode {
   background: transparent;
-  color: #dbe6f8;
+  color: var(--code-text);
   padding: 0;
 }
 

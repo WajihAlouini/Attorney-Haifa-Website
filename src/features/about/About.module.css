@@ -1,140 +1,112 @@
+/* ============================================================
+   ABOUT — Two-column: text + pillars (no duplicate portrait)
+   ============================================================ */
+
 .about {
+  /* Inherits section padding from global styles */
+}
+
+.inner {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 5rem;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(3rem, 6vw, 5rem);
   align-items: start;
 }
 
-.imageColumn {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 2rem;
-}
-
-.imageWrapper {
-  position: relative;
-  width: 100%;
-  max-width: 450px;
-}
-
-.portrait {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 4px;
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(212, 175, 55, 0.2);
-  transition: all 0.4s ease;
-}
-
-.portrait:hover {
-  transform: translateY(-8px);
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(212, 175, 55, 0.4);
-}
-
-.contentColumn {
+/* ---- Text column ---- */
+.textColumn {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
 }
 
-.text p {
+.textColumn h2 {
+  text-wrap: balance;
+}
+
+.body {
   color: var(--muted);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
   margin-bottom: 0;
-  line-height: 1.7;
 }
 
-.card {
-  background: var(--panel);
-  padding: 3.5rem;
-  border: 1px solid var(--border);
-  position: relative;
-  box-shadow: var(--card-shadow);
-  border-radius: 2px;
-}
-
-:global([data-theme="dark"]) .card {
-  backdrop-filter: blur(24px) saturate(120%);
-  -webkit-backdrop-filter: blur(24px) saturate(120%);
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1rem;
-  border: 1px solid var(--border);
-  pointer-events: none;
-}
-
-.pillars {
+.trustList {
+  margin: 1.8rem 0 0;
+  padding: 1.5rem 0 0;
+  padding-inline-start: 1.1rem;
+  border-top: 1px solid var(--border);
   display: grid;
-  gap: 1.5rem;
+  gap: 0.6rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.trustList li::marker {
+  color: var(--accent);
+}
+
+/* ---- Pillars column ---- */
+.pillarsColumn {
+  padding-top: 0.5rem;
 }
 
 .pillarsHeading {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-family: "Playfair Display", serif;
-  font-size: 1.5rem;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
   color: var(--accent);
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.9rem;
   border-bottom: 1px solid var(--border);
 }
 
 .pillarsIcon {
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   color: var(--accent);
+  flex-shrink: 0;
 }
 
-.pillars div {
-  border-left: 3px solid var(--accent);
-  padding-left: 1.5rem;
+.pillars {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.pillar {
+  border-inline-start: 3px solid var(--accent);
+  padding-inline-start: 1.2rem;
   transition: all 0.3s ease;
 }
 
-.pillars div:hover {
-  border-left-color: var(--accent-light);
-  padding-left: 2rem;
+.pillar:hover {
+  border-inline-start-color: var(--accent-light);
+  padding-inline-start: 1.5rem;
 }
 
-.pillars strong {
+.pillar strong {
   display: block;
   color: var(--text);
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
-  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-heading);
 }
 
-.pillars span {
+.pillar span {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
 }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 
 @media (max-width: 968px) {
-  .about {
+  .inner {
     grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .imageColumn {
-    order: -1;
-    padding-top: 0;
-  }
-
-  .imageWrapper {
-    max-width: 350px;
-    margin: 0 auto;
+    gap: 2.5rem;
   }
 }

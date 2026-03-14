@@ -1,10 +1,13 @@
 import { Suspense, lazy } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { TrustBadges } from "@/components/common/TrustBadges";
+import { SEOHubLinks } from "@/components/common/SEOHubLinks";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
 import { PhoneNumber } from "@/components/common/PhoneNumber";
 import { mapEmbedSrc, mapShareUrl } from "@/data/constants";
 import { getServiceDetailByKey, ServiceDetailKey } from "@/data/serviceDetails";
+import { getServiceEnhancement } from "@/data/serviceEnhancements";
 import { useMagneticButton } from "@/hooks/useMagneticButton";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Translation } from "@/types";
@@ -78,6 +81,7 @@ export function ServiceDetailPage({
   useMagneticButton();
 
   const detail = getServiceDetailByKey(serviceKey, locale);
+  const enhancement = getServiceEnhancement(serviceKey, locale);
   const uiCopy = getUiCopy(locale);
   const localeSearch = getLocaleSearch(locale);
   const guideLink =
@@ -132,6 +136,10 @@ export function ServiceDetailPage({
           </div>
         </section>
 
+        <div className={styles.trustWrap}>
+          <TrustBadges t={t} />
+        </div>
+
         <section className={styles.mainGrid}>
           <article className={`glass-panel ${styles.card}`}>
             <h2>{detail.introTitle}</h2>
@@ -155,6 +163,41 @@ export function ServiceDetailPage({
               ))}
             </ul>
           </aside>
+        </section>
+
+        <section className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <h2>{enhancement.proofTitle}</h2>
+          </div>
+
+          <div className={styles.insightGrid}>
+            <article className={`glass-panel ${styles.insightCard}`}>
+              <h3>{enhancement.proofTitle}</h3>
+              <ul className={styles.list}>
+                {enhancement.proofPoints.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+
+            <article className={`glass-panel ${styles.insightCard}`}>
+              <h3>{enhancement.timingTitle}</h3>
+              <ul className={styles.list}>
+                {enhancement.timingPoints.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+
+            <article className={`glass-panel ${styles.insightCard}`}>
+              <h3>{enhancement.coverageTitle}</h3>
+              <ul className={styles.list}>
+                {enhancement.coveragePoints.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          </div>
         </section>
 
         <section className={styles.section}>
@@ -209,6 +252,32 @@ export function ServiceDetailPage({
             ))}
           </div>
         </section>
+
+        <section className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <h2>{enhancement.localTitle}</h2>
+          </div>
+
+          <div className={styles.localGrid}>
+            {enhancement.localLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={buildLinkTarget(link.path, locale)}
+                className={styles.relatedLink}
+              >
+                <div>
+                  <strong>{link.label}</strong>
+                  <span>{link.description}</span>
+                </div>
+                <ArrowRight className={styles.linkIcon} size={18} />
+              </Link>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <div className="fade-in-section section-alt">
+        <SEOHubLinks locale={locale} />
       </div>
 
       <div className="fade-in-section">

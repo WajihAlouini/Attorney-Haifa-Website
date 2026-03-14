@@ -173,8 +173,8 @@
 }
 
 .btn-close-settings:hover {
-  background: rgba(239, 68, 68, 0.2);
-  color: #ef4444;
+  background: var(--danger-soft);
+  color: var(--danger);
 }
 
 .btn-close-settings svg {
@@ -245,13 +245,13 @@
 }
 
 .category-icon.analytics {
-  background: rgba(59, 130, 246, 0.15);
-  color: #3b82f6;
+  background: var(--info-soft);
+  color: var(--info);
 }
 
 .category-icon.marketing {
-  background: rgba(249, 115, 22, 0.15);
-  color: #f97316;
+  background: var(--warning-soft);
+  color: var(--warning);
 }
 
 .category-name {

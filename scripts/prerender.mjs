@@ -26,7 +26,12 @@ const BASE_ROUTES = [
   "/avocat-immobilier-tunisie",
   "/avocat-affaires-tunisie",
   "/consultation-juridique-tunisie",
+  "/code-du-travail-tunisie",
   "/avocat-kairouan",
+  "/avocat-divorce-kairouan",
+  "/avocat-immobilier-kairouan",
+  "/avocat-affaires-kairouan",
+  "/consultation-juridique-kairouan",
 ];
 
 const BLOG_TRANSLATION_GROUPS = [

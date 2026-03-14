@@ -28,12 +28,12 @@ const blogGroups: BlogGroup[] = [
         {
           path: "/avocat-divorce-tunisie",
           label: "Guide divorce Tunisie",
-          description: "Une page ciblee sur la strategie de divorce et l'execution.",
+          description: "Une page ciblée sur la stratégie de divorce et l'exécution.",
         },
         {
-          path: "/consultation-juridique-tunisie",
-          label: "Demander une consultation",
-          description: "Pour obtenir un diagnostic clair sur votre dossier familial.",
+          path: "/avocat-divorce-kairouan",
+          label: "Avocat divorce à Kairouan",
+          description: "Page locale pour les dossiers familiaux et les urgences de garde.",
         },
       ],
       en: [
@@ -48,26 +48,26 @@ const blogGroups: BlogGroup[] = [
           description: "Focused guidance on divorce strategy and enforcement.",
         },
         {
-          path: "/consultation-juridique-tunisie",
-          label: "Request a consultation",
-          description: "Get clear direction on your family-law situation.",
+          path: "/avocat-divorce-kairouan",
+          label: "Divorce lawyer in Kairouan",
+          description: "Local page for family-law cases and urgent custody matters.",
         },
       ],
       ar: [
         {
           path: "/services/droit-de-la-famille",
-          label: "خدمة قانون الاسرة",
+          label: "خدمة قانون الأسرة",
           description: "الطلاق والحضانة والنفقة والميراث.",
         },
         {
           path: "/avocat-divorce-tunisie",
           label: "دليل الطلاق في تونس",
-          description: "ارشاد مركز حول استراتيجية الطلاق وتنفيذ الاحكام.",
+          description: "إرشاد مركز حول استراتيجية الطلاق وتنفيذ الأحكام.",
         },
         {
-          path: "/consultation-juridique-tunisie",
-          label: "طلب استشارة قانونية",
-          description: "للحصول على توجيه واضح بخصوص وضعيتك العائلية.",
+          path: "/avocat-divorce-kairouan",
+          label: "محامية طلاق في القيروان",
+          description: "صفحة محلية للقضايا العائلية وحالات الحضانة المستعجلة.",
         },
       ],
     },
@@ -88,12 +88,12 @@ const blogGroups: BlogGroup[] = [
         {
           path: "/avocat-immobilier-tunisie",
           label: "Guide immobilier Tunisie",
-          description: "Verification fonciere, contrats et gestion du risque.",
+          description: "Vérification foncière, contrats et gestion du risque.",
         },
         {
-          path: "/consultation-juridique-tunisie",
-          label: "Demander une consultation",
-          description: "Pour relire un acte ou verifier un projet d'acquisition.",
+          path: "/avocat-immobilier-kairouan",
+          label: "Avocat immobilier à Kairouan",
+          description: "Page locale pour vérification foncière, baux et litiges immobiliers.",
         },
       ],
       en: [
@@ -108,9 +108,9 @@ const blogGroups: BlogGroup[] = [
           description: "Title verification, contracts and risk management.",
         },
         {
-          path: "/consultation-juridique-tunisie",
-          label: "Request a consultation",
-          description: "For deed review or a property-acquisition risk check.",
+          path: "/avocat-immobilier-kairouan",
+          label: "Real estate lawyer in Kairouan",
+          description: "Local page for title review, leases and property disputes.",
         },
       ],
       ar: [
@@ -122,12 +122,12 @@ const blogGroups: BlogGroup[] = [
         {
           path: "/avocat-immobilier-tunisie",
           label: "دليل العقار في تونس",
-          description: "تدقيق السندات والعقود وادارة المخاطر العقارية.",
+          description: "تدقيق السندات والعقود وإدارة المخاطر العقارية.",
         },
         {
-          path: "/consultation-juridique-tunisie",
-          label: "طلب استشارة قانونية",
-          description: "لتدقيق عقد او فحص مخاطر شراء عقار.",
+          path: "/avocat-immobilier-kairouan",
+          label: "محامية عقارية في القيروان",
+          description: "صفحة محلية لتدقيق السندات والكراء والنزاعات العقارية.",
         },
       ],
     },
@@ -143,17 +143,17 @@ const blogGroups: BlogGroup[] = [
         {
           path: "/services/droit-des-affaires",
           label: "Service droit des affaires",
-          description: "Contrats, societes, conformite et litiges commerciaux.",
+          description: "Contrats, sociétés, conformité et litiges commerciaux.",
         },
         {
           path: "/avocat-affaires-tunisie",
           label: "Guide affaires Tunisie",
-          description: "Structuration juridique et defense des entreprises.",
+          description: "Structuration juridique et défense des entreprises.",
         },
         {
-          path: "/consultation-juridique-tunisie",
-          label: "Demander une consultation",
-          description: "Pour cadrer un risque de conformite ou un contrat sensible.",
+          path: "/avocat-affaires-kairouan",
+          label: "Avocat affaires à Kairouan",
+          description: "Page locale pour contrats, sociétés, recouvrement et litiges commerciaux.",
         },
       ],
       en: [
@@ -168,26 +168,26 @@ const blogGroups: BlogGroup[] = [
           description: "Legal structuring and defense for companies in Tunisia.",
         },
         {
-          path: "/consultation-juridique-tunisie",
-          label: "Request a consultation",
-          description: "For compliance exposure, contracts or strategic legal review.",
+          path: "/avocat-affaires-kairouan",
+          label: "Business lawyer in Kairouan",
+          description: "Local page for contracts, company matters and commercial disputes.",
         },
       ],
       ar: [
         {
           path: "/services/droit-des-affaires",
-          label: "خدمة قانون الاعمال",
+          label: "خدمة قانون الأعمال",
           description: "عقود وشركات وامتثال ونزاعات تجارية.",
         },
         {
           path: "/avocat-affaires-tunisie",
-          label: "دليل الاعمال في تونس",
+          label: "دليل الأعمال في تونس",
           description: "هيكلة قانونية ودفاع عن المؤسسات في تونس.",
         },
         {
-          path: "/consultation-juridique-tunisie",
-          label: "طلب استشارة قانونية",
-          description: "لتاطير خطر امتثال او عقد تجاري حساس.",
+          path: "/avocat-affaires-kairouan",
+          label: "محامية أعمال في القيروان",
+          description: "صفحة محلية للعقود والشركات والنزاعات التجارية.",
         },
       ],
     },
@@ -203,7 +203,7 @@ const blogGroups: BlogGroup[] = [
         {
           path: "/consultation-juridique-tunisie",
           label: "Consultation juridique",
-          description: "Analyser rapidement l'impact d'une reforme sur votre dossier.",
+          description: "Analyser rapidement l'impact d'une réforme sur votre dossier.",
         },
         {
           path: "/services/droit-des-affaires",
@@ -211,9 +211,9 @@ const blogGroups: BlogGroup[] = [
           description: "Support contractuel et contentieux pour l'entreprise.",
         },
         {
-          path: "/avocat-kairouan",
-          label: "Avocat a Kairouan",
-          description: "Page locale pour les consultations et dossiers suivis a Kairouan.",
+          path: "/consultation-juridique-kairouan",
+          label: "Consultation juridique à Kairouan",
+          description: "Page locale pour obtenir un diagnostic et un plan d'action rapidement.",
         },
       ],
       en: [
@@ -228,26 +228,26 @@ const blogGroups: BlogGroup[] = [
           description: "Contract and dispute support for business operations.",
         },
         {
-          path: "/avocat-kairouan",
-          label: "Lawyer in Kairouan",
-          description: "Local page for consultations and legal support in Kairouan.",
+          path: "/consultation-juridique-kairouan",
+          label: "Legal consultation in Kairouan",
+          description: "Local page to get a diagnosis and an action plan quickly.",
         },
       ],
       ar: [
         {
           path: "/consultation-juridique-tunisie",
           label: "استشارة قانونية",
-          description: "توجيه سريع لفهم اثر الاصلاح القانوني على وضعيتك.",
+          description: "توجيه سريع لفهم أثر الإصلاح القانوني على وضعيتك.",
         },
         {
           path: "/services/droit-des-affaires",
-          label: "خدمة قانون الاعمال",
+          label: "خدمة قانون الأعمال",
           description: "دعم تعاقدي ونزاعي للمؤسسات والمهنيين.",
         },
         {
-          path: "/avocat-kairouan",
-          label: "محامية في القيروان",
-          description: "صفحة محلية للاستشارات والملفات المتابعة في القيروان.",
+          path: "/consultation-juridique-kairouan",
+          label: "استشارة قانونية في القيروان",
+          description: "صفحة محلية للحصول على تشخيص قانوني وخطة عمل سريعة.",
         },
       ],
     },

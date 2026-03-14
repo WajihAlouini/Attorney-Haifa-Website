@@ -1,4 +1,3 @@
-import { translations } from "@/data/translations";
 import { GoogleReview } from "@/types";
 
 interface GooglePlacesReview {
@@ -43,17 +42,21 @@ export const fetchGoogleReviews = async (
   const data: GooglePlacesResponse = await response.json();
 
   if (Array.isArray(data.reviews) && data.reviews.length) {
+    const fallbackReviewText =
+      locale === "ar"
+        ? "لا يوجد نص للمراجعة"
+        : locale === "en"
+          ? "No review text available"
+          : "Avis indisponible";
+
     return data.reviews.slice(0, 6).map((review) => {
       const ratingValue = Math.round(review.rating ?? 5);
       const safeRating = Math.min(5, Math.max(1, ratingValue));
       const stars = "★".repeat(safeRating) + "☆".repeat(5 - safeRating);
+
       return {
         rating: stars,
-        text:
-          review.originalText?.text ||
-          review.text ||
-          translations[locale]?.reviewsNote ||
-          "No review text available",
+        text: review.originalText?.text || review.text || fallbackReviewText,
         author: review.authorAttribution?.displayName || "Google Maps user",
       };
     });

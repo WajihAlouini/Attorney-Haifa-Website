@@ -10,6 +10,13 @@ type Locale = "fr" | "en" | "ar";
 const SITE_URL = "https://maitre-haifaguedhami.me";
 const BUSINESS_ID = `${SITE_URL}/#business`;
 const ATTORNEY_ID = `${SITE_URL}/#attorney`;
+const KAIROUAN_LOCAL_PATHS = new Set([
+  "/avocat-kairouan",
+  "/avocat-divorce-kairouan",
+  "/avocat-immobilier-kairouan",
+  "/avocat-affaires-kairouan",
+  "/consultation-juridique-kairouan",
+]);
 
 const HOME_LABELS: Record<Locale, string> = {
   fr: "Accueil",
@@ -164,8 +171,31 @@ function homeStructuredData(locale: Locale) {
           { "@type": "City", name: "Tunis" },
           { "@type": "Country", name: "Tunisia" },
         ],
-        openingHours: ["Mo-Fr 09:00-18:00", "Sa 09:00-13:00"],
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "09:00",
+            closes: "18:00",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: "Saturday",
+            opens: "09:00",
+            closes: "13:00",
+          },
+        ],
         availableLanguage: ["French", "English", "Arabic"],
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            contactType: "customer support",
+            telephone: "+21698643612",
+            email: "maitrealouiniguedhami@gmail.com",
+            areaServed: "TN",
+            availableLanguage: ["French", "English", "Arabic"],
+          },
+        ],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Services Juridiques",
@@ -178,6 +208,10 @@ function homeStructuredData(locale: Locale) {
             "/avocat-immobilier-tunisie",
             "/consultation-juridique-tunisie",
             "/avocat-kairouan",
+            "/avocat-divorce-kairouan",
+            "/avocat-immobilier-kairouan",
+            "/avocat-affaires-kairouan",
+            "/consultation-juridique-kairouan",
           ].map((path) => ({
             "@type": "Offer",
             itemOffered: {
@@ -189,13 +223,27 @@ function homeStructuredData(locale: Locale) {
         },
       },
       {
-        "@type": "Person",
+        "@type": "Attorney",
         "@id": ATTORNEY_ID,
         name: "Haifa Guedhami Alouini",
         jobTitle: "Attorney at law",
         worksFor: { "@id": BUSINESS_ID },
         url: `${SITE_URL}/about`,
         image: `${SITE_URL}/portrait/portrait.webp`,
+        areaServed: [
+          { "@type": "City", name: "Kairouan" },
+          { "@type": "City", name: "Tunis" },
+          { "@type": "Country", name: "Tunisia" },
+        ],
+        availableLanguage: ["French", "English", "Arabic"],
+        knowsLanguage: ["French", "English", "Arabic"],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "legal consultation",
+          telephone: "+21698643612",
+          email: "maitrealouiniguedhami@gmail.com",
+          availableLanguage: ["French", "English", "Arabic"],
+        },
       },
     ],
   };
@@ -290,14 +338,13 @@ export function getStructuredData(path: string, locale: Locale) {
       ],
       faqs: clusterPage.faqs,
       serviceType: clusterPage.navLabel,
-      areaServed:
-        path === "/avocat-kairouan"
-          ? [
-              { "@type": "City", name: "Kairouan" },
-              { "@type": "AdministrativeArea", name: "Kairouan Governorate" },
-              { "@type": "Country", name: "Tunisia" },
-            ]
-          : undefined,
+      areaServed: KAIROUAN_LOCAL_PATHS.has(path)
+        ? [
+            { "@type": "City", name: "Kairouan" },
+            { "@type": "AdministrativeArea", name: "Kairouan Governorate" },
+            { "@type": "Country", name: "Tunisia" },
+          ]
+        : undefined,
     });
   }
 

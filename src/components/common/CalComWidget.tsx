@@ -1,60 +1,121 @@
 import { useEffect } from "react";
 
-export function CalComWidget() {
-  useEffect(() => {
-    // Only load if not already loaded
-    if (
-      document.querySelector('script[src="https://app.cal.com/embed/embed.js"]')
-    ) {
-      return;
-    }
+const CAL_SCRIPT_SRC = "https://app.cal.com/embed/embed.js";
+const CAL_NAMESPACE = "wajjih-alouini-eis3ub";
+const CAL_LINK = `${CAL_NAMESPACE}/30min`;
 
-    // Load Cal.com embed script
-    (function (C: any, A: any, L: any) {
-      const p = function (a: any, ar: any) {
-        a.q.push(ar);
-      };
-      const d = C.document;
-      C.Cal =
-        C.Cal ||
-        function () {
-          const cal = C.Cal;
-          const ar = arguments;
-          if (!cal.loaded) {
-            cal.ns = {};
-            cal.q = cal.q || [];
-            d.head.appendChild(d.createElement("script")).src = A;
-            cal.loaded = true;
-          }
-          if (ar[0] === L) {
-            const api: any = function () {
-              p(api, arguments);
-            };
-            const namespace = ar[1];
-            api.q = api.q || [];
-            if (typeof namespace === "string") {
-              C.Cal.ns[namespace] = C.Cal.ns[namespace] || api;
-              p(C.Cal.ns[namespace], ar);
-              return;
-            }
-            p(cal, ar);
+type CalArguments = IArguments | [string, ...unknown[]];
+
+interface CalApi {
+  (...args: unknown[]): void;
+  loaded?: boolean;
+  ns?: Record<string, CalApi>;
+  q?: CalArguments[];
+}
+
+interface CalWindow extends Window {
+  Cal?: CalApi;
+  __calBootstrapped?: boolean;
+  __calInitialized?: boolean;
+}
+
+function bootstrapCal(windowRef: CalWindow) {
+  if (windowRef.__calBootstrapped) return;
+
+  (function (C: CalWindow, A: string, L: string) {
+    const queueCall = (api: CalApi, args: CalArguments) => {
+      api.q = api.q || [];
+      api.q.push(args);
+    };
+
+    const documentRef = C.document;
+    C.Cal =
+      C.Cal ||
+      ((...args: unknown[]) => {
+        const cal = C.Cal as CalApi;
+        const callArgs = args as [string, ...unknown[]];
+
+        if (!cal.loaded) {
+          cal.ns = cal.ns || {};
+          cal.q = cal.q || [];
+
+          const script = documentRef.createElement("script");
+          script.src = A;
+          script.async = true;
+          documentRef.head.appendChild(script);
+          cal.loaded = true;
+        }
+
+        if (callArgs[0] === L) {
+          const namespace = callArgs[1];
+          const scopedApi: CalApi = (...scopedArgs: unknown[]) => {
+            queueCall(scopedApi, scopedArgs as [string, ...unknown[]]);
+          };
+
+          scopedApi.q = scopedApi.q || [];
+
+          if (typeof namespace === "string") {
+            cal.ns = cal.ns || {};
+            cal.ns[namespace] = cal.ns[namespace] || scopedApi;
+            queueCall(cal.ns[namespace], callArgs);
             return;
           }
-          p(cal, ar);
-        };
-    })(window, "https://app.cal.com/embed/embed.js", "init");
 
-    // Initialize Cal with your API key
-    (window as any).Cal("init", "wajjih-alouini-eis3ub", {
-      origin: "https://cal.com",
-    });
+          queueCall(cal, callArgs);
+          return;
+        }
 
-    // Configure UI
-    (window as any).Cal("ui", {
-      styles: { branding: { brandColor: "#D4AF37" } },
-      hideEventTypeDetails: false,
-      layout: "month_view",
-    });
+        queueCall(cal, callArgs);
+      });
+  })(windowRef, CAL_SCRIPT_SRC, "init");
+
+  windowRef.__calBootstrapped = true;
+}
+
+function initializeCal(windowRef: CalWindow) {
+  bootstrapCal(windowRef);
+
+  if (windowRef.__calInitialized) return;
+
+  windowRef.Cal?.("init", CAL_NAMESPACE, {
+    origin: "https://cal.com",
+  });
+  windowRef.Cal?.("ui", {
+    styles: { branding: { brandColor: "#D4AF37" } },
+    hideEventTypeDetails: false,
+    layout: "month_view",
+  });
+
+  windowRef.__calInitialized = true;
+}
+
+function openCalModal(windowRef: CalWindow) {
+  initializeCal(windowRef);
+
+  const scopedCal = windowRef.Cal?.ns?.[CAL_NAMESPACE];
+  if (scopedCal) {
+    scopedCal("modal", { calLink: CAL_LINK });
+    return;
+  }
+
+  windowRef.Cal?.("modal", { calLink: CAL_LINK });
+}
+
+export function CalComWidget() {
+  useEffect(() => {
+    const windowRef = window as CalWindow;
+    bootstrapCal(windowRef);
+
+    const handlePreload = () => initializeCal(windowRef);
+    const handleOpen = () => openCalModal(windowRef);
+
+    window.addEventListener("cal:preload", handlePreload);
+    window.addEventListener("cal:open", handleOpen);
+
+    return () => {
+      window.removeEventListener("cal:preload", handlePreload);
+      window.removeEventListener("cal:open", handleOpen);
+    };
   }, []);
 
   return null;

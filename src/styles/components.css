@@ -31,7 +31,7 @@
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: var(--accent-contrast);
   box-shadow: 0 4px 20px var(--accent-glow);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--glass-inset);
 }
 
 .btn.primary:hover {
@@ -58,13 +58,13 @@
 }
 
 .btn.whatsapp {
-  background: #25d366;
-  color: #fff;
+  background: var(--whatsapp);
+  color: var(--success-contrast);
 }
 
 .btn.whatsapp:hover {
-  background: #20ba5a;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  background: var(--whatsapp-hover);
+  box-shadow: 0 4px 12px var(--whatsapp-glow);
 }
 
 /* Button Effects */
@@ -83,7 +83,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.3),
+    var(--glass-inset),
     transparent
   );
   transition: left 0.5s;
@@ -94,14 +94,14 @@
 }
 
 .btn-glow {
-  box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+  box-shadow: 0 0 20px var(--accent-glow);
   transition: all 0.3s ease;
 }
 
 .btn-glow:hover {
   box-shadow:
-    0 0 30px rgba(197, 160, 89, 0.6),
-    0 0 60px rgba(197, 160, 89, 0.3);
+    0 0 30px var(--accent-glow),
+    0 0 60px var(--accent-soft);
   transform: translateY(-2px);
 }
 
@@ -126,7 +126,7 @@ blockquote {
   border: 1px solid var(--border);
   margin: 0;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--card-shadow);
 }
 
 blockquote::before {
@@ -185,7 +185,7 @@ blockquote footer {
 .practice-card:hover,
 .value-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(197, 160, 89, 0.3);
+  box-shadow: 0 20px 60px var(--accent-glow);
 }
 
 .impact-card {
@@ -268,7 +268,7 @@ blockquote footer {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: var(--overlay-strong);
   z-index: 10000;
   display: flex;
   justify-content: center;
@@ -288,7 +288,7 @@ blockquote footer {
   max-height: 90vh;
   object-fit: contain;
   border: 1px solid var(--accent);
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 50px var(--shadow-strong);
 }
 
 .lightbox-close {
@@ -297,7 +297,7 @@ blockquote footer {
   right: 0;
   background: transparent;
   border: none;
-  color: #fff;
+  color: var(--text);
   font-size: 2rem;
   cursor: pointer;
   padding: 0.5rem;
@@ -332,15 +332,15 @@ blockquote footer {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: #25d366;
-  color: white;
+  background: var(--whatsapp);
+  color: var(--success-contrast);
   width: 60px;
   height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px var(--shadow-strong);
   transition:
     transform 0.2s,
     box-shadow 0.2s;
@@ -349,11 +349,11 @@ blockquote footer {
 
 .floating-whatsapp:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 6px 20px var(--whatsapp-glow);
 }
 
 .floating-whatsapp:focus-visible {
-  outline: 2px solid #25d366;
+  outline: 2px solid var(--whatsapp);
   outline-offset: 4px;
 }
 
@@ -364,7 +364,7 @@ blockquote footer {
   left: 50%;
   width: 100%;
   height: 100%;
-  background: #25d366;
+  background: var(--whatsapp);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   animation: ripple 2s infinite;
@@ -387,7 +387,7 @@ blockquote footer {
   justify-content: center;
   font-size: 1.5rem;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px var(--shadow-strong);
   transition: all 0.3s ease;
   z-index: 9998;
   animation: fadeInUp 0.3s ease;
@@ -395,7 +395,7 @@ blockquote footer {
 
 .scroll-to-top:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
+  box-shadow: 0 6px 20px var(--accent-glow);
 }
 
 .scroll-to-top:focus-visible {
@@ -430,13 +430,13 @@ blockquote footer {
 /* Form Styles */
 .consult-form input:focus,
 .consult-form textarea:focus {
-  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
+  box-shadow: 0 0 0 3px var(--accent-soft);
   transform: translateY(-2px);
 }
 
 .form-error {
   display: block;
-  color: #ef4444;
+  color: var(--danger);
   font-size: 0.85rem;
   margin-top: 0.5rem;
   animation: shake 0.3s ease;
@@ -444,7 +444,7 @@ blockquote footer {
 
 .consult-form input[aria-invalid="true"],
 .consult-form textarea[aria-invalid="true"] {
-  border-color: #ef4444;
+  border-color: var(--danger);
 }
 
 /* Glassmorphism */

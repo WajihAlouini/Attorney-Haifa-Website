@@ -13,9 +13,29 @@ export function useScrollAnimation(): void {
       { threshold: 0.1 }
     );
 
-    const elements = document.querySelectorAll(".fade-in-section");
-    elements.forEach((el) => observer.observe(el));
+    // Observe all current fade-in-section elements
+    const observeAll = () => {
+      const elements = document.querySelectorAll(
+        ".fade-in-section:not(.fade-in-visible)"
+      );
+      elements.forEach((el) => observer.observe(el));
+    };
 
-    return () => observer.disconnect();
+    observeAll();
+
+    // Watch for lazy-loaded sections that appear later via Suspense
+    const mutationObserver = new MutationObserver(() => {
+      observeAll();
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 }

@@ -9,6 +9,7 @@ import {
 import { HelmetProvider } from "react-helmet-async";
 import { defaultTranslation, loadTranslation } from "@/data/translations";
 import { whatsappNumber } from "@/data/constants";
+import { seoClusterPaths } from "@/data/seoCluster";
 import { MainLayout } from "@/layouts/MainLayout";
 
 import { useScrollProgress } from "@/hooks/useScrollProgress";
@@ -338,76 +339,23 @@ function AppContent() {
             </AnimatedPage>
           }
         />
-        <Route
-          path="/avocat-divorce-tunisie"
-          element={
-            <AnimatedPage>
-              <Suspense fallback={<LoadingFallback />}>
-                <SeoClusterPage
-                  locale={locale}
-                  whatsappLink={whatsappLink}
-                  whatsappNumber={whatsappNumber}
-                />
-              </Suspense>
-            </AnimatedPage>
-          }
-        />
-        <Route
-          path="/avocat-immobilier-tunisie"
-          element={
-            <AnimatedPage>
-              <Suspense fallback={<LoadingFallback />}>
-                <SeoClusterPage
-                  locale={locale}
-                  whatsappLink={whatsappLink}
-                  whatsappNumber={whatsappNumber}
-                />
-              </Suspense>
-            </AnimatedPage>
-          }
-        />
-        <Route
-          path="/avocat-affaires-tunisie"
-          element={
-            <AnimatedPage>
-              <Suspense fallback={<LoadingFallback />}>
-                <SeoClusterPage
-                  locale={locale}
-                  whatsappLink={whatsappLink}
-                  whatsappNumber={whatsappNumber}
-                />
-              </Suspense>
-            </AnimatedPage>
-          }
-        />
-        <Route
-          path="/consultation-juridique-tunisie"
-          element={
-            <AnimatedPage>
-              <Suspense fallback={<LoadingFallback />}>
-                <SeoClusterPage
-                  locale={locale}
-                  whatsappLink={whatsappLink}
-                  whatsappNumber={whatsappNumber}
-                />
-              </Suspense>
-            </AnimatedPage>
-          }
-        />
-        <Route
-          path="/avocat-kairouan"
-          element={
-            <AnimatedPage>
-              <Suspense fallback={<LoadingFallback />}>
-                <SeoClusterPage
-                  locale={locale}
-                  whatsappLink={whatsappLink}
-                  whatsappNumber={whatsappNumber}
-                />
-              </Suspense>
-            </AnimatedPage>
-          }
-        />
+        {seoClusterPaths.map((path) => (
+          <Route
+            key={path}
+            path={path}
+            element={
+              <AnimatedPage>
+                <Suspense fallback={<LoadingFallback />}>
+                  <SeoClusterPage
+                    locale={locale}
+                    whatsappLink={whatsappLink}
+                    whatsappNumber={whatsappNumber}
+                  />
+                </Suspense>
+              </AnimatedPage>
+            }
+          />
+        ))}
         <Route
           path="/values"
           element={

@@ -2,7 +2,7 @@
   position: fixed;
   top: 2rem;
   right: 2rem;
-  color: white;
+  color: var(--success-contrast);
   padding: 1rem 1.5rem;
   border-radius: 8px;
   display: flex;
@@ -11,17 +11,19 @@
   min-width: 300px;
   max-width: 90vw;
   z-index: 10000;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px var(--shadow-strong);
+  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
 }
 
 .success {
-  background: linear-gradient(135deg, #10b981, #059669);
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+  background: linear-gradient(135deg, var(--success), var(--success-strong));
+  box-shadow: 0 10px 30px var(--success-soft);
 }
 
 .error {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+  color: var(--danger-contrast);
+  background: linear-gradient(135deg, var(--danger), var(--danger-strong));
+  box-shadow: 0 10px 30px var(--danger-soft);
 }
 
 .content {
@@ -33,7 +35,7 @@
 .icon {
   width: 30px;
   height: 30px;
-  background: white;
+  background: color-mix(in srgb, var(--panel) 88%, transparent);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -43,12 +45,17 @@
   flex-shrink: 0;
 }
 
+.icon svg {
+  width: 16px;
+  height: 16px;
+}
+
 .success .icon {
-  color: #10b981;
+  color: var(--success);
 }
 
 .error .icon {
-  color: #ef4444;
+  color: var(--danger);
 }
 
 .title {
@@ -65,13 +72,21 @@
 .closeBtn {
   background: transparent;
   border: none;
-  color: white;
+  color: inherit;
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0;
   line-height: 1;
   opacity: 0.8;
   margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeBtn svg {
+  width: 18px;
+  height: 18px;
 }
 
 .closeBtn:hover {
@@ -83,6 +98,14 @@
   background: rgba(255, 255, 255, 0.3);
   width: 100%;
   animation: progress 5s linear forwards;
+}
+
+.progress-success {
+  background: color-mix(in srgb, var(--success-contrast) 38%, transparent);
+}
+
+.progress-error {
+  background: color-mix(in srgb, var(--danger-contrast) 38%, transparent);
 }
 
 @keyframes progress {
