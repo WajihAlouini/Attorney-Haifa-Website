@@ -63,6 +63,7 @@ function createBreadcrumbList(
 ) {
   return {
     "@type": "BreadcrumbList",
+    "@id": `${toCanonicalUrl(items[items.length - 1].path, locale)}#breadcrumb`,
     itemListElement: items.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -72,9 +73,13 @@ function createBreadcrumbList(
   };
 }
 
-function faqPageFromList(faqs: Array<{ question: string; answer: string }>) {
+function faqPageFromList(
+  faqs: Array<{ question: string; answer: string }>,
+  url?: string
+) {
   return {
     "@type": "FAQPage",
+    ...(url ? { "@id": `${url}#faq`, url } : {}),
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
@@ -105,8 +110,11 @@ function createLegalServiceGraph(options: {
       name: options.name,
       description: options.description,
       inLanguage: resolveInLanguage(options.locale),
-      isPartOf: { "@id": SITE_URL },
+      isPartOf: { "@id": `${SITE_URL}/#website` },
       about: { "@id": `${canonicalUrl}#service` },
+      breadcrumb: {
+        "@id": `${canonicalUrl}#breadcrumb`,
+      },
     },
     createBreadcrumbList(options.locale, options.breadcrumbs),
     {
@@ -117,7 +125,11 @@ function createLegalServiceGraph(options: {
       url: canonicalUrl,
       inLanguage: resolveInLanguage(options.locale),
       provider: { "@id": BUSINESS_ID },
-      availableLanguage: ["French", "English", "Arabic"],
+      availableLanguage: [
+        { "@type": "Language", name: "French", alternateName: "fr" },
+        { "@type": "Language", name: "English", alternateName: "en" },
+        { "@type": "Language", name: "Arabic", alternateName: "ar" },
+      ],
       serviceType: options.serviceType || options.name,
       areaServed:
         options.areaServed ||
@@ -130,7 +142,7 @@ function createLegalServiceGraph(options: {
   ];
 
   if (options.faqs && options.faqs.length > 0) {
-    graph.push(faqPageFromList(options.faqs));
+    graph.push(faqPageFromList(options.faqs, canonicalUrl));
   }
 
   return {
@@ -140,16 +152,31 @@ function createLegalServiceGraph(options: {
 }
 
 function homeStructuredData(locale: Locale) {
+  const homeUrl = toCanonicalUrl("/", locale);
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: "Cabinet Maitre Haifa Guedhami Alouini",
+        inLanguage: resolveInLanguage(locale),
+        publisher: { "@id": BUSINESS_ID },
+      },
+      {
         "@type": ["LegalService", "LocalBusiness"],
         "@id": BUSINESS_ID,
         name: "Cabinet Maitre Haifa Guedhami Alouini",
-        url: toCanonicalUrl("/", locale),
+        url: homeUrl,
         image: `${SITE_URL}/office/entry.webp`,
-        logo: `${SITE_URL}/favicon.png`,
+        logo: {
+          "@type": "ImageObject",
+          "@id": `${SITE_URL}/#logo`,
+          url: `${SITE_URL}/favicon.png`,
+          contentUrl: `${SITE_URL}/favicon.png`,
+          caption: "Cabinet Maitre Haifa Guedhami Alouini",
+        },
         description:
           "Cabinet d'avocat en Tunisie. Conseil et representation en droit de la famille, immobilier et droit des affaires.",
         address: {
@@ -161,8 +188,8 @@ function homeStructuredData(locale: Locale) {
         },
         geo: {
           "@type": "GeoCoordinates",
-          latitude: "35.6781",
-          longitude: "10.0963",
+          latitude: 35.6781,
+          longitude: 10.0963,
         },
         telephone: "+21698643612",
         email: "maitrealouiniguedhami@gmail.com",
@@ -174,7 +201,13 @@ function homeStructuredData(locale: Locale) {
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            dayOfWeek: [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+            ],
             opens: "09:00",
             closes: "18:00",
           },
@@ -185,42 +218,34 @@ function homeStructuredData(locale: Locale) {
             closes: "13:00",
           },
         ],
-        availableLanguage: ["French", "English", "Arabic"],
+        availableLanguage: [
+          { "@type": "Language", name: "French", alternateName: "fr" },
+          { "@type": "Language", name: "English", alternateName: "en" },
+          { "@type": "Language", name: "Arabic", alternateName: "ar" },
+        ],
         contactPoint: [
           {
             "@type": "ContactPoint",
             contactType: "customer support",
             telephone: "+21698643612",
             email: "maitrealouiniguedhami@gmail.com",
-            areaServed: "TN",
-            availableLanguage: ["French", "English", "Arabic"],
+            areaServed: { "@type": "Country", name: "Tunisia" },
+            availableLanguage: [
+              { "@type": "Language", name: "French" },
+              { "@type": "Language", name: "English" },
+              { "@type": "Language", name: "Arabic" },
+            ],
           },
         ],
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Services Juridiques",
-          itemListElement: [
-            "/services/droit-de-la-famille",
-            "/services/droit-des-affaires",
-            "/services/droit-immobilier",
-            "/avocat-divorce-tunisie",
-            "/avocat-affaires-tunisie",
-            "/avocat-immobilier-tunisie",
-            "/consultation-juridique-tunisie",
-            "/avocat-kairouan",
-            "/avocat-divorce-kairouan",
-            "/avocat-immobilier-kairouan",
-            "/avocat-affaires-kairouan",
-            "/consultation-juridique-kairouan",
-          ].map((path) => ({
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: getSEOData(path, locale).title,
-              url: toCanonicalUrl(path, locale),
-            },
-          })),
-        },
+        knowsAbout: [
+          "/services/droit-de-la-famille",
+          "/services/droit-des-affaires",
+          "/services/droit-immobilier",
+        ].map((path) => ({
+          "@type": "Service",
+          name: getSEOData(path, locale).title,
+          url: toCanonicalUrl(path, locale),
+        })),
       },
       {
         "@type": "Attorney",
@@ -235,14 +260,26 @@ function homeStructuredData(locale: Locale) {
           { "@type": "City", name: "Tunis" },
           { "@type": "Country", name: "Tunisia" },
         ],
-        availableLanguage: ["French", "English", "Arabic"],
-        knowsLanguage: ["French", "English", "Arabic"],
+        availableLanguage: [
+          { "@type": "Language", name: "French", alternateName: "fr" },
+          { "@type": "Language", name: "English", alternateName: "en" },
+          { "@type": "Language", name: "Arabic", alternateName: "ar" },
+        ],
+        knowsLanguage: [
+          { "@type": "Language", name: "French", alternateName: "fr" },
+          { "@type": "Language", name: "English", alternateName: "en" },
+          { "@type": "Language", name: "Arabic", alternateName: "ar" },
+        ],
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "legal consultation",
           telephone: "+21698643612",
           email: "maitrealouiniguedhami@gmail.com",
-          availableLanguage: ["French", "English", "Arabic"],
+          availableLanguage: [
+            { "@type": "Language", name: "French" },
+            { "@type": "Language", name: "English" },
+            { "@type": "Language", name: "Arabic" },
+          ],
         },
       },
     ],
@@ -250,15 +287,18 @@ function homeStructuredData(locale: Locale) {
 }
 
 function servicesCollection(locale: Locale) {
+  const pageUrl = toCanonicalUrl("/services", locale);
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "CollectionPage",
-        url: toCanonicalUrl("/services", locale),
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
         name: getSEOData("/services", locale).title,
         description: getSEOData("/services", locale).description,
         inLanguage: resolveInLanguage(locale),
+        isPartOf: { "@id": `${SITE_URL}/#website` },
         hasPart: [
           "/services/droit-de-la-famille",
           "/services/droit-des-affaires",
@@ -268,6 +308,9 @@ function servicesCollection(locale: Locale) {
           url: toCanonicalUrl(path, locale),
           name: getSEOData(path, locale).title,
         })),
+        breadcrumb: {
+          "@id": `${pageUrl}#breadcrumb`,
+        },
       },
       createBreadcrumbList(locale, [
         { name: HOME_LABELS[locale], path: "/" },
@@ -285,16 +328,22 @@ export function getStructuredData(path: string, locale: Locale) {
   }
 
   if (path === "/about") {
+    const pageUrl = toCanonicalUrl(path, resolvedLocale);
     return {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "AboutPage",
-          url: toCanonicalUrl(path, resolvedLocale),
+          "@id": `${pageUrl}#webpage`,
+          url: pageUrl,
           name: getSEOData(path, resolvedLocale).title,
           description: getSEOData(path, resolvedLocale).description,
           inLanguage: resolveInLanguage(resolvedLocale),
+          isPartOf: { "@id": `${SITE_URL}/#website` },
           mainEntity: { "@id": ATTORNEY_ID },
+          breadcrumb: {
+            "@id": `${pageUrl}#breadcrumb`,
+          },
         },
         createBreadcrumbList(resolvedLocale, [
           { name: HOME_LABELS[resolvedLocale], path: "/" },
@@ -349,20 +398,20 @@ export function getStructuredData(path: string, locale: Locale) {
   }
 
   if (path === "/contact") {
+    const pageUrl = toCanonicalUrl(path, resolvedLocale);
     return {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "ContactPage",
-          url: toCanonicalUrl(path, resolvedLocale),
+          "@id": `${pageUrl}#webpage`,
+          url: pageUrl,
           name: getSEOData(path, resolvedLocale).title,
           inLanguage: resolveInLanguage(resolvedLocale),
-          mainEntity: {
-            "@type": "Attorney",
-            name: "Haifa Guedhami Alouini",
-            worksFor: { "@id": BUSINESS_ID },
-            telephone: "+216 98 643 612",
-            email: "maitrealouiniguedhami@gmail.com",
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+          mainEntity: { "@id": ATTORNEY_ID },
+          breadcrumb: {
+            "@id": `${pageUrl}#breadcrumb`,
           },
         },
         createBreadcrumbList(resolvedLocale, [
@@ -374,31 +423,36 @@ export function getStructuredData(path: string, locale: Locale) {
   }
 
   if (path === "/faq") {
+    const pageUrl = toCanonicalUrl(path, resolvedLocale);
     return {
       "@context": "https://schema.org",
       "@graph": [
-        faqPageFromList([
-          {
-            question: "J'ai peur d'aller au tribunal...",
-            answer:
-              "La plupart des affaires se reglent avant audience. Si une audience est necessaire, vous etes accompagne a chaque etape.",
-          },
-          {
-            question: "Est-ce que mes informations restent confidentielles ?",
-            answer:
-              "Oui. Le secret professionnel de l'avocat s'applique integralement.",
-          },
-          {
-            question: "Combien cela va-t-il couter ?",
-            answer:
-              "Une estimation claire est communiquee des le debut selon la nature du dossier.",
-          },
-          {
-            question: "Combien de temps cela prendra-t-il ?",
-            answer:
-              "Les delais dependent de la procedure. Une estimation realiste est partagee et mise a jour pendant le dossier.",
-          },
-        ]),
+        faqPageFromList(
+          [
+            {
+              question: "J'ai peur d'aller au tribunal...",
+              answer:
+                "La plupart des affaires se reglent avant audience. Si une audience est necessaire, vous etes accompagne a chaque etape.",
+            },
+            {
+              question:
+                "Est-ce que mes informations restent confidentielles ?",
+              answer:
+                "Oui. Le secret professionnel de l'avocat s'applique integralement.",
+            },
+            {
+              question: "Combien cela va-t-il couter ?",
+              answer:
+                "Une estimation claire est communiquee des le debut selon la nature du dossier.",
+            },
+            {
+              question: "Combien de temps cela prendra-t-il ?",
+              answer:
+                "Les delais dependent de la procedure. Une estimation realiste est partagee et mise a jour pendant le dossier.",
+            },
+          ],
+          pageUrl
+        ),
         createBreadcrumbList(resolvedLocale, [
           { name: HOME_LABELS[resolvedLocale], path: "/" },
           { name: getSEOData(path, resolvedLocale).title, path },
@@ -408,12 +462,15 @@ export function getStructuredData(path: string, locale: Locale) {
   }
 
   if (path === "/actualites") {
+    const pageUrl = toCanonicalUrl(path, resolvedLocale);
     return {
       "@context": "https://schema.org",
       "@type": "Blog",
+      "@id": `${pageUrl}#webpage`,
       name: "Actualites Juridiques - Maitre Haifa Guedhami Alouini",
-      url: toCanonicalUrl(path, resolvedLocale),
+      url: pageUrl,
       inLanguage: resolveInLanguage(resolvedLocale),
+      publisher: { "@id": BUSINESS_ID },
     };
   }
 

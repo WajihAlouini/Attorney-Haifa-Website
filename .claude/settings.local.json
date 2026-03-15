@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npx tsc:*)",
       "Bash(npx vite:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(xargs grep:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(node -e \":*)"
     ]
   }
 }
