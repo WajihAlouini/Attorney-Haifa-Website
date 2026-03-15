@@ -4,18 +4,6 @@
   "outputDirectory": "dist",
   "installCommand": "npm ci",
   "framework": "vite",
-  "rewrites": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "query", "key": "lang", "value": "en" }],
-      "destination": "/__locale/en/:path*"
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
-      "destination": "/__locale/ar/:path*"
-    }
-  ],
   "headers": [
     {
       "source": "/assets/(.*)",

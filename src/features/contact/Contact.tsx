@@ -37,6 +37,7 @@ interface ContactProps {
   whatsappNumber: string;
   mapEmbedSrc: string;
   mapShareUrl: string;
+  hideHeader?: boolean;
 }
 
 interface ContactFormInputs {
@@ -52,6 +53,7 @@ const ContactComponent: FC<ContactProps> = ({
   whatsappNumber,
   mapEmbedSrc,
   mapShareUrl,
+  hideHeader,
 }) => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
@@ -108,8 +110,12 @@ const ContactComponent: FC<ContactProps> = ({
     <section className={styles.section} id="contact">
       <div className={styles.card}>
         <div>
-          <p className="section-eyebrow">{t.consultEyebrow}</p>
-          <h2>{t.consultHeading}</h2>
+          {!hideHeader && (
+            <>
+              <p className="section-eyebrow">{t.consultEyebrow}</p>
+              <h2>{t.consultHeading}</h2>
+            </>
+          )}
           <ul className={styles.list}>
             {/* WhatsApp */}
             <li>

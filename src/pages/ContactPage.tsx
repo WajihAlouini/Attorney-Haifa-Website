@@ -61,6 +61,7 @@ export function ContactPage({ t, whatsappLink, whatsappNumber }: PageProps) {
           whatsappNumber={whatsappNumber}
           mapEmbedSrc={mapEmbedSrc}
           mapShareUrl={mapShareUrl}
+          hideHeader
         />
       </div>
       <div className="fade-in-section section-alt">

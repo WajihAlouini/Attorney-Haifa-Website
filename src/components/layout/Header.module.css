@@ -246,12 +246,13 @@
     height: 100vh;
     background: var(--nav-bg-solid);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 3rem;
+    gap: 2.5rem;
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 2rem;
+    padding: 7rem 2rem 5rem;
+    overflow-y: auto;
     z-index: 100;
   }
 
