@@ -112,13 +112,9 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
             <Link to={withLocaleSearch("/values")}>
               {t.nav.values}
             </Link>
-            <button
-              type="button"
-              className={styles.scrollLink}
-              onClick={() => scrollToSection("guides")}
-            >
+            <Link to={withLocaleSearch("/services")}>
               {t.nav.guides || copy.guides}
-            </button>
+            </Link>
             <button
               type="button"
               className={styles.scrollLink}
@@ -135,13 +131,9 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
             <Link to={withLocaleSearch("/actualites")}>
               {t.nav.actualites || copy.blog}
             </Link>
-            <button
-              type="button"
-              className={styles.scrollLink}
-              onClick={() => scrollToSection("faq")}
-            >
+            <Link to={withLocaleSearch("/faq")}>
               FAQ
-            </button>
+            </Link>
           </div>
         </div>
 
