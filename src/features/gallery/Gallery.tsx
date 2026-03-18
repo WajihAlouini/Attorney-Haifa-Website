@@ -31,7 +31,7 @@ export const Gallery: FC<GalleryProps> = ({ t, officePhotos }) => {
               {Object.entries(photo.sources).map(([format, src]) => (
                 <source key={format} srcSet={src} type={`image/${format}`} />
               ))}
-              <img src={photo.img.src} alt={photo.alt} loading="lazy" />
+              <img src={photo.img.src} alt={photo.alt} loading="lazy" width="400" height="300" />
             </picture>
           </figure>
         ))}

@@ -258,6 +258,9 @@ const ContactComponent: FC<ContactProps> = ({
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
           src={mapEmbedSrc}
+          width="100%"
+          height="400"
+          style={{ minHeight: "300px" }}
         ></iframe>
         <a
           className={styles.mapLink}

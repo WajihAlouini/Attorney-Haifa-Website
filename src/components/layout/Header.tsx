@@ -68,7 +68,7 @@ export const Header: FC<HeaderProps> = ({ locale, setLocale, t, theme, toggleThe
         aria-label="Home"
         onClick={closeMobileMenu}
       >
-        <img src={logoUrl} alt="Logo" className={styles.brandMark} />
+        <img src={logoUrl} alt="Logo" className={styles.brandMark} width="50" height="50" />
         <div className={styles.brandCopy}>
           <span>{t.brandName}</span>
           <small>{t.brandTagline}</small>

@@ -17,7 +17,7 @@
 }
 
 .scrolled {
-  padding: 0.8rem clamp(1.5rem, 5vw, 4rem);
+  padding: 1rem clamp(1.5rem, 5vw, 4rem);
   background: var(--nav-bg-scrolled);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
   border-bottom: 1px solid var(--separator);

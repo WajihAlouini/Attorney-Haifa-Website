@@ -67,6 +67,8 @@ const BlogIndex: FC<{ locale?: string; t?: Translation }> = ({
                     alt={post.title}
                     className={styles.image}
                     loading="lazy"
+                    width="400"
+                    height="225"
                   />
                 </div>
               )}

@@ -143,6 +143,8 @@ export const Reviews: FC<ReviewsProps> = ({
                           alt={item.author}
                           className={styles.avatarImage}
                           loading="lazy"
+                          width="40"
+                          height="40"
                           onError={() => handleImageError(item.author)}
                         />
                       ) : (
@@ -193,6 +195,8 @@ export const Reviews: FC<ReviewsProps> = ({
                         alt="Review attachment"
                         className={styles.reviewImage}
                         loading="lazy"
+                        width="300"
+                        height="200"
                       />
                     </div>
                   )}
