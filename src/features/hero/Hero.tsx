@@ -1,5 +1,6 @@
 import { FC, ReactNode } from "react";
 import portraitImg from "@/assets/portrait/portrait.webp?format=avif;webp&w=1200&as=picture";
+import portraitSmImg from "@/assets/portrait/portrait-sm.webp?format=avif;webp&w=520&as=picture";
 import styles from "./Hero.module.css";
 import { Translation } from "@/types";
 
@@ -161,6 +162,16 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
             <div className={styles.figureGlow} aria-hidden="true" />
             <div className={styles.figureInner}>
               <picture>
+                {/* Mobile-optimized sources (520px for up to 768px viewport) */}
+                {Object.entries(portraitSmImg.sources).map(([format, src]) => (
+                  <source
+                    key={`sm-${format}`}
+                    srcSet={src}
+                    type={`image/${format}`}
+                    media="(max-width: 768px)"
+                  />
+                ))}
+                {/* Desktop sources */}
                 {Object.entries(portraitImg.sources).map(([format, src]) => (
                   <source key={format} srcSet={src} type={`image/${format}`} />
                 ))}

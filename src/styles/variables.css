@@ -30,7 +30,7 @@
   --accent-dark: #7A5F07;
   --accent-fg: #7A5F07;
   --accent-fg-hover: #6B5306;
-  --accent-contrast: #1c1917;
+  --accent-contrast: #ffffff;
   --accent-soft: rgba(143, 114, 9, 0.12);
   --accent-glow: rgba(143, 114, 9, 0.25);
 
@@ -70,9 +70,9 @@
   --info-soft: rgba(37, 99, 235, 0.16);
   --warning: #ea580c;
   --warning-soft: rgba(234, 88, 12, 0.16);
-  --whatsapp: #25d366;
-  --whatsapp-hover: #20ba5a;
-  --whatsapp-glow: rgba(37, 211, 102, 0.28);
+  --whatsapp: #075E54;
+  --whatsapp-hover: #064D45;
+  --whatsapp-glow: rgba(7, 94, 84, 0.28);
 
   /* Theme-specific helpers (referenced by module CSS) */
   --nav-bg: rgba(234, 227, 213, 0.8);
@@ -168,9 +168,9 @@
   --info-soft: rgba(96, 165, 250, 0.2);
   --warning: #fb923c;
   --warning-soft: rgba(251, 146, 60, 0.2);
-  --whatsapp: #25d366;
-  --whatsapp-hover: #1fb759;
-  --whatsapp-glow: rgba(37, 211, 102, 0.34);
+  --whatsapp: #075E54;
+  --whatsapp-hover: #064D45;
+  --whatsapp-glow: rgba(7, 94, 84, 0.34);
 
   --nav-bg: rgba(3, 5, 8, 0.75);
   --nav-bg-scrolled: rgba(3, 5, 8, 0.95);

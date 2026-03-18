@@ -1,5 +1,8 @@
 /* Main CSS Entry Point */
 
+/* Self-hosted fonts (must come before variables/base that reference font families) */
+@import "./fonts.css";
+
 /* Variables & Base */
 @import "./variables.css";
 @import "./base.css";

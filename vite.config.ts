@@ -30,6 +30,8 @@ export default defineConfig({
     open: true,
   },
   build: {
+    // Merge all CSS into a single file to eliminate render-blocking waterfall
+    cssCodeSplit: false,
     // Optimize chunk size
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
