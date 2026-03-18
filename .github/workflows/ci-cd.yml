@@ -90,10 +90,10 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Pull Vercel environment
-        run: vercel pull --yes --environment=${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+        run: vercel pull --yes --environment=${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }} --token="$VERCEL_TOKEN"
 
       - name: Build
-        run: vercel build ${{ github.ref == 'refs/heads/main' && '--prod' || '' }}
+        run: vercel build ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} --token="$VERCEL_TOKEN"
         env:
           NODE_ENV: production
           VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.VITE_WEB3FORMS_ACCESS_KEY }}
@@ -104,7 +104,7 @@ jobs:
       - name: Deploy
         id: vercel-deploy
         run: |
-          DEPLOYMENT_URL=$(vercel deploy --prebuilt ${{ github.ref == 'refs/heads/main' && '--prod' || '' }})
+          DEPLOYMENT_URL=$(vercel deploy --prebuilt ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} --token="$VERCEL_TOKEN")
           echo "preview-url=$DEPLOYMENT_URL" >> "$GITHUB_OUTPUT"
           echo "Deployed: $DEPLOYMENT_URL"
 
