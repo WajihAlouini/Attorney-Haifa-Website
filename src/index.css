@@ -10,27 +10,27 @@
   line-height: 1.6;
   font-weight: 400;
 
-  /* Premium Light Theme Palette */
-  --bg: #F7F7F5;
-  --bg-alt: #EFECE6;
-  --panel: #FFFFFF;
-  --surface: #F0EDE8;
+  /* Premium Light Theme Palette — synced with variables.css */
+  --bg: #EAE3D5;
+  --bg-alt: #E0D9CB;
+  --panel: #F5F1E8;
+  --surface: #E6E1D6;
   --text: #1c1917;
-  --text-dim: #3D3530;
-  --muted: #5C534D;
+  --text-dim: #332A24;
+  --muted: #4A3F38;
 
-  /* Refined Gold Accent */
-  --accent: #b8860b;
+  /* Refined Gold Accent — darkened for warm bg contrast */
+  --accent: #8F7209;
   --accent-light: #d4af37;
-  --accent-dark: #8b6508;
-  --accent-soft: rgba(184, 134, 11, 0.12);
-  --accent-glow: rgba(184, 134, 11, 0.25);
+  --accent-dark: #7A5F07;
+  --accent-soft: rgba(143, 114, 9, 0.12);
+  --accent-glow: rgba(143, 114, 9, 0.25);
 
-  --border: rgba(28, 25, 23, 0.18);
+  --border: rgba(28, 25, 23, 0.13);
   --border-hover: rgba(184, 134, 11, 0.4);
 
-  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.06);
-  --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+  --card-shadow: 0 1px 3px rgba(120, 100, 60, 0.06), 0 4px 16px rgba(120, 100, 60, 0.05);
+  --card-shadow-hover: 0 8px 32px rgba(120, 100, 60, 0.12);
 
   --footer-bg: #141210;
   --footer-text: #a8a29e;

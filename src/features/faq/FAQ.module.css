@@ -15,6 +15,7 @@
 
 .item {
   border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
   background: var(--panel);
   border-radius: 4px;
   overflow: hidden;
@@ -63,4 +64,24 @@
 
 .item.active .answer {
   padding-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    gap: 0.75rem;
+  }
+
+  .question {
+    padding: 1.25rem 1.25rem;
+    font-size: 1rem;
+  }
+
+  .answer {
+    padding: 0 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .item.active .answer {
+    padding-bottom: 1.25rem;
+  }
 }

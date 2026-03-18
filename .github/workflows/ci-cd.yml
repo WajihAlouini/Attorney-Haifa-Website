@@ -7,71 +7,93 @@ on:
     branches: [main]
   workflow_dispatch: {}
 
-# Cancel in-progress runs for the same workflow
+# Cancel in-progress runs for the same ref
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-# Explicitly define permissions for security and comment posting
 permissions:
   contents: read
   pull-requests: write
 
 jobs:
   # -------------------------------------------------
-  # 1️⃣ Lint & Test (Optimized with caching)
+  # 1. Quality Gate — lint + test (fast, no build)
   # -------------------------------------------------
-  lint-test:
+  quality:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "20"
           cache: "npm"
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
 
-      # Cache ESLint for faster subsequent runs
       - name: Cache ESLint
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: .eslintcache
-          key: eslint-${{ runner.os }}-${{ hashFiles('**/*.js', '**/*.jsx') }}
+          key: eslint-${{ runner.os }}-${{ hashFiles('src/**/*.ts', 'src/**/*.tsx') }}
 
-      - name: Run ESLint
+      - name: Lint
         run: npm run lint -- --cache --cache-location .eslintcache
 
-      - name: Run tests (if available)
-        run: npm test --if-present || echo "No tests found - skipping"
+      - name: Test
+        run: npx vitest run
 
   # -------------------------------------------------
-  # 2️⃣ Build (Optimized with Vite caching)
+  # 2. Deploy — single build + Vercel deploy
+  #    (eliminates the old separate build job)
   # -------------------------------------------------
-  build:
-    needs: lint-test
+  deploy:
+    needs: quality
     runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.vercel-deploy.outputs.preview-url }}
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    environment:
+      name: ${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+      url: ${{ steps.vercel-deploy.outputs.preview-url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "20"
           cache: "npm"
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
+
+      # Cache Playwright browsers to avoid re-downloading every run (~150MB)
+      - name: Cache Playwright
+        id: playwright-cache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
       - name: Install Playwright Chromium
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium
 
-      # Set environment variables for production build
-      - name: Build project
-        run: npm run build:prerender
+      - name: Install Playwright deps (cached browsers)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel environment
+        run: vercel pull --yes --environment=${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+
+      - name: Build
+        run: vercel build ${{ github.ref == 'refs/heads/main' && '--prod' || '' }}
         env:
           NODE_ENV: production
           VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.VITE_WEB3FORMS_ACCESS_KEY }}
@@ -79,140 +101,73 @@ jobs:
           VITE_ENV: production
           VITE_CALENDLY_URL: ${{ secrets.VITE_CALENDLY_URL }}
 
-      # Compress artifacts to save storage and transfer time
-      - name: Compress build artifacts
-        run: tar -czf dist.tar.gz dist
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: site-dist
-          path: dist.tar.gz
-          retention-days: 1
-          compression-level: 0 # Already compressed
-
-  # -------------------------------------------------
-  # 3️⃣ Deploy to Vercel (Prod & Preview)
-  # -------------------------------------------------
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    env:
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-    environment:
-      name: ${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}
-      url: ${{ steps.vercel-deploy.outputs.preview-url }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
-
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
-
-      - name: Pull Vercel environment
-        run: vercel pull --yes --environment=${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }} --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Build Vercel output
-        run: vercel build ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Deploy to Vercel
+      - name: Deploy
         id: vercel-deploy
-        shell: bash
         run: |
-          DEPLOYMENT_URL=$(vercel deploy --prebuilt ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }})
+          DEPLOYMENT_URL=$(vercel deploy --prebuilt ${{ github.ref == 'refs/heads/main' && '--prod' || '' }})
           echo "preview-url=$DEPLOYMENT_URL" >> "$GITHUB_OUTPUT"
-          echo "Deployment URL: $DEPLOYMENT_URL"
+          echo "Deployed: $DEPLOYMENT_URL"
 
       - name: Comment deployment URL on PR
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '✅ Deployed to Vercel: ${{ steps.vercel-deploy.outputs.preview-url }}'
+              body: `**Deployed to Vercel:** ${{ steps.vercel-deploy.outputs.preview-url }}`
             })
 
   # -------------------------------------------------
-  # 4️⃣ Lighthouse CI (Performance Check)
+  # 3. Lighthouse — runs against the deployed URL
+  #    (no local build/serve needed)
   # -------------------------------------------------
   lighthouse:
-    needs: build
+    needs: deploy
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: site-dist
-
-      - name: Extract build artifacts
-        run: tar -xzf dist.tar.gz
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "20"
-          cache: "npm"
 
-      # Use npx instead of global install
       - name: Run Lighthouse CI
         run: |
-          npx serve -s dist -l 5000 &
-          SERVER_PID=$!
-          sleep 5
           npx @lhci/cli@0.14.x autorun \
-            --collect.url=http://localhost:5000 \
+            --collect.url=${{ needs.deploy.outputs.url }} \
             --collect.numberOfRuns=3 \
             --upload.target=temporary-public-storage
-          kill $SERVER_PID
 
-      # Optional: Comment Lighthouse results on PR
       - name: Comment Lighthouse results
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '🔍 Lighthouse CI completed. Check the logs for performance scores.'
+              body: 'Lighthouse CI completed. Check the workflow logs for performance scores.'
             })
 
   # -------------------------------------------------
-  # 5️⃣ Security Audit (Runs on every push)
+  # 4. Security Audit — runs in parallel, actually blocks
   # -------------------------------------------------
   security:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "20"
           cache: "npm"
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
 
-      - name: Run npm audit
+      - name: Audit production dependencies
         run: npm audit --audit-level=high --omit=dev
-        continue-on-error: true
-
-      - name: Check for vulnerabilities
-        run: npx audit-ci --config .audit-ci.json
-        continue-on-error: true

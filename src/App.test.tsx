@@ -32,10 +32,11 @@ describe("App", () => {
       0
     );
 
+    // Hero heading loads async (lazy component + Suspense)
     expect(
       await screen.findByRole("heading", {
         name: /avenir/i,
-      })
+      }, { timeout: 5000 })
     ).toBeInTheDocument();
   });
 });

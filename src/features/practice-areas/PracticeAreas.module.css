@@ -7,6 +7,7 @@
 .card {
   background: var(--panel);
   border: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
   padding: 3rem 2rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
@@ -74,4 +75,19 @@
   color: var(--muted);
   line-height: 1.7;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .card {
+    padding: 2rem 1.5rem;
+  }
+
+  .card h3 {
+    font-size: 1.3rem;
+  }
 }

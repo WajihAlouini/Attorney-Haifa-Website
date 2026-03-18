@@ -18,7 +18,7 @@
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--cta);
   outline-offset: 4px;
 }
 
@@ -28,16 +28,16 @@
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  color: var(--accent-contrast);
-  box-shadow: 0 4px 20px var(--accent-glow);
-  border: 1px solid var(--glass-inset);
+  background: var(--cta);
+  color: var(--cta-contrast);
+  box-shadow: 0 4px 20px var(--cta-soft);
+  border: 1px solid transparent;
 }
 
 .btn.primary:hover {
-  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  background: var(--cta-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px var(--accent-glow);
+  box-shadow: 0 8px 30px var(--cta-soft);
 }
 
 .btn.primary:active {
@@ -184,8 +184,8 @@ blockquote footer {
 
 .practice-card:hover,
 .value-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 60px var(--accent-glow);
+  transform: translateY(-8px);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .impact-card {

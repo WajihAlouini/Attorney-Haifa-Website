@@ -3,13 +3,13 @@
    ============================================================ */
 
 .hero {
-  --hero-bg: #f4efe7;
-  --hero-bg-soft: #ece6dc;
-  --hero-veil: rgba(244, 239, 231, 0.96);
+  --hero-bg: #EDE7DB;
+  --hero-bg-soft: #E6E0D4;
+  --hero-veil: rgba(237, 231, 219, 0.96);
   --hero-text: #1b1713;
   --hero-text-soft: #5b534b;
-  --hero-accent: #c5a059;
-  --hero-divider: rgba(27, 23, 19, 0.08);
+  --hero-accent: #7A5F07;
+  --hero-divider: rgba(27, 23, 19, 0.10);
   position: relative;
   overflow: clip;
   color: var(--hero-text);
@@ -131,29 +131,51 @@
 
 .primaryButton {
   background: var(--hero-accent);
-  color: #111;
+  color: #fff;
   border: 1px solid var(--hero-accent);
 }
 
 .primaryButton:hover {
-  background: #d0ab63;
-  border-color: #d0ab63;
+  background: var(--accent-dark, #6B5306);
+  border-color: var(--accent-dark, #6B5306);
   transform: translateY(-2px);
 }
 
-.whatsappButton,
+:global([data-theme="dark"]) .primaryButton {
+  background: var(--accent);
+  color: #0a0f16;
+  border-color: var(--accent);
+}
+
+:global([data-theme="dark"]) .primaryButton:hover {
+  background: var(--accent-light);
+  border-color: var(--accent-light);
+}
+
+.whatsappButton {
+  background: var(--whatsapp);
+  color: #fff;
+  border: 1px solid var(--whatsapp);
+}
+
+.whatsappButton:hover {
+  background: var(--whatsapp-hover);
+  border-color: var(--whatsapp-hover);
+  box-shadow: 0 0 16px var(--whatsapp-glow);
+  transform: translateY(-2px);
+}
+
 .ghostButton {
   background: transparent;
   color: var(--hero-text);
   border: 1px solid var(--hero-divider);
 }
 
-:global([data-theme="light"]) .whatsappButton,
 :global([data-theme="light"]) .ghostButton {
-  border-color: rgba(27, 23, 19, 0.16);
+  border-color: rgba(27, 23, 19, 0.28);
+  color: var(--text);
 }
 
-.whatsappButton:hover,
 .ghostButton:hover {
   color: var(--hero-accent);
   border-color: var(--hero-accent);

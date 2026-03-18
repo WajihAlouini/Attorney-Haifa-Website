@@ -20,7 +20,7 @@ import { LoadingFallback } from "@/components/ui/LoadingFallback";
 
 const THEME_STORAGE_KEY = "theme";
 const THEME_COLORS = {
-  light: "#f7f7f5",
+  light: "#F0EBE1",
   dark: "#05080f",
 } as const;
 

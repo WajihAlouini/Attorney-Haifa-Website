@@ -33,7 +33,7 @@
 .card:hover {
   transform: translateY(-5px);
   border-color: var(--accent);
-  box-shadow: 0 10px 30px rgba(197, 160, 89, 0.2);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .icon {
@@ -71,4 +71,35 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1.75rem 1rem;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1rem;
+  }
+
+  .card strong {
+    font-size: 2rem;
+  }
+
+  .card span {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

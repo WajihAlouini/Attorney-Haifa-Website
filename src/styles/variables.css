@@ -14,40 +14,46 @@
   line-height: 1.6;
   font-weight: 400;
 
-  /* Premium Light Theme Palette */
-  --bg: #F7F7F5;
-  --bg-alt: #EFECE6; /* Alternating section background */
-  --panel: #FFFFFF;
-  --panel-elevated: #fcfbf8;
-  --surface: #F0EDE8;
+  /* Premium Light Theme — warmer sand, aged-paper feel */
+  --bg: #EAE3D5;
+  --bg-alt: #E0D9CB; /* Alternating section: visible step down */
+  --panel: #F5F1E8;
+  --panel-elevated: #EFEBE2;
+  --surface: #E6E1D6;
   --text: #1c1917;
-  --text-dim: #3D3530;
-  --muted: #5C534D;
+  --text-dim: #332A24;
+  --muted: #4A3F38;
 
-  /* Refined Gold Accent (Darker for light theme contrast) */
-  --accent: #b8860b;
+  /* Refined Gold Accent — darkened for warm bg contrast */
+  --accent: #8F7209;
   --accent-light: #d4af37;
-  --accent-dark: #8b6508;
-  --accent-fg: #8b6508;
-  --accent-fg-hover: #6f5206;
+  --accent-dark: #7A5F07;
+  --accent-fg: #7A5F07;
+  --accent-fg-hover: #6B5306;
   --accent-contrast: #1c1917;
-  --accent-soft: rgba(184, 134, 11, 0.12);
-  --accent-glow: rgba(184, 134, 11, 0.25);
+  --accent-soft: rgba(143, 114, 9, 0.12);
+  --accent-glow: rgba(143, 114, 9, 0.25);
 
-  --border: rgba(28, 25, 23, 0.18);
+  /* Navy CTA – trust color for action buttons */
+  --cta: #0F4C81;
+  --cta-hover: #0D3F6B;
+  --cta-soft: rgba(15, 76, 129, 0.10);
+  --cta-contrast: #ffffff;
+
+  --border: rgba(28, 25, 23, 0.13);
   --border-hover: rgba(184, 134, 11, 0.4);
 
-  /* Card-specific */
-  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.06);
-  --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
-  --shadow-soft: rgba(0, 0, 0, 0.1);
-  --shadow-strong: rgba(0, 0, 0, 0.3);
+  /* Card-specific — subtle, warm shadows */
+  --card-shadow: 0 1px 3px rgba(120, 100, 60, 0.06), 0 4px 16px rgba(120, 100, 60, 0.05);
+  --card-shadow-hover: 0 8px 32px rgba(120, 100, 60, 0.12);
+  --shadow-soft: rgba(0, 0, 0, 0.08);
+  --shadow-strong: rgba(0, 0, 0, 0.25);
 
   --selection-bg: var(--accent-light);
   --selection-text: #1c1917;
-  --field-bg: rgba(28, 25, 23, 0.03);
-  --field-focus-bg: rgba(28, 25, 23, 0.05);
-  --surface-overlay: rgba(255, 255, 255, 0.05);
+  --field-bg: rgba(28, 25, 23, 0.04);
+  --field-focus-bg: rgba(184, 134, 11, 0.06);
+  --surface-overlay: rgba(255, 255, 255, 0.4);
   --overlay-strong: rgba(0, 0, 0, 0.85);
   --code-bg: rgba(17, 24, 39, 0.96);
   --code-text: #e5eefb;
@@ -69,26 +75,31 @@
   --whatsapp-glow: rgba(37, 211, 102, 0.28);
 
   /* Theme-specific helpers (referenced by module CSS) */
-  --nav-bg: rgba(247, 247, 245, 0.8);
-  --nav-bg-scrolled: rgba(247, 247, 245, 0.95);
-  --nav-bg-solid: #F7F7F5;
-  --hero-overlay-start: rgba(247, 247, 245, 0.3);
-  --hero-overlay-end: rgba(247, 247, 245, 0.95);
+  --nav-bg: rgba(234, 227, 213, 0.8);
+  --nav-bg-scrolled: rgba(234, 227, 213, 0.95);
+  --nav-bg-solid: #EAE3D5;
+  --hero-overlay-start: rgba(234, 227, 213, 0.3);
+  --hero-overlay-end: rgba(234, 227, 213, 0.95);
   --separator: rgba(0, 0, 0, 0.06);
-  --glass-inset: rgba(255, 255, 255, 0.6);
-  --glass-shadow: rgba(0, 0, 0, 0.06);
+  --glass-inset: rgba(255, 255, 255, 0.5);
+  --glass-shadow: rgba(120, 100, 60, 0.06);
   --hero-h1-from: #1c1917;
-  --hero-h1-to: #8B7355;
-  --btn-ghost-bg: rgba(28, 25, 23, 0.02);
-  --btn-ghost-hover-bg: rgba(184, 134, 11, 0.06);
-  --lang-toggle-bg: rgba(28, 25, 23, 0.04);
-  --lang-hover-bg: rgba(28, 25, 23, 0.07);
+  --hero-h1-to: #9A7B3C;
+  --btn-ghost-bg: rgba(28, 25, 23, 0.03);
+  --btn-ghost-hover-bg: rgba(184, 134, 11, 0.08);
+  --lang-toggle-bg: rgba(28, 25, 23, 0.05);
+  --lang-hover-bg: rgba(28, 25, 23, 0.08);
 
   /* Footer */
   --footer-bg: #141210;
   --footer-text: #a8a29e;
   --footer-heading: #f5f5f4;
   --footer-border: rgba(255, 255, 255, 0.06);
+
+  /* Layout */
+  --container-width: 1200px;
+  --spacing-md: 1.5rem;
+  --radius-lg: 8px;
 
   /* Breakpoints */
   --bp-sm: 640px;
@@ -122,6 +133,11 @@
   --accent-contrast: #05080f;
   --accent-soft: rgba(212, 175, 55, 0.1);
   --accent-glow: rgba(212, 175, 55, 0.3);
+
+  --cta: #3B82F6;
+  --cta-hover: #60A5FA;
+  --cta-soft: rgba(59, 130, 246, 0.15);
+  --cta-contrast: #ffffff;
 
   --border: rgba(212, 175, 55, 0.15);
   --border-hover: rgba(212, 175, 55, 0.4);

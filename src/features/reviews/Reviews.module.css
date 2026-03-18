@@ -5,12 +5,6 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -247,6 +241,19 @@
 
   .carouselContainer .grid {
     grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 1.25rem;
+  }
+
+  .googleCard {
+    padding: 1.25rem;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .reviewBody {
+    font-size: 0.92rem;
+    line-height: 1.6;
   }
 
   .navButton {

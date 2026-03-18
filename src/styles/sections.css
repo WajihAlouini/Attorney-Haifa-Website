@@ -10,7 +10,7 @@
   text-transform: uppercase;
   letter-spacing: 0.25em;
   font-size: 0.8rem;
-  color: var(--accent);
+  color: var(--accent-dark);
   margin-bottom: 0.5rem;
   display: block;
   font-weight: 600;
@@ -21,11 +21,23 @@
   font-size: clamp(2rem, 3vw, 2.8rem);
   line-height: 1.1;
   margin: 0;
+  padding-bottom: 1rem;
   color: var(--text);
   background: linear-gradient(135deg, var(--text) 0%, var(--accent-dark) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Decorative gold accent line under heading */
+.section-header h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin: 0.8rem auto 0;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  border-radius: 1px;
 }
 
 @media (max-width: 900px) {
