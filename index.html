@@ -11,6 +11,9 @@
       href="/office/entry.webp"
       fetchpriority="high"
     />
+    <!-- Preload critical fonts to break CSS→font chain (saves ~270ms) -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin.woff2" crossorigin />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="dns-prefetch" href="https://api.web3forms.com" />

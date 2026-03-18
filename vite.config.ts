@@ -36,6 +36,12 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
+        // Split vendor code for better caching and parallel loading
+        manualChunks(id) {
+          if (id.includes("node_modules/react-dom")) return "react-vendor";
+          if (id.includes("node_modules/react/") || id.includes("node_modules/react-router")) return "react-vendor";
+          if (id.includes("node_modules/framer-motion")) return "framer-motion";
+        },
         // Optimize asset file names
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name?.split(".");
