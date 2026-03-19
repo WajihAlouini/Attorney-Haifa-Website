@@ -70,9 +70,10 @@
   --info-soft: rgba(37, 99, 235, 0.16);
   --warning: #ea580c;
   --warning-soft: rgba(234, 88, 12, 0.16);
-  --whatsapp: #075E54;
-  --whatsapp-hover: #064D45;
-  --whatsapp-glow: rgba(7, 94, 84, 0.28);
+  --whatsapp: #25D366;
+  --whatsapp-hover: #20BD5A;
+  --whatsapp-glow: rgba(37, 211, 102, 0.30);
+  --whatsapp-text: #052e16;
 
   /* Theme-specific helpers (referenced by module CSS) */
   --nav-bg: rgba(234, 227, 213, 0.8);
@@ -168,9 +169,10 @@
   --info-soft: rgba(96, 165, 250, 0.2);
   --warning: #fb923c;
   --warning-soft: rgba(251, 146, 60, 0.2);
-  --whatsapp: #075E54;
-  --whatsapp-hover: #064D45;
-  --whatsapp-glow: rgba(7, 94, 84, 0.34);
+  --whatsapp: #25D366;
+  --whatsapp-hover: #20BD5A;
+  --whatsapp-glow: rgba(37, 211, 102, 0.35);
+  --whatsapp-text: #052e16;
 
   --nav-bg: rgba(3, 5, 8, 0.75);
   --nav-bg-scrolled: rgba(3, 5, 8, 0.95);

@@ -154,7 +154,7 @@
 
 .whatsappButton {
   background: var(--whatsapp);
-  color: #fff;
+  color: var(--whatsapp-text);
   border: 1px solid var(--whatsapp);
 }
 

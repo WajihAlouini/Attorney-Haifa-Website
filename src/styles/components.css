@@ -59,7 +59,7 @@
 
 .btn.whatsapp {
   background: var(--whatsapp);
-  color: var(--success-contrast);
+  color: var(--whatsapp-text);
 }
 
 .btn.whatsapp:hover {
@@ -333,7 +333,7 @@ blockquote footer {
   bottom: 2rem;
   right: 2rem;
   background: var(--whatsapp);
-  color: var(--success-contrast);
+  color: var(--whatsapp-text);
   width: 60px;
   height: 60px;
   border-radius: 50%;

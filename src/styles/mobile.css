@@ -255,12 +255,12 @@
   }
 
   .sticky-whatsapp {
-    background: #075E54;
-    color: white;
+    background: var(--whatsapp);
+    color: var(--whatsapp-text);
   }
 
   .sticky-whatsapp:hover {
-    background: #064D45;
+    background: var(--whatsapp-hover);
   }
 
   /* Main content — generous spacing + room for sticky bar */
