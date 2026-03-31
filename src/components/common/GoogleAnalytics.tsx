@@ -40,23 +40,7 @@ export const GoogleAnalytics = () => {
   const scriptRef = useRef<HTMLScriptElement | null>(null);
   const initializedRef = useRef(false);
 
-  // Set default consent state as early as possible
-  useEffect(() => {
-    if (!measurementId || measurementId === "G-XXXXXXXXXX") return;
-
-    ensureGtag();
-
-    const hasConsent = getAnalyticsConsent();
-
-    // Set default consent state before gtag('config')
-    window.gtag!("consent", "default", {
-      analytics_storage: hasConsent ? "granted" : "denied",
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied",
-      wait_for_update: 500,
-    });
-  }, [measurementId]);
+  // Consent defaults are set in index.html (must run before gtag.js loads)
 
   useEffect(() => {
     if (!measurementId || measurementId === "G-XXXXXXXXXX") {

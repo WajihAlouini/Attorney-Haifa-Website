@@ -72,6 +72,23 @@
     </script>
 
     <meta name="format-detection" content="telephone=no" />
+
+    <!-- Google Consent Mode v2: set defaults before gtag.js loads -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      try {
+        var cp = JSON.parse(localStorage.getItem('cookie_preferences') || '{}');
+        var granted = cp.analytics === true ? 'granted' : 'denied';
+      } catch(e) { var granted = 'denied'; }
+      gtag('consent', 'default', {
+        analytics_storage: granted,
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
+    </script>
   </head>
   <body>
     <noscript>
