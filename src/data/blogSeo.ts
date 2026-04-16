@@ -7,17 +7,13 @@ export interface BlogResourceLink {
 }
 
 interface BlogGroup {
-  slugs: Record<SiteLocale, string>;
+  slug: string;
   resources: Record<SiteLocale, BlogResourceLink[]>;
 }
 
 const blogGroups: BlogGroup[] = [
   {
-    slugs: {
-      fr: "reforme-famille-garde-partagee-tunisie",
-      en: "shared-custody-reform-tunisia",
-      ar: "hadhanat-mushtaraka-tunis",
-    },
+    slug: "reforme-famille-garde-partagee-tunisie",
     resources: {
       fr: [
         {
@@ -73,11 +69,7 @@ const blogGroups: BlogGroup[] = [
     },
   },
   {
-    slugs: {
-      fr: "immobilier-etrangers-tunisie-2026",
-      en: "property-law-foreigners-tunisia-2026",
-      ar: "aqaraat-ajanib-tunis-2026",
-    },
+    slug: "immobilier-etrangers-tunisie-2026",
     resources: {
       fr: [
         {
@@ -133,11 +125,7 @@ const blogGroups: BlogGroup[] = [
     },
   },
   {
-    slugs: {
-      fr: "nouveau-code-des-changes-tunisie-2026",
-      en: "new-foreign-exchange-code-tunisia-2026",
-      ar: "qanoon-alsarf-aljadid-tunis-2026",
-    },
+    slug: "nouveau-code-des-changes-tunisie-2026",
     resources: {
       fr: [
         {
@@ -193,11 +181,7 @@ const blogGroups: BlogGroup[] = [
     },
   },
   {
-    slugs: {
-      fr: "reforme-code-du-travail-2025",
-      en: "labour-code-reform-2025",
-      ar: "islah-majallat-alshughl-2025",
-    },
+    slug: "reforme-code-du-travail-2025",
     resources: {
       fr: [
         {
@@ -262,27 +246,8 @@ function resolveLocale(locale: string): SiteLocale {
   return "fr";
 }
 
-function getGroupBySlug(slug: string) {
-  return blogGroups.find((group) =>
-    Object.values(group.slugs).some((candidate) => candidate === slug)
-  );
-}
-
-export function getBlogAlternates(slug: string) {
-  const group = getGroupBySlug(slug);
-
-  if (!group) {
-    return [];
-  }
-
-  return Object.entries(group.slugs).map(([locale, localizedSlug]) => ({
-    locale: locale as SiteLocale,
-    path: `/actualites/${localizedSlug}`,
-  }));
-}
-
 export function getBlogRelatedResources(slug: string, locale: string) {
-  const group = getGroupBySlug(slug);
+  const group = blogGroups.find((g) => g.slug === slug);
 
   if (!group) {
     return [];

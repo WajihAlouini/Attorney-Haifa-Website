@@ -1,12 +1,11 @@
 import React, { FC } from "react";
-import { Link, Navigate, useLocation, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Calendar, Languages, Tag } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Tag } from "lucide-react";
 import { SEO } from "@/components/common/SEO";
 import {
-  getBlogAlternates,
   getBlogRelatedResources,
 } from "@/data/blogSeo";
 import { getPostBySlug } from "@/utils/markdown";
@@ -32,44 +31,25 @@ function getUiCopy(locale: string) {
   if (locale === "en") {
     return {
       backLabel: "Back to articles",
-      translationsTitle: "Read this guide in another language",
       resourcesTitle: "Related legal resources",
-      translationLabels: {
-        fr: "French",
-        en: "English",
-        ar: "Arabic",
-      },
     };
   }
 
   if (locale === "ar") {
     return {
       backLabel: "العودة الى الاخبار",
-      translationsTitle: "اقرأ هذا الدليل بلغة اخرى",
       resourcesTitle: "موارد قانونية مرتبطة",
-      translationLabels: {
-        fr: "الفرنسية",
-        en: "الانجليزية",
-        ar: "العربية",
-      },
     };
   }
 
   return {
     backLabel: "Retour aux actualites",
-    translationsTitle: "Lire ce guide dans une autre langue",
     resourcesTitle: "Ressources juridiques liees",
-    translationLabels: {
-      fr: "Francais",
-      en: "English",
-      ar: "Arabe",
-    },
   };
 }
 
 const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
   const { slug } = useParams<{ slug: string }>();
-  const location = useLocation();
   const post = slug ? getPostBySlug(slug, locale, true) : null;
 
   if (!post) {
@@ -85,9 +65,6 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
   const contentLocale = meta.lang || locale;
   const uiCopy = getUiCopy(contentLocale);
   const backSearch = getLocaleSearch(contentLocale);
-  const alternates = getBlogAlternates(meta.slug).filter(
-    (item) => item.path !== location.pathname
-  );
   const relatedResources = getBlogRelatedResources(meta.slug, contentLocale);
 
   return (
@@ -187,57 +164,29 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
           </ReactMarkdown>
         </section>
 
-        {(alternates.length > 0 || relatedResources.length > 0) && (
+        {relatedResources.length > 0 && (
           <section className={styles.resources}>
-            {alternates.length > 0 && (
-              <div className={`glass-panel ${styles.resourceCard}`}>
-                <div className={styles.resourceHeader}>
-                  <Languages size={18} />
-                  <h2>{uiCopy.translationsTitle}</h2>
-                </div>
-                <div className={styles.resourceGrid}>
-                  {alternates.map((alternate) => (
-                    <Link
-                      key={alternate.path}
-                      to={{ pathname: alternate.path, search: "" }}
-                      className={styles.resourceLink}
-                    >
-                      <div>
-                        <strong>
-                          {uiCopy.translationLabels[alternate.locale]}
-                        </strong>
-                        <span>{alternate.path.replace("/actualites/", "")}</span>
-                      </div>
-                      <ArrowRight size={18} />
-                    </Link>
-                  ))}
-                </div>
+            <div className={`glass-panel ${styles.resourceCard}`}>
+              <div className={styles.resourceHeader}>
+                <ArrowRight size={18} />
+                <h2>{uiCopy.resourcesTitle}</h2>
               </div>
-            )}
-
-            {relatedResources.length > 0 && (
-              <div className={`glass-panel ${styles.resourceCard}`}>
-                <div className={styles.resourceHeader}>
-                  <ArrowRight size={18} />
-                  <h2>{uiCopy.resourcesTitle}</h2>
-                </div>
-                <div className={styles.resourceGrid}>
-                  {relatedResources.map((resource) => (
-                    <Link
-                      key={resource.path}
-                      to={buildLinkTarget(resource.path, contentLocale)}
-                      className={styles.resourceLink}
-                    >
-                      <div>
-                        <strong>{resource.label}</strong>
-                        <span>{resource.description}</span>
-                      </div>
-                      <ArrowRight size={18} />
-                    </Link>
-                  ))}
-                </div>
+              <div className={styles.resourceGrid}>
+                {relatedResources.map((resource) => (
+                  <Link
+                    key={resource.path}
+                    to={buildLinkTarget(resource.path, contentLocale)}
+                    className={styles.resourceLink}
+                  >
+                    <div>
+                      <strong>{resource.label}</strong>
+                      <span>{resource.description}</span>
+                    </div>
+                    <ArrowRight size={18} />
+                  </Link>
+                ))}
               </div>
-            )}
+            </div>
           </section>
         )}
       </article>

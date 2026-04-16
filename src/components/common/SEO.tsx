@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
-import { getBlogAlternates } from "@/data/blogSeo";
 import { getSEOData } from "@/data/seo";
 import { getStructuredData } from "@/data/seoStructuredData";
 
@@ -36,10 +35,6 @@ function getStructuredDataPath(path: string) {
   return path;
 }
 
-function isBlogPostPath(path: string) {
-  return path.startsWith("/actualites/");
-}
-
 function toLocaleUrl(path: string, locale: SiteLocale) {
   const routePath = path === "/" ? "/" : path;
   const langQuery = locale === "fr" ? "" : `?lang=${locale}`;
@@ -47,10 +42,6 @@ function toLocaleUrl(path: string, locale: SiteLocale) {
 }
 
 function toCanonicalUrl(path: string, locale: SiteLocale) {
-  if (isBlogPostPath(path)) {
-    return `${SITE_URL}${path}`;
-  }
-
   return toLocaleUrl(path, locale);
 }
 
@@ -60,36 +51,12 @@ function ogLocale(locale: SiteLocale) {
   return "fr_TN";
 }
 
-function getAlternateLinks(path: string, locale: SiteLocale) {
-  if (!isBlogPostPath(path)) {
-    return [
-      { locale: "fr", href: toLocaleUrl(path, "fr") },
-      { locale: "en", href: toLocaleUrl(path, "en") },
-      { locale: "ar", href: toLocaleUrl(path, "ar") },
-      { locale: "x-default", href: toLocaleUrl(path, "fr") },
-    ];
-  }
-
-  const slug = path.replace("/actualites/", "");
-  const alternates = getBlogAlternates(slug);
-
-  if (alternates.length === 0) {
-    const href = `${SITE_URL}${path}`;
-    return [
-      { locale, href },
-      { locale: "x-default", href },
-    ];
-  }
-
-  const frAlternate =
-    alternates.find((alternate) => alternate.locale === "fr") ?? alternates[0];
-
+function getAlternateLinks(path: string) {
   return [
-    ...alternates.map((alternate) => ({
-      locale: alternate.locale,
-      href: `${SITE_URL}${alternate.path}`,
-    })),
-    { locale: "x-default", href: `${SITE_URL}${frAlternate.path}` },
+    { locale: "fr", href: toLocaleUrl(path, "fr") },
+    { locale: "en", href: toLocaleUrl(path, "en") },
+    { locale: "ar", href: toLocaleUrl(path, "ar") },
+    { locale: "x-default", href: toLocaleUrl(path, "fr") },
   ];
 }
 
@@ -117,7 +84,7 @@ export function SEO({
     getStructuredDataPath(path),
     normalizedLocale
   );
-  const alternateLinks = getAlternateLinks(path, normalizedLocale);
+  const alternateLinks = getAlternateLinks(path);
 
   const articleJsonLd =
     type === "article"

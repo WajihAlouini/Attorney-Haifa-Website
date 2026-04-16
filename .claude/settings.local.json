@@ -6,7 +6,20 @@
       "WebSearch",
       "Bash(xargs grep:*)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(node -e \":*)"
+      "Bash(node -e \":*)",
+      "WebFetch(domain:maitre-haifaguedhami.me)",
+      "Bash(curl -s \"https://maitre-haifaguedhami.me/about\")",
+      "Bash(curl -s \"https://maitre-haifaguedhami.me/about?lang=en\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://maitre-haifaguedhami.me/__locale/en/about\")",
+      "Bash(curl -s https://maitre-haifaguedhami.me/about?lang=en)",
+      "Bash(curl -s https://maitre-haifaguedhami.me/about)",
+      "Bash(find /c/Users/Wajih/Desktop/Lawyer -type f -name tailwind.config.* -o -name tsconfig.json -o -name vite.config.*)",
+      "Bash(grep -n \"data-theme\" /c/Users/Wajih/Desktop/Lawyer/src/styles/*.css)",
+      "Bash(python3 skills/ui-ux-pro-max/scripts/search.py \"law firm professional elegant service\" --design-system -p \"Lawyer Light Theme\")",
+      "Bash(python3 .claude/skills/ui-ux-pro-max/scripts/search.py \"law firm professional elegant service\" --design-system -p \"Lawyer Light Theme\")",
+      "Bash(python3 .claude/skills/ui-ux-pro-max/scripts/search.py \"light theme professional warm elegant luxury\" --domain color -n 10)",
+      "Bash(python3 .claude/skills/ui-ux-pro-max/scripts/search.py \"elegant professional serif law\" --domain typography -n 8)",
+      "Bash(python3 .claude/skills/ui-ux-pro-max/scripts/search.py \"contrast accessibility light mode\" --domain ux -n 8)"
     ]
   }
 }

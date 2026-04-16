@@ -34,28 +34,6 @@ const BASE_ROUTES = [
   "/consultation-juridique-kairouan",
 ];
 
-const BLOG_TRANSLATION_GROUPS = [
-  {
-    fr: "reforme-famille-garde-partagee-tunisie",
-    en: "shared-custody-reform-tunisia",
-    ar: "hadhanat-mushtaraka-tunis",
-  },
-  {
-    fr: "immobilier-etrangers-tunisie-2026",
-    en: "property-law-foreigners-tunisia-2026",
-    ar: "aqaraat-ajanib-tunis-2026",
-  },
-  {
-    fr: "nouveau-code-des-changes-tunisie-2026",
-    en: "new-foreign-exchange-code-tunisia-2026",
-    ar: "qanoon-alsarf-aljadid-tunis-2026",
-  },
-  {
-    fr: "reforme-code-du-travail-2025",
-    en: "labour-code-reform-2025",
-    ar: "islah-majallat-alshughl-2025",
-  },
-];
 
 function normalizeRoute(route) {
   if (route === "/") {
@@ -83,7 +61,7 @@ function toLocaleSnapshotRoute(route, locale) {
 
 async function getBlogRoutes() {
   const languages = await fs.readdir(BLOG_DIR, { withFileTypes: true });
-  const routes = [];
+  const slugs = new Set();
 
   for (const language of languages) {
     if (!language.isDirectory()) continue;
@@ -94,12 +72,11 @@ async function getBlogRoutes() {
     for (const entry of entries) {
       if (!entry.isFile() || path.extname(entry.name) !== ".md") continue;
 
-      const slug = entry.name.replace(/\.md$/i, "");
-      routes.push(`/actualites/${slug}`);
+      slugs.add(entry.name.replace(/\.md$/i, ""));
     }
   }
 
-  return routes.sort();
+  return [...slugs].sort().map((slug) => `/actualites/${slug}`);
 }
 
 async function getPrerenderTargets() {
@@ -134,44 +111,15 @@ function resolvePublicLocale(search) {
 }
 
 function buildPublicUrl(pathname, locale) {
-  if (pathname.startsWith("/actualites/")) {
-    return `${PUBLIC_ORIGIN}${pathname}`;
-  }
-
   const routePath = pathname === "/" ? "/" : pathname;
   return locale === "fr"
     ? `${PUBLIC_ORIGIN}${routePath}`
     : `${PUBLIC_ORIGIN}${routePath}?lang=${locale}`;
 }
 
-function getBlogAlternates(pathname) {
-  const slug = pathname.replace("/actualites/", "");
-  const group = BLOG_TRANSLATION_GROUPS.find((candidate) =>
-    Object.values(candidate).includes(slug)
-  );
-
-  if (!group) {
-    return [
-      { locale: "fr", href: `${PUBLIC_ORIGIN}${pathname}` },
-      { locale: "x-default", href: `${PUBLIC_ORIGIN}${pathname}` },
-    ];
-  }
-
-  return [
-    { locale: "fr", href: `${PUBLIC_ORIGIN}/actualites/${group.fr}` },
-    { locale: "en", href: `${PUBLIC_ORIGIN}/actualites/${group.en}` },
-    { locale: "ar", href: `${PUBLIC_ORIGIN}/actualites/${group.ar}` },
-    { locale: "x-default", href: `${PUBLIC_ORIGIN}/actualites/${group.fr}` },
-  ];
-}
-
 function getAlternateLinksForTarget(visitRoute) {
   const routeUrl = new URL(visitRoute, `${PUBLIC_ORIGIN}/`);
   const locale = resolvePublicLocale(routeUrl.search);
-
-  if (routeUrl.pathname.startsWith("/actualites/")) {
-    return getBlogAlternates(routeUrl.pathname);
-  }
 
   return [
     { locale: "fr", href: buildPublicUrl(routeUrl.pathname, "fr") },

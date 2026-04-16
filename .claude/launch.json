@@ -6,6 +6,12 @@
       "runtimeExecutable": "cmd",
       "runtimeArgs": ["/c", "npx", "vite", "--port", "5173"],
       "port": 5173
+    },
+    {
+      "name": "proto",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8090"],
+      "port": 8090
     }
   ]
 }

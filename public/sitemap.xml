@@ -231,15 +231,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/actualites"/>
   </url>
 
-  <!-- ===== BLOG ARTICLES — FRENCH ===== -->
+  <!-- ===== BLOG ARTICLES ===== -->
   <url>
     <loc>https://maitre-haifaguedhami.me/actualites/reforme-code-du-travail-2025</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/actualites/reforme-code-du-travail-2025"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/labour-code-reform-2025"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/islah-majallat-alshughl-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/reforme-code-du-travail-2025?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/reforme-code-du-travail-2025?lang=ar"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/actualites/reforme-code-du-travail-2025"/>
     <image:image>
       <image:loc>https://maitre-haifaguedhami.me/blog-law.jpg</image:loc>
@@ -253,8 +253,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/actualites/immobilier-etrangers-tunisie-2026"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/property-law-foreigners-tunisia-2026"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/aqaraat-ajanib-tunis-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/immobilier-etrangers-tunisie-2026?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/immobilier-etrangers-tunisie-2026?lang=ar"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/actualites/immobilier-etrangers-tunisie-2026"/>
     <image:image>
       <image:loc>https://maitre-haifaguedhami.me/blog-realestate.jpg</image:loc>
@@ -268,8 +268,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/actualites/reforme-famille-garde-partagee-tunisie"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/shared-custody-reform-tunisia"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/hadhanat-mushtaraka-tunis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/reforme-famille-garde-partagee-tunisie?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/reforme-famille-garde-partagee-tunisie?lang=ar"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/actualites/reforme-famille-garde-partagee-tunisie"/>
     <image:image>
       <image:loc>https://maitre-haifaguedhami.me/blog-family.jpg</image:loc>
@@ -283,103 +283,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/actualites/nouveau-code-des-changes-tunisie-2026"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/new-foreign-exchange-code-tunisia-2026"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/qanoon-alsarf-aljadid-tunis-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/nouveau-code-des-changes-tunisie-2026?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/nouveau-code-des-changes-tunisie-2026?lang=ar"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/actualites/nouveau-code-des-changes-tunisie-2026"/>
     <image:image>
       <image:loc>https://maitre-haifaguedhami.me/blog-business.jpg</image:loc>
       <image:title>Nouveau Code des Changes Tunisie 2026</image:title>
     </image:image>
-  </url>
-
-  <!-- ===== BLOG ARTICLES — ENGLISH ===== -->
-  <url>
-    <loc>https://maitre-haifaguedhami.me/actualites/labour-code-reform-2025</loc>
-    <lastmod>2026-03-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/actualites/reforme-code-du-travail-2025"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/labour-code-reform-2025"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/islah-majallat-alshughl-2025"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/actualites/reforme-code-du-travail-2025"/>
-  </url>
-
-  <url>
-    <loc>https://maitre-haifaguedhami.me/actualites/property-law-foreigners-tunisia-2026</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/actualites/immobilier-etrangers-tunisie-2026"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/property-law-foreigners-tunisia-2026"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/aqaraat-ajanib-tunis-2026"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/actualites/immobilier-etrangers-tunisie-2026"/>
-  </url>
-
-  <url>
-    <loc>https://maitre-haifaguedhami.me/actualites/shared-custody-reform-tunisia</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/actualites/reforme-famille-garde-partagee-tunisie"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/shared-custody-reform-tunisia"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/hadhanat-mushtaraka-tunis"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/actualites/reforme-famille-garde-partagee-tunisie"/>
-  </url>
-
-  <url>
-    <loc>https://maitre-haifaguedhami.me/actualites/new-foreign-exchange-code-tunisia-2026</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/actualites/nouveau-code-des-changes-tunisie-2026"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/new-foreign-exchange-code-tunisia-2026"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/qanoon-alsarf-aljadid-tunis-2026"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/actualites/nouveau-code-des-changes-tunisie-2026"/>
-  </url>
-
-  <!-- ===== BLOG ARTICLES — ARABIC ===== -->
-  <url>
-    <loc>https://maitre-haifaguedhami.me/actualites/islah-majallat-alshughl-2025</loc>
-    <lastmod>2026-03-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/actualites/reforme-code-du-travail-2025"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/labour-code-reform-2025"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/islah-majallat-alshughl-2025"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/actualites/reforme-code-du-travail-2025"/>
-  </url>
-
-  <url>
-    <loc>https://maitre-haifaguedhami.me/actualites/aqaraat-ajanib-tunis-2026</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/actualites/immobilier-etrangers-tunisie-2026"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/property-law-foreigners-tunisia-2026"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/aqaraat-ajanib-tunis-2026"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/actualites/immobilier-etrangers-tunisie-2026"/>
-  </url>
-
-  <url>
-    <loc>https://maitre-haifaguedhami.me/actualites/hadhanat-mushtaraka-tunis</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/actualites/reforme-famille-garde-partagee-tunisie"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/shared-custody-reform-tunisia"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/hadhanat-mushtaraka-tunis"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/actualites/reforme-famille-garde-partagee-tunisie"/>
-  </url>
-
-  <url>
-    <loc>https://maitre-haifaguedhami.me/actualites/qanoon-alsarf-aljadid-tunis-2026</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/actualites/nouveau-code-des-changes-tunisie-2026"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/actualites/new-foreign-exchange-code-tunisia-2026"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/actualites/qanoon-alsarf-aljadid-tunis-2026"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/actualites/nouveau-code-des-changes-tunisie-2026"/>
   </url>
 
 </urlset>
