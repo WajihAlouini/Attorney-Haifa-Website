@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prototypes — Omar Ochoa Inspired</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<style>
+  :root {
+    --navy:   #0a0e1a;
+    --navy2:  #111827;
+    --navy3:  #1a2234;
+    --gold:   #c9a227;
+    --gold2:  #e0b830;
+    --gold-bg: rgba(201,162,39,0.08);
+    --text:   #f0ede8;
+    --text2:  #b0aaa0;
+    --text3:  #6b6560;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(201,162,39,0.25);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3,h4 { font-family: 'Lora', Georgia, serif; font-weight: 500; }
+
+  /* ── Divider labels ── */
+  .sep {
+    text-align: center;
+    padding: 5rem 2rem 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .sep:first-child { border-top: none; padding-top: 2rem; }
+  .sep .badge {
+    display: inline-block;
+    font-size: .6rem; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--gold);
+    background: var(--gold-bg); border: 1px solid rgba(201,162,39,.2);
+    padding: .4rem 1.2rem; border-radius: 2px; margin-bottom: .75rem;
+  }
+  .sep h2 { font-family: 'Lora', serif; font-size: 1.35rem; font-weight: 400; font-style: italic; color: var(--text2); }
+
+  /* ── Section wrapper ── */
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+  /* ── Shared section header ── */
+  .sh { margin-bottom: 3rem; }
+  .sh.center { text-align: center; }
+  .sh .eyebrow {
+    display: block; font-size: .65rem; font-weight: 700;
+    letter-spacing: .3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: .85rem;
+  }
+  .sh h2 { font-size: 2.4rem; line-height: 1.2; }
+  .sh p { color: var(--text2); margin-top: .9rem; font-size: .95rem; line-height: 1.8; max-width: 580px; }
+  .sh.center p { margin-left: auto; margin-right: auto; }
+
+
+  /* ═══════════════════════════════════════════════════════
+     PRACTICE AREAS — Tab reveal (Omar Ochoa main pattern)
+     ═══════════════════════════════════════════════════════ */
+  .pa-tabs {
+    display: flex; gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
+  }
+  .pa-tab {
+    padding: .85rem 2rem;
+    font-size: .8rem; font-weight: 600; letter-spacing: .08em;
+    text-transform: uppercase; cursor: pointer;
+    color: var(--text3); border-bottom: 2px solid transparent;
+    transition: all .25s ease;
+    background: none; border-top: none; border-left: none; border-right: none;
+    font-family: inherit;
+  }
+  .pa-tab:hover { color: var(--text2); }
+  .pa-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  .pa-panel { display: none; }
+  .pa-panel.active { display: grid; grid-template-columns: 1fr 400px; gap: 0; }
+
+  .pa-content {
+    padding: 3rem 3rem 3rem 0;
+    border-right: 1px solid var(--border);
+  }
+  .pa-content h3 {
+    font-size: 2rem; line-height: 1.2; margin-bottom: 1rem;
+    display: flex; align-items: center; gap: .75rem;
+  }
+  .pa-content h3 .ext { font-size: 1.2rem; color: var(--gold); }
+  .pa-content p { color: var(--text2); font-size: .95rem; line-height: 1.85; margin-bottom: 2rem; }
+
+  .pa-sub { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+  .pa-sub li a {
+    display: flex; align-items: center; gap: .6rem;
+    color: var(--text2); font-size: .85rem; text-decoration: none;
+    padding: .4rem 0; transition: color .2s ease;
+  }
+  .pa-sub li a::before {
+    content: '';
+    width: 18px; height: 18px; border-radius: 50%;
+    border: 1px solid var(--gold); flex-shrink: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9a227' stroke-width='2'%3E%3Cpolyline points='9 18 15 12 9 6'/%3E%3C/svg%3E") center/10px no-repeat;
+    transition: background-color .2s ease;
+  }
+  .pa-sub li a:hover { color: var(--gold); }
+  .pa-sub li a:hover::before { background-color: var(--gold-bg); }
+
+  .pa-side {
+    padding: 3rem 0 3rem 3rem;
+    display: flex; flex-direction: column; justify-content: center; gap: 2rem;
+  }
+  .pa-stat { text-align: center; }
+  .pa-stat .num {
+    font-family: 'Lora', serif; font-size: 3.5rem; font-weight: 600;
+    color: var(--gold); line-height: 1; display: block;
+  }
+  .pa-stat .label {
+    font-size: .72rem; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--text3); margin-top: .4rem; display: block;
+  }
+  .pa-divider { width: 1px; background: var(--border); align-self: stretch; margin: 0 auto; }
+
+  .pa-cta {
+    display: inline-flex; align-items: center; gap: .75rem;
+    background: var(--gold); color: var(--navy);
+    font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; text-decoration: none;
+    padding: .9rem 2rem; margin-top: 1rem;
+    transition: background .25s ease;
+  }
+  .pa-cta:hover { background: var(--gold2); }
+  .pa-cta svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+
+  /* ═══════════════════════════════════════════════════════
+     APPROACH — Circular numbered badges (Omar Ochoa style)
+     ═══════════════════════════════════════════════════════ */
+  .ap-split {
+    display: grid; grid-template-columns: 1fr 420px; gap: 4rem; align-items: start;
+  }
+
+  .ap-list { display: flex; flex-direction: column; gap: 0; }
+  .ap-item {
+    display: grid; grid-template-columns: 64px 1fr;
+    gap: 1.5rem; padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: all .3s ease;
+  }
+  .ap-item:first-child { padding-top: 0; }
+  .ap-item:last-child { border-bottom: none; }
+
+  .ap-badge {
+    width: 52px; height: 52px; border-radius: 50%;
+    border: 1.5px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Lora', serif; font-size: 1rem; font-weight: 600;
+    color: var(--gold); background: var(--gold-bg);
+    transition: all .3s ease;
+  }
+  .ap-item:hover .ap-badge {
+    background: var(--gold); color: var(--navy);
+    box-shadow: 0 0 20px rgba(201,162,39,.2);
+  }
+
+  .ap-body h4 {
+    font-size: 1.15rem; font-weight: 500; margin-bottom: .4rem;
+    transition: color .3s ease;
+  }
+  .ap-item:hover .ap-body h4 { color: var(--gold); }
+  .ap-body p { color: var(--text2); font-size: .9rem; line-height: 1.75; }
+
+  .ap-right {
+    background: var(--navy2); border: 1px solid var(--border);
+    padding: 3rem 2.5rem;
+    display: flex; flex-direction: column; gap: 2rem;
+    position: sticky; top: 2rem;
+  }
+  .ap-right .block-label {
+    font-size: .65rem; font-weight: 700; letter-spacing: .25em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .25rem;
+  }
+  .ap-right .block-val {
+    font-family: 'Lora', serif; font-size: 1.35rem; color: var(--text);
+    line-height: 1.5;
+  }
+  .ap-right .block-sub { font-size: .82rem; color: var(--text2); margin-top: .35rem; line-height: 1.7; }
+  .ap-right hr { border: none; border-top: 1px solid var(--border); }
+  .ap-right .cta-block {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .ap-right .cta-block a {
+    display: flex; align-items: center; justify-content: center; gap: .6rem;
+    background: var(--gold); color: var(--navy);
+    font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; text-decoration: none;
+    padding: .9rem 1.5rem; transition: background .25s ease;
+  }
+  .ap-right .cta-block a:hover { background: var(--gold2); }
+  .ap-right .cta-block a svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+
+  /* ═══════════════════════════════════════════════════════
+     VALUES — Icon-badge list + visual panel (Omar Ochoa style)
+     ═══════════════════════════════════════════════════════ */
+  .va-split {
+    display: grid; grid-template-columns: 1fr 400px; gap: 0;
+  }
+
+  .va-left { padding-right: 4rem; border-right: 1px solid var(--border); }
+  .va-list { display: flex; flex-direction: column; gap: 0; }
+
+  .va-item {
+    display: grid; grid-template-columns: 64px 1fr;
+    gap: 1.5rem; padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: background .3s ease;
+  }
+  .va-item:first-child { padding-top: 0; }
+  .va-item:last-child { border-bottom: none; }
+
+  .va-badge {
+    width: 52px; height: 52px; border-radius: 50%;
+    border: 1.5px solid rgba(201,162,39,.35);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; background: var(--gold-bg);
+    transition: all .3s ease;
+  }
+  .va-badge svg {
+    width: 22px; height: 22px;
+    stroke: var(--gold); fill: none; stroke-width: 1.5;
+    transition: stroke .3s ease;
+  }
+  .va-item:hover .va-badge {
+    background: var(--gold); border-color: var(--gold);
+  }
+  .va-item:hover .va-badge svg { stroke: var(--navy); }
+
+  .va-body h4 {
+    font-size: 1.15rem; font-weight: 500; margin-bottom: .4rem;
+    transition: color .3s ease;
+  }
+  .va-item:hover .va-body h4 { color: var(--gold); }
+  .va-body p { color: var(--text2); font-size: .88rem; line-height: 1.75; }
+
+  .va-right {
+    padding-left: 3.5rem;
+    display: flex; flex-direction: column; justify-content: center; gap: 2.5rem;
+  }
+  .va-stat-block { }
+  .va-stat-block .big {
+    font-family: 'Lora', serif; font-size: 4rem; font-weight: 600;
+    color: var(--gold); line-height: 1;
+  }
+  .va-stat-block .label {
+    font-size: .7rem; font-weight: 700; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--text3);
+    margin-top: .35rem; display: block;
+  }
+  .va-stat-block .desc {
+    font-size: .85rem; color: var(--text2); line-height: 1.7;
+    margin-top: .5rem;
+  }
+  .va-stat-sep { width: 40px; height: 1px; background: var(--border2); }
+
+  .va-quote {
+    padding: 1.5rem;
+    background: var(--navy2); border-left: 3px solid var(--gold);
+  }
+  .va-quote p {
+    font-family: 'Lora', serif; font-size: 1rem; font-style: italic;
+    color: var(--text2); line-height: 1.7;
+  }
+  .va-quote cite {
+    display: block; font-size: .72rem; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--text3); margin-top: .6rem; font-style: normal;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PRACTICE AREAS
+     ══════════════════════════════════════════ -->
+<div class="sep sep-first">
+  <div class="badge">Practice Areas</div>
+  <h2>Tab reveal — Omar Ochoa style</h2>
+</div>
+<div class="wrap">
+  <div class="sh">
+    <span class="eyebrow">Domaines d'Expertise</span>
+    <h2>Solutions Juridiques Adaptées.</h2>
+    <p>Une approche ciblée pour chaque branche du droit, fondée sur l'écoute et la rigueur.</p>
+  </div>
+
+  <!-- Tabs -->
+  <div class="pa-tabs">
+    <button class="pa-tab active" onclick="showTab('famille')">Droit de la Famille</button>
+    <button class="pa-tab" onclick="showTab('affaires')">Droit des Affaires</button>
+    <button class="pa-tab" onclick="showTab('immobilier')">Droit Immobilier</button>
+  </div>
+
+  <!-- Panel: Famille -->
+  <div class="pa-panel active" id="tab-famille">
+    <div class="pa-content">
+      <h3>Droit de la Famille <span class="ext">↗</span></h3>
+      <p>Chaque dossier familial est unique. Nous vous accompagnons à travers les procédures de divorce, les questions de garde d'enfants, la pension alimentaire et la liquidation de successions avec rigueur et bienveillance.</p>
+      <ul class="pa-sub">
+        <li><a href="#">Divorce & Séparation</a></li>
+        <li><a href="#">Garde d'Enfants</a></li>
+        <li><a href="#">Pension Alimentaire</a></li>
+        <li><a href="#">Droit International</a></li>
+        <li><a href="#">Liquidation Successorale</a></li>
+        <li><a href="#">Adoption</a></li>
+      </ul>
+      <a href="#" class="pa-cta">Consultation Gratuite <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="pa-side">
+      <div class="pa-stat"><span class="num">15+</span><span class="label">Années d'expérience</span></div>
+      <div class="pa-divider"></div>
+      <div class="pa-stat"><span class="num">500+</span><span class="label">Dossiers traités</span></div>
+      <div class="pa-divider"></div>
+      <div class="pa-stat"><span class="num">98%</span><span class="label">Clients satisfaits</span></div>
+    </div>
+  </div>
+
+  <!-- Panel: Affaires -->
+  <div class="pa-panel" id="tab-affaires">
+    <div class="pa-content">
+      <h3>Droit des Affaires <span class="ext">↗</span></h3>
+      <p>Nous accompagnons les entreprises et les entrepreneurs à chaque étape de leur développement : création de sociétés, rédaction de contrats, conformité réglementaire et résolution de litiges commerciaux.</p>
+      <ul class="pa-sub">
+        <li><a href="#">Création de Sociétés</a></li>
+        <li><a href="#">Contrats Commerciaux</a></li>
+        <li><a href="#">Conformité Réglementaire</a></li>
+        <li><a href="#">Litiges Commerciaux</a></li>
+        <li><a href="#">Fusions & Acquisitions</a></li>
+        <li><a href="#">Recouvrement de Créances</a></li>
+      </ul>
+      <a href="#" class="pa-cta">Consultation Gratuite <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="pa-side">
+      <div class="pa-stat"><span class="num">200+</span><span class="label">Entreprises accompagnées</span></div>
+      <div class="pa-divider"></div>
+      <div class="pa-stat"><span class="num">15+</span><span class="label">Années d'expérience</span></div>
+      <div class="pa-divider"></div>
+      <div class="pa-stat"><span class="num">100%</span><span class="label">Transparence tarifaire</span></div>
+    </div>
+  </div>
+
+  <!-- Panel: Immobilier -->
+  <div class="pa-panel" id="tab-immobilier">
+    <div class="pa-content">
+      <h3>Droit Immobilier <span class="ext">↗</span></h3>
+      <p>De l'audit foncier à la résolution des litiges, nous sécurisons chaque étape de vos transactions immobilières. Notre expertise couvre les baux, les contrats de vente, la construction et la gestion des contentieux fonciers.</p>
+      <ul class="pa-sub">
+        <li><a href="#">Vérification des Titres</a></li>
+        <li><a href="#">Contrats de Vente</a></li>
+        <li><a href="#">Baux Commerciaux</a></li>
+        <li><a href="#">Droit de la Construction</a></li>
+        <li><a href="#">Litiges Fonciers</a></li>
+        <li><a href="#">Gestion Immobilière</a></li>
+      </ul>
+      <a href="#" class="pa-cta">Consultation Gratuite <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="pa-side">
+      <div class="pa-stat"><span class="num">300+</span><span class="label">Transactions sécurisées</span></div>
+      <div class="pa-divider"></div>
+      <div class="pa-stat"><span class="num">15+</span><span class="label">Années d'expérience</span></div>
+      <div class="pa-divider"></div>
+      <div class="pa-stat"><span class="num">0</span><span class="label">Frais cachés</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     APPROACH
+     ══════════════════════════════════════════ -->
+<div class="sep">
+  <div class="badge">Approach</div>
+  <h2>Circular badge list + sticky info panel</h2>
+</div>
+<div class="wrap">
+  <div class="sh">
+    <span class="eyebrow">Notre Méthode</span>
+    <h2>Un Accompagnement Pas à Pas.</h2>
+  </div>
+  <div class="ap-split">
+    <div class="ap-list">
+      <div class="ap-item">
+        <div class="ap-badge">01</div>
+        <div class="ap-body">
+          <h4>Première Rencontre</h4>
+          <p>Vous partagez votre histoire dans un espace confidentiel et bienveillant, sans jugement. Nous prenons le temps de comprendre votre situation dans son intégralité.</p>
+        </div>
+      </div>
+      <div class="ap-item">
+        <div class="ap-badge">02</div>
+        <div class="ap-body">
+          <h4>Explications Claires</h4>
+          <p>Je vous explique vos options en langage humain, sans jargon juridique. Vous comprendrez exactement où vous en êtes et quelles sont vos possibilités.</p>
+        </div>
+      </div>
+      <div class="ap-item">
+        <div class="ap-badge">03</div>
+        <div class="ap-body">
+          <h4>Plan Transparent</h4>
+          <p>Nous définissons ensemble une stratégie avec des délais réalistes et des coûts clairs. Pas de surprises, pas de frais cachés.</p>
+        </div>
+      </div>
+      <div class="ap-item">
+        <div class="ap-badge">04</div>
+        <div class="ap-body">
+          <h4>Accompagnement Continu</h4>
+          <p>Je suis disponible pour répondre à vos questions tout au long du processus. Vous ne serez jamais laissé sans réponse.</p>
+        </div>
+      </div>
+      <div class="ap-item">
+        <div class="ap-badge">05</div>
+        <div class="ap-body">
+          <h4>Protection &amp; Représentation</h4>
+          <p>Représentation déterminée mais toujours respectueuse devant les tribunaux. Votre intérêt est notre seule priorité.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ap-right">
+      <div>
+        <div class="block-label">Disponibilité</div>
+        <div class="block-val">Consultation disponible 6j/7</div>
+        <div class="block-sub">Nous répondons dans les 24h à toute demande de consultation.</div>
+      </div>
+      <hr>
+      <div>
+        <div class="block-label">Engagement</div>
+        <div class="block-val">Transparence totale des honoraires</div>
+        <div class="block-sub">Devis détaillé avant tout engagement. Aucun frais caché.</div>
+      </div>
+      <hr>
+      <div>
+        <div class="block-label">Expérience</div>
+        <div class="block-val">15+ années de pratique</div>
+        <div class="block-sub">Un parcours solide au service des familles et des entreprises tunisiennes.</div>
+      </div>
+      <hr>
+      <div class="cta-block">
+        <a href="#">Prendre Rendez-vous <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     VALUES
+     ══════════════════════════════════════════ -->
+<div class="sep">
+  <div class="badge">Values</div>
+  <h2>Icon-badge list + stats panel</h2>
+</div>
+<div class="wrap">
+  <div class="sh">
+    <span class="eyebrow">Nos Valeurs</span>
+    <h2>Engagement envers l'Intégrité.</h2>
+  </div>
+  <div class="va-split">
+    <div class="va-left">
+      <div class="va-list">
+        <div class="va-item">
+          <div class="va-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="va-body">
+            <h4>Intégrité</h4>
+            <p>Respect strict des normes éthiques et de la confidentialité professionnelle dans chaque dossier que nous traitons.</p>
+          </div>
+        </div>
+        <div class="va-item">
+          <div class="va-badge">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <div class="va-body">
+            <h4>Excellence</h4>
+            <p>Poursuite de la plus haute qualité dans l'analyse juridique et la représentation de nos clients devant toutes les juridictions.</p>
+          </div>
+        </div>
+        <div class="va-item">
+          <div class="va-badge">
+            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="va-body">
+            <h4>Transparence</h4>
+            <p>Communication claire concernant les perspectives juridiques, les risques et les honoraires dès le premier entretien.</p>
+          </div>
+        </div>
+        <div class="va-item">
+          <div class="va-badge">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="va-body">
+            <h4>Dévouement</h4>
+            <p>Plaidoyer acharné pour obtenir le meilleur résultat possible pour chaque client, quelles que soient les difficultés.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="va-right">
+      <div class="va-stat-block">
+        <span class="big">15+</span>
+        <span class="label">Années d'expérience</span>
+        <p class="desc">Un parcours solide au service des familles et des entreprises en Tunisie.</p>
+      </div>
+      <div class="va-stat-sep"></div>
+      <div class="va-stat-block">
+        <span class="big">500+</span>
+        <span class="label">Dossiers traités</span>
+        <p class="desc">En droit de la famille, des affaires et immobilier, avec des résultats concrets.</p>
+      </div>
+      <div class="va-stat-sep"></div>
+      <div class="va-quote">
+        <p>"Je ne suis pas seulement votre avocate — je suis votre partenaire dans la défense de vos droits."</p>
+        <cite>— Maître Haifa Guedhami Alouini</cite>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height: 4rem;"></div>
+
+<script>
+  function showTab(name) {
+    document.querySelectorAll('.pa-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.pa-panel').forEach(p => p.classList.remove('active'));
+    document.querySelector('[onclick="showTab(\'' + name + '\')"]').classList.add('active');
+    document.getElementById('tab-' + name).classList.add('active');
+  }
+</script>
+</body>
+</html>

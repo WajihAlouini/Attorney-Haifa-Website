@@ -19,8 +19,7 @@ export interface LocalizedSEOData {
 export const seoData: Record<string, LocalizedSEOData> = {
   "/": {
     fr: {
-      title:
-        "Avocat Kairouan & Tunis | Me Haifa Guedhami Alouini",
+      title: "Avocat Kairouan & Tunis | Maître Haifa Guedhami Alouini",
       description:
         "Besoin d'un avocat en Tunisie ? Cabinet à Kairouan et Tunis : divorce, immobilier, affaires et contentieux. Consultation rapide, suivi personnalisé.",
       keywords:
@@ -28,8 +27,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
       image: "https://maitre-haifaguedhami.me/office/entry.webp",
     },
     en: {
-      title:
-        "Lawyer Kairouan & Tunis | Haifa Guedhami Alouini",
+      title: "Lawyer Kairouan & Tunis | Haifa Guedhami Alouini",
       description:
         "Need a lawyer in Tunisia? Law firm in Kairouan and Tunis: divorce, real estate, business and litigation. Fast consultation, personalized follow-up.",
       keywords:
@@ -48,7 +46,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
 
   "/about": {
     fr: {
-      title: "À Propos | Me Haifa Guedhami Alouini - Avocat",
+      title: "À Propos | Maître Haifa Guedhami Alouini",
       description:
         "Parcours, expérience et approche de Maître Haifa Guedhami Alouini, avocate à Kairouan et Tunis. Plus de 25 ans au service du droit en Tunisie.",
       keywords:
@@ -446,7 +444,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
 
   "/values": {
     fr: {
-      title: "Nos Valeurs | Cabinet Me Haifa Guedhami Alouini",
+      title: "Nos Valeurs | Cabinet Maître Haifa Guedhami Alouini",
       description:
         "Intégrité, transparence et excellence dans l'accompagnement juridique à Kairouan et Tunis. Des valeurs au service de chaque client et chaque dossier.",
       keywords:
@@ -521,7 +519,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
 
   "/actualites": {
     fr: {
-      title: "Actualités Juridiques | Me Haifa Guedhami Alouini",
+      title: "Actualités Juridiques | Maître Haifa Guedhami Alouini",
       description:
         "Analyses et actualités juridiques en Tunisie par Maître Haifa Guedhami Alouini. Restez informé des dernières évolutions du droit tunisien.",
       keywords: "actualites juridiques tunisie, blog avocat tunisie",
