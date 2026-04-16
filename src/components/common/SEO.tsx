@@ -42,6 +42,11 @@ function toLocaleUrl(path: string, locale: SiteLocale) {
 }
 
 function toCanonicalUrl(path: string, locale: SiteLocale) {
+  // Blog posts are served at a single URL regardless of language
+  if (path.startsWith("/actualites/")) {
+    return `${SITE_URL}${path}`;
+  }
+
   return toLocaleUrl(path, locale);
 }
 
@@ -144,9 +149,11 @@ export function SEO({
       <meta property="og:url" content={url} />
       <meta property="og:type" content={type} />
       <meta property="og:locale" content={ogLocale(normalizedLocale)} />
-      <meta property="og:locale:alternate" content="fr_TN" />
-      <meta property="og:locale:alternate" content="en_US" />
-      <meta property="og:locale:alternate" content="ar_TN" />
+      {(["fr_TN", "en_US", "ar_TN"] as const)
+        .filter((l) => l !== ogLocale(normalizedLocale))
+        .map((l) => (
+          <meta key={l} property="og:locale:alternate" content={l} />
+        ))}
       <meta
         property="og:site_name"
         content="Cabinet Maitre Haifa Guedhami Alouini"

@@ -1,1 +1,11 @@
+# 301 redirects for old per-language blog slugs (unified to French slug + ?lang=)
+/actualites/labour-code-reform-2025                   /actualites/reforme-code-du-travail-2025?lang=en           301
+/actualites/property-law-foreigners-tunisia-2026      /actualites/immobilier-etrangers-tunisie-2026?lang=en      301
+/actualites/shared-custody-reform-tunisia             /actualites/reforme-famille-garde-partagee-tunisie?lang=en  301
+/actualites/new-foreign-exchange-code-tunisia-2026    /actualites/nouveau-code-des-changes-tunisie-2026?lang=en  301
+/actualites/islah-majallat-alshughl-2025              /actualites/reforme-code-du-travail-2025?lang=ar           301
+/actualites/aqaraat-ajanib-tunis-2026                 /actualites/immobilier-etrangers-tunisie-2026?lang=ar      301
+/actualites/hadhanat-mushtaraka-tunis                 /actualites/reforme-famille-garde-partagee-tunisie?lang=ar  301
+/actualites/qanoon-alsarf-aljadid-tunis-2026          /actualites/nouveau-code-des-changes-tunisie-2026?lang=ar  301
+
 /*    /index.html   200
