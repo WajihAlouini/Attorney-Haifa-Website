@@ -1,4 +1,105 @@
-# 301 redirects for old per-language blog slugs (unified to French slug + ?lang=)
+# ============================================================
+# LOCALE ROUTING — serve prerendered snapshots for ?lang=en/ar
+# Browser URL stays the same (200 rewrite, not a redirect)
+# ============================================================
+
+# Homepage
+/?lang=en                                  /__locale/en/                                         200
+/?lang=ar                                  /__locale/ar/                                         200
+
+# Core pages
+/about?lang=en                             /__locale/en/about/                                   200
+/about?lang=ar                             /__locale/ar/about/                                   200
+
+/services?lang=en                          /__locale/en/services/                                200
+/services?lang=ar                          /__locale/ar/services/                                200
+
+/services/droit-de-la-famille?lang=en      /__locale/en/services/droit-de-la-famille/            200
+/services/droit-de-la-famille?lang=ar      /__locale/ar/services/droit-de-la-famille/            200
+
+/services/droit-des-affaires?lang=en       /__locale/en/services/droit-des-affaires/             200
+/services/droit-des-affaires?lang=ar       /__locale/ar/services/droit-des-affaires/             200
+
+/services/droit-immobilier?lang=en         /__locale/en/services/droit-immobilier/               200
+/services/droit-immobilier?lang=ar         /__locale/ar/services/droit-immobilier/               200
+
+/values?lang=en                            /__locale/en/values/                                  200
+/values?lang=ar                            /__locale/ar/values/                                  200
+
+/contact?lang=en                           /__locale/en/contact/                                 200
+/contact?lang=ar                           /__locale/ar/contact/                                 200
+
+/faq?lang=en                               /__locale/en/faq/                                     200
+/faq?lang=ar                               /__locale/ar/faq/                                     200
+
+/actualites?lang=en                        /__locale/en/actualites/                              200
+/actualites?lang=ar                        /__locale/ar/actualites/                              200
+
+# SEO cluster pages
+/avocat-divorce-tunisie?lang=en            /__locale/en/avocat-divorce-tunisie/                  200
+/avocat-divorce-tunisie?lang=ar            /__locale/ar/avocat-divorce-tunisie/                  200
+
+/avocat-immobilier-tunisie?lang=en         /__locale/en/avocat-immobilier-tunisie/               200
+/avocat-immobilier-tunisie?lang=ar         /__locale/ar/avocat-immobilier-tunisie/               200
+
+/avocat-affaires-tunisie?lang=en           /__locale/en/avocat-affaires-tunisie/                 200
+/avocat-affaires-tunisie?lang=ar           /__locale/ar/avocat-affaires-tunisie/                 200
+
+/consultation-juridique-tunisie?lang=en    /__locale/en/consultation-juridique-tunisie/          200
+/consultation-juridique-tunisie?lang=ar    /__locale/ar/consultation-juridique-tunisie/          200
+
+/code-du-travail-tunisie?lang=en           /__locale/en/code-du-travail-tunisie/                 200
+/code-du-travail-tunisie?lang=ar           /__locale/ar/code-du-travail-tunisie/                 200
+
+/avocat-kairouan?lang=en                   /__locale/en/avocat-kairouan/                         200
+/avocat-kairouan?lang=ar                   /__locale/ar/avocat-kairouan/                         200
+
+/avocat-divorce-kairouan?lang=en           /__locale/en/avocat-divorce-kairouan/                 200
+/avocat-divorce-kairouan?lang=ar           /__locale/ar/avocat-divorce-kairouan/                 200
+
+/avocat-immobilier-kairouan?lang=en        /__locale/en/avocat-immobilier-kairouan/              200
+/avocat-immobilier-kairouan?lang=ar        /__locale/ar/avocat-immobilier-kairouan/              200
+
+/avocat-affaires-kairouan?lang=en          /__locale/en/avocat-affaires-kairouan/                200
+/avocat-affaires-kairouan?lang=ar          /__locale/ar/avocat-affaires-kairouan/                200
+
+/consultation-juridique-kairouan?lang=en   /__locale/en/consultation-juridique-kairouan/         200
+/consultation-juridique-kairouan?lang=ar   /__locale/ar/consultation-juridique-kairouan/         200
+
+# ============================================================
+# STRIP ?lang=fr — French is the default, no lang param needed
+# Server-side 301 stops Google seeing a JS soft-redirect
+# ============================================================
+/?lang=fr                                  /                                                     301
+/about?lang=fr                             /about                                                301
+/services?lang=fr                          /services                                             301
+/services/droit-de-la-famille?lang=fr      /services/droit-de-la-famille                        301
+/services/droit-des-affaires?lang=fr       /services/droit-des-affaires                         301
+/services/droit-immobilier?lang=fr         /services/droit-immobilier                           301
+/values?lang=fr                            /values                                               301
+/contact?lang=fr                           /contact                                              301
+/faq?lang=fr                               /faq                                                  301
+/actualites?lang=fr                        /actualites                                           301
+/avocat-divorce-tunisie?lang=fr            /avocat-divorce-tunisie                              301
+/avocat-immobilier-tunisie?lang=fr         /avocat-immobilier-tunisie                           301
+/avocat-affaires-tunisie?lang=fr           /avocat-affaires-tunisie                             301
+/consultation-juridique-tunisie?lang=fr    /consultation-juridique-tunisie                      301
+/code-du-travail-tunisie?lang=fr           /code-du-travail-tunisie                             301
+/avocat-kairouan?lang=fr                   /avocat-kairouan                                     301
+/avocat-divorce-kairouan?lang=fr           /avocat-divorce-kairouan                             301
+/avocat-immobilier-kairouan?lang=fr        /avocat-immobilier-kairouan                          301
+/avocat-affaires-kairouan?lang=fr          /avocat-affaires-kairouan                            301
+/consultation-juridique-kairouan?lang=fr   /consultation-juridique-kairouan                     301
+
+# Blog posts with ?lang=fr
+/actualites/reforme-code-du-travail-2025?lang=fr        /actualites/reforme-code-du-travail-2025         301
+/actualites/immobilier-etrangers-tunisie-2026?lang=fr   /actualites/immobilier-etrangers-tunisie-2026    301
+/actualites/reforme-famille-garde-partagee-tunisie?lang=fr /actualites/reforme-famille-garde-partagee-tunisie 301
+/actualites/nouveau-code-des-changes-tunisie-2026?lang=fr  /actualites/nouveau-code-des-changes-tunisie-2026  301
+
+# ============================================================
+# 301 redirects for old per-language blog slugs (removed in URL unification)
+# ============================================================
 /actualites/labour-code-reform-2025                   /actualites/reforme-code-du-travail-2025?lang=en           301
 /actualites/property-law-foreigners-tunisia-2026      /actualites/immobilier-etrangers-tunisie-2026?lang=en      301
 /actualites/shared-custody-reform-tunisia             /actualites/reforme-famille-garde-partagee-tunisie?lang=en  301
@@ -8,4 +109,7 @@
 /actualites/hadhanat-mushtaraka-tunis                 /actualites/reforme-famille-garde-partagee-tunisie?lang=ar  301
 /actualites/qanoon-alsarf-aljadid-tunis-2026          /actualites/nouveau-code-des-changes-tunisie-2026?lang=ar  301
 
+# ============================================================
+# SPA FALLBACK — must be last
+# ============================================================
 /*    /index.html   200
