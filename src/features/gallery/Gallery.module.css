@@ -75,6 +75,25 @@
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* On mobile the -3rem offset can clip above the overlay padding;
+     move the button inside the image frame instead */
+  .close {
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 4px;
+    font-size: 1.6rem;
+    padding: 0.4rem 0.7rem;
+    opacity: 1;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

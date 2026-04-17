@@ -248,10 +248,10 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 2.5rem;
+    gap: 1.5rem;
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 7rem 2rem 5rem;
+    padding: 5rem 2rem 2rem;
     overflow-y: auto;
     z-index: 100;
   }
@@ -260,27 +260,32 @@
     transform: translateX(0);
   }
 
+  /* Language + theme controls float to the top of the drawer */
+  .navMeta {
+    order: -1;
+  }
+
   .navLinks {
     flex-direction: column;
-    gap: 2rem;
+    gap: 0.75rem;
     text-align: center;
   }
 
   .navLinks a {
-    font-size: 1.5rem;
-    font-weight: 300;
+    font-size: 1.1rem;
+    font-weight: 400;
   }
 
   .langToggle {
-    flex-direction: column;
-    width: 100%;
-    max-width: 200px;
+    flex-direction: row;
+    width: auto;
+    max-width: none;
   }
 
   .langBtn {
     justify-content: center;
-    padding: 0.8rem;
-    font-size: 1rem;
+    padding: 0.45rem 0.6rem;
+    font-size: 0.8rem;
   }
 
   .brandMark {
@@ -290,5 +295,30 @@
 
   .brandCopy {
     font-size: 0.75rem;
+  }
+}
+
+/* Extra-small phones (≤ 480 px) — tighten up further */
+@media (max-width: 480px) {
+  .navContent {
+    padding: 4.5rem 1rem 1.5rem;
+  }
+
+  .navLinks a {
+    font-size: 1rem;
+  }
+
+  .langBtn {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .brandMark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brandCopy {
+    font-size: 0.7rem;
   }
 }

@@ -223,6 +223,8 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    /* Respect iPhone home indicator / notch safe area */
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
   .sticky-btn {
@@ -232,16 +234,25 @@
     justify-content: center;
     gap: 8px;
     padding: 1rem;
+    min-height: 52px;
     font-weight: 600;
     font-size: 1rem;
     color: #fff;
     text-decoration: none;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, opacity 0.15s ease, transform 0.1s ease;
+    white-space: nowrap;
+  }
+
+  /* Tap feedback */
+  .sticky-btn:active {
+    opacity: 0.75;
+    transform: scale(0.97);
   }
 
   .sticky-btn svg {
     width: 24px;
     height: 24px;
+    flex-shrink: 0;
   }
 
   .sticky-call {
@@ -261,6 +272,13 @@
 
   .sticky-whatsapp:hover {
     background: var(--whatsapp-hover);
+  }
+
+  /* Very small phones — icon-only buttons */
+  @media (max-width: 360px) {
+    .sticky-btn span {
+      display: none;
+    }
   }
 
   /* Main content — generous spacing + room for sticky bar */
