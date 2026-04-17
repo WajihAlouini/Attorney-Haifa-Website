@@ -37,7 +37,7 @@ export const MobileStickyBar: FC<Props> = ({
       <a
         href={whatsappLink}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         onClick={trackWhatsAppClick}
         className="sticky-btn sticky-whatsapp"
         aria-label={t.ctas.whatsapp}

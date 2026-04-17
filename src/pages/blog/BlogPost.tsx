@@ -126,7 +126,7 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <img src={meta.image} alt={meta.title} width="800" height="400" loading="lazy" />
+              <img src={meta.image} alt={meta.title} width="800" height="400" loading="eager" fetchPriority="high" />
             </motion.div>
           )}
         </header>

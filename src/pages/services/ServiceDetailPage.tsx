@@ -114,7 +114,7 @@ export function ServiceDetailPage({
               href={whatsappLink}
               className={`btn whatsapp btn-magnetic btn-glow ${styles.heroButton}`}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <span>{uiCopy.whatsappLabel}:</span>
               <PhoneNumber number={whatsappNumber} />

@@ -92,7 +92,7 @@ export function MainLayout({
         href={whatsappLink}
         className="floating-whatsapp"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         onClick={trackWhatsAppClick}
         aria-label={t.ctas.whatsapp}
       >

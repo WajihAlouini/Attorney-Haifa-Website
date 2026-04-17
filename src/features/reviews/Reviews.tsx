@@ -216,7 +216,7 @@ export const Reviews: FC<ReviewsProps> = ({
 
           {mapShareUrl && (
             <p className={styles.cta}>
-              <a href={mapShareUrl} target="_blank" rel="noreferrer">
+              <a href={mapShareUrl} target="_blank" rel="noopener noreferrer">
                 {t.seeMoreReviews}
               </a>
             </p>

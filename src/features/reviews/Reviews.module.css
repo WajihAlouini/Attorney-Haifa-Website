@@ -256,8 +256,11 @@
     line-height: 1.6;
   }
 
+  /* Keep nav buttons visible on mobile but compact */
   .navButton {
-    display: none;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
   }
 
   .pagination {

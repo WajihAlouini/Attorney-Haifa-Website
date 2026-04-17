@@ -139,7 +139,7 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
                 href={whatsappLink}
                 className={`btn btn-magnetic ${styles.whatsappButton}`}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {t.ctas.whatsapp || "WhatsApp"}
               </a>

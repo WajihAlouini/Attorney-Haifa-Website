@@ -79,7 +79,7 @@ export const SeoClusterPage: FC<SeoClusterPageProps> = ({
               href={whatsappLink}
               className={`btn whatsapp btn-magnetic btn-glow ${styles.ctaButton}`}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <span>{uiCopy.whatsappPrefix}:</span>
               <PhoneNumber number={whatsappNumber} />

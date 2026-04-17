@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Check, Copy } from "lucide-react";
 import toast from "react-hot-toast";
@@ -56,6 +56,8 @@ const ContactComponent: FC<ContactProps> = ({
   hideHeader,
 }) => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [submittedRecently, setSubmittedRecently] = useState(false);
+  const cooldownRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const {
     register,
@@ -73,7 +75,7 @@ const ContactComponent: FC<ContactProps> = ({
     formData.append("name", data.name);
     formData.append("email", data.email);
     formData.append("message", data.message);
-    formData.append("to_email", "wajih.alouini@esprit.tn");
+    formData.append("to_email", "maitrealouiniguedhami@gmail.com");
     formData.append("subject", "Nouvelle demande de consultation - Site Web");
     formData.append("from_name", "Site Web - Haifa Guedhami Alouini");
 
@@ -91,6 +93,9 @@ const ContactComponent: FC<ContactProps> = ({
       if (result.success) {
         reset();
         toast.success(t.successMessage, { id: toastId });
+        // 30-second cooldown to prevent repeated submissions
+        setSubmittedRecently(true);
+        cooldownRef.current = setTimeout(() => setSubmittedRecently(false), 30_000);
       } else {
         throw new Error(result.message || "Form submission failed");
       }
@@ -100,10 +105,14 @@ const ContactComponent: FC<ContactProps> = ({
     }
   };
 
-  const copyToClipboard = (text: string, field: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedField(field);
-    setTimeout(() => setCopiedField(null), 2000);
+  const copyToClipboard = async (text: string, field: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedField(field);
+      setTimeout(() => setCopiedField(null), 2000);
+    } catch {
+      // Clipboard API unavailable (non-HTTPS or permission denied) — fail silently
+    }
   };
 
   return (
@@ -135,7 +144,7 @@ const ContactComponent: FC<ContactProps> = ({
                 <a
                   href={whatsappLink}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   style={{ display: "inline-block" }}
                 >
                   <PhoneNumber number={whatsappNumber} />
@@ -245,7 +254,7 @@ const ContactComponent: FC<ContactProps> = ({
             ></textarea>
           </label>
 
-          <button type="submit" className="btn primary" disabled={isSubmitting}>
+          <button type="submit" className="btn primary" disabled={isSubmitting || submittedRecently}>
             {isSubmitting ? t.submitting : t.form.submit}
           </button>
         </form>
@@ -266,7 +275,7 @@ const ContactComponent: FC<ContactProps> = ({
           className={styles.mapLink}
           href={mapShareUrl}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           {t.mapLinkLabel}
         </a>
