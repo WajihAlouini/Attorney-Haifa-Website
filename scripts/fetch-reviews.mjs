@@ -15,6 +15,7 @@ try {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUTPUT_FILE = path.resolve(__dirname, "../src/data/google-reviews.json");
+const RATING_FILE = path.resolve(__dirname, "../src/data/google-rating.json");
 const DEBUG_FILE = path.resolve(__dirname, "debug_response.json");
 
 // User provided: "Maître Haifa Guedhami Alouini"
@@ -68,9 +69,14 @@ fetchJson(searchUrl)
 
     console.log(`✅ Found place: "${result.title}" (${result.address})`);
 
+    // Persist the aggregate rating + review count (separate from the
+    // reviews array so existing consumers of google-reviews.json keep
+    // their current shape).
+    saveRating(result);
+
     // Check if we need to fetch reviews via data_id
     // If place_results has reviews populated, use them.
-    if (result.reviews && result.reviews.length > 0) {
+    if (result.reviews && Array.isArray(result.reviews) && result.reviews.length > 0) {
       console.log(
         `Found ${result.reviews.length} reviews directly in search result.`
       );
@@ -100,6 +106,38 @@ fetchJson(searchUrl)
     console.error("❌ Error:", err.message);
     if (!fs.existsSync(OUTPUT_FILE)) fs.writeFileSync(OUTPUT_FILE, "[]");
   });
+
+function saveRating(result) {
+  // SerpAPI's google_maps engine returns the aggregate rating on
+  // place_results.rating and the review count on place_results.reviews.
+  // We persist a small {rating, reviewCount, updatedAt} record so the
+  // site badge + AggregateRating schema always reflect the live GBP.
+  const rating = typeof result.rating === "number" ? result.rating : null;
+  const reviewCount =
+    typeof result.reviews === "number"
+      ? result.reviews
+      : Array.isArray(result.reviews)
+        ? result.reviews.length
+        : null;
+
+  if (rating == null || reviewCount == null) {
+    console.warn(
+      "⚠️  Missing rating/reviewCount in SerpAPI response; skipping google-rating.json update."
+    );
+    return;
+  }
+
+  const payload = {
+    rating,
+    reviewCount,
+    updatedAt: new Date().toISOString(),
+  };
+
+  fs.writeFileSync(RATING_FILE, JSON.stringify(payload, null, 2) + "\n");
+  console.log(
+    `✅ Saved aggregate rating: ${rating} (${reviewCount} reviews) → src/data/google-rating.json`
+  );
+}
 
 function saveReviews(reviews) {
   const cleaned = reviews.map((r) => {

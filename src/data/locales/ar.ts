@@ -237,7 +237,8 @@ export const ar: Translation = {
   scrollToTop: "العودة إلى الأعلى",
   copy: "نسخ إلى الحافظة",
   trustBadgeMember: "عضو في هيئة المحامين الوطنية التونسية",
-  trustBadgeRating: "تقييمات موثقة من العملاء · 4.9/5 ممتاز",
+  trustBadgeRatingLabel: "تقييم Google",
+  trustBadgeRatingAria: "تقييم Google 5 من 5 نجوم، اقرأ المراجعات على خرائط Google",
   trustBadgeCourt: "مكتب محامٍ معتمد لدى محكمة التعقيب",
   blog: {
     eyebrow: "منشورات ومستجدات",

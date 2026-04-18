@@ -258,7 +258,9 @@ export const fr: Translation = {
   scrollToTop: "Retour en haut",
   copy: "Copier dans le presse-papier",
   trustBadgeMember: "Membre de l'Ordre National des Avocats de Tunisie",
-  trustBadgeRating: "Avis Clients Vérifiés · 4.9/5 Excellent",
+  trustBadgeRatingLabel: "Note Google",
+  trustBadgeRatingAria:
+    "Note Google 5 sur 5 étoiles, voir les avis sur Google Maps",
   trustBadgeCourt: "Cabinet habilité près la Cour de Cassation",
   blog: {
     eyebrow: "Publications & Actualités",

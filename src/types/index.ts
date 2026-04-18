@@ -184,6 +184,8 @@ export interface Translation {
   // Trust badges
   trustBadgeMember?: string;
   trustBadgeRating?: string;
+  trustBadgeRatingLabel?: string;
+  trustBadgeRatingAria?: string;
   trustBadgeCourt?: string;
 
   // Blog

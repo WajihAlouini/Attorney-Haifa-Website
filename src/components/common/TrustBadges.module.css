@@ -35,10 +35,89 @@
   height: 24px;
 }
 
+.googleBadge {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.googleBadge:hover,
+.googleBadge:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+.googleIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.googleIconWrapper svg {
+  width: 22px;
+  height: 22px;
+}
+
+.googleContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  line-height: 1.1;
+}
+
+.googleLabel {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.googleRatingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.googleRatingValue {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.googleStars {
+  display: inline-flex;
+  gap: 1px;
+  color: var(--accent);
+}
+
+.googleStars svg {
+  width: 12px;
+  height: 12px;
+}
+
 @media (max-width: 768px) {
   .trustBadges {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
   }
+}
+
+[dir="rtl"] .googleBadge {
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
 }

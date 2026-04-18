@@ -254,7 +254,9 @@ export const en: Translation = {
   scrollToTop: "Back to top",
   copy: "Copy to clipboard",
   trustBadgeMember: "Member of the Tunisian National Bar Association",
-  trustBadgeRating: "Verified Client Reviews · 4.9/5 Excellent",
+  trustBadgeRatingLabel: "Google rating",
+  trustBadgeRatingAria:
+    "Google rating 5 out of 5 stars, read reviews on Google Maps",
   trustBadgeCourt: "Firm Registered with the Court of Cassation",
   blog: {
     eyebrow: "Publications & Insights",
