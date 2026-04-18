@@ -236,6 +236,230 @@ const blogGroups: BlogGroup[] = [
       ],
     },
   },
+  {
+    slug: "egalite-succession-tunisie-debat-2026",
+    resources: {
+      fr: [
+        {
+          path: "/services/droit-de-la-famille",
+          label: "Service droit de la famille",
+          description: "Succession, testament, partage et planification patrimoniale.",
+        },
+        {
+          path: "/avocat-divorce-tunisie",
+          label: "Guide droit de la famille Tunisie",
+          description: "Stratégies familiales : divorce, garde, succession.",
+        },
+        {
+          path: "/consultation-juridique-kairouan",
+          label: "Consultation juridique à Kairouan",
+          description: "Anticiper votre succession avant l'entrée en vigueur de la réforme.",
+        },
+      ],
+      en: [
+        {
+          path: "/services/droit-de-la-famille",
+          label: "Family law service",
+          description: "Succession, wills, estate division and wealth planning.",
+        },
+        {
+          path: "/avocat-divorce-tunisie",
+          label: "Family law Tunisia guide",
+          description: "Family strategies: divorce, custody, succession.",
+        },
+        {
+          path: "/consultation-juridique-kairouan",
+          label: "Legal consultation in Kairouan",
+          description: "Plan your estate ahead of the reform's entry into force.",
+        },
+      ],
+      ar: [
+        {
+          path: "/services/droit-de-la-famille",
+          label: "خدمة قانون الأسرة",
+          description: "الميراث والوصايا وقسمة التركة والتخطيط العائلي.",
+        },
+        {
+          path: "/avocat-divorce-tunisie",
+          label: "دليل قانون الأسرة في تونس",
+          description: "الاستراتيجيات العائلية: الطلاق، الحضانة، الميراث.",
+        },
+        {
+          path: "/consultation-juridique-kairouan",
+          label: "استشارة قانونية في القيروان",
+          description: "تخطيط تركتك قبل دخول الإصلاح حيّز النفاذ.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "startup-act-tunisie-amendements-2026",
+    resources: {
+      fr: [
+        {
+          path: "/services/droit-des-affaires",
+          label: "Service droit des affaires",
+          description: "Sociétés, pactes d'actionnaires, levées de fonds et stock-options.",
+        },
+        {
+          path: "/avocat-affaires-tunisie",
+          label: "Guide affaires Tunisie",
+          description: "Structuration juridique des startups et des PME.",
+        },
+        {
+          path: "/avocat-affaires-kairouan",
+          label: "Avocat affaires à Kairouan",
+          description: "Page locale pour entrepreneurs, contrats et financements.",
+        },
+      ],
+      en: [
+        {
+          path: "/services/droit-des-affaires",
+          label: "Business law service",
+          description: "Companies, shareholder agreements, fundraising and stock options.",
+        },
+        {
+          path: "/avocat-affaires-tunisie",
+          label: "Business Tunisia guide",
+          description: "Legal structuring for startups and SMEs.",
+        },
+        {
+          path: "/avocat-affaires-kairouan",
+          label: "Business lawyer in Kairouan",
+          description: "Local page for founders, contracts and financing.",
+        },
+      ],
+      ar: [
+        {
+          path: "/services/droit-des-affaires",
+          label: "خدمة قانون الأعمال",
+          description: "الشركات، اتفاقيات الشركاء، جمع الأموال، والأسهم التحفيزية.",
+        },
+        {
+          path: "/avocat-affaires-tunisie",
+          label: "دليل الأعمال في تونس",
+          description: "الهيكلة القانونية للشركات الناشئة والمؤسسات الصغرى والمتوسطة.",
+        },
+        {
+          path: "/avocat-affaires-kairouan",
+          label: "محامية أعمال في القيروان",
+          description: "صفحة محلية للمؤسّسين والعقود والتمويل.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "protection-donnees-personnelles-tunisie-2026",
+    resources: {
+      fr: [
+        {
+          path: "/services/droit-des-affaires",
+          label: "Service droit des affaires",
+          description: "Conformité, contrats et politiques internes pour entreprises.",
+        },
+        {
+          path: "/consultation-juridique-tunisie",
+          label: "Consultation juridique",
+          description: "Diagnostic rapide de votre niveau de conformité RGPD / INPDP.",
+        },
+        {
+          path: "/avocat-affaires-kairouan",
+          label: "Avocat affaires à Kairouan",
+          description: "Page locale pour mise en conformité et contrats fournisseurs.",
+        },
+      ],
+      en: [
+        {
+          path: "/services/droit-des-affaires",
+          label: "Business law service",
+          description: "Compliance, contracts and internal policies for businesses.",
+        },
+        {
+          path: "/consultation-juridique-tunisie",
+          label: "Legal consultation",
+          description: "Quick assessment of your GDPR / INPDP compliance level.",
+        },
+        {
+          path: "/avocat-affaires-kairouan",
+          label: "Business lawyer in Kairouan",
+          description: "Local page for compliance work and vendor contracts.",
+        },
+      ],
+      ar: [
+        {
+          path: "/services/droit-des-affaires",
+          label: "خدمة قانون الأعمال",
+          description: "المطابقة والعقود والسياسات الداخلية للمؤسسات.",
+        },
+        {
+          path: "/consultation-juridique-tunisie",
+          label: "استشارة قانونية",
+          description: "تشخيص سريع لمستوى مطابقتك لمتطلبات الـ RGPD / الهيئة الوطنية.",
+        },
+        {
+          path: "/avocat-affaires-kairouan",
+          label: "محامية أعمال في القيروان",
+          description: "صفحة محلية لأعمال المطابقة وعقود مزوّدي الخدمات.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "location-touristique-tunisie-reglementation-2026",
+    resources: {
+      fr: [
+        {
+          path: "/services/droit-immobilier",
+          label: "Service droit immobilier",
+          description: "Baux, copropriété, régularisation et gestion de biens.",
+        },
+        {
+          path: "/avocat-immobilier-tunisie",
+          label: "Guide immobilier Tunisie",
+          description: "Structuration, baux et gestion du risque locatif.",
+        },
+        {
+          path: "/avocat-immobilier-kairouan",
+          label: "Avocat immobilier à Kairouan",
+          description: "Page locale pour propriétaires et litiges immobiliers.",
+        },
+      ],
+      en: [
+        {
+          path: "/services/droit-immobilier",
+          label: "Real estate law service",
+          description: "Leases, co-ownership, regularisation and property management.",
+        },
+        {
+          path: "/avocat-immobilier-tunisie",
+          label: "Real estate Tunisia guide",
+          description: "Structuring, leases and rental risk management.",
+        },
+        {
+          path: "/avocat-immobilier-kairouan",
+          label: "Real estate lawyer in Kairouan",
+          description: "Local page for owners and property disputes.",
+        },
+      ],
+      ar: [
+        {
+          path: "/services/droit-immobilier",
+          label: "خدمة القانون العقاري",
+          description: "الكراء والملكية المشتركة والتسوية وإدارة العقارات.",
+        },
+        {
+          path: "/avocat-immobilier-tunisie",
+          label: "دليل العقار في تونس",
+          description: "الهيكلة والكراء وإدارة مخاطر الإيجار.",
+        },
+        {
+          path: "/avocat-immobilier-kairouan",
+          label: "محامية عقارية في القيروان",
+          description: "صفحة محلية للمالكين والنزاعات العقارية.",
+        },
+      ],
+    },
+  },
 ];
 
 function resolveLocale(locale: string): SiteLocale {
@@ -254,4 +478,19 @@ export function getBlogRelatedResources(slug: string, locale: string) {
   }
 
   return group.resources[resolveLocale(locale)];
+}
+
+/**
+ * Reverse lookup: given a cluster/service path, return the blog slugs that
+ * have linked to it in blogSeo. Used to build the "related articles" block on
+ * cluster pages, so every cluster → blog edge is bidirectional for SEO.
+ */
+export function getClusterRelatedBlogSlugs(clusterPath: string): string[] {
+  return blogGroups
+    .filter((group) =>
+      (["fr", "en", "ar"] as const).some((loc) =>
+        group.resources[loc].some((r) => r.path === clusterPath)
+      )
+    )
+    .map((group) => group.slug);
 }

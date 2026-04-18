@@ -6,6 +6,8 @@ import {
   getSeoClusterPages,
   getSeoClusterUiCopy,
 } from "@/data/seoCluster";
+import { getClusterRelatedBlogSlugs } from "@/data/blogSeo";
+import { getPostBySlug } from "@/utils/markdown";
 import { PhoneNumber } from "@/components/common/PhoneNumber";
 import styles from "./SeoClusterPage.module.css";
 
@@ -45,6 +47,14 @@ export const SeoClusterPage: FC<SeoClusterPageProps> = ({
   const relatedGuides = getSeoClusterPages(locale).filter(
     (item) => item.path !== pageData.path
   );
+  const relatedArticles = getClusterRelatedBlogSlugs(pageData.path)
+    .map((slug) => getPostBySlug(slug, locale, true))
+    .filter((post): post is NonNullable<typeof post> => post !== null)
+    .sort(
+      (a, b) =>
+        new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime()
+    )
+    .slice(0, 3);
   const detailSections = [
     {
       title: pageData.proofTitle,
@@ -172,6 +182,32 @@ export const SeoClusterPage: FC<SeoClusterPageProps> = ({
             ))}
           </div>
         </section>
+
+        {relatedArticles.length > 0 && (
+          <section className={styles.section}>
+            <div className={styles.sectionHeader}>
+              <h3>{uiCopy.relatedArticlesTitle}</h3>
+              <p className={styles.sectionCta}>{uiCopy.relatedArticlesCta}</p>
+            </div>
+            <div className={styles.linkGrid}>
+              {relatedArticles.map((post) => (
+                <Link
+                  key={post.meta.slug}
+                  to={{ pathname: `/actualites/${post.meta.slug}`, search: "" }}
+                  className={styles.linkCard}
+                >
+                  <div className={styles.linkCardContent}>
+                    <span className={styles.linkTitle}>{post.meta.title}</span>
+                    <span className={styles.linkExcerpt}>
+                      {post.meta.description}
+                    </span>
+                  </div>
+                  <ArrowRight className={styles.linkArrow} size={20} />
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className={styles.section}>
           <h3>{uiCopy.faqTitle}</h3>

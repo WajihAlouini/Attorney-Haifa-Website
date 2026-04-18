@@ -44,6 +44,9 @@ interface SeoClusterUiCopy {
   usefulPagesCta: string;
   relatedGuidesTitle: string;
   relatedGuidesCta: string;
+  relatedArticlesTitle: string;
+  relatedArticlesCta: string;
+  relatedArticlesReadMore: string;
   faqTitle: string;
   serviceLinks: Array<{
     path: string;
@@ -78,6 +81,10 @@ const UI_COPY: Record<ClusterLocale, SeoClusterUiCopy> = {
     relatedGuidesTitle: "Guides connexes",
     relatedGuidesCta:
       "Explorez nos autres guides juridiques pour plus de clarté :",
+    relatedArticlesTitle: "Articles récents sur ce sujet",
+    relatedArticlesCta:
+      "Nos dernières analyses sur cette thématique juridique :",
+    relatedArticlesReadMore: "Lire l'article",
     faqTitle: "Questions fréquentes",
     serviceLinks: [
       {
@@ -105,6 +112,10 @@ const UI_COPY: Record<ClusterLocale, SeoClusterUiCopy> = {
     usefulPagesCta: "Need another service? Discover our useful expertise:",
     relatedGuidesTitle: "Related guides",
     relatedGuidesCta: "Explore our other legal guides for more clarity:",
+    relatedArticlesTitle: "Recent articles on this topic",
+    relatedArticlesCta:
+      "Our latest analyses on this legal topic:",
+    relatedArticlesReadMore: "Read the article",
     faqTitle: "Frequently asked questions",
     serviceLinks: [
       { path: "/services/droit-de-la-famille", label: "Service: Family law" },
@@ -123,6 +134,9 @@ const UI_COPY: Record<ClusterLocale, SeoClusterUiCopy> = {
     usefulPagesCta: "بحاجة لخدمة أخرى؟ اكتشف خبراتنا المفيدة:",
     relatedGuidesTitle: "أدلة مرتبطة",
     relatedGuidesCta: "تصفح أدلتنا القانونية الأخرى لمزيد من التوضيح:",
+    relatedArticlesTitle: "مقالات حديثة حول هذا الموضوع",
+    relatedArticlesCta: "أحدث تحليلاتنا القانونية حول هذه الثيمة:",
+    relatedArticlesReadMore: "قراءة المقال",
     faqTitle: "أسئلة متكررة",
     serviceLinks: [
       { path: "/services/droit-de-la-famille", label: "الخدمة: قانون الأسرة" },

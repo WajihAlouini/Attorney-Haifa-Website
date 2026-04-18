@@ -4,6 +4,8 @@ import {
   getServiceDetailByPath,
   getServiceDetailFaqs,
 } from "@/data/serviceDetails";
+import { getAllPosts, getPostBySlug } from "@/utils/markdown";
+import googleReviews from "@/data/google-reviews.json";
 
 type Locale = "fr" | "en" | "ar";
 
@@ -17,6 +19,17 @@ const KAIROUAN_LOCAL_PATHS = new Set([
   "/avocat-affaires-kairouan",
   "/consultation-juridique-kairouan",
 ]);
+
+// Google Business Profile permanent URL derived from the firm's Place CID.
+// CID 2428048899655277535 == hex 0x21b2299c213b1bdf (visible in review links and map embed).
+const GOOGLE_BUSINESS_URL =
+  "https://www.google.com/maps?cid=2428048899655277535";
+
+const ACTUALITES_LABELS: Record<Locale, string> = {
+  fr: "Actualités",
+  en: "News",
+  ar: "الأخبار",
+};
 
 const HOME_LABELS: Record<Locale, string> = {
   fr: "Accueil",
@@ -71,6 +84,55 @@ function createBreadcrumbList(
       item: toCanonicalUrl(item.path, locale),
     })),
   };
+}
+
+// Public reviews from the firm's Google Business Profile, mapped to schema.org/Review.
+// Source: src/data/google-reviews.json (real reviews, no fabrication).
+const REVIEW_COUNT = googleReviews.length;
+const AGGREGATE_RATING_VALUE = 5;
+
+function buildReviewSchema() {
+  return googleReviews.map((review) => ({
+    "@type": "Review",
+    author: {
+      "@type": "Person",
+      name: review.author,
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: 5,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    datePublished: review.isoDate.split("T")[0],
+    reviewBody: review.text,
+    itemReviewed: { "@id": BUSINESS_ID },
+    publisher: {
+      "@type": "Organization",
+      name: "Google",
+    },
+  }));
+}
+
+function buildAggregateRating() {
+  return {
+    "@type": "AggregateRating",
+    ratingValue: AGGREGATE_RATING_VALUE,
+    bestRating: 5,
+    worstRating: 1,
+    reviewCount: REVIEW_COUNT,
+    itemReviewed: { "@id": BUSINESS_ID },
+  };
+}
+
+// Public-facing profiles for the firm. Currently just the Google Business
+// Profile — the firm has no social media presence.
+const BUSINESS_SAME_AS: string[] = [GOOGLE_BUSINESS_URL];
+const ATTORNEY_SAME_AS: string[] = [GOOGLE_BUSINESS_URL];
+
+function buildSameAs(entries: string[]): string[] | undefined {
+  const cleaned = entries.filter(Boolean);
+  return cleaned.length > 0 ? cleaned : undefined;
 }
 
 function faqPageFromList(
@@ -153,6 +215,8 @@ function createLegalServiceGraph(options: {
 
 function homeStructuredData(locale: Locale) {
   const homeUrl = toCanonicalUrl("/", locale);
+  const businessSameAs = buildSameAs(BUSINESS_SAME_AS);
+  const attorneySameAs = buildSameAs(ATTORNEY_SAME_AS);
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -193,6 +257,7 @@ function homeStructuredData(locale: Locale) {
         },
         telephone: "+21698643612",
         email: "maitrealouiniguedhami@gmail.com",
+        ...(businessSameAs ? { sameAs: businessSameAs } : {}),
         areaServed: [
           { "@type": "City", name: "Kairouan" },
           { "@type": "City", name: "Tunis" },
@@ -246,6 +311,8 @@ function homeStructuredData(locale: Locale) {
           name: getSEOData(path, locale).title,
           url: toCanonicalUrl(path, locale),
         })),
+        aggregateRating: buildAggregateRating(),
+        review: buildReviewSchema(),
       },
       {
         "@type": "Attorney",
@@ -255,6 +322,7 @@ function homeStructuredData(locale: Locale) {
         worksFor: { "@id": BUSINESS_ID },
         url: `${SITE_URL}/about`,
         image: `${SITE_URL}/portrait/portrait.webp`,
+        ...(attorneySameAs ? { sameAs: attorneySameAs } : {}),
         areaServed: [
           { "@type": "City", name: "Kairouan" },
           { "@type": "City", name: "Tunis" },
@@ -463,14 +531,98 @@ export function getStructuredData(path: string, locale: Locale) {
 
   if (path === "/actualites") {
     const pageUrl = toCanonicalUrl(path, resolvedLocale);
+    const posts = getAllPosts(resolvedLocale);
     return {
       "@context": "https://schema.org",
-      "@type": "Blog",
-      "@id": `${pageUrl}#webpage`,
-      name: "Actualites Juridiques - Maitre Haifa Guedhami Alouini",
-      url: pageUrl,
-      inLanguage: resolveInLanguage(resolvedLocale),
-      publisher: { "@id": BUSINESS_ID },
+      "@graph": [
+        {
+          "@type": "Blog",
+          "@id": `${pageUrl}#blog`,
+          name: "Actualites Juridiques - Maitre Haifa Guedhami Alouini",
+          url: pageUrl,
+          inLanguage: resolveInLanguage(resolvedLocale),
+          publisher: { "@id": BUSINESS_ID },
+          blogPost: posts.map((post) => ({
+            "@type": "BlogPosting",
+            headline: post.title,
+            url: `${SITE_URL}/actualites/${post.slug}`,
+            datePublished: post.date,
+            description: post.description,
+            ...(post.image
+              ? {
+                  image: post.image.startsWith("http")
+                    ? post.image
+                    : `${SITE_URL}${post.image}`,
+                }
+              : {}),
+          })),
+        },
+        {
+          "@type": "ItemList",
+          "@id": `${pageUrl}#itemlist`,
+          url: pageUrl,
+          numberOfItems: posts.length,
+          itemListElement: posts.map((post, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            url: `${SITE_URL}/actualites/${post.slug}`,
+            name: post.title,
+          })),
+        },
+        createBreadcrumbList(resolvedLocale, [
+          { name: HOME_LABELS[resolvedLocale], path: "/" },
+          { name: ACTUALITES_LABELS[resolvedLocale], path: "/actualites" },
+        ]),
+      ],
+    };
+  }
+
+  if (path.startsWith("/actualites/")) {
+    const slug = path.replace("/actualites/", "");
+    const post = getPostBySlug(slug, resolvedLocale, true);
+    if (!post) {
+      return null;
+    }
+
+    const pageUrl = `${SITE_URL}${path}`;
+    const postLocale = resolveLocale(post.meta.lang || resolvedLocale);
+    const imageUrl = post.meta.image
+      ? post.meta.image.startsWith("http")
+        ? post.meta.image
+        : `${SITE_URL}${post.meta.image}`
+      : undefined;
+
+    return {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": `${pageUrl}#article`,
+          headline: post.meta.title,
+          description: post.meta.description,
+          url: pageUrl,
+          inLanguage: resolveInLanguage(postLocale),
+          datePublished: post.meta.date,
+          dateModified: post.meta.date,
+          isPartOf: { "@id": `${toCanonicalUrl("/actualites", resolvedLocale)}#blog` },
+          mainEntityOfPage: pageUrl,
+          ...(imageUrl ? { image: imageUrl } : {}),
+          author: {
+            "@type": "Person",
+            "@id": ATTORNEY_ID,
+            name: post.meta.author,
+          },
+          publisher: { "@id": BUSINESS_ID },
+          ...(post.meta.tags && post.meta.tags.length > 0
+            ? { keywords: post.meta.tags.join(", ") }
+            : {}),
+        },
+        createBreadcrumbList(resolvedLocale, [
+          { name: HOME_LABELS[resolvedLocale], path: "/" },
+          { name: ACTUALITES_LABELS[resolvedLocale], path: "/actualites" },
+          { name: post.meta.title, path },
+        ]),
+      ],
     };
   }
 

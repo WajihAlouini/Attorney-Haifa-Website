@@ -91,8 +91,12 @@ export function SEO({
   );
   const alternateLinks = getAlternateLinks(path);
 
+  // Blog posts already get a complete BlogPosting schema (with BreadcrumbList)
+  // from getStructuredData — avoid emitting a duplicate Article block.
+  const structuredDataCoversArticle = path.startsWith("/actualites/");
+
   const articleJsonLd =
-    type === "article"
+    type === "article" && !structuredDataCoversArticle
       ? {
           "@context": "https://schema.org",
           "@type": "Article",
