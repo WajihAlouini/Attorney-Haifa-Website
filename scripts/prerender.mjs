@@ -93,7 +93,7 @@ async function getPrerenderTargets() {
   }
 
   for (const locale of QUERY_LOCALES) {
-    for (const route of BASE_ROUTES) {
+    for (const route of standardRoutes) {
       const normalizedRoute = normalizeRoute(route);
       const visitRoute = withLocaleSearch(normalizedRoute, locale);
       const outputRoute = toLocaleSnapshotRoute(normalizedRoute, locale);

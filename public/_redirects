@@ -35,6 +35,24 @@
 /actualites?lang=en                        /__locale/en/actualites/                              200
 /actualites?lang=ar                        /__locale/ar/actualites/                              200
 
+# Blog posts
+/actualites/reforme-code-du-travail-2025?lang=en                          /__locale/en/actualites/reforme-code-du-travail-2025/                          200
+/actualites/reforme-code-du-travail-2025?lang=ar                          /__locale/ar/actualites/reforme-code-du-travail-2025/                          200
+/actualites/immobilier-etrangers-tunisie-2026?lang=en                     /__locale/en/actualites/immobilier-etrangers-tunisie-2026/                     200
+/actualites/immobilier-etrangers-tunisie-2026?lang=ar                     /__locale/ar/actualites/immobilier-etrangers-tunisie-2026/                     200
+/actualites/reforme-famille-garde-partagee-tunisie?lang=en                /__locale/en/actualites/reforme-famille-garde-partagee-tunisie/                200
+/actualites/reforme-famille-garde-partagee-tunisie?lang=ar                /__locale/ar/actualites/reforme-famille-garde-partagee-tunisie/                200
+/actualites/nouveau-code-des-changes-tunisie-2026?lang=en                 /__locale/en/actualites/nouveau-code-des-changes-tunisie-2026/                 200
+/actualites/nouveau-code-des-changes-tunisie-2026?lang=ar                 /__locale/ar/actualites/nouveau-code-des-changes-tunisie-2026/                 200
+/actualites/egalite-succession-tunisie-debat-2026?lang=en                 /__locale/en/actualites/egalite-succession-tunisie-debat-2026/                 200
+/actualites/egalite-succession-tunisie-debat-2026?lang=ar                 /__locale/ar/actualites/egalite-succession-tunisie-debat-2026/                 200
+/actualites/startup-act-tunisie-amendements-2026?lang=en                  /__locale/en/actualites/startup-act-tunisie-amendements-2026/                  200
+/actualites/startup-act-tunisie-amendements-2026?lang=ar                  /__locale/ar/actualites/startup-act-tunisie-amendements-2026/                  200
+/actualites/protection-donnees-personnelles-tunisie-2026?lang=en          /__locale/en/actualites/protection-donnees-personnelles-tunisie-2026/          200
+/actualites/protection-donnees-personnelles-tunisie-2026?lang=ar          /__locale/ar/actualites/protection-donnees-personnelles-tunisie-2026/          200
+/actualites/location-touristique-tunisie-reglementation-2026?lang=en      /__locale/en/actualites/location-touristique-tunisie-reglementation-2026/      200
+/actualites/location-touristique-tunisie-reglementation-2026?lang=ar      /__locale/ar/actualites/location-touristique-tunisie-reglementation-2026/      200
+
 # SEO cluster pages
 /avocat-divorce-tunisie?lang=en            /__locale/en/avocat-divorce-tunisie/                  200
 /avocat-divorce-tunisie?lang=ar            /__locale/ar/avocat-divorce-tunisie/                  200
@@ -92,22 +110,26 @@
 /consultation-juridique-kairouan?lang=fr   /consultation-juridique-kairouan                     301
 
 # Blog posts with ?lang=fr
-/actualites/reforme-code-du-travail-2025?lang=fr        /actualites/reforme-code-du-travail-2025         301
-/actualites/immobilier-etrangers-tunisie-2026?lang=fr   /actualites/immobilier-etrangers-tunisie-2026    301
-/actualites/reforme-famille-garde-partagee-tunisie?lang=fr /actualites/reforme-famille-garde-partagee-tunisie 301
-/actualites/nouveau-code-des-changes-tunisie-2026?lang=fr  /actualites/nouveau-code-des-changes-tunisie-2026  301
+/actualites/reforme-code-du-travail-2025?lang=fr                         /actualites/reforme-code-du-travail-2025                         301
+/actualites/immobilier-etrangers-tunisie-2026?lang=fr                    /actualites/immobilier-etrangers-tunisie-2026                    301
+/actualites/reforme-famille-garde-partagee-tunisie?lang=fr               /actualites/reforme-famille-garde-partagee-tunisie               301
+/actualites/nouveau-code-des-changes-tunisie-2026?lang=fr                /actualites/nouveau-code-des-changes-tunisie-2026                301
+/actualites/egalite-succession-tunisie-debat-2026?lang=fr                /actualites/egalite-succession-tunisie-debat-2026                301
+/actualites/startup-act-tunisie-amendements-2026?lang=fr                 /actualites/startup-act-tunisie-amendements-2026                 301
+/actualites/protection-donnees-personnelles-tunisie-2026?lang=fr         /actualites/protection-donnees-personnelles-tunisie-2026         301
+/actualites/location-touristique-tunisie-reglementation-2026?lang=fr     /actualites/location-touristique-tunisie-reglementation-2026     301
 
 # ============================================================
 # 301 redirects for old per-language blog slugs (removed in URL unification)
 # ============================================================
-/actualites/labour-code-reform-2025                   /actualites/reforme-code-du-travail-2025?lang=en           301
-/actualites/property-law-foreigners-tunisia-2026      /actualites/immobilier-etrangers-tunisie-2026?lang=en      301
-/actualites/shared-custody-reform-tunisia             /actualites/reforme-famille-garde-partagee-tunisie?lang=en  301
-/actualites/new-foreign-exchange-code-tunisia-2026    /actualites/nouveau-code-des-changes-tunisie-2026?lang=en  301
-/actualites/islah-majallat-alshughl-2025              /actualites/reforme-code-du-travail-2025?lang=ar           301
-/actualites/aqaraat-ajanib-tunis-2026                 /actualites/immobilier-etrangers-tunisie-2026?lang=ar      301
-/actualites/hadhanat-mushtaraka-tunis                 /actualites/reforme-famille-garde-partagee-tunisie?lang=ar  301
-/actualites/qanoon-alsarf-aljadid-tunis-2026          /actualites/nouveau-code-des-changes-tunisie-2026?lang=ar  301
+/actualites/labour-code-reform-2025                   /actualites/reforme-code-du-travail-2025                   301
+/actualites/property-law-foreigners-tunisia-2026      /actualites/immobilier-etrangers-tunisie-2026              301
+/actualites/shared-custody-reform-tunisia             /actualites/reforme-famille-garde-partagee-tunisie         301
+/actualites/new-foreign-exchange-code-tunisia-2026    /actualites/nouveau-code-des-changes-tunisie-2026          301
+/actualites/islah-majallat-alshughl-2025              /actualites/reforme-code-du-travail-2025                   301
+/actualites/aqaraat-ajanib-tunis-2026                 /actualites/immobilier-etrangers-tunisie-2026              301
+/actualites/hadhanat-mushtaraka-tunis                 /actualites/reforme-famille-garde-partagee-tunisie         301
+/actualites/qanoon-alsarf-aljadid-tunis-2026          /actualites/nouveau-code-des-changes-tunisie-2026          301
 
 # ============================================================
 # SPA FALLBACK — must be last
