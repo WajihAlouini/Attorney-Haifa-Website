@@ -1,53 +1,193 @@
-.steps {
-  display: grid;
-  gap: 1.5rem;
-  max-width: 800px;
-  margin: 0 auto;
+.timeline {
+  position: relative;
+  list-style: none;
+  margin: 2.5rem auto 0;
+  padding: 0;
+  max-width: 880px;
 }
 
-.steps article {
+/* Vertical gold rail running through every step */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 28px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--accent) 8%,
+    var(--accent) 92%,
+    transparent 100%
+  );
+}
+
+/* A faint pulse traveling down the rail — purely decorative */
+.timeline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 27px;
+  width: 4px;
+  height: 32px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--accent-light) 50%,
+    transparent 100%
+  );
+  animation: railPulse 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes railPulse {
+  0%   { transform: translateY(0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(680px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+.step {
+  position: relative;
+  padding: 0 0 2rem 80px;
+}
+
+.step:last-child {
+  padding-bottom: 0;
+}
+
+.node {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
   display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 2rem;
-  padding: 2rem;
+  place-items: center;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--accent-fg);
+  /* The white-ish ring punches a hole through the rail behind the node */
+  box-shadow:
+    0 0 0 6px var(--bg),
+    var(--card-shadow);
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.step:hover .node {
+  background: var(--accent);
+  color: var(--accent-contrast, #fff);
+  transform: scale(1.06);
+}
+
+.body {
   background: var(--panel);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
-  border-radius: 4px;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem 1.4rem;
   box-shadow: var(--card-shadow);
-  align-items: center;
-  transition: all 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
-.steps article:hover {
-  border-color: var(--border-hover);
-  border-left-color: var(--accent);
-  box-shadow: var(--card-shadow-hover);
+:global([data-theme="dark"]) .body {
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+}
+
+.step:hover .body {
   transform: translateX(4px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--border-hover);
 }
 
-.steps span {
-  font-family: "Playfair Display", serif;
-  font-size: 1.2rem;
-  color: var(--accent-dark);
+.phaseLabel {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent-fg);
   font-weight: 700;
+  margin-bottom: 0.4rem;
 }
 
-@media (max-width: 768px) {
-  .steps {
-    gap: 1.25rem;
+.detail {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* RTL: rail on the right side */
+:global([dir="rtl"]) .timeline::before {
+  left: auto;
+  right: 28px;
+}
+:global([dir="rtl"]) .timeline::after {
+  left: auto;
+  right: 27px;
+}
+:global([dir="rtl"]) .step {
+  padding: 0 80px 2rem 0;
+}
+:global([dir="rtl"]) .node {
+  left: auto;
+  right: 0;
+}
+:global([dir="rtl"]) .step:hover .body {
+  transform: translateX(-4px);
+}
+
+@media (max-width: 640px) {
+  .timeline::before {
+    left: 18px;
+  }
+  .timeline::after {
+    left: 17px;
+  }
+  .step {
+    padding-left: 56px;
+  }
+  .node {
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+    box-shadow:
+      0 0 0 4px var(--bg),
+      var(--card-shadow);
+  }
+  .body {
+    padding: 1rem 1.1rem 1.15rem;
+  }
+  .detail {
+    font-size: 0.95rem;
   }
 
-  .steps article {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-    text-align: center;
-    padding: 1.75rem 1.5rem;
-    border-left: none;
-    border-top: 3px solid var(--accent);
+  :global([dir="rtl"]) .timeline::before {
+    right: 18px;
   }
-
-  .steps article:hover {
-    transform: translateY(-2px);
+  :global([dir="rtl"]) .timeline::after {
+    right: 17px;
+  }
+  :global([dir="rtl"]) .step {
+    padding: 0 56px 2rem 0;
   }
 }

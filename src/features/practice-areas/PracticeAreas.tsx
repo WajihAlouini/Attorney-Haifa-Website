@@ -8,46 +8,49 @@ export const PracticeAreas: FC<TranslationProps> = ({ t }) => {
   const lang = new URLSearchParams(location.search).get("lang");
   const localeSearch = lang === "en" || lang === "ar" ? `?lang=${lang}` : "";
   const icons: Record<number, ReactElement> = {
-    // Business & Corporate Law
+    // Family & Inheritance Law
     0: (
       <svg
-        className={styles.icon}
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="1.6"
       >
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </svg>
+    ),
+    // Business & Corporate Law
+    1: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      >
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+        <line x1="12" y1="22.08" x2="12" y2="12" />
       </svg>
     ),
     // Real Estate & Property
-    1: (
-      <svg
-        className={styles.icon}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      >
-        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-      </svg>
-    ),
-    // Family & Inheritance Law
     2: (
       <svg
-        className={styles.icon}
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="1.6"
       >
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-        <circle cx="12" cy="7" r="4"></circle>
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
       </svg>
     ),
+  };
+
+  const urls: Record<number, string> = {
+    0: "/services/droit-de-la-famille",
+    1: "/services/droit-des-affaires",
+    2: "/services/droit-immobilier",
   };
 
   return (
@@ -57,27 +60,26 @@ export const PracticeAreas: FC<TranslationProps> = ({ t }) => {
         <h2>{t.practiceHeading}</h2>
       </div>
       <div className={styles.grid}>
-        {t.practiceAreas.map((area, index) => {
-          const urls: Record<number, string> = {
-            0: "/services/droit-de-la-famille",
-            1: "/services/droit-des-affaires",
-            2: "/services/droit-immobilier",
-          };
-          return (
-            <Link
-              key={area.title}
-              to={{
-                pathname: urls[index] || "/services",
-                search: localeSearch,
-              }}
-              className={styles.card}
-            >
+        {t.practiceAreas.map((area, index) => (
+          <Link
+            key={area.title}
+            to={{
+              pathname: urls[index] || "/services",
+              search: localeSearch,
+            }}
+            className={styles.card}
+          >
+            <span className={styles.badgeIcon} aria-hidden="true">
               {icons[index]}
-              <h3>{area.title}</h3>
-              <p>{area.summary}</p>
-            </Link>
-          );
-        })}
+            </span>
+            <h3 className={styles.title}>{area.title}</h3>
+            <p className={styles.summary}>{area.summary}</p>
+            <span className={styles.cta} aria-hidden="true">
+              {t.ctas.secondary || "Learn more"}
+              <span className={styles.ctaArrow}>→</span>
+            </span>
+          </Link>
+        ))}
       </div>
     </section>
   );
