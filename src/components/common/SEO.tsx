@@ -42,11 +42,6 @@ function toLocaleUrl(path: string, locale: SiteLocale) {
 }
 
 function toCanonicalUrl(path: string, locale: SiteLocale) {
-  // Blog posts are served at a single URL regardless of language
-  if (path.startsWith("/actualites/")) {
-    return `${SITE_URL}${path}`;
-  }
-
   return toLocaleUrl(path, locale);
 }
 

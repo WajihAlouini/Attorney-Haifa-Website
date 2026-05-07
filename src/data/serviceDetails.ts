@@ -52,21 +52,18 @@ function resolveLocale(locale: string): SiteLocale {
   return "fr";
 }
 
-function familyArticlePath(locale: SiteLocale) {
-  if (locale === "en") return "/actualites/shared-custody-reform-tunisia";
-  if (locale === "ar") return "/actualites/hadhanat-mushtaraka-tunis";
+// All locales link to the unified French slug; per-locale content is served
+// via the prerendered locale snapshot at that URL. Legacy per-language slugs
+// remain as 301s in public/_redirects for any external backlinks.
+function familyArticlePath() {
   return "/actualites/reforme-famille-garde-partagee-tunisie";
 }
 
-function businessArticlePath(locale: SiteLocale) {
-  if (locale === "en") return "/actualites/new-foreign-exchange-code-tunisia-2026";
-  if (locale === "ar") return "/actualites/qanoon-alsarf-aljadid-tunis-2026";
+function businessArticlePath() {
   return "/actualites/nouveau-code-des-changes-tunisie-2026";
 }
 
-function realEstateArticlePath(locale: SiteLocale) {
-  if (locale === "en") return "/actualites/property-law-foreigners-tunisia-2026";
-  if (locale === "ar") return "/actualites/aqaraat-ajanib-tunis-2026";
+function realEstateArticlePath() {
   return "/actualites/immobilier-etrangers-tunisie-2026";
 }
 
@@ -139,7 +136,7 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
             description: "Une page ciblée sur le divorce, la garde et l'exécution.",
           },
           {
-            path: familyArticlePath("fr"),
+            path: familyArticlePath(),
             label: "Article sur la garde partagée",
             description: "Une analyse juridique reliée aux recherches familiales.",
           },
@@ -217,7 +214,7 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
             description: "A focused page on divorce strategy, custody and enforcement.",
           },
           {
-            path: familyArticlePath("en"),
+            path: familyArticlePath(),
             label: "Shared custody article",
             description: "A legal article tied to a high-intent family search topic.",
           },
@@ -295,7 +292,7 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
             description: "صفحة اكثر تخصيصا حول الطلاق والحضانة وتنفيذ الاحكام.",
           },
           {
-            path: familyArticlePath("ar"),
+            path: familyArticlePath(),
             label: "مقال حول الحضانة المشتركة",
             description: "مقال قانوني مرتبط باكثر المواضيع العائلية بحثا.",
           },
@@ -378,7 +375,7 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
             description: "Une page ciblée sur les contrats, sociétés et litiges commerciaux.",
           },
           {
-            path: businessArticlePath("fr"),
+            path: businessArticlePath(),
             label: "Article sur le code des changes",
             description: "Un contenu utile pour dirigeants et investisseurs.",
           },
@@ -456,7 +453,7 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
             description: "A focused page on contracts, companies and commercial disputes.",
           },
           {
-            path: businessArticlePath("en"),
+            path: businessArticlePath(),
             label: "Foreign exchange code article",
             description: "Useful reading for companies and investors dealing with compliance.",
           },
@@ -534,7 +531,7 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
             description: "صفحة مركزة حول العقود والشركات والنزاعات التجارية.",
           },
           {
-            path: businessArticlePath("ar"),
+            path: businessArticlePath(),
             label: "مقال حول مجلة الصرف",
             description: "محتوى مفيد للمؤسسات والمستثمرين.",
           },
@@ -617,7 +614,7 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
             description: "Une page ciblée sur la vérification foncière et les litiges.",
           },
           {
-            path: realEstateArticlePath("fr"),
+            path: realEstateArticlePath(),
             label: "Article sur l'immobilier des étrangers",
             description: "Une analyse utile pour investisseurs et familles.",
           },
@@ -695,7 +692,7 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
             description: "A focused page on title verification, contracts and disputes.",
           },
           {
-            path: realEstateArticlePath("en"),
+            path: realEstateArticlePath(),
             label: "Foreign property rules article",
             description: "Useful reading for investors and families dealing with acquisition.",
           },
@@ -773,7 +770,7 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
             description: "صفحة اكثر تخصيصا حول تدقيق الملكية والعقود والنزاعات.",
           },
           {
-            path: realEstateArticlePath("ar"),
+            path: realEstateArticlePath(),
             label: "مقال حول عقارات الاجانب",
             description: "محتوى مفيد للمستثمرين والعائلات المعنية بالشراء.",
           },
