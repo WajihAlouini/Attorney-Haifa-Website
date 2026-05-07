@@ -6,7 +6,7 @@ import styles from "./Approach.module.css";
 // "01. الجلسة الأولى" — we split them into a numeral (rendered as a node) and a
 // short label (rendered as the eyebrow) so the timeline reads cleanly.
 function splitPhase(phase: string, fallbackIndex: number) {
-  const match = phase.match(/^\s*(\d+)[.\s ]+(.+)$/);
+  const match = phase.match(/^\s*(\d+)[.\s]+(.+)$/);
   if (match) {
     return { num: match[1].padStart(2, "0"), label: match[2].trim() };
   }
