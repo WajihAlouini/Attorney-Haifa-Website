@@ -72,6 +72,11 @@ export const ar: Translation = {
       summary:
         "إجراءات الطلاق، حضانة الأطفال، قانون الأسرة الدولي، وتصفية التركات المعقدة.",
     },
+    {
+      title: "القانون الجزائي",
+      summary:
+        "الدفاع في الاحتفاظ والتحقيق والجلسة، وتمثيل الضحايا في القيام بالحق الشخصي.",
+    },
   ],
   approachEyebrow: "نهجنا",
   approachHeading: "منهجية صارمة تركز على العميل.",
@@ -138,6 +143,7 @@ export const ar: Translation = {
     office: "المكتب",
   },
   contactOffice: "باب الجلادين بجانب صيدلية ذيب، نهج الشهداء",
+  formTitle: "أرسل لنا رسالة",
   form: {
     nameLabel: "الاسم الكامل",
     namePlaceholder: "أدخل اسمك الكامل",
@@ -150,6 +156,7 @@ export const ar: Translation = {
     defaultName: "عميل محتمل",
     defaultOrg: "فرد",
   },
+  mapTitle: "مكتبنا في القيروان",
   mapLabel: "خريطة موقع المكتب",
   mapLinkLabel: "فتح في خرائط جوجل",
   galleryEyebrow: "المكتب",

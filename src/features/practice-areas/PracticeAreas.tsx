@@ -45,12 +45,30 @@ export const PracticeAreas: FC<TranslationProps> = ({ t }) => {
         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
       </svg>
     ),
+    // Criminal Law — scales of justice
+    3: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 3v18" />
+        <path d="M5 21h14" />
+        <path d="M5 7h14" />
+        <path d="M5 7l-3 6a4 4 0 0 0 6 0z" />
+        <path d="M19 7l-3 6a4 4 0 0 0 6 0z" />
+      </svg>
+    ),
   };
 
   const urls: Record<number, string> = {
     0: "/services/droit-de-la-famille",
     1: "/services/droit-des-affaires",
     2: "/services/droit-immobilier",
+    3: "/services/droit-penal",
   };
 
   return (

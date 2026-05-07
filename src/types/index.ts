@@ -118,6 +118,7 @@ export interface Translation {
   contactOffice: string;
 
   // Form
+  formTitle: string;
   form: {
     nameLabel: string;
     namePlaceholder: string;
@@ -132,6 +133,7 @@ export interface Translation {
   };
 
   // Map
+  mapTitle: string;
   mapLabel: string;
   mapLinkLabel: string;
 

@@ -99,6 +99,10 @@ const UI_COPY: Record<ClusterLocale, SeoClusterUiCopy> = {
         path: "/services/droit-des-affaires",
         label: "Service : Droit des affaires",
       },
+      {
+        path: "/services/droit-penal",
+        label: "Service : Droit pénal",
+      },
       { path: "/faq", label: "Questions fréquentes" },
       { path: "/actualites", label: "Actualités juridiques" },
     ],
@@ -121,6 +125,7 @@ const UI_COPY: Record<ClusterLocale, SeoClusterUiCopy> = {
       { path: "/services/droit-de-la-famille", label: "Service: Family law" },
       { path: "/services/droit-immobilier", label: "Service: Real estate law" },
       { path: "/services/droit-des-affaires", label: "Service: Business law" },
+      { path: "/services/droit-penal", label: "Service: Criminal law" },
       { path: "/faq", label: "Frequently asked questions" },
       { path: "/actualites", label: "Legal news" },
     ],
@@ -142,6 +147,7 @@ const UI_COPY: Record<ClusterLocale, SeoClusterUiCopy> = {
       { path: "/services/droit-de-la-famille", label: "الخدمة: قانون الأسرة" },
       { path: "/services/droit-immobilier", label: "الخدمة: القانون العقاري" },
       { path: "/services/droit-des-affaires", label: "الخدمة: قانون الأعمال" },
+      { path: "/services/droit-penal", label: "الخدمة: القانون الجزائي" },
       { path: "/faq", label: "الأسئلة المتكررة" },
       { path: "/actualites", label: "المستجدات القانونية" },
     ],
@@ -903,6 +909,166 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
             question: "ما هي الملفات الاكثر تداولا؟",
             answer:
               "من اكثر الطلبات حضورا: الطلاق والحضانة والنزاعات العقارية والعقود والاستشارة القانونية الاستراتيجية.",
+          },
+        ],
+      },
+    },
+  },
+  "/avocat-penal-tunisie": {
+    path: "/avocat-penal-tunisie",
+    localized: {
+      fr: {
+        navLabel: "Avocat pénaliste en Tunisie",
+        heading:
+          "Avocat pénaliste en Tunisie : défense, partie civile et urgence",
+        lede:
+          "Défense pénale dès la garde à vue, devant le juge d'instruction et à l'audience. Représentation des victimes en partie civile, à Kairouan, Tunis et à distance.",
+        description:
+          "Cabinet d'avocat pénaliste en Tunisie. Garde à vue, instruction, plaidoirie, partie civile et voies de recours.",
+        keywords:
+          "avocat penal tunisie, avocat penaliste tunisie, garde a vue tunisie, partie civile tunisie, defense penale",
+        highlights: [
+          "Intervention en urgence dès la garde à vue et l'audition libre.",
+          "Défense devant les tribunaux correctionnels, criminels et la cassation.",
+          "Constitution de partie civile pour obtenir réparation en tant que victime.",
+        ],
+        checklistTitle: "Ce que vous obtenez",
+        checklist: [
+          "Une lecture juridique précise des faits et de la procédure.",
+          "Une stratégie écrite, avec arguments en demande et en défense.",
+          "Un suivi régulier jusqu'au jugement et à l'exécution.",
+        ],
+        proofTitle: "Pourquoi le cabinet",
+        proofPoints: [
+          "Présence à chaque étape critique, sans rupture de communication.",
+          "Connaissance pratique des juridictions de Kairouan, Tunis et alentours.",
+          "Approche humaine et confidentielle, sans jugement.",
+        ],
+        processTitle: "Étapes types d'un dossier pénal",
+        process: [
+          "Premier contact urgent et évaluation des risques.",
+          "Préparation de l'audition et stratégie de défense.",
+          "Plaidoirie à l'audience et exploitation des nullités.",
+          "Voies de recours et exécution du jugement.",
+        ],
+        faqs: [
+          {
+            question: "Le cabinet intervient-il dès la garde à vue ?",
+            answer:
+              "Oui. Une intervention rapide est possible pour assister à l'audition, vérifier la régularité de la procédure et préparer la suite.",
+          },
+          {
+            question: "Puis-je faire appel d'un jugement défavorable ?",
+            answer:
+              "Oui. L'appel et le pourvoi en cassation sont étudiés au cas par cas, avec une évaluation honnête des chances de succès.",
+          },
+          {
+            question: "Que faire si je suis victime ?",
+            answer:
+              "Vous pouvez vous constituer partie civile pour obtenir réparation. Le cabinet vous accompagne dans la plainte, l'instruction et le procès.",
+          },
+        ],
+      },
+      en: {
+        navLabel: "Criminal lawyer in Tunisia",
+        heading:
+          "Criminal lawyer in Tunisia: defence, civil party and urgent intervention",
+        lede:
+          "Criminal defence from police custody, before the investigating judge and at trial. Victim representation as a civil party, in Kairouan, Tunis and remotely.",
+        description:
+          "Criminal-defence law firm in Tunisia. Police custody, investigation, pleading, civil-party action and appeals.",
+        keywords:
+          "criminal lawyer tunisia, criminal defence tunisia, police custody tunisia, civil party tunisia, criminal trial",
+        highlights: [
+          "Urgent intervention from the start of police custody and free hearings.",
+          "Defence before correctional, criminal and cassation courts.",
+          "Civil-party action to obtain compensation as a victim.",
+        ],
+        checklistTitle: "What you get",
+        checklist: [
+          "A precise legal reading of the facts and the procedure.",
+          "A written strategy, with claim and defence arguments.",
+          "Regular follow-up through to judgment and enforcement.",
+        ],
+        proofTitle: "Why this firm",
+        proofPoints: [
+          "Presence at every critical step, with continuous communication.",
+          "Practical knowledge of courts in Kairouan, Tunis and the region.",
+          "Human, confidential approach — without judgment.",
+        ],
+        processTitle: "Typical stages of a criminal case",
+        process: [
+          "Urgent first contact and risk assessment.",
+          "Hearing preparation and defence strategy.",
+          "Pleading at trial and use of procedural nullities.",
+          "Appeals and judgment enforcement.",
+        ],
+        faqs: [
+          {
+            question: "Does the firm step in at police custody?",
+            answer:
+              "Yes. Rapid intervention is available to attend questioning, verify procedural regularity and prepare next steps.",
+          },
+          {
+            question: "Can I appeal an adverse judgment?",
+            answer:
+              "Yes. Appeals and cassation are reviewed case by case, with an honest assessment of the chances of success.",
+          },
+          {
+            question: "What if I am a victim?",
+            answer:
+              "You can file a civil-party action to obtain compensation. The firm supports you through the complaint, investigation and trial.",
+          },
+        ],
+      },
+      ar: {
+        navLabel: "محامي جزائي في تونس",
+        heading: "محامي جزائي في تونس: دفاع وقيام بالحق الشخصي وتدخل عاجل",
+        lede:
+          "دفاع جزائي منذ الاحتفاظ، أمام قاضي التحقيق وفي الجلسة. تمثيل الضحايا في القيام بالحق الشخصي، في القيروان وتونس وعن بعد.",
+        description:
+          "مكتب محاماة جزائي في تونس: الاحتفاظ، التحقيق، الترافع، القيام بالحق الشخصي وطرق الطعن.",
+        keywords:
+          "محامي جزائي تونس, محامي جنائي تونس, احتفاظ تونس, قيام بالحق الشخصي تونس, دفاع جزائي",
+        highlights: [
+          "تدخل عاجل منذ بداية الاحتفاظ وسماع الأقوال.",
+          "الدفاع أمام المحاكم الجناحية والجنائية ومحكمة التعقيب.",
+          "القيام بالحق الشخصي للحصول على التعويض بصفة ضحية.",
+        ],
+        checklistTitle: "ما الذي تحصل عليه",
+        checklist: [
+          "قراءة قانونية دقيقة للوقائع وللإجراءات.",
+          "استراتيجية مكتوبة بحجج للدعوى والدفاع.",
+          "متابعة منتظمة حتى الحكم والتنفيذ.",
+        ],
+        proofTitle: "لماذا المكتب",
+        proofPoints: [
+          "حضور في كل مرحلة حساسة بتواصل متواصل.",
+          "معرفة عملية بمحاكم القيروان وتونس والمنطقة.",
+          "مقاربة إنسانية سرية بدون أحكام مسبقة.",
+        ],
+        processTitle: "مراحل نموذجية لملف جزائي",
+        process: [
+          "اتصال أول عاجل وتقييم المخاطر.",
+          "تحضير الاستنطاق ووضع استراتيجية الدفاع.",
+          "الترافع في الجلسة واستثمار البطلانات الإجرائية.",
+          "طرق الطعن وتنفيذ الحكم.",
+        ],
+        faqs: [
+          {
+            question: "هل يتدخل المكتب منذ الاحتفاظ؟",
+            answer:
+              "نعم. التدخل السريع ممكن لحضور الاستنطاق والتثبت من سلامة الإجراءات وإعداد ما يلي.",
+          },
+          {
+            question: "هل يمكنني الطعن في حكم غير مواتي؟",
+            answer:
+              "نعم. تتم دراسة الاستئناف والتعقيب حالة بحالة بتقييم صادق لحظوظ النجاح.",
+          },
+          {
+            question: "ماذا إذا كنت ضحية؟",
+            answer:
+              "يمكنك القيام بالحق الشخصي للحصول على تعويض. يرافقك المكتب في الشكاية والتحقيق والمحاكمة.",
           },
         ],
       },

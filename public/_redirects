@@ -23,6 +23,9 @@
 /services/droit-immobilier?lang=en         /__locale/en/services/droit-immobilier/               200
 /services/droit-immobilier?lang=ar         /__locale/ar/services/droit-immobilier/               200
 
+/services/droit-penal?lang=en              /__locale/en/services/droit-penal/                    200
+/services/droit-penal?lang=ar              /__locale/ar/services/droit-penal/                    200
+
 /values?lang=en                            /__locale/en/values/                                  200
 /values?lang=ar                            /__locale/ar/values/                                  200
 
@@ -69,6 +72,9 @@
 /code-du-travail-tunisie?lang=en           /__locale/en/code-du-travail-tunisie/                 200
 /code-du-travail-tunisie?lang=ar           /__locale/ar/code-du-travail-tunisie/                 200
 
+/avocat-penal-tunisie?lang=en              /__locale/en/avocat-penal-tunisie/                    200
+/avocat-penal-tunisie?lang=ar              /__locale/ar/avocat-penal-tunisie/                    200
+
 /avocat-kairouan?lang=en                   /__locale/en/avocat-kairouan/                         200
 /avocat-kairouan?lang=ar                   /__locale/ar/avocat-kairouan/                         200
 
@@ -94,6 +100,7 @@
 /services/droit-de-la-famille?lang=fr      /services/droit-de-la-famille                        301
 /services/droit-des-affaires?lang=fr       /services/droit-des-affaires                         301
 /services/droit-immobilier?lang=fr         /services/droit-immobilier                           301
+/services/droit-penal?lang=fr              /services/droit-penal                                301
 /values?lang=fr                            /values                                               301
 /contact?lang=fr                           /contact                                              301
 /faq?lang=fr                               /faq                                                  301
@@ -103,6 +110,7 @@
 /avocat-affaires-tunisie?lang=fr           /avocat-affaires-tunisie                             301
 /consultation-juridique-tunisie?lang=fr    /consultation-juridique-tunisie                      301
 /code-du-travail-tunisie?lang=fr           /code-du-travail-tunisie                             301
+/avocat-penal-tunisie?lang=fr              /avocat-penal-tunisie                                301
 /avocat-kairouan?lang=fr                   /avocat-kairouan                                     301
 /avocat-divorce-kairouan?lang=fr           /avocat-divorce-kairouan                             301
 /avocat-immobilier-kairouan?lang=fr        /avocat-immobilier-kairouan                          301

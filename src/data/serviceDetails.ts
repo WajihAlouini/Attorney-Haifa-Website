@@ -1,6 +1,6 @@
 export type SiteLocale = "fr" | "en" | "ar";
 
-export type ServiceDetailKey = "family" | "business" | "realEstate";
+export type ServiceDetailKey = "family" | "business" | "realEstate" | "criminal";
 
 export interface ServiceDetailFaq {
   question: string;
@@ -782,6 +782,269 @@ const serviceDetails: Record<ServiceDetailKey, ServiceDetailDefinition> = {
         ],
         primaryCta: "طلب استشارة قانونية",
         secondaryCta: "عرض الدليل العقاري",
+      },
+    },
+  },
+  criminal: {
+    path: "/services/droit-penal",
+    localized: {
+      fr: {
+        key: "criminal",
+        eyebrow: "Kairouan . Tunis . Droit pénal",
+        title: "Avocat en droit pénal en Tunisie",
+        lede:
+          "Défense pénale en garde à vue, instruction et procès. Une stratégie claire et une vraie préparation du dossier, à Kairouan, à Tunis et à distance.",
+        introTitle: "Une présence ferme dès le premier jour",
+        intro:
+          "Le droit pénal mêle urgence, enjeux personnels lourds et conséquences durables. Le cabinet intervient dès la garde à vue, prépare votre défense, vous accompagne devant le juge d'instruction et plaide à l'audience. Nous protégeons vos droits à chaque étape, sans jugement et avec une parole claire.",
+        highlightsTitle: "Situations fréquentes accompagnées",
+        highlights: [
+          "Défense devant le tribunal cantonal, le tribunal de première instance, la cour d'appel et la cour de cassation.",
+          "Assistance immédiate en garde à vue, audition et confrontation.",
+          "Constitution de partie civile pour les victimes (violences, vol, escroquerie, accidents).",
+          "Délits financiers, abus de confiance et infractions liées à l'entreprise.",
+          "Violences conjugales et infractions touchant la famille avec un suivi coordonné.",
+        ],
+        processTitle: "Comment nous travaillons votre dossier",
+        process: [
+          {
+            title: "Premier contact urgent",
+            description:
+              "Évaluation rapide de la situation, vérification de la procédure et de vos droits, déplacement immédiat si nécessaire.",
+          },
+          {
+            title: "Stratégie de défense",
+            description:
+              "Analyse des pièces, qualification juridique des faits, choix de la ligne de défense et préparation des témoins.",
+          },
+          {
+            title: "Représentation à l'audience",
+            description:
+              "Plaidoirie ferme et respectueuse, exploitation des nullités de procédure et des éléments à décharge.",
+          },
+          {
+            title: "Suites du jugement",
+            description:
+              "Appel ou pourvoi en cassation si nécessaire, suivi de l'exécution de la peine et des aménagements possibles.",
+          },
+        ],
+        documentsTitle: "Documents utiles à préparer",
+        documents: [
+          "Convocation, procès-verbal ou mandat reçu.",
+          "Carte d'identité ou passeport.",
+          "Pièces relatives aux faits (échanges, factures, témoignages, photographies).",
+          "Documents médicaux en cas de violences subies.",
+        ],
+        faqTitle: "Questions fréquentes",
+        faqs: [
+          {
+            question: "Puis-je être assisté dès la garde à vue ?",
+            answer:
+              "Oui. Le droit tunisien permet l'assistance d'un avocat dès le début de la garde à vue. Le cabinet peut intervenir en urgence pour protéger vos droits dès la première audition.",
+          },
+          {
+            question: "Que faire si je reçois une convocation ?",
+            answer:
+              "Ne vous présentez jamais seul. Contactez le cabinet en amont pour préparer l'audition, anticiper les suites et éviter les déclarations qui pourraient vous nuire.",
+          },
+          {
+            question: "Puis-je me constituer partie civile en tant que victime ?",
+            answer:
+              "Oui. Le cabinet vous accompagne pour faire valoir vos droits et obtenir réparation, que ce soit devant le juge d'instruction ou lors du procès au fond.",
+          },
+        ],
+        relatedTitle: "Pages utiles",
+        relatedLinks: [
+          {
+            path: "/services/droit-de-la-famille",
+            label: "Droit de la famille",
+            description: "Violences conjugales et protection des proches.",
+          },
+          {
+            path: "/services/droit-des-affaires",
+            label: "Droit des affaires",
+            description: "Abus de confiance et délits liés à l'entreprise.",
+          },
+          {
+            path: "/contact",
+            label: "Demander une consultation",
+            description: "Premier contact confidentiel et rapide.",
+          },
+        ],
+        primaryCta: "Demander une consultation",
+        secondaryCta: "Contact WhatsApp",
+      },
+      en: {
+        key: "criminal",
+        eyebrow: "Kairouan . Tunis . Criminal law",
+        title: "Criminal lawyer in Tunisia",
+        lede:
+          "Criminal defence at police custody, investigation and trial. Clear strategy and a properly prepared file, in Kairouan, Tunis and remotely.",
+        introTitle: "A firm presence from day one",
+        intro:
+          "Criminal proceedings combine urgency, personal stakes and lasting consequences. The firm steps in at the police-custody stage, builds your defence, supports you before the investigating judge and pleads at trial. We protect your rights at every step, without judgment and with a clear voice.",
+        highlightsTitle: "Common matters handled",
+        highlights: [
+          "Defence before cantonal courts, the court of first instance, court of appeal and court of cassation.",
+          "Immediate assistance during police custody, questioning and confrontation.",
+          "Civil-party representation for victims (violence, theft, fraud, accidents).",
+          "Financial offences, breach of trust and corporate-related charges.",
+          "Domestic violence and family-related offences with coordinated follow-up.",
+        ],
+        processTitle: "How we work your case",
+        process: [
+          {
+            title: "Urgent first contact",
+            description:
+              "Rapid assessment of the situation, verification of procedure and your rights, immediate attendance if needed.",
+          },
+          {
+            title: "Defence strategy",
+            description:
+              "Review of the file, legal qualification of the facts, choice of defence line and witness preparation.",
+          },
+          {
+            title: "Court representation",
+            description:
+              "Firm and respectful pleading, use of procedural nullities and any exculpatory evidence.",
+          },
+          {
+            title: "Post-judgment",
+            description:
+              "Appeal or cassation if needed, follow-up on sentence enforcement and possible adjustments.",
+          },
+        ],
+        documentsTitle: "Documents to prepare",
+        documents: [
+          "Summons, police report or warrant received.",
+          "ID card or passport.",
+          "Documents relating to the facts (messages, invoices, witnesses, photos).",
+          "Medical reports in case of violence suffered.",
+        ],
+        faqTitle: "Frequently asked questions",
+        faqs: [
+          {
+            question: "Can I have a lawyer present from police custody?",
+            answer:
+              "Yes. Tunisian law allows counsel from the beginning of police custody. The firm can intervene urgently to protect your rights from the first questioning.",
+          },
+          {
+            question: "What should I do if I receive a summons?",
+            answer:
+              "Never appear alone. Contact the firm in advance to prepare the hearing, anticipate the next steps and avoid statements that could harm you.",
+          },
+          {
+            question: "Can I act as a civil party as a victim?",
+            answer:
+              "Yes. The firm supports you in asserting your rights and obtaining compensation, whether before the investigating judge or at the trial on the merits.",
+          },
+        ],
+        relatedTitle: "Useful pages",
+        relatedLinks: [
+          {
+            path: "/services/droit-de-la-famille",
+            label: "Family law",
+            description: "Domestic violence and protection of loved ones.",
+          },
+          {
+            path: "/services/droit-des-affaires",
+            label: "Business law",
+            description: "Breach of trust and corporate-related offences.",
+          },
+          {
+            path: "/contact",
+            label: "Request a consultation",
+            description: "Confidential first contact, handled quickly.",
+          },
+        ],
+        primaryCta: "Request a consultation",
+        secondaryCta: "WhatsApp contact",
+      },
+      ar: {
+        key: "criminal",
+        eyebrow: "القيروان . تونس . القانون الجزائي",
+        title: "محامي قانون جزائي في تونس",
+        lede:
+          "دفاع جزائي في طور الاحتفاظ والتحقيق والمحاكمة. استراتيجية واضحة وإعداد دقيق للملف في القيروان وتونس وعن بعد.",
+        introTitle: "حضور حازم منذ اليوم الأول",
+        intro:
+          "القانون الجزائي يجمع بين الاستعجال والرهانات الشخصية الثقيلة والعواقب الدائمة. يتدخل المكتب منذ مرحلة الاحتفاظ، ويبني الدفاع، ويرافقك أمام قاضي التحقيق ويترافع في الجلسة. نحمي حقوقك في كل مرحلة، بدون أحكام مسبقة وبخطاب واضح.",
+        highlightsTitle: "ملفات مرافقة شائعة",
+        highlights: [
+          "الدفاع أمام محكمة الناحية والمحكمة الابتدائية ومحكمة الاستئناف ومحكمة التعقيب.",
+          "مرافقة فورية في طور الاحتفاظ والاستنطاق والمواجهة.",
+          "القيام بالحق الشخصي للضحايا (عنف، سرقة، نصب، حوادث).",
+          "جرائم مالية وخيانة أمانة وملفات تتعلق بالمؤسسة.",
+          "العنف الزوجي والجرائم المتصلة بالأسرة بمتابعة منسقة.",
+        ],
+        processTitle: "كيف نعالج ملفك",
+        process: [
+          {
+            title: "اتصال أول عاجل",
+            description:
+              "تقييم سريع للوضعية، التثبت من الإجراءات وحقوقك، التنقل الفوري عند الاقتضاء.",
+          },
+          {
+            title: "استراتيجية الدفاع",
+            description:
+              "تحليل الوثائق، التكييف القانوني للوقائع، اختيار خط الدفاع وإعداد الشهود.",
+          },
+          {
+            title: "الترافع في الجلسة",
+            description:
+              "ترافع حازم ومحترم، استثمار البطلانات الإجرائية والعناصر التي في صالحك.",
+          },
+          {
+            title: "ما بعد الحكم",
+            description:
+              "الاستئناف أو التعقيب عند الاقتضاء، متابعة تنفيذ العقوبة والتسهيلات الممكنة.",
+          },
+        ],
+        documentsTitle: "وثائق مفيدة للتحضير",
+        documents: [
+          "الاستدعاء أو محضر البحث أو بطاقة الجلب المتلقاة.",
+          "بطاقة التعريف الوطنية أو جواز السفر.",
+          "الوثائق المتعلقة بالوقائع (مراسلات، فواتير، شهادات، صور).",
+          "الشهائد الطبية في حال التعرض للعنف.",
+        ],
+        faqTitle: "أسئلة متكررة",
+        faqs: [
+          {
+            question: "هل يمكن الاستعانة بمحامي منذ بداية الاحتفاظ؟",
+            answer:
+              "نعم. يضمن القانون التونسي حضور المحامي منذ بداية الاحتفاظ. يمكن للمكتب التدخل عاجلا لحماية حقوقك من أول استنطاق.",
+          },
+          {
+            question: "ماذا أفعل إذا تلقيت استدعاء؟",
+            answer:
+              "لا تحضر بمفردك. اتصل بالمكتب مسبقا لتحضير الاستنطاق واستباق التبعات وتفادي تصريحات قد تضر بك.",
+          },
+          {
+            question: "هل يمكنني القيام بالحق الشخصي بصفتي ضحية؟",
+            answer:
+              "نعم. يرافقك المكتب للمطالبة بحقوقك والحصول على التعويض، أمام قاضي التحقيق أو في المحاكمة في الأصل.",
+          },
+        ],
+        relatedTitle: "صفحات مفيدة",
+        relatedLinks: [
+          {
+            path: "/services/droit-de-la-famille",
+            label: "قانون الأسرة",
+            description: "العنف الزوجي وحماية الأقارب.",
+          },
+          {
+            path: "/services/droit-des-affaires",
+            label: "قانون الأعمال",
+            description: "خيانة الأمانة والجرائم المتعلقة بالمؤسسة.",
+          },
+          {
+            path: "/contact",
+            label: "طلب استشارة قانونية",
+            description: "اتصال أول سري وسريع.",
+          },
+        ],
+        primaryCta: "طلب استشارة قانونية",
+        secondaryCta: "واتساب",
       },
     },
   },

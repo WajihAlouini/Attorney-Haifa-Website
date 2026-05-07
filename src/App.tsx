@@ -61,6 +61,11 @@ const RealEstateLawPage = lazy(() =>
     default: m.RealEstateLawPage,
   }))
 );
+const CriminalLawPage = lazy(() =>
+  import("@/pages/services/CriminalLawPage").then((m) => ({
+    default: m.CriminalLawPage,
+  }))
+);
 const BlogIndex = lazy(() =>
   import("@/pages/blog/BlogIndex").then((m) => ({ default: m.default }))
 );
@@ -330,6 +335,21 @@ function AppContent() {
             <AnimatedPage>
               <Suspense fallback={<LoadingFallback />}>
                 <RealEstateLawPage
+                  locale={locale}
+                  t={t}
+                  whatsappLink={whatsappLink}
+                  whatsappNumber={whatsappNumber}
+                />
+              </Suspense>
+            </AnimatedPage>
+          }
+        />
+        <Route
+          path="/services/droit-penal"
+          element={
+            <AnimatedPage>
+              <Suspense fallback={<LoadingFallback />}>
+                <CriminalLawPage
                   locale={locale}
                   t={t}
                   whatsappLink={whatsappLink}

@@ -174,6 +174,32 @@ export const seoData: Record<string, LocalizedSEOData> = {
     },
   },
 
+  "/services/droit-penal": {
+    fr: {
+      title: "Avocat Pénal | Défense & Partie Civile | Kairouan",
+      description:
+        "Avocat pénaliste à Kairouan et Tunis. Défense en garde à vue, instruction, audience et représentation des victimes en partie civile. Intervention rapide.",
+      keywords:
+        "avocat penal tunisie, avocat penaliste, garde a vue, partie civile, defense penale tunisie",
+      image: "https://maitre-haifaguedhami.me/office/office1.webp",
+    },
+    en: {
+      title: "Criminal Lawyer | Defence & Civil Party | Kairouan",
+      description:
+        "Criminal lawyer in Kairouan and Tunis. Defence at police custody, investigation and trial; civil-party representation for victims. Rapid response.",
+      keywords:
+        "criminal lawyer tunisia, criminal defence, police custody, civil party, criminal trial tunisia",
+      image: "https://maitre-haifaguedhami.me/office/office1.webp",
+    },
+    ar: {
+      title: "محامي جزائي | دفاع وقيام بالحق الشخصي | القيروان",
+      description:
+        "محامية جزائية في القيروان وتونس. دفاع في الاحتفاظ والتحقيق والجلسة وتمثيل الضحايا في القيام بالحق الشخصي. تدخل سريع.",
+      keywords: "محامي جزائي تونس, محامي جنائي, احتفاظ, قيام بالحق الشخصي, دفاع جزائي",
+      image: "https://maitre-haifaguedhami.me/office/office1.webp",
+    },
+  },
+
   "/avocat-divorce-tunisie": {
     fr: {
       title: "Avocat Divorce Tunisie | Garde & Pension",

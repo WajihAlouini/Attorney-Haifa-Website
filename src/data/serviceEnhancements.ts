@@ -370,6 +370,122 @@ const serviceEnhancements: Record<ServiceDetailKey, ServiceEnhancementDefinition
       ],
     },
   },
+  criminal: {
+    fr: {
+      proofTitle: "Ce que le cabinet sécurise",
+      proofPoints: [
+        "Une présence à chaque étape, de la garde à vue à l'exécution du jugement.",
+        "Une stratégie écrite, exploitant les nullités et les éléments à décharge.",
+        "Une communication claire sur les risques, les délais et les voies de recours.",
+      ],
+      timingTitle: "Quand consulter sans attendre",
+      timingPoints: [
+        "Si vous êtes convoqué, placé en garde à vue ou si une perquisition est annoncée.",
+        "Si une audience pénale approche ou si un jugement vient d'être rendu.",
+        "Si vous êtes victime et qu'une plainte ou une constitution de partie civile est utile.",
+      ],
+      coverageTitle: "Couverture et langues de travail",
+      coveragePoints: [
+        "Cabinet basé à Kairouan avec déplacements à Tunis et dans les juridictions voisines.",
+        "Intervention en urgence, y compris en dehors des heures ouvrables si nécessaire.",
+        "Consultations possibles en français, arabe et anglais.",
+      ],
+      localTitle: "Pages locales à consulter",
+      localLinks: [
+        {
+          path: "/avocat-kairouan",
+          label: "Cabinet d'avocat à Kairouan",
+          description: "Vue d'ensemble locale du cabinet, utile en première approche.",
+        },
+        {
+          path: "/consultation-juridique-kairouan",
+          label: "Consultation juridique à Kairouan",
+          description: "Pour cadrer rapidement une convocation ou une situation pénale.",
+        },
+        {
+          path: "/avocat-penal-tunisie",
+          label: "Avocat pénaliste en Tunisie",
+          description: "Page nationale dédiée à la défense pénale et à la partie civile.",
+        },
+      ],
+    },
+    en: {
+      proofTitle: "What the firm protects",
+      proofPoints: [
+        "A presence at every step, from police custody to sentence enforcement.",
+        "A written strategy, leveraging procedural nullities and exculpatory evidence.",
+        "Clear communication on risk, deadlines and avenues for appeal.",
+      ],
+      timingTitle: "When not to wait",
+      timingPoints: [
+        "If you are summoned, placed in police custody, or facing an announced search.",
+        "If a criminal hearing is approaching or a judgment has just been rendered.",
+        "If you are a victim and a complaint or civil-party action is appropriate.",
+      ],
+      coverageTitle: "Coverage and working languages",
+      coveragePoints: [
+        "Firm based in Kairouan with travel to Tunis and neighbouring jurisdictions.",
+        "Urgent intervention available, including outside office hours when needed.",
+        "Consultations available in French, Arabic and English.",
+      ],
+      localTitle: "Relevant local pages",
+      localLinks: [
+        {
+          path: "/avocat-kairouan",
+          label: "Lawyer in Kairouan",
+          description: "Local overview of the firm, useful as a first reading.",
+        },
+        {
+          path: "/consultation-juridique-kairouan",
+          label: "Legal consultation in Kairouan",
+          description: "To quickly frame a summons or a criminal-law situation.",
+        },
+        {
+          path: "/avocat-penal-tunisie",
+          label: "Criminal lawyer in Tunisia",
+          description: "National page dedicated to criminal defence and civil-party action.",
+        },
+      ],
+    },
+    ar: {
+      proofTitle: "ما يضمنه المكتب",
+      proofPoints: [
+        "حضور في كل مرحلة، من الاحتفاظ إلى تنفيذ الحكم.",
+        "استراتيجية مكتوبة تستثمر البطلانات الإجرائية والعناصر في صالحك.",
+        "تواصل واضح حول المخاطر والآجال وطرق الطعن.",
+      ],
+      timingTitle: "متى تتم الاستشارة دون تأخير",
+      timingPoints: [
+        "إذا تلقيت استدعاء أو وُضعت تحت الاحتفاظ أو واجهت تفتيشا مرتقبا.",
+        "إذا اقتربت جلسة جزائية أو صدر حكم حديثا.",
+        "إذا كنت ضحية وكانت الشكاية أو القيام بالحق الشخصي مناسبة.",
+      ],
+      coverageTitle: "التغطية ولغات العمل",
+      coveragePoints: [
+        "مكتب مقرّه القيروان مع تنقلات إلى تونس والمحاكم المجاورة.",
+        "تدخل عاجل ممكن، حتى خارج ساعات العمل عند الضرورة.",
+        "استشارات بالفرنسية والعربية والإنجليزية.",
+      ],
+      localTitle: "صفحات محلية مفيدة",
+      localLinks: [
+        {
+          path: "/avocat-kairouan",
+          label: "مكتب محاماة في القيروان",
+          description: "نظرة محلية شاملة على المكتب مفيدة كقراءة أولى.",
+        },
+        {
+          path: "/consultation-juridique-kairouan",
+          label: "استشارة قانونية في القيروان",
+          description: "لتأطير سريع لاستدعاء أو وضعية جزائية.",
+        },
+        {
+          path: "/avocat-penal-tunisie",
+          label: "محامي جزائي في تونس",
+          description: "صفحة وطنية مخصصة للدفاع الجزائي والقيام بالحق الشخصي.",
+        },
+      ],
+    },
+  },
 };
 
 export function getServiceEnhancement(serviceKey: ServiceDetailKey, locale: string) {

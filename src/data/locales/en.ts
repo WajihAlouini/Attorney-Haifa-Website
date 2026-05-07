@@ -72,6 +72,11 @@ export const en: Translation = {
       summary:
         "Transaction security, title disputes, construction law, and property management advisory.",
     },
+    {
+      title: "Criminal Law",
+      summary:
+        "Defence at police custody, investigation and trial; civil-party representation for victims.",
+    },
   ],
   approachEyebrow: "How We Work Together",
   approachHeading: "Step-by-Step Guidance.",
@@ -145,6 +150,7 @@ export const en: Translation = {
     office: "Office",
   },
   contactOffice: "Beb Djelladine next to Dhib Pharmacy, Martyrs Street",
+  formTitle: "Send us a message",
   form: {
     nameLabel: "Full Name",
     namePlaceholder: "Enter your full name",
@@ -157,6 +163,7 @@ export const en: Translation = {
     defaultName: "Prospective Client",
     defaultOrg: "Individual",
   },
+  mapTitle: "Our Kairouan Office",
   mapLabel: "Location Map",
   mapLinkLabel: "Open in Google Maps",
   galleryEyebrow: "The Firm",

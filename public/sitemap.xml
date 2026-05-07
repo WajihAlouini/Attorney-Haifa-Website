@@ -76,6 +76,17 @@
   </url>
 
   <url>
+    <loc>https://maitre-haifaguedhami.me/services/droit-penal</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/services/droit-penal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/services/droit-penal?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/services/droit-penal?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/services/droit-penal"/>
+  </url>
+
+  <url>
     <loc>https://maitre-haifaguedhami.me/values</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -118,6 +129,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/code-du-travail-tunisie?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/code-du-travail-tunisie?lang=ar"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/code-du-travail-tunisie"/>
+  </url>
+
+  <url>
+    <loc>https://maitre-haifaguedhami.me/avocat-penal-tunisie</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/avocat-penal-tunisie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/avocat-penal-tunisie?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/avocat-penal-tunisie?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/avocat-penal-tunisie"/>
   </url>
 
   <url>

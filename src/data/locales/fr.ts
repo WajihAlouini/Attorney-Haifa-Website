@@ -72,6 +72,11 @@ export const fr: Translation = {
       summary:
         "Sécurité des transactions, litiges de propriété, droit de la construction et gestion immobilière.",
     },
+    {
+      title: "Droit Pénal",
+      summary:
+        "Défense en garde à vue, instruction et audience ; représentation des victimes en partie civile.",
+    },
   ],
   approachEyebrow: "Comment Nous Travaillons Ensemble",
   approachHeading: "Un Accompagnement Pas à Pas.",
@@ -147,6 +152,7 @@ export const fr: Translation = {
     office: "Bureau",
   },
   contactOffice: "Beb Djelladine à côté de pharmacie Dhib, Rue des Martyrs",
+  formTitle: "Envoyez-nous un message",
   form: {
     nameLabel: "Nom Complet",
     namePlaceholder: "Entrez votre nom complet",
@@ -159,6 +165,7 @@ export const fr: Translation = {
     defaultName: "Client Potentiel",
     defaultOrg: "Particulier",
   },
+  mapTitle: "Notre Cabinet à Kairouan",
   mapLabel: "Plan d'accès",
   mapLinkLabel: "Ouvrir dans Google Maps",
   galleryEyebrow: "Le Cabinet",
