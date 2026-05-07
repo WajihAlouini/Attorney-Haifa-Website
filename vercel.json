@@ -23,5 +23,69 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "en" }],
+      "destination": "/__locale/en/index.html"
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
+      "destination": "/__locale/ar/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "query", "key": "lang", "value": "en" }],
+      "destination": "/__locale/en/:path*/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
+      "destination": "/__locale/ar/:path*/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/actualites/labour-code-reform-2025",
+      "destination": "/actualites/reforme-code-du-travail-2025",
+      "permanent": true
+    },
+    {
+      "source": "/actualites/property-law-foreigners-tunisia-2026",
+      "destination": "/actualites/immobilier-etrangers-tunisie-2026",
+      "permanent": true
+    },
+    {
+      "source": "/actualites/shared-custody-reform-tunisia",
+      "destination": "/actualites/reforme-famille-garde-partagee-tunisie",
+      "permanent": true
+    },
+    {
+      "source": "/actualites/new-foreign-exchange-code-tunisia-2026",
+      "destination": "/actualites/nouveau-code-des-changes-tunisie-2026",
+      "permanent": true
+    },
+    {
+      "source": "/actualites/islah-majallat-alshughl-2025",
+      "destination": "/actualites/reforme-code-du-travail-2025",
+      "permanent": true
+    },
+    {
+      "source": "/actualites/aqaraat-ajanib-tunis-2026",
+      "destination": "/actualites/immobilier-etrangers-tunisie-2026",
+      "permanent": true
+    },
+    {
+      "source": "/actualites/hadhanat-mushtaraka-tunis",
+      "destination": "/actualites/reforme-famille-garde-partagee-tunisie",
+      "permanent": true
+    },
+    {
+      "source": "/actualites/qanoon-alsarf-aljadid-tunis-2026",
+      "destination": "/actualites/nouveau-code-des-changes-tunisie-2026",
+      "permanent": true
+    }
   ]
 }
