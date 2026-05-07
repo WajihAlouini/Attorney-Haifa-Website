@@ -24,28 +24,6 @@
       ]
     }
   ],
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [{ "type": "query", "key": "lang", "value": "en" }],
-      "destination": "/__locale/en/index.html"
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
-      "destination": "/__locale/ar/index.html"
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "query", "key": "lang", "value": "en" }],
-      "destination": "/__locale/en/:path*/index.html"
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
-      "destination": "/__locale/ar/:path*/index.html"
-    }
-  ],
   "redirects": [
     {
       "source": "/actualites/labour-code-reform-2025",
@@ -86,6 +64,48 @@
       "source": "/actualites/qanoon-alsarf-aljadid-tunis-2026",
       "destination": "/actualites/nouveau-code-des-changes-tunisie-2026",
       "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/services/:slug",
+      "has": [{ "type": "query", "key": "lang", "value": "en" }],
+      "destination": "/__locale/en/services/:slug/index.html"
+    },
+    {
+      "source": "/services/:slug",
+      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
+      "destination": "/__locale/ar/services/:slug/index.html"
+    },
+    {
+      "source": "/actualites/:slug",
+      "has": [{ "type": "query", "key": "lang", "value": "en" }],
+      "destination": "/__locale/en/actualites/:slug/index.html"
+    },
+    {
+      "source": "/actualites/:slug",
+      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
+      "destination": "/__locale/ar/actualites/:slug/index.html"
+    },
+    {
+      "source": "/:slug",
+      "has": [{ "type": "query", "key": "lang", "value": "en" }],
+      "destination": "/__locale/en/:slug/index.html"
+    },
+    {
+      "source": "/:slug",
+      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
+      "destination": "/__locale/ar/:slug/index.html"
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "en" }],
+      "destination": "/__locale/en/index.html"
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
+      "destination": "/__locale/ar/index.html"
     }
   ]
 }
