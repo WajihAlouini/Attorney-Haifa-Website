@@ -19,25 +19,25 @@ export interface LocalizedSEOData {
 export const seoData: Record<string, LocalizedSEOData> = {
   "/": {
     fr: {
-      title: "Avocat Kairouan & Tunis | Maître Haifa Guedhami Alouini",
+      title: "Avocat à Kairouan | Dossiers en Tunisie",
       description:
-        "Besoin d'un avocat en Tunisie ? Cabinet à Kairouan et Tunis : divorce, immobilier, affaires et contentieux. Consultation rapide, suivi personnalisé.",
+        "Cabinet d'avocat basé à Kairouan. Divorce, immobilier, affaires et contentieux avec suivi à distance ou déplacement en Tunisie sur accord préalable.",
       keywords:
         "avocat tunisie, avocat kairouan, avocat tunis, droit de la famille, divorce tunisie, droit immobilier, droit des affaires, محامي القيروان",
       image: "https://maitre-haifaguedhami.me/office/entry.webp",
     },
     en: {
-      title: "Lawyer Kairouan & Tunis | Haifa Guedhami Alouini",
+      title: "Lawyer in Kairouan | Cases Across Tunisia",
       description:
-        "Need a lawyer in Tunisia? Law firm in Kairouan and Tunis: divorce, real estate, business and litigation. Fast consultation, personalized follow-up.",
+        "Law firm based in Kairouan for divorce, real estate, business and litigation, with remote follow-up or planned travel across Tunisia.",
       keywords:
         "lawyer tunisia, lawyer kairouan, lawyer tunis, family law, divorce tunisia, real estate law, business law",
       image: "https://maitre-haifaguedhami.me/office/entry.webp",
     },
     ar: {
-      title: "محامية القيروان وتونس | هيفاء القضامي العلويني",
+      title: "محامية في القيروان | متابعة في تونس",
       description:
-        "تحتاج محامي في تونس؟ مكتب محاماة في القيروان وتونس: طلاق، عقار، أعمال ونزاعات. استشارة سريعة ومتابعة شخصية. اتصل الآن للحصول على موعد.",
+        "مكتب محاماة مقره القيروان لقضايا الطلاق والعقار والأعمال والنزاعات، مع متابعة عن بعد أو تنقل منظم داخل تونس حسب الملف.",
       keywords:
         "محامي تونس, محامي القيروان, محامي قانون الاسرة, طلاق تونس, قانون عقاري, قانون اعمال",
       image: "https://maitre-haifaguedhami.me/office/entry.webp",
@@ -48,7 +48,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     fr: {
       title: "À Propos | Maître Haifa Guedhami Alouini",
       description:
-        "Parcours, expérience et approche de Maître Haifa Guedhami Alouini, avocate à Kairouan et Tunis. Plus de 25 ans au service du droit en Tunisie.",
+        "Parcours, expérience et approche de Maître Haifa Guedhami Alouini, avocate basée à Kairouan avec suivi de dossiers en Tunisie.",
       keywords:
         "biographie avocat tunisie, experience juridique, avocat kairouan tunis",
       image: "https://maitre-haifaguedhami.me/portrait/portrait.webp",
@@ -56,7 +56,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     en: {
       title: "About | Attorney Haifa Guedhami Alouini",
       description:
-        "Career, experience and approach of Attorney Haifa Guedhami Alouini, lawyer in Kairouan and Tunis, Tunisia. Over 25 years of dedicated legal practice.",
+        "Career, experience and approach of Attorney Haifa Guedhami Alouini, a Kairouan-based lawyer following matters across Tunisia.",
       keywords:
         "lawyer biography tunisia, legal experience, attorney kairouan tunis",
       image: "https://maitre-haifaguedhami.me/portrait/portrait.webp",
@@ -64,7 +64,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     ar: {
       title: "نبذة عني | المحامية هيفاء القضامي العلويني",
       description:
-        "مسار وتجربة ومنهجية المحامية هيفاء القضامي العلويني، محامية في القيروان وتونس. أكثر من 25 سنة من الممارسة القانونية المتفانية في خدمة موكليها.",
+        "مسار وتجربة ومنهجية المحامية هيفاء القضامي العلويني، محامية مقرها القيروان وتتابع ملفات في تونس حسب طبيعة القضية.",
       keywords: "سيرة ذاتية محامي تونس, تجربة قانونية, محامية القيروان تونس",
       image: "https://maitre-haifaguedhami.me/portrait/portrait.webp",
     },
@@ -72,25 +72,25 @@ export const seoData: Record<string, LocalizedSEOData> = {
 
   "/services": {
     fr: {
-      title: "Domaines de Pratique | Avocat Kairouan et Tunis",
+      title: "Domaines de Pratique | Cabinet à Kairouan",
       description:
-        "Services juridiques en Tunisie : droit de la famille, droit immobilier et droit des affaires. Conseil et contentieux à Kairouan et Tunis.",
+        "Services juridiques en Tunisie : famille, immobilier, affaires et pénal. Cabinet à Kairouan avec suivi à distance ou déplacement organisé.",
       keywords:
         "services juridiques tunisie, avocat famille, avocat immobilier, avocat affaires",
       image: "https://maitre-haifaguedhami.me/office/hallway.webp",
     },
     en: {
-      title: "Practice Areas | Lawyer Kairouan & Tunis",
+      title: "Practice Areas | Kairouan Law Firm",
       description:
-        "Legal services in Tunisia: family law, real estate law and business law. Expert counsel and litigation in Kairouan and Tunis for individuals and companies.",
+        "Legal services in Tunisia: family, real estate, business and criminal law. Kairouan office with remote follow-up or planned travel.",
       keywords:
         "legal services tunisia, family lawyer, real estate lawyer, business lawyer",
       image: "https://maitre-haifaguedhami.me/office/hallway.webp",
     },
     ar: {
-      title: "مجالات الممارسة | محامية القيروان وتونس",
+      title: "مجالات الممارسة | مكتب في القيروان",
       description:
-        "خدمات قانونية في تونس: قانون الأسرة والعقاري والأعمال. استشارة وتمثيل قانوني في القيروان وتونس للأفراد والشركات بخبرة تفوق 25 سنة.",
+        "خدمات قانونية في تونس: الأسرة والعقار والأعمال والجزائي. مكتب في القيروان مع متابعة عن بعد أو تنقل منظم حسب الملف.",
       keywords: "خدمات قانونية تونس, محامي اسرة, محامي عقاري, محامي اعمال",
       image: "https://maitre-haifaguedhami.me/office/hallway.webp",
     },
@@ -98,9 +98,9 @@ export const seoData: Record<string, LocalizedSEOData> = {
 
   "/services/droit-de-la-famille": {
     fr: {
-      title: "Avocat Famille Kairouan & Tunis | Divorce, Garde",
+      title: "Avocat Famille Kairouan | Divorce, Garde",
       description:
-        "Avocat droit de la famille à Kairouan et Tunis. Divorce, garde d'enfants, pension alimentaire et succession. Consultation personnalisée et suivi dédié.",
+        "Avocat droit de la famille basé à Kairouan. Divorce, garde d'enfants, pension alimentaire et succession avec suivi en Tunisie.",
       keywords:
         "avocat divorce tunisie, droit de la famille, garde d'enfants, pension alimentaire",
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
@@ -108,7 +108,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     en: {
       title: "Family Lawyer | Divorce & Custody | Kairouan",
       description:
-        "Family law attorney in Kairouan and Tunis for divorce, child custody, alimony and succession cases in Tunisia. Personalized consultation and follow-up.",
+        "Kairouan-based family law attorney for divorce, child custody, alimony and succession cases in Tunisia. Personalized follow-up.",
       keywords:
         "family lawyer tunisia, divorce attorney, child custody tunisia, alimony",
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
@@ -116,7 +116,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     ar: {
       title: "محامي قانون الأسرة | طلاق وحضانة | القيروان",
       description:
-        "محامية قانون الأسرة في القيروان وتونس. مرافقة قانونية في قضايا الطلاق والحضانة والنفقة والميراث. استشارة شخصية ومتابعة مخصصة لكل ملف.",
+        "محامية قانون الأسرة مقرها القيروان. مرافقة قانونية في قضايا الطلاق والحضانة والنفقة والميراث مع متابعة داخل تونس.",
       keywords: "محامي طلاق تونس, قانون الاسرة, حضانة اطفال, نفقة تونس",
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
     },
@@ -126,7 +126,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     fr: {
       title: "Avocat Affaires | Entreprises | Kairouan - Tunis",
       description:
-        "Conseil et contentieux pour entreprises en Tunisie : création de sociétés, contrats commerciaux et litiges d'affaires à Kairouan et Tunis.",
+        "Conseil et contentieux pour entreprises en Tunisie : création de sociétés, contrats commerciaux et litiges. Cabinet basé à Kairouan.",
       keywords:
         "avocat affaires tunisie, contrat commercial, creation societe, litige commercial",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
@@ -134,7 +134,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     en: {
       title: "Business Lawyer | Companies | Kairouan - Tunis",
       description:
-        "Legal advisory and litigation for companies in Tunisia: formation, commercial contracts and business disputes. Expert counsel in Kairouan and Tunis.",
+        "Legal advisory and litigation for companies in Tunisia: formation, commercial contracts and business disputes from a Kairouan office.",
       keywords:
         "business lawyer tunisia, commercial contract, company formation, commercial dispute",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
@@ -142,7 +142,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     ar: {
       title: "محامي أعمال | شركات وعقود | القيروان - تونس",
       description:
-        "استشارة وتمثيل قانوني للشركات في تونس: تأسيس شركات، عقود تجارية ونزاعات أعمال. خبرة موثوقة في القيروان وتونس لحماية مصالحكم.",
+        "استشارة وتمثيل قانوني للشركات في تونس: تأسيس شركات، عقود تجارية ونزاعات أعمال. مكتب موثوق في القيروان.",
       keywords: "محامي اعمال تونس, عقد تجاري, تأسيس شركة, نزاع تجاري",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
     },
@@ -152,7 +152,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     fr: {
       title: "Avocat Immobilier | Kairouan - Tunis | Litiges",
       description:
-        "Avocat droit immobilier à Kairouan et Tunis. Sécurisez vos transactions, vérifications foncières et résolvez vos litiges de propriété en Tunisie.",
+        "Avocat droit immobilier basé à Kairouan. Transactions, vérifications foncières et litiges de propriété suivis en Tunisie.",
       keywords:
         "avocat immobilier tunisie, litige propriete, transaction immobiliere, bail commercial",
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
@@ -160,7 +160,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     en: {
       title: "Real Estate Lawyer | Kairouan - Tunis",
       description:
-        "Real estate attorney in Kairouan and Tunis. Secure your property transactions, title verification and resolve real estate disputes across Tunisia.",
+        "Real estate attorney based in Kairouan. Secure property transactions, title verification and real estate disputes across Tunisia.",
       keywords:
         "real estate lawyer tunisia, property dispute, property transaction, commercial lease",
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
@@ -168,7 +168,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     ar: {
       title: "محامي عقاري | معاملات ونزاعات | القيروان",
       description:
-        "محامية عقارية في القيروان وتونس. تأمين معاملاتك العقارية والتحقق من السندات وحل نزاعات الملكية. خبرة واسعة في القانون العقاري التونسي.",
+        "محامية عقارية مقرها القيروان. تأمين معاملاتك العقارية والتحقق من السندات وحل نزاعات الملكية في تونس.",
       keywords: "محامي عقاري تونس, نزاع ملكية, معاملة عقارية, كراء تجاري",
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
     },
@@ -178,7 +178,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     fr: {
       title: "Avocat Pénal | Défense & Partie Civile | Kairouan",
       description:
-        "Avocat pénaliste à Kairouan et Tunis. Défense en garde à vue, instruction, audience et représentation des victimes en partie civile. Intervention rapide.",
+        "Avocat pénaliste basé à Kairouan. Défense en garde à vue, instruction, audience et représentation des victimes en partie civile.",
       keywords:
         "avocat penal tunisie, avocat penaliste, garde a vue, partie civile, defense penale tunisie",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
@@ -186,7 +186,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     en: {
       title: "Criminal Lawyer | Defence & Civil Party | Kairouan",
       description:
-        "Criminal lawyer in Kairouan and Tunis. Defence at police custody, investigation and trial; civil-party representation for victims. Rapid response.",
+        "Criminal lawyer based in Kairouan. Defence at police custody, investigation and trial; civil-party representation for victims.",
       keywords:
         "criminal lawyer tunisia, criminal defence, police custody, civil party, criminal trial tunisia",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
@@ -194,7 +194,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     ar: {
       title: "محامي جزائي | دفاع وقيام بالحق الشخصي | القيروان",
       description:
-        "محامية جزائية في القيروان وتونس. دفاع في الاحتفاظ والتحقيق والجلسة وتمثيل الضحايا في القيام بالحق الشخصي. تدخل سريع.",
+        "محامية جزائية مقرها القيروان. دفاع في الاحتفاظ والتحقيق والجلسة وتمثيل الضحايا في القيام بالحق الشخصي.",
       keywords: "محامي جزائي تونس, محامي جنائي, احتفاظ, قيام بالحق الشخصي, دفاع جزائي",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
     },
@@ -204,7 +204,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     fr: {
       title: "Avocat Divorce Tunisie | Garde & Pension",
       description:
-        "Procédure de divorce en Tunisie ? Avocat spécialisé en garde d'enfants, pension alimentaire et exécution. Consultation rapide à Kairouan et Tunis.",
+        "Procédure de divorce en Tunisie ? Avocat basé à Kairouan, spécialisé en garde d'enfants, pension alimentaire et exécution.",
       keywords:
         "avocat divorce tunisie, avocat famille tunisie, garde enfants tunisie, pension alimentaire tunisie",
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
@@ -220,7 +220,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     ar: {
       title: "محامي طلاق في تونس | حضانة ونفقة",
       description:
-        "محامية طلاق في تونس متخصصة في قضايا الحضانة والنفقة وتنفيذ الأحكام. مرافقة قانونية في القيروان وتونس وعن بعد. استشارة سريعة وشخصية.",
+        "محامية طلاق في تونس متخصصة في قضايا الحضانة والنفقة وتنفيذ الأحكام. مكتب في القيروان ومتابعة عن بعد أو بتنقل منظم.",
       keywords: "محامي طلاق تونس, محامي اسرة تونس, حضانة اطفال تونس, نفقة تونس",
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
     },
@@ -230,7 +230,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     fr: {
       title: "Avocat Immobilier Tunisie | Titres et Litiges",
       description:
-        "Avocat immobilier en Tunisie pour vérification foncière, contrats immobiliers et contentieux de propriété. Cabinet à Kairouan et Tunis, suivi personnalisé.",
+        "Avocat immobilier en Tunisie pour vérification foncière, contrats immobiliers et contentieux. Cabinet à Kairouan, suivi personnalisé.",
       keywords:
         "avocat immobilier tunisie, verification fonciere, litige propriete tunisie, bail commercial tunisie",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
@@ -238,7 +238,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     en: {
       title: "Real Estate Lawyer Tunisia | Titles & Disputes",
       description:
-        "Real estate lawyer in Tunisia for title verification, property contracts and litigation. Law firm in Kairouan and Tunis with personalized case follow-up.",
+        "Real estate lawyer in Tunisia for title verification, property contracts and litigation. Kairouan office with personalized case follow-up.",
       keywords:
         "real estate lawyer tunisia, title verification, property dispute tunisia, commercial lease tunisia",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
@@ -246,7 +246,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     ar: {
       title: "محامي عقاري تونس | سندات ونزاعات ملكية",
       description:
-        "محامية عقارية في تونس لتدقيق الملكية وعقود العقارات والنزاعات العقارية. مكتب في القيروان وتونس مع متابعة شخصية لكل ملف عقاري.",
+        "محامية عقارية في تونس لتدقيق الملكية وعقود العقارات والنزاعات العقارية. مكتب في القيروان مع متابعة شخصية.",
       keywords:
         "محامي عقاري تونس, تدقيق ملكية, نزاع عقاري تونس, كراء تجاري تونس",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
@@ -257,7 +257,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     fr: {
       title: "Avocat Affaires Tunisie | Contrats et Sociétés",
       description:
-        "Avocat droit des affaires en Tunisie : création de société, contrats commerciaux, recouvrement et défense en litige. Cabinet à Kairouan et Tunis.",
+        "Avocat droit des affaires en Tunisie : création de société, contrats commerciaux, recouvrement et défense. Cabinet à Kairouan.",
       keywords:
         "avocat affaires tunisie, creation societe tunisie, contrat commercial tunisie, litige commercial",
       image: "https://maitre-haifaguedhami.me/office/hallway.webp",
@@ -265,7 +265,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     en: {
       title: "Business Lawyer Tunisia | Contracts & Companies",
       description:
-        "Business lawyer in Tunisia for company formation, commercial contracts, debt recovery and litigation defense. Law firm in Kairouan and Tunis.",
+        "Business lawyer in Tunisia for company formation, commercial contracts, debt recovery and litigation defense. Kairouan-based law firm.",
       keywords:
         "business lawyer tunisia, company formation tunisia, commercial contract tunisia, commercial dispute",
       image: "https://maitre-haifaguedhami.me/office/hallway.webp",
@@ -273,7 +273,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     ar: {
       title: "محامي أعمال تونس | عقود وشركات تجارية",
       description:
-        "محامية أعمال في تونس لتأسيس الشركات والعقود التجارية والاستخلاص والدفاع في النزاعات. مكتب محاماة في القيروان وتونس بخبرة واسعة.",
+        "محامية أعمال في تونس لتأسيس الشركات والعقود التجارية والاستخلاص والدفاع في النزاعات. مكتب محاماة في القيروان.",
       keywords: "محامي اعمال تونس, تأسيس شركة تونس, عقد تجاري تونس, نزاع تجاري",
       image: "https://maitre-haifaguedhami.me/office/hallway.webp",
     },
@@ -418,7 +418,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     fr: {
       title: "Code du Travail Tunisie 2025 | Droits et Réforme",
       description:
-        "Guide avocat sur le code du travail en Tunisie 2025 : contrats, licenciement, congés, réforme et droits des salariés. Consultation à Kairouan et Tunis.",
+        "Guide avocat sur le code du travail en Tunisie 2025 : contrats, licenciement, congés, réforme et droits des salariés. Consultation à distance.",
       keywords:
         "code de travail tunisie 2025, code du travail tunisie, loi de travail 2025, code de travail tunisie secteur privé, droit du travail tunisie",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
@@ -426,7 +426,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     en: {
       title: "Tunisia Labour Code 2025 | Rights & Reform",
       description:
-        "Attorney guide to Tunisia labour code 2025: contracts, dismissal, leave, reform and employee rights. Legal consultation in Kairouan and Tunis.",
+        "Attorney guide to Tunisia labour code 2025: contracts, dismissal, leave, reform and employee rights. Remote legal consultation available.",
       keywords:
         "tunisia labour code 2025, labor law tunisia, employment law tunisia, worker rights tunisia, labour code reform tunisia",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
@@ -434,7 +434,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     ar: {
       title: "مجلة الشغل تونس 2025 | حقوق وإصلاح",
       description:
-        "دليل محامية حول مجلة الشغل في تونس 2025: العقود والطرد والعطل والإصلاح وحقوق العمال. استشارة قانونية متخصصة في القيروان وتونس.",
+        "دليل محامية حول مجلة الشغل في تونس 2025: العقود والطرد والعطل والإصلاح وحقوق العمال. استشارة قانونية عن بعد.",
       keywords:
         "مجلة الشغل تونس 2025, قانون الشغل تونس, حقوق العمال تونس, إصلاح مجلة الشغل",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
@@ -443,25 +443,25 @@ export const seoData: Record<string, LocalizedSEOData> = {
 
   "/consultation-juridique-tunisie": {
     fr: {
-      title: "Consultation Juridique Tunisie | Kairouan & Tunis",
+      title: "Consultation Juridique Tunisie | Cabinet à Kairouan",
       description:
-        "Consultation juridique rapide en Tunisie avec plan d'action clair pour particuliers et entreprises. Cabinet à Kairouan et Tunis, suivi personnalisé.",
+        "Consultation juridique rapide en Tunisie avec plan d'action clair. Cabinet à Kairouan, suivi à distance ou déplacement organisé.",
       keywords:
         "consultation juridique tunisie, rendez-vous avocat tunisie, conseil juridique kairouan tunis",
       image: "https://maitre-haifaguedhami.me/office/entry.webp",
     },
     en: {
-      title: "Legal Consultation Tunisia | Kairouan & Tunis",
+      title: "Legal Consultation Tunisia | Kairouan Office",
       description:
-        "Fast legal consultation in Tunisia with a clear action plan for individuals and companies. Law firm in Kairouan and Tunis with personalized follow-up.",
+        "Fast legal consultation in Tunisia with a clear action plan. Kairouan office with remote follow-up or planned travel.",
       keywords:
         "legal consultation tunisia, lawyer appointment tunisia, legal advice kairouan tunis",
       image: "https://maitre-haifaguedhami.me/office/entry.webp",
     },
     ar: {
-      title: "استشارة قانونية تونس | القيروان وتونس",
+      title: "استشارة قانونية تونس | مكتب القيروان",
       description:
-        "استشارة قانونية سريعة في تونس مع خطة عمل واضحة للأفراد والشركات. مكتب محاماة في القيروان وتونس مع متابعة شخصية لكل موكل.",
+        "استشارة قانونية سريعة في تونس مع خطة عمل واضحة للأفراد والشركات. مكتب محاماة في القيروان مع متابعة شخصية.",
       keywords:
         "استشارة قانونية تونس, موعد محامي تونس, نصيحة قانونية القيروان تونس",
       image: "https://maitre-haifaguedhami.me/office/entry.webp",
@@ -472,7 +472,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
     fr: {
       title: "Nos Valeurs | Cabinet Maître Haifa Guedhami Alouini",
       description:
-        "Intégrité, transparence et excellence dans l'accompagnement juridique à Kairouan et Tunis. Des valeurs au service de chaque client et chaque dossier.",
+        "Intégrité, transparence et excellence dans l'accompagnement juridique depuis Kairouan. Des valeurs au service de chaque dossier.",
       keywords:
         "valeurs cabinet avocat, ethique juridique, transparence honoraires",
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
@@ -480,14 +480,14 @@ export const seoData: Record<string, LocalizedSEOData> = {
     en: {
       title: "Our Values | Law Firm Haifa Guedhami Alouini",
       description:
-        "Integrity, transparency and excellence in legal services in Kairouan and Tunis, Tunisia. Values that guide every case and every client relationship.",
+        "Integrity, transparency and excellence in legal services from Kairouan, Tunisia. Values that guide every case and client relationship.",
       keywords: "law firm values, legal ethics, transparent fees tunisia",
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
     },
     ar: {
       title: "قيمنا | مكتب المحامية هيفاء القضامي العلويني",
       description:
-        "النزاهة والشفافية والتميز في الخدمات القانونية بالقيروان وتونس. قيم راسخة في خدمة كل موكل وكل قضية بمهنية عالية وتفان كامل.",
+        "النزاهة والشفافية والتميز في الخدمات القانونية من القيروان. قيم راسخة في خدمة كل موكل وكل قضية بمهنية عالية.",
       keywords: "قيم مكتب محاماة, اخلاقيات قانونية, شفافية أتعاب تونس",
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
     },
@@ -495,25 +495,25 @@ export const seoData: Record<string, LocalizedSEOData> = {
 
   "/contact": {
     fr: {
-      title: "Contact | Avocat Kairouan & Tunis | WhatsApp",
+      title: "Contact | Avocat à Kairouan | WhatsApp",
       description:
-        "Contactez Maître Haifa Guedhami Alouini pour une consultation juridique. Réponse rapide par WhatsApp, email ou au cabinet à Kairouan et Tunis.",
+        "Contactez Maître Haifa Guedhami Alouini. Bureau à Kairouan, réponse rapide par WhatsApp ou email, suivi possible en Tunisie.",
       keywords:
         "contact avocat tunisie, consultation juridique tunis, avocat kairouan whatsapp",
       image: "https://maitre-haifaguedhami.me/office/entry.webp",
     },
     en: {
-      title: "Contact | Lawyer Kairouan & Tunis | WhatsApp",
+      title: "Contact | Lawyer in Kairouan | WhatsApp",
       description:
-        "Contact Attorney Haifa Guedhami Alouini for a legal consultation in Tunisia. Fast response via WhatsApp, email or at the office in Kairouan and Tunis.",
+        "Contact Attorney Haifa Guedhami Alouini. Office in Kairouan, fast response by WhatsApp or email, case follow-up across Tunisia.",
       keywords:
         "contact lawyer tunisia, legal consultation tunis, lawyer kairouan whatsapp",
       image: "https://maitre-haifaguedhami.me/office/entry.webp",
     },
     ar: {
-      title: "تواصل معنا | محامية القيروان وتونس | واتساب",
+      title: "تواصل معنا | محامية في القيروان | واتساب",
       description:
-        "تواصل مع المحامية هيفاء القضامي العلويني لاستشارة قانونية في تونس. رد سريع عبر واتساب أو البريد الإلكتروني أو في المكتب بالقيروان وتونس.",
+        "تواصل مع المحامية هيفاء القضامي العلويني لاستشارة قانونية. المكتب في القيروان والرد سريع عبر واتساب أو البريد الإلكتروني.",
       keywords: "تواصل محامي تونس, استشارة قانونية تونس, محامي القيروان واتساب",
       image: "https://maitre-haifaguedhami.me/office/entry.webp",
     },
