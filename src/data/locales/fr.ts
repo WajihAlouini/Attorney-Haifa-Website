@@ -16,10 +16,10 @@ export const fr: Translation = {
     actualites: "Actualités",
     guides: "Guides",
   },
-  heroEyebrow: "Cabinet à Kairouan · Dossiers partout en Tunisie",
+  heroEyebrow: "Tunis · Kairouan · International",
   heroTitle: "Ne laissez pas le droit décider de votre avenir. Maîtrisez-le.",
   heroLede:
-    "Cabinet physique à Kairouan, avec consultations à distance et suivi de dossiers à Tunis, Nabeul, Sousse, Monastir, Sfax et ailleurs en Tunisie. Maître Haifa Guedhami Alouini vous accompagne avec compassion et expertise dans vos moments juridiques les plus importants.",
+    "Vous n'êtes pas seul dans cette épreuve. Maître Haifa Guedhami Alouini vous accompagne avec compassion et expertise dans vos moments juridiques les plus importants. Que vous traversiez un divorce difficile, un litige commercial ou un défi immobilier, nous sommes à vos côtés pour protéger vos droits et votre avenir.",
   ctas: {
     primary: "Obtenir Justice",
     bookOnline: "Réserver en ligne",
@@ -38,7 +38,7 @@ export const fr: Translation = {
   aboutTrustTitle: "Repères concrets",
   aboutTrustPoints: [
     "25+ ans d'expérience en accompagnement judiciaire et conseil.",
-    "Cabinet basé à Kairouan avec suivi des dossiers à Tunis, Nabeul, Sousse, Monastir, Sfax, Hafouz, El Alaa, Weslatia et à distance.",
+    "Cabinet basé à Kairouan avec suivi des dossiers à Tunis et à distance.",
     "Consultations en français, arabe et anglais selon votre situation.",
     "Intervention en droit de la famille, immobilier, affaires et contentieux.",
   ],
@@ -151,7 +151,7 @@ export const fr: Translation = {
     email: "Email",
     office: "Bureau",
   },
-  contactOffice: "Beb Djelladine à côté de pharmacie Dhib, Rue des Martyrs, Kairouan",
+  contactOffice: "Beb Djelladine à côté de pharmacie Dhib, Rue des Martyrs",
   formTitle: "Envoyez-nous un message",
   form: {
     nameLabel: "Nom Complet",
@@ -222,11 +222,6 @@ export const fr: Translation = {
       question: "Combien cela va-t-il coûter ?",
       answer:
         "Je comprends cette préoccupation. Je vous donne une estimation claire dès le début et nous discutons des options adaptées à votre budget.",
-    },
-    {
-      question: "Le cabinet est à Kairouan. Pouvez-vous suivre mon dossier dans une autre ville ?",
-      answer:
-        "Oui. Le bureau est à Kairouan, mais le cabinet peut suivre des dossiers à Tunis, Nabeul, Sousse, Monastir, Sfax, Hafouz, El Alaa, Weslatia et dans d'autres villes. Quand un déplacement est nécessaire, les honoraires et frais sont expliqués clairement avant le paiement.",
     },
     {
       question: "Combien de temps cela prendra-t-il ?",

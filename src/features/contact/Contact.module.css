@@ -34,28 +34,6 @@
   border-inline-start: 3px solid var(--accent);
 }
 
-.locationNotice {
-  padding: 1rem;
-  border: 1px solid var(--border);
-  border-inline-start: 3px solid var(--accent);
-  background: var(--surface);
-}
-
-.locationNotice strong,
-.locationNotice span {
-  display: block;
-}
-
-.locationNotice strong {
-  color: var(--text);
-  margin-bottom: 0.35rem;
-}
-
-.locationNotice span {
-  color: var(--muted);
-  line-height: 1.6;
-}
-
 .iconWrapper {
   display: flex;
   align-items: center;
@@ -111,15 +89,6 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-}
-
-.formTitle {
-  font-family: "Playfair Display", serif;
-  font-size: 1.75rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--text);
-  margin: 0 0 0.5rem;
 }
 
 .form label {

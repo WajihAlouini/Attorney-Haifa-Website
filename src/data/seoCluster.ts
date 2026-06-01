@@ -237,7 +237,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
       ar: {
         navLabel: "الطلاق في تونس",
         heading: "محامي طلاق في تونس: استراتيجية وحماية وتنفيذ",
-        lede: "مرافقة قانونية في الطلاق والحضانة والنفقة وتنفيذ الأحكام، مع متابعة واضحة من القيروان، داخل تونس وعن بعد.",
+        lede: "مرافقة قانونية في الطلاق والحضانة والنفقة وتنفيذ الأحكام، مع متابعة واضحة في القيروان وتونس وعن بعد.",
         description:
           "مكتب محاماة لقضايا الطلاق في تونس: الإجراءات، الحضانة، النفقة، الوساطة والنزاعات القضائية.",
         keywords:
@@ -512,7 +512,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
           "Consultation juridique en Tunisie : réponse rapide et plan clair",
         lede: "Une consultation structurée pour comprendre vos options, vos risques et la meilleure action immédiate.",
         description:
-          "Consultation juridique en Tunisie avec un avocat basé à Kairouan. Analyse du dossier, options légales et plan d'action.",
+          "Consultation juridique en Tunisie avec un avocat à Kairouan et Tunis. Analyse du dossier, options légales et plan d'action.",
         keywords:
           "consultation juridique tunisie, avocat kairouan tunis, conseil juridique tunisie, rendez-vous avocat",
         highlights: [
@@ -549,7 +549,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         heading: "Legal consultation in Tunisia: fast answer and clear plan",
         lede: "A structured consultation to understand your options, risks and the best immediate move.",
         description:
-          "Legal consultation in Tunisia with a Kairouan-based lawyer. Case analysis, legal options and action plan.",
+          "Legal consultation in Tunisia with a lawyer in Kairouan and Tunis. Case analysis, legal options and action plan.",
         keywords:
           "legal consultation tunisia, lawyer kairouan tunis, legal advice tunisia, lawyer appointment",
         highlights: [
@@ -586,7 +586,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         heading: "استشارة قانونية في تونس: جواب سريع وخطة واضحة",
         lede: "استشارة منظمة لفهم خياراتك القانونية والمخاطر وأفضل خطوة فورية.",
         description:
-          "استشارة قانونية في تونس مع محام مقره القيروان: تحليل الملف والخيارات القانونية وخطة العمل.",
+          "استشارة قانونية في تونس مع محام في القيروان وتونس: تحليل الملف والخيارات القانونية وخطة العمل.",
         keywords:
           "استشارة قانونية تونس, محامي القيروان تونس, نصيحة قانونية تونس, موعد محامي",
         highlights: [
@@ -880,7 +880,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         heading: "محامية في القيروان: متابعة محلية سريعة وخطة قانونية واضحة",
         lede: "مكتب محاماة مقره القيروان لفائدة الافراد والعائلات واصحاب المؤسسات والمستثمرين ممن يحتاجون الى مرافقة قانونية قريبة وعملية.",
         description:
-          "محامية في القيروان لملفات الطلاق والعقار والاعمال والاستشارة القانونية. مكتب محلي يتابع الملفات في القيروان وعن بعد ومدن أخرى عند التنظيم مسبقاً.",
+          "محامية في القيروان لملفات الطلاق والعقار والاعمال والاستشارة القانونية. مكتب محلي يتابع الملفات في القيروان وتونس وعن بعد.",
         keywords:
           "محامي القيروان, محامية القيروان, مكتب محاماة القيروان, استشارة قانونية القيروان",
         highlights: [
@@ -898,7 +898,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
           {
             question: "هل يقتصر العمل على القيروان فقط؟",
             answer:
-              "لا. يتم متابعة الملفات في القيروان وعن بعد وفي مدن تونسية أخرى عند التنظيم مسبقاً حسب طبيعة الملف.",
+              "لا. يتم متابعة الملفات في القيروان وتونس وعن بعد حسب طبيعة الملف.",
           },
           {
             question: "هل يمكن الحصول على موعد بسرعة؟",
@@ -1025,7 +1025,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         navLabel: "محامي جزائي في تونس",
         heading: "محامي جزائي في تونس: دفاع وقيام بالحق الشخصي وتدخل عاجل",
         lede:
-          "دفاع جزائي منذ الاحتفاظ، أمام قاضي التحقيق وفي الجلسة. تمثيل الضحايا في القيام بالحق الشخصي من القيروان، داخل تونس وعن بعد.",
+          "دفاع جزائي منذ الاحتفاظ، أمام قاضي التحقيق وفي الجلسة. تمثيل الضحايا في القيام بالحق الشخصي، في القيروان وتونس وعن بعد.",
         description:
           "مكتب محاماة جزائي في تونس: الاحتفاظ، التحقيق، الترافع، القيام بالحق الشخصي وطرق الطعن.",
         keywords:
@@ -1044,7 +1044,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         proofTitle: "لماذا المكتب",
         proofPoints: [
           "حضور في كل مرحلة حساسة بتواصل متواصل.",
-          "معرفة عملية بمحاكم القيروان مع تنسيق ممكن في جهات أخرى عند الحاجة.",
+          "معرفة عملية بمحاكم القيروان وتونس والمنطقة.",
           "مقاربة إنسانية سرية بدون أحكام مسبقة.",
         ],
         processTitle: "مراحل نموذجية لملف جزائي",

@@ -16,10 +16,10 @@ export const en: Translation = {
     actualites: "Legal News",
     guides: "Guides",
   },
-  heroEyebrow: "Kairouan office · Cases across Tunisia",
+  heroEyebrow: "Tunis · Kairouan · International",
   heroTitle: "Don't let the law decide your future. Master it.",
   heroLede:
-    "Physical office in Kairouan, with remote consultations and case follow-up in Tunis, Nabeul, Sousse, Monastir, Sfax and elsewhere in Tunisia. Attorney Haifa Guedhami Alouini supports you with compassion and expertise during your most important legal moments.",
+    "You are not alone in this trial. Attorney Haifa Guedhami Alouini accompanies you with compassion and expertise during your most important legal moments. Whether you are going through a difficult divorce, a commercial dispute, or a real estate challenge, we are by your side to protect your rights and your future.",
   ctas: {
     primary: "Get Justice",
     bookOnline: "Book Online",
@@ -38,7 +38,7 @@ export const en: Translation = {
   aboutTrustTitle: "Clear trust signals",
   aboutTrustPoints: [
     "25+ years of legal practice across advisory work and litigation.",
-    "Firm based in Kairouan with case follow-up in Tunis, Nabeul, Sousse, Monastir, Sfax, Hafouz, El Alaa, Weslatia and remotely.",
+    "Firm based in Kairouan with case follow-up in Tunis and remotely.",
     "Consultations available in French, Arabic and English.",
     "Support in family, real estate, business and strategic disputes.",
   ],
@@ -149,7 +149,7 @@ export const en: Translation = {
     email: "Email",
     office: "Office",
   },
-  contactOffice: "Beb Djelladine next to Dhib Pharmacy, Martyrs Street, Kairouan",
+  contactOffice: "Beb Djelladine next to Dhib Pharmacy, Martyrs Street",
   formTitle: "Send us a message",
   form: {
     nameLabel: "Full Name",
@@ -219,11 +219,6 @@ export const en: Translation = {
       question: "How much will it cost?",
       answer:
         "I understand this concern. I give you a clear estimate from the start and we discuss payment options suited to your budget.",
-    },
-    {
-      question: "The office is in Kairouan. Can you handle my case in another city?",
-      answer:
-        "Yes. The office is in Kairouan, but the firm can follow matters in Tunis, Nabeul, Sousse, Monastir, Sfax, Hafouz, El Alaa, Weslatia and other cities. When travel is needed, fees and travel costs are explained clearly before payment.",
     },
     {
       question: "How long will it take?",
