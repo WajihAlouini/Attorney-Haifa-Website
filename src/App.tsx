@@ -17,6 +17,12 @@ import { reportWebVitals } from "@/utils/performance";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { SEO } from "@/components/common/SEO";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
+import {
+  buildLocalizedPath,
+  getQueryLocale,
+  splitLocalePathname,
+  stripLangSearch,
+} from "@/utils/localeRoutes";
 
 const THEME_STORAGE_KEY = "theme";
 const THEME_COLORS = {
@@ -78,35 +84,8 @@ const SeoClusterPage = lazy(() =>
 
 type SupportedLocale = "fr" | "en" | "ar";
 
-function getLocaleFromSearch(search: string): SupportedLocale {
-  const params = new URLSearchParams(search);
-  const lang = params.get("lang");
-
-  if (lang === "en" || lang === "ar" || lang === "fr") {
-    return lang;
-  }
-
-  return "fr";
-}
-
 function isSupportedLocale(locale: string): locale is SupportedLocale {
   return locale === "fr" || locale === "en" || locale === "ar";
-}
-
-function buildSearchForLocale(
-  locale: SupportedLocale,
-  currentSearch: string
-): string {
-  const params = new URLSearchParams(currentSearch);
-
-  if (locale === "fr") {
-    params.delete("lang");
-  } else {
-    params.set("lang", locale);
-  }
-
-  const serialized = params.toString();
-  return serialized ? `?${serialized}` : "";
 }
 
 // Wrapper component for Framer Motion page transitions
@@ -147,9 +126,13 @@ function applyTheme(theme: Theme) {
 function AppContent() {
   const location = useLocation();
   const navigate = useNavigate();
-  const isBlogPostRoute = location.pathname.startsWith("/actualites/");
-
-  const locale = getLocaleFromSearch(location.search);
+  const { locale, routePath } = splitLocalePathname(location.pathname);
+  const routeLocation = {
+    ...location,
+    pathname: routePath,
+    search: stripLangSearch(location.search),
+  };
+  const isBlogPostRoute = routePath.startsWith("/actualites/");
   const [t, setT] = useState(defaultTranslation);
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [hasExplicitTheme, setHasExplicitTheme] = useState(
@@ -187,12 +170,13 @@ function AppContent() {
     const resolvedLocale: SupportedLocale = isSupportedLocale(nextLocale)
       ? nextLocale
       : "fr";
-    const nextSearch = buildSearchForLocale(resolvedLocale, location.search);
+    const nextPathname = buildLocalizedPath(routePath, resolvedLocale);
+    const nextSearch = stripLangSearch(location.search);
 
-    if (nextSearch !== location.search) {
+    if (nextPathname !== location.pathname || nextSearch !== location.search) {
       navigate(
-        { pathname: location.pathname, search: nextSearch },
-        { replace: true }
+        { pathname: nextPathname, search: nextSearch, hash: location.hash },
+        { replace: false }
       );
     }
   };
@@ -230,14 +214,19 @@ function AppContent() {
   }, [locale]);
 
   useEffect(() => {
-    const nextSearch = buildSearchForLocale(locale, location.search);
-    if (nextSearch !== location.search) {
+    const queryLocale = getQueryLocale(location.search);
+    if (!queryLocale) return;
+
+    const nextPathname = buildLocalizedPath(routePath, queryLocale);
+    const nextSearch = stripLangSearch(location.search);
+
+    if (nextPathname !== location.pathname || nextSearch !== location.search) {
       navigate(
-        { pathname: location.pathname, search: nextSearch },
+        { pathname: nextPathname, search: nextSearch, hash: location.hash },
         { replace: true }
       );
     }
-  }, [locale, location.pathname, location.search, navigate]);
+  }, [location.hash, location.pathname, location.search, navigate, routePath]);
 
   return (
     <MainLayout
@@ -253,8 +242,8 @@ function AppContent() {
       theme={theme}
       toggleTheme={toggleTheme}
     >
-      {!isBlogPostRoute && <SEO locale={locale} />}
-      <Routes location={location} key={location.pathname}>
+      {!isBlogPostRoute && <SEO locale={locale} path={routePath} />}
+      <Routes location={routeLocation} key={`${locale}:${routePath}`}>
         {/* All these routes render the same Home page but with different SEO */}
         <Route
           path="/"
@@ -277,6 +266,7 @@ function AppContent() {
             <AnimatedPage>
               <Suspense fallback={<LoadingFallback />}>
                 <AboutPage
+                  locale={locale}
                   t={t}
                   whatsappLink={whatsappLink}
                   whatsappNumber={whatsappNumber}
@@ -291,6 +281,7 @@ function AppContent() {
             <AnimatedPage>
               <Suspense fallback={<LoadingFallback />}>
                 <ServicesPage
+                  locale={locale}
                   t={t}
                   whatsappLink={whatsappLink}
                   whatsappNumber={whatsappNumber}
@@ -396,6 +387,7 @@ function AppContent() {
             <AnimatedPage>
               <Suspense fallback={<LoadingFallback />}>
                 <ContactPage
+                  locale={locale}
                   t={t}
                   whatsappLink={whatsappLink}
                   whatsappNumber={whatsappNumber}
@@ -410,6 +402,7 @@ function AppContent() {
             <AnimatedPage>
               <Suspense fallback={<LoadingFallback />}>
                 <FAQPage
+                  locale={locale}
                   t={t}
                   whatsappLink={whatsappLink}
                   whatsappNumber={whatsappNumber}

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Translation } from "@/types";
 import styles from "./Header.module.css";
 import { logoUrl } from "@/data/constants";
+import { localizedTo, splitLocalePathname } from "@/utils/localeRoutes";
 
 interface HeaderProps {
   locale: string;
@@ -17,22 +18,19 @@ export const Header: FC<HeaderProps> = ({ locale, setLocale, t, theme, toggleThe
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const localeSearch = locale === "fr" ? "" : `?lang=${locale}`;
-  const withLocaleSearch = (pathname: string) => ({
-    pathname,
-    search: localeSearch,
-  });
+  const { routePath } = splitLocalePathname(location.pathname);
+  const withLocalePath = (pathname: string) => localizedTo(pathname, locale);
 
   // Scroll to a section on the homepage
   const scrollToSection = (sectionId: string) => {
     closeMobileMenu();
-    if (location.pathname === "/") {
+    if (routePath === "/") {
       // Already on homepage — just scroll
       const el = document.getElementById(sectionId);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     } else {
       // Navigate to homepage first, then scroll after render
-      navigate(withLocaleSearch("/"));
+      navigate(withLocalePath("/"));
       setTimeout(() => {
         const el = document.getElementById(sectionId);
         if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -58,12 +56,12 @@ export const Header: FC<HeaderProps> = ({ locale, setLocale, t, theme, toggleThe
   };
 
   // Check if current route is active
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => routePath === path;
 
   return (
     <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`}>
       <Link
-        to={withLocaleSearch("/")}
+        to={withLocalePath("/")}
         className={styles.brand}
         aria-label="Home"
         onClick={closeMobileMenu}
@@ -122,7 +120,7 @@ export const Header: FC<HeaderProps> = ({ locale, setLocale, t, theme, toggleThe
             {t.nav.guides || "Guides"}
           </a>
           <Link
-            to={withLocaleSearch("/actualites")}
+            to={withLocalePath("/actualites")}
             onClick={closeMobileMenu}
             className={isActive("/actualites") ? styles.activeLink : ""}
           >

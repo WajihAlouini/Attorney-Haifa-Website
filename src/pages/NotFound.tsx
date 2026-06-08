@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Translation } from "@/types";
+import { localizedTo } from "@/utils/localeRoutes";
 
 interface NotFoundProps {
   t: Translation;
@@ -8,10 +9,7 @@ interface NotFoundProps {
 }
 
 export const NotFound: FC<NotFoundProps> = ({ locale }) => {
-  const homeLink = {
-    pathname: "/",
-    search: locale === "fr" ? "" : `?lang=${locale}`,
-  };
+  const homeLink = localizedTo("/", locale);
 
   const title =
     locale === "fr"

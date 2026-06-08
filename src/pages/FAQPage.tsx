@@ -1,5 +1,4 @@
 import { Suspense, lazy } from "react";
-import { useLocation } from "react-router-dom";
 import { FAQ as FaqSection } from "@/features/faq/FAQ";
 import { SEOHubLinks } from "@/components/common/SEOHubLinks";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
@@ -15,16 +14,13 @@ const Contact = lazy(() =>
 );
 
 interface PageProps {
+  locale: string;
   t: Translation;
   whatsappLink: string;
   whatsappNumber: string;
 }
 
-export function FAQPage({ t, whatsappLink, whatsappNumber }: PageProps) {
-  const location = useLocation();
-  const lang = new URLSearchParams(location.search).get("lang");
-  const locale = lang === "en" || lang === "ar" ? lang : "fr";
-
+export function FAQPage({ locale, t, whatsappLink, whatsappNumber }: PageProps) {
   useScrollAnimation();
   useMagneticButton();
 

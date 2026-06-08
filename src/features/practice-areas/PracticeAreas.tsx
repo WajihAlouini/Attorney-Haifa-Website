@@ -1,12 +1,14 @@
 import { FC, ReactElement } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { TranslationProps } from "@/types";
 import styles from "./PracticeAreas.module.css";
+import { localizedTo } from "@/utils/localeRoutes";
 
-export const PracticeAreas: FC<TranslationProps> = ({ t }) => {
-  const location = useLocation();
-  const lang = new URLSearchParams(location.search).get("lang");
-  const localeSearch = lang === "en" || lang === "ar" ? `?lang=${lang}` : "";
+interface PracticeAreasProps extends TranslationProps {
+  locale?: string;
+}
+
+export const PracticeAreas: FC<PracticeAreasProps> = ({ t, locale = "fr" }) => {
   const icons: Record<number, ReactElement> = {
     // Family & Inheritance Law
     0: (
@@ -81,10 +83,7 @@ export const PracticeAreas: FC<TranslationProps> = ({ t }) => {
         {t.practiceAreas.map((area, index) => (
           <Link
             key={area.title}
-            to={{
-              pathname: urls[index] || "/services",
-              search: localeSearch,
-            }}
+            to={localizedTo(urls[index] || "/services", locale)}
             className={styles.card}
           >
             <span className={styles.badgeIcon} aria-hidden="true">

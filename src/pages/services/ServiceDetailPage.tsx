@@ -12,6 +12,7 @@ import { useMagneticButton } from "@/hooks/useMagneticButton";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Translation } from "@/types";
 import styles from "./ServiceDetailPage.module.css";
+import { localizedTo } from "@/utils/localeRoutes";
 
 const Contact = lazy(() =>
   import("@/features/contact").then((module) => ({
@@ -27,20 +28,8 @@ interface ServiceDetailPageProps {
   whatsappNumber: string;
 }
 
-function getLocaleSearch(locale: string) {
-  if (locale === "en" || locale === "ar") {
-    return `?lang=${locale}`;
-  }
-
-  return "";
-}
-
 function buildLinkTarget(path: string, locale: string) {
-  if (path.startsWith("/actualites/")) {
-    return { pathname: path, search: "" };
-  }
-
-  return { pathname: path, search: getLocaleSearch(locale) };
+  return localizedTo(path, locale);
 }
 
 function getUiCopy(locale: string) {
@@ -83,7 +72,6 @@ export function ServiceDetailPage({
   const detail = getServiceDetailByKey(serviceKey, locale);
   const enhancement = getServiceEnhancement(serviceKey, locale);
   const uiCopy = getUiCopy(locale);
-  const localeSearch = getLocaleSearch(locale);
   const guideLink =
     detail.relatedLinks[0] ?? {
       path: "/contact",
@@ -95,7 +83,7 @@ export function ServiceDetailPage({
     <div className={styles.page}>
       <div className={styles.container}>
         <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
-          <Link to={{ pathname: "/services", search: localeSearch }}>
+          <Link to={localizedTo("/services", locale)}>
             {uiCopy.servicesLabel}
           </Link>
           <span>/</span>
@@ -129,7 +117,7 @@ export function ServiceDetailPage({
 
             <Link
               className={`btn ghost btn-magnetic ${styles.heroButton}`}
-              to={{ pathname: "/contact", search: localeSearch }}
+              to={localizedTo("/contact", locale)}
             >
               {detail.primaryCta}
             </Link>

@@ -1,5 +1,4 @@
 import { Suspense, lazy } from "react";
-import { useLocation } from "react-router-dom";
 import { PracticeAreas } from "@/features/practice-areas";
 import { SEOHubLinks } from "@/components/common/SEOHubLinks";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
@@ -15,16 +14,13 @@ const Contact = lazy(() =>
 );
 
 interface PageProps {
+  locale: string;
   t: Translation;
   whatsappLink: string;
   whatsappNumber: string;
 }
 
-export function ServicesPage({ t, whatsappLink, whatsappNumber }: PageProps) {
-  const location = useLocation();
-  const lang = new URLSearchParams(location.search).get("lang");
-  const locale = lang === "en" || lang === "ar" ? lang : "fr";
-
+export function ServicesPage({ locale, t, whatsappLink, whatsappNumber }: PageProps) {
   useScrollAnimation();
   useMagneticButton();
 
@@ -55,7 +51,7 @@ export function ServicesPage({ t, whatsappLink, whatsappNumber }: PageProps) {
       </div>
 
       <div className="fade-in-section">
-        <PracticeAreas t={t} />
+        <PracticeAreas t={t} locale={locale} />
       </div>
       <div className="fade-in-section">
         <SEOHubLinks locale={locale} />
