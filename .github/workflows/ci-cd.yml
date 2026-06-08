@@ -44,9 +44,11 @@ jobs:
       - name: Test
         run: npx vitest run
 
+      - name: Type check
+        run: npm run type-check
+
   # -------------------------------------------------
-  # 2. Deploy — single build + Vercel deploy
-  #    (eliminates the old separate build job)
+  # 2. Deploy — Vercel build + deploy
   # -------------------------------------------------
   deploy:
     needs: quality
@@ -89,83 +91,11 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
-      - name: Build
-        run: npm run build:prerender
-        env:
-          NODE_ENV: production
-          VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.VITE_WEB3FORMS_ACCESS_KEY }}
-          VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
-          VITE_ENV: production
-          VITE_CALENDLY_URL: ${{ secrets.VITE_CALENDLY_URL }}
-
-      # Construct .vercel/output so we can use `vercel deploy --prebuilt`
-      # This avoids vercel build re-running npm ci with only prod deps
-      - name: Prepare Vercel output
-        run: |
-          node --input-type=module << 'NODE'
-          import { cpSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-          import { getTransformedRoutes } from '@vercel/routing-utils';
-
-          mkdirSync('.vercel/output', { recursive: true });
-          cpSync('dist', '.vercel/output/static', { recursive: true });
-
-          const vercelConfig = JSON.parse(readFileSync('vercel.json', 'utf8'));
-          const { routes, error } = getTransformedRoutes({
-            redirects: vercelConfig.redirects ?? [],
-            headers: vercelConfig.headers ?? [],
-          });
-
-          if (error) {
-            throw new Error(error.message ?? String(error));
-          }
-
-          const outputRoutes = (routes ?? []).map((route) => {
-            const redirectsLanguageQuery = route.has?.some(
-              (field) => field.type === 'query' && field.key === 'lang'
-            );
-
-            if (!redirectsLanguageQuery || !route.headers?.Location) {
-              return route;
-            }
-
-            return {
-              ...route,
-              transforms: [
-                ...(route.transforms ?? []),
-                {
-                  type: 'request.query',
-                  op: 'delete',
-                  target: { key: 'lang' },
-                },
-              ],
-              headers: {
-                ...route.headers,
-                Location: route.headers.Location.includes('?')
-                  ? route.headers.Location
-                  : `${route.headers.Location}?`,
-              },
-            };
-          });
-
-          writeFileSync(
-            '.vercel/output/config.json',
-            JSON.stringify(
-              {
-                version: 3,
-                routes: [
-                  ...outputRoutes,
-                  { handle: 'filesystem' },
-                  { src: '/(.*)', dest: '/index.html' },
-                ],
-              },
-              null,
-              2
-            )
-          );
-          NODE
-
       - name: Pull Vercel project settings
         run: vercel pull --yes --environment=${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }} --token="$VERCEL_TOKEN"
+
+      - name: Vercel Build
+        run: vercel build ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} --token="$VERCEL_TOKEN"
 
       - name: Deploy
         id: vercel-deploy
