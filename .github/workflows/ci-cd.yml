@@ -119,13 +119,33 @@ jobs:
             throw new Error(error.message ?? String(error));
           }
 
+          const outputRoutes = (routes ?? []).map((route) => {
+            const redirectsLanguageQuery = route.has?.some(
+              (field) => field.type === 'query' && field.key === 'lang'
+            );
+
+            if (!redirectsLanguageQuery || !route.headers?.Location) {
+              return route;
+            }
+
+            return {
+              ...route,
+              headers: {
+                ...route.headers,
+                Location: route.headers.Location.includes('?')
+                  ? route.headers.Location
+                  : `${route.headers.Location}?`,
+              },
+            };
+          });
+
           writeFileSync(
             '.vercel/output/config.json',
             JSON.stringify(
               {
                 version: 3,
                 routes: [
-                  ...(routes ?? []),
+                  ...outputRoutes,
                   { handle: 'filesystem' },
                   { src: '/(.*)', dest: '/index.html' },
                 ],
