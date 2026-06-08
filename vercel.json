@@ -29,42 +29,36 @@
       "source": "/",
       "has": [{ "type": "query", "key": "lang", "value": "en" }],
       "destination": "/en",
-      "preserveQueryParams": false,
       "statusCode": 301
     },
     {
       "source": "/",
       "has": [{ "type": "query", "key": "lang", "value": "ar" }],
       "destination": "/ar",
-      "preserveQueryParams": false,
       "statusCode": 301
     },
     {
       "source": "/",
       "has": [{ "type": "query", "key": "lang", "value": "fr" }],
       "destination": "/",
-      "preserveQueryParams": false,
       "statusCode": 301
     },
     {
       "source": "/:path*",
       "has": [{ "type": "query", "key": "lang", "value": "en" }],
       "destination": "/en/:path*",
-      "preserveQueryParams": false,
       "statusCode": 301
     },
     {
       "source": "/:path*",
       "has": [{ "type": "query", "key": "lang", "value": "ar" }],
       "destination": "/ar/:path*",
-      "preserveQueryParams": false,
       "statusCode": 301
     },
     {
       "source": "/:path*",
       "has": [{ "type": "query", "key": "lang", "value": "fr" }],
       "destination": "/:path*",
-      "preserveQueryParams": false,
       "statusCode": 301
     },
     {
