@@ -3,19 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getSeoClusterPages } from "@/data/seoCluster";
 import { Translation } from "@/types";
 import styles from "./Footer.module.css";
+import { localizedTo, splitLocalePathname } from "@/utils/localeRoutes";
 
 interface FooterProps {
   t: Translation;
   year: number;
   locale: string;
-}
-
-function getLocaleSearch(locale: string): string {
-  if (locale === "en" || locale === "ar") {
-    return `?lang=${locale}`;
-  }
-
-  return "";
 }
 
 function getFooterCopy(locale: string) {
@@ -51,13 +44,10 @@ function getFooterCopy(locale: string) {
 export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const localeSearch = getLocaleSearch(locale);
+  const { routePath } = splitLocalePathname(location.pathname);
   const copy = getFooterCopy(locale);
   const guides = getSeoClusterPages(locale);
-  const withLocaleSearch = (pathname: string) => ({
-    pathname,
-    search: localeSearch,
-  });
+  const withLocalePath = (pathname: string) => localizedTo(pathname, locale);
 
   const scrollToSection = (sectionId: string) => {
     const performScroll = () => {
@@ -72,12 +62,12 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
       }
     };
 
-    if (location.pathname === "/") {
+    if (routePath === "/") {
       performScroll();
       return;
     }
 
-    navigate({ pathname: "/", search: localeSearch });
+    navigate(withLocalePath("/"));
     window.setTimeout(performScroll, 320);
   };
 
@@ -99,7 +89,7 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
             >
               {copy.home}
             </button>
-            <Link to={withLocaleSearch("/about")}>
+            <Link to={withLocalePath("/about")}>
               {t.nav.about}
             </Link>
             <button
@@ -109,10 +99,10 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
             >
               {t.nav.practice}
             </button>
-            <Link to={withLocaleSearch("/values")}>
+            <Link to={withLocalePath("/values")}>
               {t.nav.values}
             </Link>
-            <Link to={withLocaleSearch("/services")}>
+            <Link to={withLocalePath("/services")}>
               {t.nav.guides || copy.guides}
             </Link>
             <button
@@ -128,10 +118,10 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
         <div className={styles.column}>
           <h3>{copy.resources}</h3>
           <div className={styles.links}>
-            <Link to={withLocaleSearch("/actualites")}>
+            <Link to={withLocalePath("/actualites")}>
               {t.nav.actualites || copy.blog}
             </Link>
-            <Link to={withLocaleSearch("/faq")}>
+            <Link to={withLocalePath("/faq")}>
               FAQ
             </Link>
           </div>
@@ -143,7 +133,7 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
             {guides.map((guide) => (
               <Link
                 key={guide.path}
-                to={{ pathname: guide.path, search: localeSearch }}
+                to={withLocalePath(guide.path)}
               >
                 {guide.navLabel}
               </Link>

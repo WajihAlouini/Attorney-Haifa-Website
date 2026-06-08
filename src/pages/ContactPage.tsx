@@ -1,5 +1,4 @@
 import { Suspense, lazy } from "react";
-import { useLocation } from "react-router-dom";
 import { Contact } from "@/features/contact/Contact";
 import { SEOHubLinks } from "@/components/common/SEOHubLinks";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
@@ -15,16 +14,13 @@ const Gallery = lazy(() =>
 );
 
 interface PageProps {
+  locale: string;
   t: Translation;
   whatsappLink: string;
   whatsappNumber: string;
 }
 
-export function ContactPage({ t, whatsappLink, whatsappNumber }: PageProps) {
-  const location = useLocation();
-  const lang = new URLSearchParams(location.search).get("lang");
-  const locale = lang === "en" || lang === "ar" ? lang : "fr";
-
+export function ContactPage({ locale, t, whatsappLink, whatsappNumber }: PageProps) {
   useScrollAnimation();
   useMagneticButton();
 

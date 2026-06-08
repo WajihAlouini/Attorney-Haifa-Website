@@ -2,21 +2,13 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import { getSeoClusterHubCopy, getSeoClusterPages } from "@/data/seoCluster";
 import styles from "./SEOHubLinks.module.css";
+import { localizedTo } from "@/utils/localeRoutes";
 
 interface SEOHubLinksProps {
   locale: string;
 }
 
-function getLocaleSearch(locale: string): string {
-  if (locale === "en" || locale === "ar") {
-    return `?lang=${locale}`;
-  }
-
-  return "";
-}
-
 export const SEOHubLinks: FC<SEOHubLinksProps> = ({ locale }) => {
-  const localeSearch = getLocaleSearch(locale);
   const hubCopy = getSeoClusterHubCopy(locale);
   const pages = getSeoClusterPages(locale);
 
@@ -50,7 +42,7 @@ export const SEOHubLinks: FC<SEOHubLinksProps> = ({ locale }) => {
                 className={isFirstKairouan ? styles.itemBreak : undefined}
               >
                 <Link
-                  to={{ pathname: page.path, search: localeSearch }}
+                  to={localizedTo(page.path, locale)}
                   className={styles.row}
                 >
                   <span className={styles.num} aria-hidden="true">

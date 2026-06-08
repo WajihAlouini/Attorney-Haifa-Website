@@ -10,21 +10,10 @@ import {
 } from "@/data/blogSeo";
 import { getPostBySlug } from "@/utils/markdown";
 import styles from "./BlogPost.module.css";
-
-function getLocaleSearch(locale: string) {
-  if (locale === "en" || locale === "ar") {
-    return `?lang=${locale}`;
-  }
-
-  return "";
-}
+import { localizedTo } from "@/utils/localeRoutes";
 
 function buildLinkTarget(path: string, locale: string) {
-  if (path.startsWith("/actualites/")) {
-    return { pathname: path, search: "" };
-  }
-
-  return { pathname: path, search: getLocaleSearch(locale) };
+  return localizedTo(path, locale);
 }
 
 function getUiCopy(locale: string) {
@@ -55,7 +44,7 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
   if (!post) {
     return (
       <Navigate
-        to={{ pathname: "/actualites", search: getLocaleSearch(locale) }}
+        to={localizedTo("/actualites", locale)}
         replace
       />
     );
@@ -64,7 +53,6 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
   const { meta, content } = post;
   const contentLocale = meta.lang || locale;
   const uiCopy = getUiCopy(contentLocale);
-  const backSearch = getLocaleSearch(contentLocale);
   const relatedResources = getBlogRelatedResources(meta.slug, contentLocale);
 
   return (
@@ -84,7 +72,7 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
         <header className={styles.header}>
           <div className={styles.headerInner}>
             <Link
-              to={{ pathname: "/actualites", search: backSearch }}
+              to={localizedTo("/actualites", contentLocale)}
               className={styles.backLink}
             >
               <ArrowLeft size={16} /> {uiCopy.backLabel}

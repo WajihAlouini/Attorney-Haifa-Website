@@ -26,86 +26,120 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "en" }],
+      "destination": "/en",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
+      "destination": "/ar",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "fr" }],
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "query", "key": "lang", "value": "en" }],
+      "destination": "/en/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
+      "destination": "/ar/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "query", "key": "lang", "value": "fr" }],
+      "destination": "/:path*",
+      "statusCode": 301
+    },
+    {
       "source": "/actualites/labour-code-reform-2025",
-      "destination": "/actualites/reforme-code-du-travail-2025",
-      "permanent": true
+      "destination": "/en/actualites/reforme-code-du-travail-2025",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/actualites/labour-code-reform-2025",
+      "destination": "/en/actualites/reforme-code-du-travail-2025",
+      "statusCode": 301
     },
     {
       "source": "/actualites/property-law-foreigners-tunisia-2026",
-      "destination": "/actualites/immobilier-etrangers-tunisie-2026",
-      "permanent": true
+      "destination": "/en/actualites/immobilier-etrangers-tunisie-2026",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/actualites/property-law-foreigners-tunisia-2026",
+      "destination": "/en/actualites/immobilier-etrangers-tunisie-2026",
+      "statusCode": 301
     },
     {
       "source": "/actualites/shared-custody-reform-tunisia",
-      "destination": "/actualites/reforme-famille-garde-partagee-tunisie",
-      "permanent": true
+      "destination": "/en/actualites/reforme-famille-garde-partagee-tunisie",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/actualites/shared-custody-reform-tunisia",
+      "destination": "/en/actualites/reforme-famille-garde-partagee-tunisie",
+      "statusCode": 301
     },
     {
       "source": "/actualites/new-foreign-exchange-code-tunisia-2026",
-      "destination": "/actualites/nouveau-code-des-changes-tunisie-2026",
-      "permanent": true
+      "destination": "/en/actualites/nouveau-code-des-changes-tunisie-2026",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/actualites/new-foreign-exchange-code-tunisia-2026",
+      "destination": "/en/actualites/nouveau-code-des-changes-tunisie-2026",
+      "statusCode": 301
     },
     {
       "source": "/actualites/islah-majallat-alshughl-2025",
-      "destination": "/actualites/reforme-code-du-travail-2025",
-      "permanent": true
+      "destination": "/ar/actualites/reforme-code-du-travail-2025",
+      "statusCode": 301
+    },
+    {
+      "source": "/ar/actualites/islah-majallat-alshughl-2025",
+      "destination": "/ar/actualites/reforme-code-du-travail-2025",
+      "statusCode": 301
     },
     {
       "source": "/actualites/aqaraat-ajanib-tunis-2026",
-      "destination": "/actualites/immobilier-etrangers-tunisie-2026",
-      "permanent": true
+      "destination": "/ar/actualites/immobilier-etrangers-tunisie-2026",
+      "statusCode": 301
+    },
+    {
+      "source": "/ar/actualites/aqaraat-ajanib-tunis-2026",
+      "destination": "/ar/actualites/immobilier-etrangers-tunisie-2026",
+      "statusCode": 301
     },
     {
       "source": "/actualites/hadhanat-mushtaraka-tunis",
-      "destination": "/actualites/reforme-famille-garde-partagee-tunisie",
-      "permanent": true
+      "destination": "/ar/actualites/reforme-famille-garde-partagee-tunisie",
+      "statusCode": 301
+    },
+    {
+      "source": "/ar/actualites/hadhanat-mushtaraka-tunis",
+      "destination": "/ar/actualites/reforme-famille-garde-partagee-tunisie",
+      "statusCode": 301
     },
     {
       "source": "/actualites/qanoon-alsarf-aljadid-tunis-2026",
-      "destination": "/actualites/nouveau-code-des-changes-tunisie-2026",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/services/:slug",
-      "has": [{ "type": "query", "key": "lang", "value": "en" }],
-      "destination": "/__locale/en/services/:slug/index.html"
+      "destination": "/ar/actualites/nouveau-code-des-changes-tunisie-2026",
+      "statusCode": 301
     },
     {
-      "source": "/services/:slug",
-      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
-      "destination": "/__locale/ar/services/:slug/index.html"
-    },
-    {
-      "source": "/actualites/:slug",
-      "has": [{ "type": "query", "key": "lang", "value": "en" }],
-      "destination": "/__locale/en/actualites/:slug/index.html"
-    },
-    {
-      "source": "/actualites/:slug",
-      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
-      "destination": "/__locale/ar/actualites/:slug/index.html"
-    },
-    {
-      "source": "/:slug",
-      "has": [{ "type": "query", "key": "lang", "value": "en" }],
-      "destination": "/__locale/en/:slug/index.html"
-    },
-    {
-      "source": "/:slug",
-      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
-      "destination": "/__locale/ar/:slug/index.html"
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "query", "key": "lang", "value": "en" }],
-      "destination": "/__locale/en/index.html"
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
-      "destination": "/__locale/ar/index.html"
+      "source": "/ar/actualites/qanoon-alsarf-aljadid-tunis-2026",
+      "destination": "/ar/actualites/nouveau-code-des-changes-tunisie-2026",
+      "statusCode": 301
     }
   ]
 }

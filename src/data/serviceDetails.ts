@@ -52,9 +52,8 @@ function resolveLocale(locale: string): SiteLocale {
   return "fr";
 }
 
-// All locales link to the unified French slug; per-locale content is served
-// via the prerendered locale snapshot at that URL. Legacy per-language slugs
-// remain as 301s in public/_redirects for any external backlinks.
+// All locales link to the unified French slug; the active locale is represented
+// by the URL prefix (/en or /ar). Legacy per-language slugs remain as 301s.
 function familyArticlePath() {
   return "/actualites/reforme-famille-garde-partagee-tunisie";
 }

@@ -10,19 +10,12 @@ import { getClusterRelatedBlogSlugs } from "@/data/blogSeo";
 import { getPostBySlug } from "@/utils/markdown";
 import { PhoneNumber } from "@/components/common/PhoneNumber";
 import styles from "./SeoClusterPage.module.css";
+import { localizedTo, splitLocalePathname } from "@/utils/localeRoutes";
 
 interface SeoClusterPageProps {
   locale: string;
   whatsappLink: string;
   whatsappNumber: string;
-}
-
-function getLocaleSearch(locale: string): string {
-  if (locale === "en" || locale === "ar") {
-    return `?lang=${locale}`;
-  }
-
-  return "";
 }
 
 export const SeoClusterPage: FC<SeoClusterPageProps> = ({
@@ -31,18 +24,18 @@ export const SeoClusterPage: FC<SeoClusterPageProps> = ({
   whatsappNumber,
 }) => {
   const location = useLocation();
-  const pageData = getSeoClusterPage(location.pathname, locale);
+  const { routePath } = splitLocalePathname(location.pathname);
+  const pageData = getSeoClusterPage(routePath, locale);
 
   if (!pageData) {
     return (
       <Navigate
-        to={{ pathname: "/services", search: getLocaleSearch(locale) }}
+        to={localizedTo("/services", locale)}
         replace
       />
     );
   }
 
-  const localeSearch = getLocaleSearch(locale);
   const uiCopy = getSeoClusterUiCopy(locale);
   const relatedGuides = getSeoClusterPages(locale).filter(
     (item) => item.path !== pageData.path
@@ -96,7 +89,7 @@ export const SeoClusterPage: FC<SeoClusterPageProps> = ({
             </a>
             <Link
               className={`btn primary btn-magnetic btn-glow ${styles.ctaButton}`}
-              to={{ pathname: "/contact", search: localeSearch }}
+              to={localizedTo("/contact", locale)}
             >
               {uiCopy.consultationCta}
             </Link>
@@ -149,7 +142,7 @@ export const SeoClusterPage: FC<SeoClusterPageProps> = ({
             {uiCopy.serviceLinks.map((link) => (
               <Link
                 key={link.path}
-                to={{ pathname: link.path, search: localeSearch }}
+                to={localizedTo(link.path, locale)}
                 className={styles.linkCard}
               >
                 <div className={styles.linkCardContent}>
@@ -170,7 +163,7 @@ export const SeoClusterPage: FC<SeoClusterPageProps> = ({
             {relatedGuides.map((item) => (
               <Link
                 key={item.path}
-                to={{ pathname: item.path, search: localeSearch }}
+                to={localizedTo(item.path, locale)}
                 className={styles.linkCard}
               >
                 <div className={styles.linkCardContent}>
@@ -193,7 +186,7 @@ export const SeoClusterPage: FC<SeoClusterPageProps> = ({
               {relatedArticles.map((post) => (
                 <Link
                   key={post.meta.slug}
-                  to={{ pathname: `/actualites/${post.meta.slug}`, search: "" }}
+                  to={localizedTo(`/actualites/${post.meta.slug}`, locale)}
                   className={styles.linkCard}
                 >
                   <div className={styles.linkCardContent}>

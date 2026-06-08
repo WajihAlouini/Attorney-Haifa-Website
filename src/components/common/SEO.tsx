@@ -2,6 +2,11 @@ import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { getSEOData } from "@/data/seo";
 import { getStructuredData } from "@/data/seoStructuredData";
+import {
+  buildLocalizedUrl,
+  SITE_URL,
+  splitLocalePathname,
+} from "@/utils/localeRoutes";
 
 interface SEOProps {
   title?: string;
@@ -13,9 +18,8 @@ interface SEOProps {
   publishedTime?: string;
   modifiedTime?: string;
   author?: string;
+  path?: string;
 }
-
-const SITE_URL = "https://maitre-haifaguedhami.me";
 
 type SiteLocale = "fr" | "en" | "ar";
 
@@ -36,9 +40,7 @@ function getStructuredDataPath(path: string) {
 }
 
 function toLocaleUrl(path: string, locale: SiteLocale) {
-  const routePath = path === "/" ? "/" : path;
-  const langQuery = locale === "fr" ? "" : `?lang=${locale}`;
-  return `${SITE_URL}${routePath}${langQuery}`;
+  return buildLocalizedUrl(path, locale);
 }
 
 function toCanonicalUrl(path: string, locale: SiteLocale) {
@@ -70,9 +72,10 @@ export function SEO({
   publishedTime,
   modifiedTime,
   author,
+  path: explicitPath,
 }: Readonly<SEOProps>) {
   const location = useLocation();
-  const path = location.pathname;
+  const path = explicitPath ?? splitLocalePathname(location.pathname).routePath;
   const normalizedLocale = resolveLocale(locale);
   const defaultSEO = getSEOData(path, normalizedLocale);
   const finalTitle = title || defaultSEO.title;

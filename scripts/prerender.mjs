@@ -8,8 +8,7 @@ const BLOG_DIR = path.resolve(process.cwd(), "src", "content", "blog");
 const HOST = "127.0.0.1";
 const START_PORT = Number(process.env.PRERENDER_PORT || 4175);
 const PUBLIC_ORIGIN = "https://maitre-haifaguedhami.me";
-const QUERY_LOCALES = ["en", "ar"];
-const LOCALE_SNAPSHOT_ROOT = "__locale";
+const LOCALIZED_LOCALES = ["en", "ar"];
 
 const BASE_ROUTES = [
   "/",
@@ -45,20 +44,26 @@ function normalizeRoute(route) {
   return `/${route.replace(/^\/+|\/+$/g, "")}`;
 }
 
-function withLocaleSearch(route, locale) {
+function splitLocaleRoute(route) {
   const normalizedRoute = normalizeRoute(route);
-  const separator = normalizedRoute.includes("?") ? "&" : "?";
-  return `${normalizedRoute}${separator}lang=${locale}`;
+  const [, maybeLocale, ...rest] = normalizedRoute.split("/");
+
+  if (maybeLocale === "en" || maybeLocale === "ar") {
+    const routePath = rest.length > 0 ? `/${rest.join("/")}` : "/";
+    return { locale: maybeLocale, routePath: normalizeRoute(routePath) };
+  }
+
+  return { locale: "fr", routePath: normalizedRoute };
 }
 
-function toLocaleSnapshotRoute(route, locale) {
-  const normalizedRoute = normalizeRoute(route);
-  const cleanPath =
-    normalizedRoute === "/" ? "" : normalizedRoute.replace(/^\/+/, "");
+function toLocalizedRoute(route, locale) {
+  const { routePath } = splitLocaleRoute(route);
 
-  return cleanPath
-    ? `/${LOCALE_SNAPSHOT_ROOT}/${locale}/${cleanPath}`
-    : `/${LOCALE_SNAPSHOT_ROOT}/${locale}`;
+  if (locale === "fr") {
+    return routePath;
+  }
+
+  return routePath === "/" ? `/${locale}` : `/${locale}${routePath}`;
 }
 
 async function getBlogRoutes() {
@@ -94,11 +99,11 @@ async function getPrerenderTargets() {
     });
   }
 
-  for (const locale of QUERY_LOCALES) {
+  for (const locale of LOCALIZED_LOCALES) {
     for (const route of standardRoutes) {
       const normalizedRoute = normalizeRoute(route);
-      const visitRoute = withLocaleSearch(normalizedRoute, locale);
-      const outputRoute = toLocaleSnapshotRoute(normalizedRoute, locale);
+      const visitRoute = toLocalizedRoute(normalizedRoute, locale);
+      const outputRoute = visitRoute;
 
       targets.set(outputRoute, { visitRoute, outputRoute });
     }
@@ -107,28 +112,20 @@ async function getPrerenderTargets() {
   return [...targets.values()];
 }
 
-function resolvePublicLocale(search) {
-  const locale = new URLSearchParams(search).get("lang");
-  return locale === "en" || locale === "ar" ? locale : "fr";
-}
-
 function buildPublicUrl(pathname, locale) {
-  const routePath = pathname === "/" ? "/" : pathname;
-  return locale === "fr"
-    ? `${PUBLIC_ORIGIN}${routePath}`
-    : `${PUBLIC_ORIGIN}${routePath}?lang=${locale}`;
+  return `${PUBLIC_ORIGIN}${toLocalizedRoute(pathname, locale)}`;
 }
 
 function getAlternateLinksForTarget(visitRoute) {
   const routeUrl = new URL(visitRoute, `${PUBLIC_ORIGIN}/`);
-  const locale = resolvePublicLocale(routeUrl.search);
+  const { locale, routePath } = splitLocaleRoute(routeUrl.pathname);
 
   return [
-    { locale: "fr", href: buildPublicUrl(routeUrl.pathname, "fr") },
-    { locale: "en", href: buildPublicUrl(routeUrl.pathname, "en") },
-    { locale: "ar", href: buildPublicUrl(routeUrl.pathname, "ar") },
-    { locale: "x-default", href: buildPublicUrl(routeUrl.pathname, "fr") },
-    { locale: locale, href: buildPublicUrl(routeUrl.pathname, locale) },
+    { locale: "fr", href: buildPublicUrl(routePath, "fr") },
+    { locale: "en", href: buildPublicUrl(routePath, "en") },
+    { locale: "ar", href: buildPublicUrl(routePath, "ar") },
+    { locale: "x-default", href: buildPublicUrl(routePath, "fr") },
+    { locale: locale, href: buildPublicUrl(routePath, locale) },
   ].filter(
     (link, index, links) =>
       links.findIndex((candidate) => candidate.locale === link.locale) === index

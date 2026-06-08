@@ -5,12 +5,12 @@ import {
   getServiceDetailFaqs,
 } from "@/data/serviceDetails";
 import { getAllPosts, getPostBySlug } from "@/utils/markdown";
+import { buildLocalizedUrl, SITE_URL } from "@/utils/localeRoutes";
 import googleReviews from "@/data/google-reviews.json";
 import googleRating from "@/data/google-rating.json";
 
 type Locale = "fr" | "en" | "ar";
 
-const SITE_URL = "https://maitre-haifaguedhami.me";
 const BUSINESS_ID = `${SITE_URL}/#business`;
 const ATTORNEY_ID = `${SITE_URL}/#attorney`;
 const KAIROUAN_LOCAL_PATHS = new Set([
@@ -59,16 +59,7 @@ function resolveInLanguage(locale: Locale) {
 }
 
 function toCanonicalUrl(path: string, locale: Locale) {
-  if (path.startsWith("/actualites/")) {
-    return `${SITE_URL}${path}`;
-  }
-
-  if (locale === "fr") {
-    return `${SITE_URL}${path === "/" ? "/" : path}`;
-  }
-
-  const routePath = path === "/" ? "/" : path;
-  return `${SITE_URL}${routePath}?lang=${locale}`;
+  return buildLocalizedUrl(path, locale);
 }
 
 function createBreadcrumbList(
@@ -549,10 +540,10 @@ export function getStructuredData(path: string, locale: Locale) {
           inLanguage: resolveInLanguage(resolvedLocale),
           publisher: { "@id": BUSINESS_ID },
           blogPost: posts.map((post) => ({
-            "@type": "BlogPosting",
-            headline: post.title,
-            url: `${SITE_URL}/actualites/${post.slug}`,
-            datePublished: post.date,
+          "@type": "BlogPosting",
+          headline: post.title,
+          url: toCanonicalUrl(`/actualites/${post.slug}`, resolvedLocale),
+          datePublished: post.date,
             description: post.description,
             ...(post.image
               ? {
@@ -571,7 +562,7 @@ export function getStructuredData(path: string, locale: Locale) {
           itemListElement: posts.map((post, index) => ({
             "@type": "ListItem",
             position: index + 1,
-            url: `${SITE_URL}/actualites/${post.slug}`,
+            url: toCanonicalUrl(`/actualites/${post.slug}`, resolvedLocale),
             name: post.title,
           })),
         },
@@ -590,7 +581,7 @@ export function getStructuredData(path: string, locale: Locale) {
       return null;
     }
 
-    const pageUrl = `${SITE_URL}${path}`;
+    const pageUrl = toCanonicalUrl(path, resolvedLocale);
     const postLocale = resolveLocale(post.meta.lang || resolvedLocale);
     const imageUrl = post.meta.image
       ? post.meta.image.startsWith("http")

@@ -1,23 +1,19 @@
 import { FC } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion, Variants } from "framer-motion";
 import { getAllPosts } from "@/utils/markdown";
 import { Calendar, ArrowRight } from "lucide-react";
 import { Translation } from "@/types";
 import styles from "./BlogIndex.module.css";
+import { localizedTo } from "@/utils/localeRoutes";
 
 const BlogIndex: FC<{ locale?: string; t?: Translation }> = ({
   locale = "fr",
   t,
 }) => {
-  const location = useLocation();
-  const lang = new URLSearchParams(location.search).get("lang");
-  const localeSearch = lang === "en" || lang === "ar" ? `?lang=${lang}` : "";
   const posts = getAllPosts(locale);
-  const buildPostLink = (slug: string) => ({
-    pathname: `/actualites/${slug}`,
-    search: localeSearch,
-  });
+  const buildPostLink = (slug: string) =>
+    localizedTo(`/actualites/${slug}`, locale);
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
