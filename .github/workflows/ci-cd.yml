@@ -130,6 +130,14 @@ jobs:
 
             return {
               ...route,
+              transforms: [
+                ...(route.transforms ?? []),
+                {
+                  type: 'request.query',
+                  op: 'delete',
+                  target: { key: 'lang' },
+                },
+              ],
               headers: {
                 ...route.headers,
                 Location: route.headers.Location.includes('?')
