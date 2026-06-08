@@ -102,19 +102,39 @@ jobs:
       # This avoids vercel build re-running npm ci with only prod deps
       - name: Prepare Vercel output
         run: |
-          mkdir -p .vercel/output
-          cp -r dist .vercel/output/static
-          cat > .vercel/output/config.json << 'CONF'
-          {
-            "version": 3,
-            "routes": [
-              { "src": "/assets/(.*)", "headers": { "Cache-Control": "public, max-age=31536000, immutable" }, "continue": true },
-              { "src": "/(.*\\.html)", "headers": { "Cache-Control": "no-cache, no-store, must-revalidate" }, "continue": true },
-              { "handle": "filesystem" },
-              { "src": "/(.*)", "dest": "/index.html" }
-            ]
+          node --input-type=module << 'NODE'
+          import { cpSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+          import { getTransformedRoutes } from '@vercel/routing-utils';
+
+          mkdirSync('.vercel/output', { recursive: true });
+          cpSync('dist', '.vercel/output/static', { recursive: true });
+
+          const vercelConfig = JSON.parse(readFileSync('vercel.json', 'utf8'));
+          const { routes, error } = getTransformedRoutes({
+            redirects: vercelConfig.redirects ?? [],
+            headers: vercelConfig.headers ?? [],
+          });
+
+          if (error) {
+            throw new Error(error.message ?? String(error));
           }
-          CONF
+
+          writeFileSync(
+            '.vercel/output/config.json',
+            JSON.stringify(
+              {
+                version: 3,
+                routes: [
+                  ...(routes ?? []),
+                  { handle: 'filesystem' },
+                  { src: '/(.*)', dest: '/index.html' },
+                ],
+              },
+              null,
+              2
+            )
+          );
+          NODE
 
       - name: Pull Vercel project settings
         run: vercel pull --yes --environment=${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }} --token="$VERCEL_TOKEN"
