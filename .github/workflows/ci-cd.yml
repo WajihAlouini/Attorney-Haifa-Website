@@ -104,6 +104,10 @@ jobs:
           echo "preview-url=$DEPLOYMENT_URL" >> "$GITHUB_OUTPUT"
           echo "Deployed: $DEPLOYMENT_URL"
 
+      - name: Submit URLs to IndexNow
+        if: github.ref == 'refs/heads/main'
+        run: npm run indexnow
+
       - name: Comment deployment URL on PR
         if: github.event_name == 'pull_request'
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7

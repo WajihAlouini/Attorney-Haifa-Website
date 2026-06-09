@@ -16,6 +16,7 @@
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",
     "type-check": "tsc --noEmit",
+    "indexnow": "node scripts/submit-indexnow.mjs",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md}\"",
     "clean": "rm -rf dist node_modules/.vite"
   },
