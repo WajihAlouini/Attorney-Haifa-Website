@@ -18,7 +18,7 @@ export const fr: Translation = {
   },
   heroEyebrow: "Tunis · Kairouan · International",
   heroBrandTitle:
-    "Maître Haifa Guedhami Alouini — Avocate à Kairouan & Tunis, Tunisie",
+    "Maître Haifa Guedhami Alouini — Avocate à Kairouan, dossiers dans toute la Tunisie",
   heroTitle: "Ne laissez pas le droit décider de votre avenir. Maîtrisez-le.",
   heroLede:
     "Vous n'êtes pas seul dans cette épreuve. Maître Haifa Guedhami Alouini vous accompagne avec compassion et expertise dans vos moments juridiques les plus importants. Que vous traversiez un divorce difficile, un litige commercial ou un défi immobilier, nous sommes à vos côtés pour protéger vos droits et votre avenir.",
