@@ -512,7 +512,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
           "Consultation juridique en Tunisie : réponse rapide et plan clair",
         lede: "Une consultation structurée pour comprendre vos options, vos risques et la meilleure action immédiate.",
         description:
-          "Consultation juridique en Tunisie avec un avocat à Kairouan et Tunis. Analyse du dossier, options légales et plan d'action.",
+          "Consultation juridique en Tunisie avec une avocate basée à Kairouan, à Tunis et à distance. Analyse du dossier, options légales et plan d'action.",
         keywords:
           "consultation juridique tunisie, avocat kairouan tunis, conseil juridique tunisie, rendez-vous avocat",
         highlights: [
@@ -549,7 +549,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         heading: "Legal consultation in Tunisia: fast answer and clear plan",
         lede: "A structured consultation to understand your options, risks and the best immediate move.",
         description:
-          "Legal consultation in Tunisia with a lawyer in Kairouan and Tunis. Case analysis, legal options and action plan.",
+          "Legal consultation in Tunisia with a lawyer based in Kairouan, in Tunis and remotely. Case analysis, legal options and action plan.",
         keywords:
           "legal consultation tunisia, lawyer kairouan tunis, legal advice tunisia, lawyer appointment",
         highlights: [
@@ -586,7 +586,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         heading: "استشارة قانونية في تونس: جواب سريع وخطة واضحة",
         lede: "استشارة منظمة لفهم خياراتك القانونية والمخاطر وأفضل خطوة فورية.",
         description:
-          "استشارة قانونية في تونس مع محام في القيروان وتونس: تحليل الملف والخيارات القانونية وخطة العمل.",
+          "استشارة قانونية في تونس مع محامية مقرها القيروان، في تونس العاصمة وعن بعد: تحليل الملف والخيارات القانونية وخطة العمل.",
         keywords:
           "استشارة قانونية تونس, محامي القيروان تونس, نصيحة قانونية تونس, موعد محامي",
         highlights: [
