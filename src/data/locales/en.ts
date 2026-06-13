@@ -21,9 +21,9 @@ export const en: Translation = {
     "Maître Haifa Guedhami Alouini — Your lawyer in Tunisia, based in Kairouan",
   heroTitle: "Don't let the law decide your future. Master it.",
   heroLede:
-    "You are not alone in this trial. Attorney Haifa Guedhami Alouini accompanies you with compassion and expertise during your most important legal moments. Whether you are going through a difficult divorce, a commercial dispute, or a real estate challenge, we are by your side to protect your rights and your future.",
+    "When a dispute arises, you need clarity. Maître Haifa Guedhami Alouini, a lawyer in Tunisia, supports you in family, real estate and business law: straight advice, a tailored strategy and a rigorous defense of your interests.",
   ctas: {
-    primary: "Get Justice",
+    primary: "Request a Consultation",
     bookOnline: "Book Online",
     secondary: "Our Expertise",
     whatsapp: "Contact via WhatsApp",
@@ -34,9 +34,9 @@ export const en: Translation = {
     { value: "3", label: "Languages to Better Understand You" },
   ],
   aboutEyebrow: "About Lawyer Haifa",
-  aboutHeading: "You deserve a defense that backs down from nothing.",
+  aboutHeading: "25 years defending clients' rights across Tunisia.",
   aboutBody:
-    "I know that looking for a lawyer means you are going through a tough time. For 25 years, I have had the privilege of accompanying people like you — parents worried about their children, entrepreneurs defending their life's work, families settling complex estates. My approach? Listening first. Understanding not just your legal situation, but also your fears, your priorities, and your hopes. Then, we build a clear strategy together to regain your serenity.",
+    "Looking for a lawyer is never a casual step. For 25 years, I have advised individuals and companies across Tunisia — parents in custody proceedings, entrepreneurs in dispute, families settling an estate. My method is simple: understand your situation precisely, set out your options plainly, then build a clear strategy with you and defend it rigorously.",
   aboutTrustTitle: "Clear trust signals",
   aboutTrustPoints: [
     "25+ years of legal practice across advisory work and litigation.",
@@ -47,9 +47,9 @@ export const en: Translation = {
   pillarsEyebrow: "Key Pillars",
   pillars: [
     {
-      title: "Compassion",
+      title: "Rigor",
       detail:
-        "You deserve a lawyer who cares as much about your well-being as your case.",
+        "Every case is prepared methodically and defended to exacting standards.",
     },
     {
       title: "Clarity",

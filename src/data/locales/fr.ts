@@ -21,9 +21,9 @@ export const fr: Translation = {
     "Maître Haifa Guedhami Alouini — Votre avocate en Tunisie, basée à Kairouan",
   heroTitle: "Ne laissez pas le droit décider de votre avenir. Maîtrisez-le.",
   heroLede:
-    "Vous n'êtes pas seul dans cette épreuve. Maître Haifa Guedhami Alouini vous accompagne avec compassion et expertise dans vos moments juridiques les plus importants. Que vous traversiez un divorce difficile, un litige commercial ou un défi immobilier, nous sommes à vos côtés pour protéger vos droits et votre avenir.",
+    "Face à un litige, vous avez besoin d'y voir clair. Maître Haifa Guedhami Alouini, avocate en Tunisie, vous accompagne en droit de la famille, immobilier et des affaires : un avis franc, une stratégie adaptée et une défense rigoureuse de vos intérêts.",
   ctas: {
-    primary: "Obtenir Justice",
+    primary: "Prendre rendez-vous",
     bookOnline: "Réserver en ligne",
     secondary: "Notre Expertise",
     whatsapp: "Contact via WhatsApp",
@@ -34,9 +34,9 @@ export const fr: Translation = {
     { value: "3", label: "Langues pour Mieux Vous Comprendre" },
   ],
   aboutEyebrow: "À Propos de Maître Haifa",
-  aboutHeading: "Vous méritez une défense qui ne recule devant rien.",
+  aboutHeading: "25 ans d'expérience au service de vos droits en Tunisie.",
   aboutBody:
-    "Je sais que chercher un avocat signifie que vous traversez un moment difficile. Depuis 25 ans, j'ai le privilège d'accompagner des personnes comme vous — des parents inquiets pour leurs enfants, des entrepreneurs qui défendent leur vie de travail, des familles qui règlent des successions complexes. Mon approche ? Vous écouter d'abord. Comprendre non seulement votre situation juridique, mais aussi vos peurs, vos priorités et vos espoirs. Ensuite, nous construisons ensemble une stratégie claire, pour retrouver votre sérénité.",
+    "Chercher un avocat n'est jamais une démarche anodine. Depuis 25 ans, j'accompagne des particuliers et des entreprises partout en Tunisie : parents en procédure de garde, entrepreneurs en litige, familles confrontées à une succession. Ma méthode est simple — comprendre précisément votre situation, vous exposer vos options sans détour, puis bâtir avec vous une stratégie claire et la défendre avec rigueur.",
   aboutTrustTitle: "Repères concrets",
   aboutTrustPoints: [
     "25+ ans d'expérience en accompagnement judiciaire et conseil.",
@@ -47,9 +47,9 @@ export const fr: Translation = {
   pillarsEyebrow: "Domaines Clés",
   pillars: [
     {
-      title: "Compassion",
+      title: "Rigueur",
       detail:
-        "Vous méritez un avocat qui se soucie autant de votre bien-être que de votre dossier.",
+        "Chaque dossier est préparé avec méthode et défendu avec exigence.",
     },
     {
       title: "Clarté",
