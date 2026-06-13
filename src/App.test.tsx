@@ -32,11 +32,14 @@ describe("App", () => {
       0
     );
 
-    // Hero heading loads async (lazy component + Suspense)
+    // Hero H1 loads async (lazy component + Suspense). The keyword-bearing
+    // brand line is the H1; the slogan renders as styled paragraph text.
     expect(
       await screen.findByRole("heading", {
-        name: /avenir/i,
+        level: 1,
+        name: /Avocate à Kairouan/i,
       }, { timeout: 5000 })
     ).toBeInTheDocument();
+    expect(await screen.findByText(/avenir/i)).toBeInTheDocument();
   });
 });

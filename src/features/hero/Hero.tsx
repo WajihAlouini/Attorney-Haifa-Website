@@ -116,13 +116,15 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
           <div className={styles.copyColumn}>
             <span className={styles.eyebrow}>{t.heroEyebrow}</span>
 
-            <p className={styles.brand}>{t.brandName}</p>
-            <h1 className={styles.heading}>
+            <h1 className={styles.brand}>
+              {t.heroBrandTitle ?? t.brandName}
+            </h1>
+            <p className={styles.heading}>
               <span>{headingParts.main}</span>
               {headingParts.accent ? (
                 <em>{headingParts.accent}</em>
               ) : null}
-            </h1>
+            </p>
             <p className={styles.lede}>{lede}</p>
 
             <div className={styles.actions}>

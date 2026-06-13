@@ -22,6 +22,8 @@ export interface Translation {
 
   // Hero section
   heroEyebrow: string;
+  /** Keyword-bearing H1 (brand line); falls back to brandName. */
+  heroBrandTitle?: string;
   heroTitle?: string;
   heroHeading?: string;
   heroLede?: string;

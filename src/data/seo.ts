@@ -202,9 +202,9 @@ export const seoData: Record<string, LocalizedSEOData> = {
 
   "/avocat-divorce-tunisie": {
     fr: {
-      title: "Avocat Divorce Tunisie | Garde & Pension",
+      title: "Avocat Divorce Tunisie | +25 Ans d'Expérience",
       description:
-        "Procédure de divorce en Tunisie ? Avocat spécialisé en garde d'enfants, pension alimentaire et exécution. Consultation rapide à Kairouan et Tunis.",
+        "Avocate divorce en Tunisie, +25 ans d'expérience, notée 5/5 sur Google. Garde d'enfants, pension alimentaire et exécution des jugements. Consultation rapide.",
       keywords:
         "avocat divorce tunisie, avocat famille tunisie, garde enfants tunisie, pension alimentaire tunisie",
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
@@ -218,9 +218,9 @@ export const seoData: Record<string, LocalizedSEOData> = {
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
     },
     ar: {
-      title: "محامي طلاق في تونس | حضانة ونفقة",
+      title: "محامي طلاق في تونس | خبرة +25 سنة | حضانة ونفقة",
       description:
-        "محامية طلاق في تونس متخصصة في قضايا الحضانة والنفقة وتنفيذ الأحكام. مرافقة قانونية في القيروان وتونس وعن بعد. استشارة سريعة وشخصية.",
+        "محامية طلاق في تونس بخبرة تفوق 25 سنة وتقييم 5/5 على Google. حضانة، نفقة وتنفيذ الأحكام. استشارة قانونية سريعة في القيروان وتونس وعن بعد.",
       keywords: "محامي طلاق تونس, محامي اسرة تونس, حضانة اطفال تونس, نفقة تونس",
       image: "https://maitre-haifaguedhami.me/office/office2.webp",
     },
