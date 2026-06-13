@@ -37,7 +37,7 @@ describe("App", () => {
     expect(
       await screen.findByRole("heading", {
         level: 1,
-        name: /Avocate à Kairouan/i,
+        name: /Haifa Guedhami Alouini/i,
       }, { timeout: 5000 })
     ).toBeInTheDocument();
     expect(await screen.findByText(/avenir/i)).toBeInTheDocument();
