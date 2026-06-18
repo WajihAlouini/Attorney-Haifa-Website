@@ -84,6 +84,21 @@ const SeoClusterPage = lazy(() =>
 
 type SupportedLocale = "fr" | "en" | "ar";
 
+const INDEXABLE_ROUTE_PATHS = new Set<string>([
+  "/",
+  "/about",
+  "/services",
+  "/services/droit-de-la-famille",
+  "/services/droit-des-affaires",
+  "/services/droit-immobilier",
+  "/services/droit-penal",
+  "/values",
+  "/contact",
+  "/faq",
+  "/actualites",
+  ...seoClusterPaths,
+]);
+
 function isSupportedLocale(locale: string): locale is SupportedLocale {
   return locale === "fr" || locale === "en" || locale === "ar";
 }
@@ -133,6 +148,8 @@ function AppContent() {
     search: stripLangSearch(location.search),
   };
   const isBlogPostRoute = routePath.startsWith("/actualites/");
+  const shouldRenderRouteSEO =
+    !isBlogPostRoute && INDEXABLE_ROUTE_PATHS.has(routePath);
   const [t, setT] = useState(defaultTranslation);
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [hasExplicitTheme, setHasExplicitTheme] = useState(
@@ -242,7 +259,7 @@ function AppContent() {
       theme={theme}
       toggleTheme={toggleTheme}
     >
-      {!isBlogPostRoute && <SEO locale={locale} path={routePath} />}
+      {shouldRenderRouteSEO && <SEO locale={locale} path={routePath} />}
       <Routes location={routeLocation} key={`${locale}:${routePath}`}>
         {/* All these routes render the same Home page but with different SEO */}
         <Route

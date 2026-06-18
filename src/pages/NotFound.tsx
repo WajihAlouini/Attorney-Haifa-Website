@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Translation } from "@/types";
 import { localizedTo } from "@/utils/localeRoutes";
@@ -33,60 +34,66 @@ export const NotFound: FC<NotFoundProps> = ({ locale }) => {
         : "Back to Home";
 
   return (
-    <div
-      style={{
-        minHeight: "80vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-        padding: "2rem",
-        gap: "2rem",
-      }}
-    >
-      <h1
+    <>
+      <Helmet>
+        <title>{`${title} | Maitre Haifa Guedhami Alouini`}</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      <div
         style={{
-          fontSize: "clamp(3rem, 8vw, 6rem)",
-          fontFamily: "'Playfair Display', serif",
-          color: "var(--accent)",
-          lineHeight: 1,
-          margin: 0,
+          minHeight: "80vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          padding: "2rem",
+          gap: "2rem",
         }}
       >
-        404
-      </h1>
-      <h2
-        style={{
-          fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
-          fontFamily: "'Playfair Display', serif",
-          color: "var(--text)",
-          margin: 0,
-        }}
-      >
-        {title}
-      </h2>
-      <p
-        style={{
-          color: "var(--muted)",
-          maxWidth: "600px",
-          margin: 0,
-          fontSize: "1.1rem",
-        }}
-      >
-        {description}
-      </p>
-      <Link
-        to={homeLink}
-        className="btn primary btn-magnetic"
-        style={{
-          marginTop: "1rem",
-          display: "inline-block",
-          textDecoration: "none",
-        }}
-      >
-        {buttonText}
-      </Link>
-    </div>
+        <h1
+          style={{
+            fontSize: "clamp(3rem, 8vw, 6rem)",
+            fontFamily: "'Playfair Display', serif",
+            color: "var(--accent)",
+            lineHeight: 1,
+            margin: 0,
+          }}
+        >
+          404
+        </h1>
+        <h2
+          style={{
+            fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
+            fontFamily: "'Playfair Display', serif",
+            color: "var(--text)",
+            margin: 0,
+          }}
+        >
+          {title}
+        </h2>
+        <p
+          style={{
+            color: "var(--muted)",
+            maxWidth: "600px",
+            margin: 0,
+            fontSize: "1.1rem",
+          }}
+        >
+          {description}
+        </p>
+        <Link
+          to={homeLink}
+          className="btn primary btn-magnetic"
+          style={{
+            marginTop: "1rem",
+            display: "inline-block",
+            textDecoration: "none",
+          }}
+        >
+          {buttonText}
+        </Link>
+      </div>
+    </>
   );
 };
