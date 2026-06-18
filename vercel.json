@@ -4,6 +4,7 @@
   "outputDirectory": "dist",
   "installCommand": "npm ci --include=dev",
   "framework": "vite",
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -25,6 +26,16 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*/index.html",
+      "destination": "/:path*",
+      "statusCode": 301
+    },
     {
       "source": "/actualites/labour-code-reform-2025",
       "destination": "/en/actualites/reforme-code-du-travail-2025",
