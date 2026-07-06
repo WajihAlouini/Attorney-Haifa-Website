@@ -5,7 +5,7 @@ import { LoadingFallback } from "@/components/ui/LoadingFallback";
 import { useGoogleReviews } from "@/hooks/useGoogleReviews";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useMagneticButton } from "@/hooks/useMagneticButton";
-import { mapShareUrl, mapEmbedSrc } from "@/data/constants";
+import { mapShareUrl, mapEmbedSrc, officePhotos } from "@/data/constants";
 import { Translation } from "@/types";
 
 // Lazy load below-the-fold sections
@@ -42,6 +42,11 @@ const Contact = lazy(() =>
 const FAQ = lazy(() =>
   import("@/features/faq").then((module) => ({
     default: module.FAQ,
+  }))
+);
+const Gallery = lazy(() =>
+  import("@/features/gallery").then((module) => ({
+    default: module.Gallery,
   }))
 );
 
@@ -109,6 +114,11 @@ export function Home({ t, locale, whatsappLink, whatsappNumber }: HomeProps) {
             mapEmbedSrc={mapEmbedSrc}
             mapShareUrl={mapShareUrl}
           />
+        </Suspense>
+      </div>
+      <div className="section-block section-alt">
+        <Suspense fallback={<LoadingFallback />}>
+          <Gallery t={t} officePhotos={officePhotos} />
         </Suspense>
       </div>
     </>
