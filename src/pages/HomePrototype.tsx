@@ -449,7 +449,9 @@ export const HomePrototype: FC<HomePrototypeProps> = ({
                     </span>
                   </div>
 
-                  <p className={styles.reviewText}>"{review.text}"</p>
+                  <p className={styles.reviewText}>
+                    &ldquo;{review.text}&rdquo;
+                  </p>
                 </div>
               ))}
             </div>
