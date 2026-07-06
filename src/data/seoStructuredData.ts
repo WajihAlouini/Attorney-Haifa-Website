@@ -6,8 +6,6 @@ import {
 } from "@/data/serviceDetails";
 import { getAllPosts, getPostBySlug } from "@/utils/markdown";
 import { buildLocalizedUrl, SITE_URL } from "@/utils/localeRoutes";
-import googleReviews from "@/data/google-reviews.json";
-import googleRating from "@/data/google-rating.json";
 
 type Locale = "fr" | "en" | "ar";
 
@@ -75,50 +73,6 @@ function createBreadcrumbList(
       name: item.name,
       item: toCanonicalUrl(item.path, locale),
     })),
-  };
-}
-
-// Public reviews from the firm's Google Business Profile, mapped to schema.org/Review.
-// Source: src/data/google-reviews.json (real reviews, no fabrication).
-// Aggregate rating comes from src/data/google-rating.json, synced daily by
-// scripts/fetch-reviews.mjs (SerpAPI → commits when values change).
-// Use the GBP-wide reviewCount (may exceed the 5 most-recent reviews we render)
-// unless SerpAPI is unavailable, in which case fall back to the reviews array.
-const AGGREGATE_REVIEW_COUNT =
-  googleRating.reviewCount > 0 ? googleRating.reviewCount : googleReviews.length;
-const AGGREGATE_RATING_VALUE = googleRating.rating;
-
-function buildReviewSchema() {
-  return googleReviews.map((review) => ({
-    "@type": "Review",
-    author: {
-      "@type": "Person",
-      name: review.author,
-    },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: 5,
-      bestRating: 5,
-      worstRating: 1,
-    },
-    datePublished: review.isoDate.split("T")[0],
-    reviewBody: review.text,
-    itemReviewed: { "@id": BUSINESS_ID },
-    publisher: {
-      "@type": "Organization",
-      name: "Google",
-    },
-  }));
-}
-
-function buildAggregateRating() {
-  return {
-    "@type": "AggregateRating",
-    ratingValue: AGGREGATE_RATING_VALUE,
-    bestRating: 5,
-    worstRating: 1,
-    reviewCount: AGGREGATE_REVIEW_COUNT,
-    itemReviewed: { "@id": BUSINESS_ID },
   };
 }
 
@@ -308,8 +262,6 @@ function homeStructuredData(locale: Locale) {
           name: getSEOData(path, locale).title,
           url: toCanonicalUrl(path, locale),
         })),
-        aggregateRating: buildAggregateRating(),
-        review: buildReviewSchema(),
       },
       {
         "@type": "Attorney",

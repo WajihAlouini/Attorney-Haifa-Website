@@ -44,9 +44,11 @@ jobs:
       - name: Test
         run: npx vitest run
 
+      - name: Type check
+        run: npm run type-check
+
   # -------------------------------------------------
-  # 2. Deploy — single build + Vercel deploy
-  #    (eliminates the old separate build job)
+  # 2. Deploy — Vercel build + deploy
   # -------------------------------------------------
   deploy:
     needs: quality
@@ -89,35 +91,11 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
-      - name: Build
-        run: npm run build:prerender
-        env:
-          NODE_ENV: production
-          VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.VITE_WEB3FORMS_ACCESS_KEY }}
-          VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
-          VITE_ENV: production
-          VITE_CALENDLY_URL: ${{ secrets.VITE_CALENDLY_URL }}
-
-      # Construct .vercel/output so we can use `vercel deploy --prebuilt`
-      # This avoids vercel build re-running npm ci with only prod deps
-      - name: Prepare Vercel output
-        run: |
-          mkdir -p .vercel/output
-          cp -r dist .vercel/output/static
-          cat > .vercel/output/config.json << 'CONF'
-          {
-            "version": 3,
-            "routes": [
-              { "src": "/assets/(.*)", "headers": { "Cache-Control": "public, max-age=31536000, immutable" }, "continue": true },
-              { "src": "/(.*\\.html)", "headers": { "Cache-Control": "no-cache, no-store, must-revalidate" }, "continue": true },
-              { "handle": "filesystem" },
-              { "src": "/(.*)", "dest": "/index.html" }
-            ]
-          }
-          CONF
-
       - name: Pull Vercel project settings
         run: vercel pull --yes --environment=${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }} --token="$VERCEL_TOKEN"
+
+      - name: Vercel Build
+        run: vercel build ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} --token="$VERCEL_TOKEN"
 
       - name: Deploy
         id: vercel-deploy
@@ -125,6 +103,10 @@ jobs:
           DEPLOYMENT_URL=$(vercel deploy --prebuilt ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} --token="$VERCEL_TOKEN")
           echo "preview-url=$DEPLOYMENT_URL" >> "$GITHUB_OUTPUT"
           echo "Deployed: $DEPLOYMENT_URL"
+
+      - name: Submit URLs to IndexNow
+        if: github.ref == 'refs/heads/main'
+        run: npm run indexnow
 
       - name: Comment deployment URL on PR
         if: github.event_name == 'pull_request'

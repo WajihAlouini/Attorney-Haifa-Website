@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build:prerender",
   "outputDirectory": "dist",
-  "installCommand": "npm ci",
+  "installCommand": "npm ci --include=dev",
   "framework": "vite",
   "trailingSlash": false,
   "headers": [
@@ -33,42 +33,6 @@
     },
     {
       "source": "/:path*/index.html",
-      "destination": "/:path*",
-      "statusCode": 301
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "query", "key": "lang", "value": "en" }],
-      "destination": "/en",
-      "statusCode": 301
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
-      "destination": "/ar",
-      "statusCode": 301
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "query", "key": "lang", "value": "fr" }],
-      "destination": "/",
-      "statusCode": 301
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "query", "key": "lang", "value": "en" }],
-      "destination": "/en/:path*",
-      "statusCode": 301
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
-      "destination": "/ar/:path*",
-      "statusCode": 301
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "query", "key": "lang", "value": "fr" }],
       "destination": "/:path*",
       "statusCode": 301
     },
