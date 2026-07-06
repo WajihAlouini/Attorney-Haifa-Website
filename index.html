@@ -49,13 +49,13 @@
         const lightThemeColor = "#F0EBE1";
 
         try {
+          // Light theme is the default for everyone; only an explicit
+          // toggle choice (persisted in localStorage) overrides it.
           const storedTheme = localStorage.getItem(themeKey);
           const theme =
             storedTheme === "dark" || storedTheme === "light"
               ? storedTheme
-              : window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? "dark"
-                : "light";
+              : "light";
 
           document.documentElement.setAttribute("data-theme", theme);
           const themeColorMeta = document.querySelector(

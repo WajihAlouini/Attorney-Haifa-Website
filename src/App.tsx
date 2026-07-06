@@ -123,16 +123,10 @@ function getStoredTheme(): Theme | null {
   return null;
 }
 
-function getSystemTheme(): Theme {
-  if (typeof window === "undefined") return "light";
-
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
-
 function getInitialTheme(): Theme {
-  return getStoredTheme() ?? getSystemTheme();
+  // Light theme is the default for everyone; only an explicit toggle
+  // choice (persisted in localStorage) overrides it.
+  return getStoredTheme() ?? "light";
 }
 
 function applyTheme(theme: Theme) {
@@ -164,17 +158,6 @@ function AppContent() {
     setHasExplicitTheme(true);
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
-
-  useEffect(() => {
-    if (hasExplicitTheme || typeof window === "undefined") return;
-
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const syncTheme = (event: MediaQueryListEvent) =>
-      setTheme(event.matches ? "dark" : "light");
-
-    media.addEventListener("change", syncTheme);
-    return () => media.removeEventListener("change", syncTheme);
-  }, [hasExplicitTheme]);
 
   // Apply theme attribute to <html> and persist explicit user preference
   useEffect(() => {
