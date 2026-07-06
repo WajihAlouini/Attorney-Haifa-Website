@@ -33,6 +33,10 @@ const THEME_COLORS = {
 const Home = lazy(() =>
   import("@/pages/Home").then((m) => ({ default: m.Home }))
 );
+const HomePrototype = lazy(() =>
+  import("@/pages/HomePrototype").then((m) => ({ default: m.HomePrototype }))
+);
+
 
 const NotFound = lazy(() =>
   import("@/pages/NotFound").then((m) => ({ default: m.NotFound }))
@@ -200,7 +204,7 @@ function AppContent() {
   const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, "")}`;
   const year = new Date().getFullYear();
 
-  const { scrollProgress, showScrollTop, scrollToTop } = useScrollProgress();
+  const { scrollProgress } = useScrollProgress();
 
   // Scroll management
   useScrollToSection();
@@ -252,8 +256,6 @@ function AppContent() {
       t={t}
       year={year}
       scrollProgress={scrollProgress}
-      showScrollTop={showScrollTop}
-      scrollToTop={scrollToTop}
       whatsappLink={whatsappLink}
       whatsappNumber={whatsappNumber}
       theme={theme}
@@ -268,6 +270,21 @@ function AppContent() {
             <AnimatedPage>
               <Suspense fallback={<LoadingFallback />}>
                 <Home
+                  t={t}
+                  locale={locale}
+                  whatsappLink={whatsappLink}
+                  whatsappNumber={whatsappNumber}
+                />
+              </Suspense>
+            </AnimatedPage>
+          }
+        />
+        <Route
+          path="/experiment"
+          element={
+            <AnimatedPage>
+              <Suspense fallback={<LoadingFallback />}>
+                <HomePrototype
                   t={t}
                   locale={locale}
                   whatsappLink={whatsappLink}

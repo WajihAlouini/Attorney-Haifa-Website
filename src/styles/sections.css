@@ -29,6 +29,14 @@
   background-clip: text;
 }
 
+/* Dark theme: --accent-dark is too dim against the near-black bg — use the
+   bright gold so the gradient tail stays readable */
+[data-theme="dark"] .section-header h2 {
+  background: linear-gradient(135deg, var(--text) 0%, var(--accent-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 /* Decorative gold accent line under heading */
 .section-header h2::after {
   content: "";

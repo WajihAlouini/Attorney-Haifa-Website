@@ -24,7 +24,10 @@ body {
 }
 
 /* Subtle section separator — centered gold fade line */
-.fade-in-section + .fade-in-section::before {
+.fade-in-section + .fade-in-section::before,
+.section-block + .section-block::before,
+.fade-in-section + .section-block::before,
+.section-block + .fade-in-section::before {
   content: "";
   display: block;
   width: min(200px, 30%);

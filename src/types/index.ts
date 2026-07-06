@@ -200,6 +200,7 @@ export interface Translation {
     readMore: string;
     backToList: string;
     by: string;
+    viewAll?: string;
   };
 
   // Service detail pages

@@ -6,12 +6,17 @@ import { SEOHubLinks } from "@/components/common/SEOHubLinks";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useMagneticButton } from "@/hooks/useMagneticButton";
-import { mapShareUrl, mapEmbedSrc } from "@/data/constants";
+import { mapShareUrl, mapEmbedSrc, officePhotos } from "@/data/constants";
 import { Translation } from "@/types";
 
 const Contact = lazy(() =>
   import("@/features/contact").then((module) => ({
     default: module.Contact,
+  }))
+);
+const Gallery = lazy(() =>
+  import("@/features/gallery").then((module) => ({
+    default: module.Gallery,
   }))
 );
 
@@ -64,8 +69,13 @@ export function AboutPage({ locale, t, whatsappLink, whatsappNumber }: PageProps
       <div className="fade-in-section section-alt">
         <SEOHubLinks locale={locale} />
       </div>
-
       <div className="fade-in-section">
+        <Suspense fallback={<LoadingFallback />}>
+          <Gallery t={t} officePhotos={officePhotos} />
+        </Suspense>
+      </div>
+
+      <div className="fade-in-section section-alt">
         <Suspense fallback={<LoadingFallback />}>
           <Contact
             t={t}

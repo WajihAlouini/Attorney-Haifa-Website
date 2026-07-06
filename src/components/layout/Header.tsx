@@ -109,16 +109,6 @@ export const Header: FC<HeaderProps> = ({ locale, setLocale, t, theme, toggleThe
           >
             {t.nav.values}
           </a>
-          <a
-            href="#guides"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("guides");
-            }}
-            className={styles.navLink}
-          >
-            {t.nav.guides || "Guides"}
-          </a>
           <Link
             to={withLocalePath("/actualites")}
             onClick={closeMobileMenu}

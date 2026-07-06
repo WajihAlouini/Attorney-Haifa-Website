@@ -16,8 +16,6 @@ interface MainLayoutProps {
   t: Translation;
   year: number;
   scrollProgress: number;
-  showScrollTop: boolean;
-  scrollToTop: () => void;
   whatsappLink: string;
   whatsappNumber: string;
   theme: "light" | "dark";
@@ -31,8 +29,6 @@ export function MainLayout({
   t,
   year,
   scrollProgress,
-  showScrollTop,
-  scrollToTop,
   whatsappLink,
   whatsappNumber,
   theme,
@@ -77,16 +73,6 @@ export function MainLayout({
           },
         }}
       />
-
-      {showScrollTop && (
-        <button
-          className="scroll-to-top"
-          onClick={scrollToTop}
-          aria-label={t.scrollToTop}
-        >
-          {"\u2191"}
-        </button>
-      )}
 
       <a
         href={whatsappLink}

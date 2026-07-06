@@ -16,17 +16,19 @@ export const fr: Translation = {
     actualites: "Actualités",
     guides: "Guides",
   },
-  heroEyebrow: "Tunis · Kairouan · International",
+  heroEyebrow: "Cabinet à Kairouan · Toute la Tunisie · Clients à l'étranger",
   heroBrandTitle:
     "Maître Haifa Guedhami Alouini — Votre avocate en Tunisie, basée à Kairouan",
-  heroTitle: "Ne laissez pas le droit décider de votre avenir. Maîtrisez-le.",
+  heroTitle:
+    "25 ans à défendre ce qui compte. Votre famille, vos biens, votre entreprise.",
   heroLede:
-    "Face à un litige, vous avez besoin d'y voir clair. Maître Haifa Guedhami Alouini, avocate en Tunisie, vous accompagne en droit de la famille, immobilier et des affaires : un avis franc, une stratégie adaptée et une défense rigoureuse de vos intérêts.",
+    "Du cabinet de Kairouan aux tribunaux de tout le pays, Maître Haifa Guedhami Alouini défend particuliers, entreprises et clients établis à l'étranger. Droit de la famille, immobilier et affaires : un avis franc, une stratégie sur mesure, une défense rigoureuse.",
   ctas: {
     primary: "Prendre rendez-vous",
     bookOnline: "Réserver en ligne",
     secondary: "Notre Expertise",
-    whatsapp: "Contact via WhatsApp",
+    whatsapp: "WhatsApp",
+    contact: "Écrire au cabinet",
   },
   heroMetrics: [
     { value: "25+", label: "Années d'Expérience" },
@@ -40,7 +42,8 @@ export const fr: Translation = {
   aboutTrustTitle: "Repères concrets",
   aboutTrustPoints: [
     "25+ ans d'expérience en accompagnement judiciaire et conseil.",
-    "Cabinet basé à Kairouan avec suivi des dossiers à Tunis et à distance.",
+    "Cabinet basé à Kairouan — dossiers plaidés dans toute la Tunisie, de Tunis à Sfax.",
+    "Suivi à distance éprouvé pour les Tunisiens et clients établis à l'étranger.",
     "Consultations en français, arabe et anglais selon votre situation.",
     "Intervention en droit de la famille, immobilier, affaires et contentieux.",
   ],
@@ -205,7 +208,7 @@ export const fr: Translation = {
     { value: "24/7", label: "Support d'Urgence" },
   ],
   footerBlurb:
-    "Services juridiques de premier plan pour les particuliers et les entreprises en Tunisie.",
+    "Cabinet d'avocat à Kairouan — au service des particuliers et des entreprises dans toute la Tunisie et à l'étranger.",
   developedBy: "Développé par",
   faqEyebrow: "Vos Questions",
   faqHeading: " Réponses",
@@ -278,6 +281,7 @@ export const fr: Translation = {
     readMore: "Lire l'article",
     backToList: "Retour aux actualités",
     by: "Par",
+    viewAll: "Voir toutes les actualités",
   },
   servicePages: {
     family: {

@@ -91,6 +91,19 @@ function splitHeading(text: string) {
   return { main: match[1], accent: match[2] };
 }
 
+// "Name — role" brand titles render as two styled lines; the H1 text
+// (name + role keywords) stays intact for SEO.
+function splitBrandTitle(text: string) {
+  const [name, ...rest] = text.split("—");
+  const role = rest.join("—").trim();
+
+  if (!role) {
+    return { name: text.trim(), role: null as string | null };
+  }
+
+  return { name: name.trim(), role };
+}
+
 export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
   const heading = t.heroTitle ?? t.heroHeading ?? t.brandTagline;
   const lede = getCompactLede(
@@ -98,6 +111,7 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
   );
   const isRtl = locale === "ar";
   const headingParts = splitHeading(heading);
+  const brandParts = splitBrandTitle(t.heroBrandTitle ?? t.brandName);
 
   const preloadBookingWidget = () => {
     if (typeof window === "undefined") return;
@@ -114,10 +128,11 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
       <div className={styles.shell}>
         <div className={styles.stage}>
           <div className={styles.copyColumn}>
-            <span className={styles.eyebrow}>{t.heroEyebrow}</span>
-
             <h1 className={styles.brand}>
-              {t.heroBrandTitle ?? t.brandName}
+              <span className={styles.brandName}>{brandParts.name}</span>
+              {brandParts.role ? (
+                <span className={styles.brandRole}>{brandParts.role}</span>
+              ) : null}
             </h1>
             <p className={styles.heading}>
               <span>{headingParts.main}</span>
@@ -155,7 +170,7 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
                 }}
                 className={`btn btn-magnetic ${styles.ghostButton}`}
               >
-                {t.ctas.primary || "Contact"}
+                {t.ctas.contact || "Contact"}
               </a>
             </div>
           </div>

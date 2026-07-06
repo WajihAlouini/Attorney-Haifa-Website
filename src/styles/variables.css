@@ -34,10 +34,10 @@
   --accent-soft: rgba(143, 114, 9, 0.12);
   --accent-glow: rgba(143, 114, 9, 0.25);
 
-  /* Navy CTA – trust color for action buttons */
-  --cta: #0F4C81;
-  --cta-hover: #0D3F6B;
-  --cta-soft: rgba(15, 76, 129, 0.10);
+  /* CTA – unified with the gold brand accent */
+  --cta: #8F7209;
+  --cta-hover: #7A5F07;
+  --cta-soft: rgba(143, 114, 9, 0.14);
   --cta-contrast: #ffffff;
 
   --border: rgba(28, 25, 23, 0.13);
@@ -135,10 +135,10 @@
   --accent-soft: rgba(212, 175, 55, 0.1);
   --accent-glow: rgba(212, 175, 55, 0.3);
 
-  --cta: #3B82F6;
-  --cta-hover: #60A5FA;
-  --cta-soft: rgba(59, 130, 246, 0.15);
-  --cta-contrast: #ffffff;
+  --cta: #d4af37;
+  --cta-hover: #e6c964;
+  --cta-soft: rgba(212, 175, 55, 0.18);
+  --cta-contrast: #05080f;
 
   --border: rgba(212, 175, 55, 0.15);
   --border-hover: rgba(212, 175, 55, 0.4);

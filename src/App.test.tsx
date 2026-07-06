@@ -40,6 +40,8 @@ describe("App", () => {
         name: /Haifa Guedhami Alouini/i,
       }, { timeout: 5000 })
     ).toBeInTheDocument();
-    expect(await screen.findByText(/avenir/i)).toBeInTheDocument();
+    expect(
+      await screen.findByText(/défendre ce qui compte/i)
+    ).toBeInTheDocument();
   });
 });

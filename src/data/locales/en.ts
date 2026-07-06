@@ -16,17 +16,19 @@ export const en: Translation = {
     actualites: "Legal News",
     guides: "Guides",
   },
-  heroEyebrow: "Tunis · Kairouan · International",
+  heroEyebrow: "Kairouan office · All of Tunisia · Clients abroad",
   heroBrandTitle:
     "Maître Haifa Guedhami Alouini — Your lawyer in Tunisia, based in Kairouan",
-  heroTitle: "Don't let the law decide your future. Master it.",
+  heroTitle:
+    "25 years defending what matters. Your family, your property, your business.",
   heroLede:
-    "When a dispute arises, you need clarity. Maître Haifa Guedhami Alouini, a lawyer in Tunisia, supports you in family, real estate and business law: straight advice, a tailored strategy and a rigorous defense of your interests.",
+    "From her Kairouan office to courtrooms across Tunisia, Maître Haifa Guedhami Alouini represents individuals, businesses and clients living abroad. Family, real estate and business law: straight advice, a tailored strategy, a rigorous defense.",
   ctas: {
     primary: "Request a Consultation",
     bookOnline: "Book Online",
     secondary: "Our Expertise",
-    whatsapp: "Contact via WhatsApp",
+    whatsapp: "WhatsApp",
+    contact: "Write to the firm",
   },
   heroMetrics: [
     { value: "25+", label: "Years of Experience" },
@@ -40,7 +42,8 @@ export const en: Translation = {
   aboutTrustTitle: "Clear trust signals",
   aboutTrustPoints: [
     "25+ years of legal practice across advisory work and litigation.",
-    "Firm based in Kairouan with case follow-up in Tunis and remotely.",
+    "Firm based in Kairouan — cases handled across all of Tunisia, from Tunis to Sfax.",
+    "Proven remote follow-up for Tunisians and clients living abroad.",
     "Consultations available in French, Arabic and English.",
     "Support in family, real estate, business and strategic disputes.",
   ],
@@ -202,7 +205,7 @@ export const en: Translation = {
     { value: "24/7", label: "Emergency Support" },
   ],
   footerBlurb:
-    "Premier legal services for individuals and corporations in Tunisia.",
+    "Law firm in Kairouan — serving individuals and businesses across Tunisia and abroad.",
   developedBy: "Developed by",
   faqEyebrow: "Your Questions",
   faqHeading: "Answers",
@@ -274,6 +277,7 @@ export const en: Translation = {
     readMore: "Read article",
     backToList: "Back to articles",
     by: "By",
+    viewAll: "View all legal news",
   },
   servicePages: {
     family: {
