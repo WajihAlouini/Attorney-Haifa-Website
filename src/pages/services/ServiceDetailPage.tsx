@@ -2,7 +2,6 @@ import { Suspense, lazy } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { TrustBadges } from "@/components/common/TrustBadges";
-import { SEOHubLinks } from "@/components/common/SEOHubLinks";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
 import { PhoneNumber } from "@/components/common/PhoneNumber";
 import { mapEmbedSrc, mapShareUrl } from "@/data/constants";
@@ -265,10 +264,6 @@ export function ServiceDetailPage({
       </div>
 
       <div className="fade-in-section section-alt">
-        <SEOHubLinks locale={locale} />
-      </div>
-
-      <div className="fade-in-section">
         <Suspense fallback={<LoadingFallback />}>
           <Contact
             t={t}

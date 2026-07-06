@@ -1,6 +1,5 @@
 import { Suspense, lazy } from "react";
 import { PracticeAreas } from "@/features/practice-areas";
-import { SEOHubLinks } from "@/components/common/SEOHubLinks";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useMagneticButton } from "@/hooks/useMagneticButton";
@@ -53,11 +52,8 @@ export function ServicesPage({ locale, t, whatsappLink, whatsappNumber }: PagePr
       <div className="fade-in-section">
         <PracticeAreas t={t} locale={locale} />
       </div>
-      <div className="fade-in-section">
-        <SEOHubLinks locale={locale} />
-      </div>
 
-      <div className="fade-in-section">
+      <div className="fade-in-section section-alt">
         <Suspense fallback={<LoadingFallback />}>
           <Contact
             t={t}

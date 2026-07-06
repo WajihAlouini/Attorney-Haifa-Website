@@ -1,6 +1,5 @@
 import { Suspense, lazy } from "react";
 import { FAQ as FaqSection } from "@/features/faq/FAQ";
-import { SEOHubLinks } from "@/components/common/SEOHubLinks";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useMagneticButton } from "@/hooks/useMagneticButton";
@@ -14,13 +13,13 @@ const Contact = lazy(() =>
 );
 
 interface PageProps {
-  locale: string;
+  locale?: string;
   t: Translation;
   whatsappLink: string;
   whatsappNumber: string;
 }
 
-export function FAQPage({ locale, t, whatsappLink, whatsappNumber }: PageProps) {
+export function FAQPage({ t, whatsappLink, whatsappNumber }: PageProps) {
   useScrollAnimation();
   useMagneticButton();
 
@@ -53,11 +52,8 @@ export function FAQPage({ locale, t, whatsappLink, whatsappNumber }: PageProps) 
       <div className="fade-in-section">
         <FaqSection t={t} />
       </div>
-      <div className="fade-in-section section-alt">
-        <SEOHubLinks locale={locale} />
-      </div>
 
-      <div className="fade-in-section">
+      <div className="fade-in-section section-alt">
         <Suspense fallback={<LoadingFallback />}>
           <Contact
             t={t}
