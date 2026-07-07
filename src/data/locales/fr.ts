@@ -254,7 +254,7 @@ export const fr: Translation = {
   cookieRequired: "Requis",
   cookieAnalytics: "Analytiques",
   cookieAnalyticsDesc:
-    "Nous aident à comprendre comment les visiteurs utilisent notre site.",
+    "Nous aident à comprendre comment les visiteurs utilisent le site (Google Analytics). Activés par défaut — désactivez pour vous désinscrire.",
   cookieMarketing: "Marketing",
   cookieMarketingDesc: "Utilisés pour diffuser des publicités personnalisées.",
   callAction: "Appeler",

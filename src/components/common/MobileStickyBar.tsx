@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { Translation } from "@/types";
-import { trackWhatsAppClick } from "@/utils/analyticsHelpers";
 
 interface Props {
   t: Translation;
@@ -38,7 +37,6 @@ export const MobileStickyBar: FC<Props> = ({
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={trackWhatsAppClick}
         className="sticky-btn sticky-whatsapp"
         aria-label={t.ctas.whatsapp}
       >

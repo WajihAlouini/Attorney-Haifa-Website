@@ -233,7 +233,8 @@ export const ar: Translation = {
   cookieEssentialDesc: "ضرورية لوظائف الموقع الأساسية والأمان.",
   cookieRequired: "مطلوبة",
   cookieAnalytics: "تحليلية",
-  cookieAnalyticsDesc: "تساعدنا على فهم كيفية استخدام الزوار لموقعنا.",
+  cookieAnalyticsDesc:
+    "تساعدنا على فهم كيفية استخدام الزوار للموقع (Google Analytics). مُفعّلة افتراضيًا — يمكنك إيقافها لإلغاء الاشتراك.",
   cookieMarketing: "تسويقية",
   cookieMarketingDesc: "تُستخدم لعرض إعلانات مخصصة.",
   callAction: "اتصل",

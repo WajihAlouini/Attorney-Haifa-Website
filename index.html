@@ -73,20 +73,24 @@
 
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- Google Consent Mode v2: set defaults before gtag.js loads -->
+    <!-- Google Consent Mode v2: set defaults before gtag.js loads.
+         We measure every visit by default (analytics granted) so reports match
+         real traffic; a visitor who explicitly rejects analytics in the cookie
+         banner is honored here too, so a returning opted-out visitor is never
+         re-tracked before React loads. Advertising storage stays denied — there
+         are no ad/marketing tags on this site. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       try {
         var cp = JSON.parse(localStorage.getItem('cookie_preferences') || '{}');
-        var granted = cp.analytics === true ? 'granted' : 'denied';
-      } catch(e) { var granted = 'denied'; }
+        var analytics = cp.analytics === false ? 'denied' : 'granted';
+      } catch(e) { var analytics = 'granted'; }
       gtag('consent', 'default', {
-        analytics_storage: granted,
+        analytics_storage: analytics,
         ad_storage: 'denied',
         ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        wait_for_update: 500
+        ad_personalization: 'denied'
       });
     </script>
   </head>

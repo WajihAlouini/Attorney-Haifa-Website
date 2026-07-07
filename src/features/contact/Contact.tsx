@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Check, Copy } from "lucide-react";
 import toast from "react-hot-toast";
 import { PhoneNumber } from "@/components/common/PhoneNumber";
+import { trackFormSubmission } from "@/utils/analyticsHelpers";
 import styles from "./Contact.module.css";
 
 // Obfuscate the email address and form endpoint to prevent antivirus false positives
@@ -98,6 +99,7 @@ const ContactComponent: FC<ContactProps> = ({
       const result = await response.json();
 
       if (result.success) {
+        trackFormSubmission("contact");
         reset();
         toast.success(t.successMessage, { id: toastId });
         // 30-second cooldown to prevent repeated submissions

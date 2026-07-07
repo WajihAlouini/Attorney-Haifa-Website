@@ -5,7 +5,6 @@ import { GoogleAnalytics } from "@/components/common/GoogleAnalytics";
 import { CalComWidget } from "@/components/common/CalComWidget";
 import { MobileStickyBar } from "@/components/common/MobileStickyBar";
 import { Toaster } from "react-hot-toast";
-import { trackWhatsAppClick } from "@/utils/analyticsHelpers";
 import { Translation } from "@/types";
 import { ReactNode } from "react";
 
@@ -79,7 +78,6 @@ export function MainLayout({
         className="floating-whatsapp"
         target="_blank"
         rel="noopener noreferrer"
-        onClick={trackWhatsAppClick}
         aria-label={t.ctas.whatsapp}
       >
         <svg

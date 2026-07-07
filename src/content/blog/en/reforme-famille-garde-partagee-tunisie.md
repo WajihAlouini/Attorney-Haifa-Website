@@ -1,7 +1,7 @@
 ---
-title: "Shared Custody in Tunisia: A Legal Revolution in the Making"
+title: "Shared Custody in Tunisia: What the 2026 Reform Could Change"
 date: "2026-02-15"
-description: "The proposed reform of Tunisia's Personal Status Code could introduce joint custody (co-parenting) for the first time. What divorced and separating parents need to know."
+description: "Tunisia's proposed Personal Status Code reform could introduce joint custody for the first time. What divorcing parents should know about custody and fathers' and mothers' rights."
 
 image: "/blog-family.jpg"
 tags: ["Family Law", "Divorce", "Child Custody"]

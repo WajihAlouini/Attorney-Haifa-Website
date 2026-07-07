@@ -250,7 +250,7 @@ export const en: Translation = {
   cookieRequired: "Required",
   cookieAnalytics: "Analytics",
   cookieAnalyticsDesc:
-    "Help us understand how visitors interact with our site.",
+    "Helps us understand how visitors use the site (Google Analytics). On by default — turn it off to opt out.",
   cookieMarketing: "Marketing",
   cookieMarketingDesc: "Used to deliver personalized advertisements.",
   callAction: "Call",

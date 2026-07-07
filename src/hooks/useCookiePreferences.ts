@@ -8,7 +8,7 @@ interface CookiePreferences {
 
 const DEFAULT_PREFERENCES: CookiePreferences = {
   essential: true,
-  analytics: false,
+  analytics: true,
   marketing: false,
 };
 

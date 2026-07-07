@@ -12,9 +12,11 @@ interface CookieConsentProps {
   t: Translation;
 }
 
+// Analytics is on by default (measured for everyone); the visitor can opt out
+// via Reject or by toggling it off. Marketing stays off until opted in.
 const DEFAULT_PREFERENCES: CookiePreferences = {
   essential: true,
-  analytics: false,
+  analytics: true,
   marketing: false,
 };
 
