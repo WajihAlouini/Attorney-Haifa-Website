@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useRef } from "react";
+import { FC, ReactNode, useEffect, useRef, useState } from "react";
 import portraitImg from "@/assets/portrait/portrait.webp?format=avif;webp&w=1200&as=picture";
 import portraitSmImg from "@/assets/portrait/portrait-sm.webp?format=avif;webp&w=520&as=picture";
 import styles from "./Hero.module.css";
@@ -116,6 +116,16 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
   const heroRef = useRef<HTMLElement>(null);
   const figureRef = useRef<HTMLDivElement>(null);
   const tiltRef = useRef<HTMLDivElement>(null);
+  const portraitImgRef = useRef<HTMLImageElement>(null);
+  const [portraitLoaded, setPortraitLoaded] = useState(false);
+
+  // Reveal the portrait the instant its pixels are ready — no fixed-timer
+  // hold. Covers images already cached before React attached onLoad.
+  useEffect(() => {
+    if (portraitImgRef.current?.complete) {
+      setPortraitLoaded(true);
+    }
+  }, []);
 
   // Cursor-tracking spotlight + 3D portrait tilt. Pointer-driven,
   // rAF-batched, and skipped entirely for touch / reduced-motion.
@@ -253,7 +263,12 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
 
           <div className={styles.figureColumn} ref={figureRef}>
             <div className={styles.figureGlow} aria-hidden="true" />
-            <div className={styles.figureInner} ref={tiltRef}>
+            <div
+              className={`${styles.figureInner}${
+                portraitLoaded ? ` ${styles.figureReady}` : ""
+              }`}
+              ref={tiltRef}
+            >
               <picture>
                 {/* Mobile-optimized sources (520px for up to 768px viewport) */}
                 {Object.entries(portraitSmImg.sources).map(([format, src]) => (
@@ -269,6 +284,7 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
                   <source key={format} srcSet={src} type={`image/${format}`} />
                 ))}
                 <img
+                  ref={portraitImgRef}
                   src={portraitImg.img.src}
                   alt={"Ma\u00eetre Haifa Guedhami Alouini"}
                   className={styles.portrait}
@@ -276,6 +292,8 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
                   decoding="async"
                   width="560"
                   height="700"
+                  onLoad={() => setPortraitLoaded(true)}
+                  onError={() => setPortraitLoaded(true)}
                 />
               </picture>
             </div>

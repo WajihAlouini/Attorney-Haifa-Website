@@ -239,10 +239,18 @@
   width: 100%;
   max-width: 420px;
   overflow: hidden;
+  opacity: 0;
   transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
   transform-style: preserve-3d;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease;
   will-change: transform;
+}
+
+/* Added by JS the instant the portrait image is ready (or cached/errored). */
+.figureReady {
+  opacity: 1;
 }
 
 .portrait {
@@ -471,17 +479,6 @@
   }
 }
 
-@keyframes heroFigureIn {
-  from {
-    opacity: 0;
-    clip-path: inset(6% 0 6% 0);
-  }
-  to {
-    opacity: 1;
-    clip-path: inset(0 0 0 0);
-  }
-}
-
 .brand,
 .heading,
 .lede,
@@ -506,10 +503,6 @@
   animation-delay: 0.54s;
 }
 
-.figureInner {
-  animation: heroFigureIn 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
-}
-
 /* Respect users who ask for less motion — show everything at rest.
    (The cursor spotlight + portrait tilt are already gated off in JS
    for reduced-motion, so only the CSS-driven pieces need disabling.) */
@@ -518,9 +511,13 @@
   .heading,
   .lede,
   .actions,
-  .metricsRail,
-  .figureInner {
+  .metricsRail {
     animation: none;
+  }
+
+  .figureInner {
+    opacity: 1;
+    transition: none;
   }
 
   .aurora {
