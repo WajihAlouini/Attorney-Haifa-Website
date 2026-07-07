@@ -207,6 +207,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  perspective: 1100px;
 }
 
 .figureColumn::before {
@@ -238,6 +239,10 @@
   width: 100%;
   max-width: 420px;
   overflow: hidden;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .portrait {
@@ -369,6 +374,157 @@
 
   .figureInner {
     max-width: 320px;
+  }
+}
+
+/* ============================================================
+   BACKDROP — living atmosphere behind the hero: a slowly
+   drifting gold aurora, fine film grain, and a spotlight that
+   tracks the cursor. Transform/opacity only → GPU-composited.
+   Sits at z-index 0, beneath .shell (content).
+   ============================================================ */
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora {
+  position: absolute;
+  inset: -25%;
+  background:
+    radial-gradient(32% 42% at 22% 32%, rgba(197, 160, 89, 0.22), transparent 60%),
+    radial-gradient(28% 38% at 78% 22%, rgba(122, 95, 7, 0.16), transparent 60%),
+    radial-gradient(42% 52% at 62% 82%, rgba(197, 160, 89, 0.16), transparent 65%);
+  filter: blur(46px) saturate(1.05);
+  animation: auroraDrift 20s ease-in-out infinite alternate;
+}
+
+@keyframes auroraDrift {
+  0% {
+    transform: translate3d(-3%, -2%, 0) scale(1.05) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(3%, 2%, 0) scale(1.16) rotate(4deg);
+  }
+  100% {
+    transform: translate3d(2%, -3%, 0) scale(1.1) rotate(-3deg);
+  }
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+}
+
+.spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 420px at var(--mx, 72%) var(--my, 28%),
+    rgba(197, 160, 89, 0.14),
+    transparent 62%
+  );
+}
+
+:global([data-theme="dark"]) .aurora {
+  background:
+    radial-gradient(32% 42% at 22% 32%, rgba(197, 160, 89, 0.3), transparent 60%),
+    radial-gradient(28% 38% at 78% 22%, rgba(122, 95, 7, 0.26), transparent 60%),
+    radial-gradient(42% 52% at 62% 82%, rgba(197, 160, 89, 0.22), transparent 65%);
+}
+
+:global([data-theme="dark"]) .grain {
+  opacity: 0.32;
+  mix-blend-mode: soft-light;
+}
+
+:global([data-theme="dark"]) .spotlight {
+  background: radial-gradient(
+    circle 460px at var(--mx, 72%) var(--my, 28%),
+    rgba(197, 160, 89, 0.2),
+    transparent 62%
+  );
+}
+
+/* ============================================================
+   ENTRANCE — staggered arrival on load (Tier-1 motion).
+   Text rises + fades in sequence; portrait settles from a
+   subtle zoom. Transform/opacity only, so it composites and
+   never triggers layout / CLS.
+   ============================================================ */
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFigureIn {
+  from {
+    opacity: 0;
+    clip-path: inset(6% 0 6% 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.brand,
+.heading,
+.lede,
+.actions,
+.metricsRail {
+  animation: heroRise 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.brand {
+  animation-delay: 0.08s;
+}
+.heading {
+  animation-delay: 0.18s;
+}
+.lede {
+  animation-delay: 0.3s;
+}
+.actions {
+  animation-delay: 0.42s;
+}
+.metricsRail {
+  animation-delay: 0.54s;
+}
+
+.figureInner {
+  animation: heroFigureIn 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+/* Respect users who ask for less motion — show everything at rest.
+   (The cursor spotlight + portrait tilt are already gated off in JS
+   for reduced-motion, so only the CSS-driven pieces need disabling.) */
+@media (prefers-reduced-motion: reduce) {
+  .brand,
+  .heading,
+  .lede,
+  .actions,
+  .metricsRail,
+  .figureInner {
+    animation: none;
+  }
+
+  .aurora {
+    animation: none;
   }
 }
 

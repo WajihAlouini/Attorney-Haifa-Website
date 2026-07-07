@@ -19,6 +19,11 @@ const About = lazy(() =>
     default: module.About,
   }))
 );
+const Values = lazy(() =>
+  import("@/features/values").then((module) => ({
+    default: module.Values,
+  }))
+);
 const PracticeAreas = lazy(() =>
   import("@/features/practice-areas").then((module) => ({
     default: module.PracticeAreas,
@@ -80,7 +85,12 @@ export function Home({ t, locale, whatsappLink, whatsappNumber }: HomeProps) {
           <About t={t} />
         </Suspense>
       </div>
-      <div className="section-block">
+      <div className="fade-in-section section-block">
+        <Suspense fallback={null}>
+          <Values t={t} />
+        </Suspense>
+      </div>
+      <div className="fade-in-section section-block">
         <Suspense fallback={<LoadingFallback />}>
           <Reviews
             t={t}
@@ -90,22 +100,22 @@ export function Home({ t, locale, whatsappLink, whatsappNumber }: HomeProps) {
           />
         </Suspense>
       </div>
-      <div className="section-block section-alt">
+      <div className="fade-in-section section-block section-alt">
         <Suspense fallback={null}>
           <Approach t={t} />
         </Suspense>
       </div>
-      <div className="section-block">
+      <div className="fade-in-section section-block">
         <Suspense fallback={null}>
           <NewsTeaser t={t} locale={locale} />
         </Suspense>
       </div>
-      <div className="section-block section-alt">
+      <div className="fade-in-section section-block section-alt">
         <Suspense fallback={<LoadingFallback />}>
           <FAQ t={t} />
         </Suspense>
       </div>
-      <div className="section-block">
+      <div className="fade-in-section section-block">
         <Suspense fallback={<LoadingFallback />}>
           <Contact
             t={t}
@@ -116,7 +126,7 @@ export function Home({ t, locale, whatsappLink, whatsappNumber }: HomeProps) {
           />
         </Suspense>
       </div>
-      <div className="section-block section-alt">
+      <div className="fade-in-section section-block section-alt">
         <Suspense fallback={<LoadingFallback />}>
           <Gallery t={t} officePhotos={officePhotos} />
         </Suspense>

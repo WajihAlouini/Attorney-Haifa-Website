@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect, useRef } from "react";
 import portraitImg from "@/assets/portrait/portrait.webp?format=avif;webp&w=1200&as=picture";
 import portraitSmImg from "@/assets/portrait/portrait-sm.webp?format=avif;webp&w=520&as=picture";
 import styles from "./Hero.module.css";
@@ -113,6 +113,77 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
   const headingParts = splitHeading(heading);
   const brandParts = splitBrandTitle(t.heroBrandTitle ?? t.brandName);
 
+  const heroRef = useRef<HTMLElement>(null);
+  const figureRef = useRef<HTMLDivElement>(null);
+  const tiltRef = useRef<HTMLDivElement>(null);
+
+  // Cursor-tracking spotlight + 3D portrait tilt. Pointer-driven,
+  // rAF-batched, and skipped entirely for touch / reduced-motion.
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const fine = window.matchMedia("(pointer: fine)").matches;
+    if (reduce || !fine) return;
+
+    const fig = figureRef.current;
+    let raf = 0;
+    let sx = 72;
+    let sy = 28;
+    let rx = 0;
+    let ry = 0;
+
+    const apply = () => {
+      raf = 0;
+      hero.style.setProperty("--mx", `${sx.toFixed(2)}%`);
+      hero.style.setProperty("--my", `${sy.toFixed(2)}%`);
+      const tilt = tiltRef.current;
+      if (tilt) {
+        tilt.style.setProperty("--rx", `${rx.toFixed(2)}deg`);
+        tilt.style.setProperty("--ry", `${ry.toFixed(2)}deg`);
+      }
+    };
+
+    const schedule = () => {
+      if (!raf) raf = requestAnimationFrame(apply);
+    };
+
+    const onHeroMove = (e: PointerEvent) => {
+      const r = hero.getBoundingClientRect();
+      sx = ((e.clientX - r.left) / r.width) * 100;
+      sy = ((e.clientY - r.top) / r.height) * 100;
+      schedule();
+    };
+
+    const onFigMove = (e: PointerEvent) => {
+      if (!fig) return;
+      const r = fig.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      ry = px * 8;
+      rx = -py * 8;
+      schedule();
+    };
+
+    const onFigLeave = () => {
+      rx = 0;
+      ry = 0;
+      schedule();
+    };
+
+    hero.addEventListener("pointermove", onHeroMove);
+    fig?.addEventListener("pointermove", onFigMove);
+    fig?.addEventListener("pointerleave", onFigLeave);
+
+    return () => {
+      hero.removeEventListener("pointermove", onHeroMove);
+      fig?.removeEventListener("pointermove", onFigMove);
+      fig?.removeEventListener("pointerleave", onFigLeave);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   const preloadBookingWidget = () => {
     if (typeof window === "undefined") return;
     window.dispatchEvent(new Event("cal:preload"));
@@ -124,7 +195,12 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
   };
 
   return (
-    <section className={styles.hero} id="hero" data-rtl={isRtl}>
+    <section className={styles.hero} id="hero" data-rtl={isRtl} ref={heroRef}>
+      <div className={styles.backdrop} aria-hidden="true">
+        <div className={styles.aurora} />
+        <div className={styles.grain} />
+        <div className={styles.spotlight} />
+      </div>
       <div className={styles.shell}>
         <div className={styles.stage}>
           <div className={styles.copyColumn}>
@@ -175,9 +251,9 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
             </div>
           </div>
 
-          <div className={styles.figureColumn}>
+          <div className={styles.figureColumn} ref={figureRef}>
             <div className={styles.figureGlow} aria-hidden="true" />
-            <div className={styles.figureInner}>
+            <div className={styles.figureInner} ref={tiltRef}>
               <picture>
                 {/* Mobile-optimized sources (520px for up to 768px viewport) */}
                 {Object.entries(portraitSmImg.sources).map(([format, src]) => (
