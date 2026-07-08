@@ -44,11 +44,6 @@ const Contact = lazy(() =>
     default: module.Contact,
   }))
 );
-const FAQ = lazy(() =>
-  import("@/features/faq").then((module) => ({
-    default: module.FAQ,
-  }))
-);
 const Gallery = lazy(() =>
   import("@/features/gallery").then((module) => ({
     default: module.Gallery,
@@ -108,11 +103,6 @@ export function Home({ t, locale, whatsappLink, whatsappNumber }: HomeProps) {
       <div className="fade-in-section section-block">
         <Suspense fallback={null}>
           <NewsTeaser t={t} locale={locale} />
-        </Suspense>
-      </div>
-      <div className="fade-in-section section-block section-alt">
-        <Suspense fallback={<LoadingFallback />}>
-          <FAQ t={t} />
         </Suspense>
       </div>
       <div className="fade-in-section section-block">

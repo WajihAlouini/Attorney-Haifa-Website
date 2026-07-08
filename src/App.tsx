@@ -53,9 +53,6 @@ const ValuesPage = lazy(() =>
 const ContactPage = lazy(() =>
   import("@/pages/ContactPage").then((m) => ({ default: m.ContactPage }))
 );
-const FAQPage = lazy(() =>
-  import("@/pages/FAQPage").then((m) => ({ default: m.FAQPage }))
-);
 const FamilyLawPage = lazy(() =>
   import("@/pages/services/FamilyLawPage").then((m) => ({
     default: m.FamilyLawPage,
@@ -98,7 +95,6 @@ const INDEXABLE_ROUTE_PATHS = new Set<string>([
   "/services/droit-penal",
   "/values",
   "/contact",
-  "/faq",
   "/actualites",
   ...seoClusterPaths,
 ]);
@@ -404,21 +400,6 @@ function AppContent() {
             <AnimatedPage>
               <Suspense fallback={<LoadingFallback />}>
                 <ContactPage
-                  locale={locale}
-                  t={t}
-                  whatsappLink={whatsappLink}
-                  whatsappNumber={whatsappNumber}
-                />
-              </Suspense>
-            </AnimatedPage>
-          }
-        />
-        <Route
-          path="/faq"
-          element={
-            <AnimatedPage>
-              <Suspense fallback={<LoadingFallback />}>
-                <FAQPage
                   locale={locale}
                   t={t}
                   whatsappLink={whatsappLink}

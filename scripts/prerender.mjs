@@ -20,7 +20,6 @@ const BASE_ROUTES = [
   "/services/droit-penal",
   "/values",
   "/contact",
-  "/faq",
   "/actualites",
   "/avocat-divorce-tunisie",
   "/avocat-immobilier-tunisie",

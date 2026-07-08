@@ -121,9 +121,6 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
             <Link to={withLocalePath("/actualites")}>
               {t.nav.actualites || copy.blog}
             </Link>
-            <Link to={withLocalePath("/faq")}>
-              FAQ
-            </Link>
           </div>
         </div>
 

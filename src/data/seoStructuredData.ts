@@ -439,45 +439,6 @@ export function getStructuredData(path: string, locale: Locale) {
     };
   }
 
-  if (path === "/faq") {
-    const pageUrl = toCanonicalUrl(path, resolvedLocale);
-    return {
-      "@context": "https://schema.org",
-      "@graph": [
-        faqPageFromList(
-          [
-            {
-              question: "J'ai peur d'aller au tribunal...",
-              answer:
-                "La plupart des affaires se reglent avant audience. Si une audience est necessaire, vous etes accompagne a chaque etape.",
-            },
-            {
-              question:
-                "Est-ce que mes informations restent confidentielles ?",
-              answer:
-                "Oui. Le secret professionnel de l'avocat s'applique integralement.",
-            },
-            {
-              question: "Combien cela va-t-il couter ?",
-              answer:
-                "Une estimation claire est communiquee des le debut selon la nature du dossier.",
-            },
-            {
-              question: "Combien de temps cela prendra-t-il ?",
-              answer:
-                "Les delais dependent de la procedure. Une estimation realiste est partagee et mise a jour pendant le dossier.",
-            },
-          ],
-          pageUrl
-        ),
-        createBreadcrumbList(resolvedLocale, [
-          { name: HOME_LABELS[resolvedLocale], path: "/" },
-          { name: getSEOData(path, resolvedLocale).title, path },
-        ]),
-      ],
-    };
-  }
-
   if (path === "/actualites") {
     const pageUrl = toCanonicalUrl(path, resolvedLocale);
     const posts = getAllPosts(resolvedLocale);

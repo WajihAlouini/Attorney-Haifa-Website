@@ -108,17 +108,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/contact"/>
   </url>
 
-  <url>
-    <loc>https://maitre-haifaguedhami.me/faq</loc>
-    <lastmod>2026-03-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://maitre-haifaguedhami.me/faq"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maitre-haifaguedhami.me/en/faq"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://maitre-haifaguedhami.me/ar/faq"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://maitre-haifaguedhami.me/faq"/>
-  </url>
-
   <!-- ===== SEO CLUSTER PAGES ===== -->
   <url>
     <loc>https://maitre-haifaguedhami.me/code-du-travail-tunisie</loc>

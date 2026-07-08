@@ -519,30 +519,6 @@ export const seoData: Record<string, LocalizedSEOData> = {
     },
   },
 
-  "/faq": {
-    fr: {
-      title: "FAQ Avocat Tunisie | Procédures et Honoraires",
-      description:
-        "Questions fréquentes sur le divorce, l'immobilier et le droit des affaires en Tunisie. Honoraires, délais et procédures expliqués simplement.",
-      keywords: "faq avocat tunisie, procedure divorce, honoraires avocat",
-      image: "https://maitre-haifaguedhami.me/office/office1.webp",
-    },
-    en: {
-      title: "FAQ | Lawyer Tunisia | Procedures & Fees",
-      description:
-        "Frequently asked questions about divorce, real estate and business law in Tunisia. Procedures, timelines and attorney fees explained in simple terms.",
-      keywords: "faq lawyer tunisia, divorce procedure, attorney fees tunisia",
-      image: "https://maitre-haifaguedhami.me/office/office1.webp",
-    },
-    ar: {
-      title: "الأسئلة المتكررة | محامية تونس | إجراءات",
-      description:
-        "إجابات على الأسئلة الشائعة حول الطلاق والعقار والأعمال في تونس. الإجراءات والآجال والأتعاب مشروحة ببساطة ووضوح تام لمساعدتكم.",
-      keywords: "اسئلة متكررة محامي تونس, إجراءات طلاق, أتعاب محامي تونس",
-      image: "https://maitre-haifaguedhami.me/office/office1.webp",
-    },
-  },
-
   "/actualites": {
     fr: {
       title: "Actualités Juridiques | Maître Haifa Guedhami Alouini",
@@ -594,5 +570,4 @@ export const routeToSection: Record<string, string> = {
   "/services": "practice",
   "/values": "values",
   "/contact": "contact",
-  "/faq": "faq",
 };
