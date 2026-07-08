@@ -7,6 +7,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { Analytics } from "@vercel/analytics/react";
 import { defaultTranslation, loadTranslation } from "@/data/translations";
 import { whatsappNumber } from "@/data/constants";
 import { seoClusterPaths } from "@/data/seoCluster";
@@ -451,6 +452,7 @@ function App() {
       <BrowserRouter>
         <AppContent />
       </BrowserRouter>
+      <Analytics />
     </HelmetProvider>
   );
 }
