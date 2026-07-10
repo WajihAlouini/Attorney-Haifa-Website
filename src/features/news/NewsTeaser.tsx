@@ -11,7 +11,7 @@ interface NewsTeaserProps {
 }
 
 export const NewsTeaser: FC<NewsTeaserProps> = ({ t, locale }) => {
-  const posts = getAllPosts(locale).slice(0, 3);
+  const posts = getAllPosts(locale).slice(0, 8);
 
   if (!posts.length) {
     return null;
@@ -24,6 +24,10 @@ export const NewsTeaser: FC<NewsTeaserProps> = ({ t, locale }) => {
       day: "numeric",
     });
 
+  // Rendered twice so the CSS marquee loops seamlessly (translateX(-50%)).
+  const marqueePosts = [...posts, ...posts];
+  const readMore = t.blog?.readMore ?? "Lire l'article";
+
   return (
     <section className={styles.section} id="news">
       <div className="section-header">
@@ -33,26 +37,49 @@ export const NewsTeaser: FC<NewsTeaserProps> = ({ t, locale }) => {
         <h2>{t.blog?.heading ?? "Le Journal Juridique"}</h2>
       </div>
 
-      <div className={styles.grid}>
-        {posts.map((post) => (
-          <Link
-            key={post.slug}
-            to={localizedTo(`/actualites/${post.slug}`, locale)}
-            className={styles.card}
-          >
-            <time className={styles.date} dateTime={post.date}>
-              {formatDate(post.date)}
-            </time>
-            <h3 className={styles.title}>{post.title}</h3>
-            <p className={styles.excerpt}>{post.description}</p>
-            <span className={styles.readMore}>
-              {t.blog?.readMore ?? "Lire l'article"}
-              <span className={styles.arrow} aria-hidden="true">
-                →
-              </span>
-            </span>
-          </Link>
-        ))}
+      <div className={styles.marquee}>
+        <div className={styles.track}>
+          {marqueePosts.map((post, index) => {
+            const cloned = index >= posts.length;
+            return (
+              <Link
+                key={`${post.slug}-${index}`}
+                to={localizedTo(`/actualites/${post.slug}`, locale)}
+                className={styles.card}
+                aria-hidden={cloned || undefined}
+                tabIndex={cloned ? -1 : undefined}
+              >
+                <div className={styles.media}>
+                  {post.image && (
+                    <img
+                      className={styles.image}
+                      src={post.image}
+                      alt=""
+                      loading="lazy"
+                    />
+                  )}
+                  {post.tags?.[0] && (
+                    <span className={styles.tag}>{post.tags[0]}</span>
+                  )}
+                </div>
+
+                <div className={styles.body}>
+                  <time className={styles.date} dateTime={post.date}>
+                    {formatDate(post.date)}
+                  </time>
+                  <h3 className={styles.title}>{post.title}</h3>
+                  <p className={styles.excerpt}>{post.description}</p>
+                  <span className={styles.readMore}>
+                    {readMore}
+                    <span className={styles.arrow} aria-hidden="true">
+                      →
+                    </span>
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
       </div>
 
       <div className={styles.viewAllWrap}>
