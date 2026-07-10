@@ -230,15 +230,6 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
             <p className={styles.lede}>{lede}</p>
 
             <div className={styles.actions}>
-              <button
-                type="button"
-                onClick={handleBookingClick}
-                onMouseEnter={preloadBookingWidget}
-                onFocus={preloadBookingWidget}
-                className={`btn btn-magnetic ${styles.primaryButton}`}
-              >
-                {t.ctas.bookOnline || "Book Online"}
-              </button>
               <a
                 href={whatsappLink}
                 className={`btn btn-magnetic ${styles.whatsappButton}`}
@@ -268,6 +259,15 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
                 <Mail className={styles.buttonIcon} aria-hidden="true" />
                 {t.ctas.contact || "Contact"}
               </a>
+              <button
+                type="button"
+                onClick={handleBookingClick}
+                onMouseEnter={preloadBookingWidget}
+                onFocus={preloadBookingWidget}
+                className={`btn btn-magnetic ${styles.primaryButton}`}
+              >
+                {t.ctas.bookOnline || "Book Online"}
+              </button>
             </div>
           </div>
 

@@ -72,12 +72,12 @@ export function Home({ t, locale, whatsappLink, whatsappNumber }: HomeProps) {
 
       <div className="fade-in-section section-block">
         <Suspense fallback={null}>
-          <PracticeAreas t={t} locale={locale} />
+          <About t={t} />
         </Suspense>
       </div>
       <div className="fade-in-section section-block section-alt">
         <Suspense fallback={null}>
-          <About t={t} />
+          <PracticeAreas t={t} locale={locale} />
         </Suspense>
       </div>
       <div className="fade-in-section section-block">
