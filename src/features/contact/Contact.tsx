@@ -126,14 +126,14 @@ const ContactComponent: FC<ContactProps> = ({
 
   return (
     <section className={styles.section} id="contact">
+      {!hideHeader && (
+        <div className="section-header">
+          <p className="section-eyebrow">{t.consultEyebrow}</p>
+          <h2>{t.consultHeading}</h2>
+        </div>
+      )}
       <div className={styles.card}>
         <div>
-          {!hideHeader && (
-            <>
-              <p className="section-eyebrow">{t.consultEyebrow}</p>
-              <h2>{t.consultHeading}</h2>
-            </>
-          )}
           <ul className={styles.list}>
             {/* WhatsApp */}
             <li>
