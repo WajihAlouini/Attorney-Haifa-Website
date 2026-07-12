@@ -1084,7 +1084,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         keywords:
           "avocat tunisiens à l'étranger, avocat TRE, procuration tunisie depuis l'étranger, divorce international tunisie, succession tunisie à distance",
         highlights: [
-          "Suivi à distance éprouvé : échanges par WhatsApp, e-mail et visioconférence, avec un compte rendu écrit après chaque étape.",
+          "Suivi à distance éprouvé : échanges par WhatsApp et e-mail, avec un compte rendu écrit après chaque étape.",
           "Procuration et représentation : vous signez au consulat de Tunisie de votre pays, le cabinet agit devant les tribunaux et administrations.",
           "Dossiers transfrontaliers : divorce et garde entre deux pays, exequatur des jugements étrangers, successions et partages à distance.",
         ],
@@ -1097,7 +1097,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         ],
         processTitle: "Comment démarrer depuis l'étranger",
         process: [
-          "Premier échange par WhatsApp ou visioconférence pour évaluer le dossier.",
+          "Premier échange par WhatsApp pour évaluer le dossier.",
           "Le cabinet prépare le texte exact de la procuration à signer au consulat de Tunisie.",
           "Vous transmettez les pièces par e-mail ; le cabinet engage la procédure en Tunisie.",
           "Vous recevez un compte rendu écrit après chaque audience ou démarche.",
@@ -1149,7 +1149,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         ],
         processTitle: "How it works from abroad",
         process: [
-          "First exchange by WhatsApp or video call to assess your case.",
+          "First exchange by WhatsApp to assess your case.",
           "The firm prepares the exact power of attorney to sign at a consulate or have legalized locally.",
           "You send the documents by email; the firm opens the procedure in Tunisia.",
           "You receive a written update after every hearing or step.",
@@ -1163,7 +1163,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
           {
             question: "Do I need to travel to Tunisia for my case?",
             answer:
-              "Rarely. With a power of attorney the firm represents you fully; most files are handled with documents sent by email and updates by WhatsApp or video call.",
+              "Rarely. With a power of attorney the firm represents you fully; most files are handled with documents sent by email and updates by WhatsApp.",
           },
           {
             question: "Is my foreign divorce recognized in Tunisia?",
@@ -1186,7 +1186,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         keywords:
           "محامي للتونسيين بالخارج, توكيل من الخارج تونس, طلاق دولي تونس, ميراث تونس من الخارج, شراء عقار في تونس من الخارج",
         highlights: [
-          "متابعة عن بعد مجرّبة: تواصل عبر واتساب والبريد الإلكتروني والفيديو، مع تقرير مكتوب بعد كل مرحلة.",
+          "متابعة عن بعد مجرّبة: تواصل عبر واتساب والبريد الإلكتروني، مع تقرير مكتوب بعد كل مرحلة.",
           "التوكيل والنيابة: تمضون التوكيل في القنصلية التونسية ببلد إقامتكم، وينوب المكتب عنكم أمام المحاكم والإدارات.",
           "ملفات عابرة للحدود: طلاق وحضانة بين بلدين، إكساء الأحكام الأجنبية بالصيغة التنفيذية، ميراث وقسمة عن بعد.",
         ],
@@ -1199,7 +1199,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         ],
         processTitle: "كيف تبدأون من الخارج",
         process: [
-          "تواصل أول عبر واتساب أو مكالمة فيديو لتقييم الملف.",
+          "تواصل أول عبر واتساب لتقييم الملف.",
           "يعدّ المكتب نص التوكيل المطلوب لإمضائه في القنصلية التونسية.",
           "ترسلون الوثائق عبر البريد الإلكتروني ويباشر المكتب الإجراءات في تونس.",
           "تتوصلون بتقرير مكتوب بعد كل جلسة أو إجراء.",
