@@ -129,7 +129,7 @@ const UI_COPY: Record<ClusterLocale, SeoClusterUiCopy> = {
     ],
   },
   ar: {
-    eyebrow: "القيروان . تونس . تونس",
+    eyebrow: "القيروان . تونس العاصمة . كامل تونس",
     whatsappPrefix: "واتساب",
     consultationCta: "طلب استشارة قانونية",
     valueTitle: "قيمة المكتب",
