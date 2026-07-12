@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { defaultTranslation, loadTranslation } from "@/data/translations";
-import { whatsappNumber } from "@/data/constants";
+import { whatsappNumber, whatsappPrefill } from "@/data/constants";
 import { seoClusterPaths } from "@/data/seoCluster";
 import { MainLayout } from "@/layouts/MainLayout";
 
@@ -180,7 +180,7 @@ function AppContent() {
       );
     }
   };
-  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, "")}`;
+  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=${encodeURIComponent(whatsappPrefill[locale])}`;
   const year = new Date().getFullYear();
 
   const { scrollProgress } = useScrollProgress();
