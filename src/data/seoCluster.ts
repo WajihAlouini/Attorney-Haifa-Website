@@ -1090,7 +1090,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         ],
         checklistTitle: "Ce que le cabinet prend en charge",
         checklist: [
-          "Divorce et affaires familiales menés en Tunisie pendant que vous restez dans votre pays de résidence.",
+          "Divorce et affaires familiales : préparation et suivi depuis l'étranger, avec présence uniquement aux audiences où la loi l'exige.",
           "Successions : inventaire, partage et vente des biens sans déplacement à chaque étape.",
           "Achat ou vente immobilière : vérification foncière, signature par procuration et suivi de l'enregistrement.",
           "Litiges et recouvrements : représentation complète devant les tribunaux tunisiens.",
@@ -1106,7 +1106,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
           {
             question: "Puis-je gérer un dossier en Tunisie sans m'y déplacer ?",
             answer:
-              "Oui. Avec une procuration établie au consulat de Tunisie, le cabinet vous représente devant les tribunaux et administrations. Un déplacement n'est nécessaire que dans de rares cas.",
+              "Beaucoup de dossiers (successions, immobilier, litiges) se gèrent entièrement par procuration consulaire. Certaines procédures exigent en revanche une présence personnelle à des étapes précises — notamment l'audience de conciliation en matière de divorce. Le cabinet vous dit dès le départ si et quand un déplacement sera nécessaire.",
           },
           {
             question: "Comment établir une procuration depuis l'étranger ?",
@@ -1163,7 +1163,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
           {
             question: "Do I need to travel to Tunisia for my case?",
             answer:
-              "Rarely. With a power of attorney the firm represents you fully; most files are handled with documents sent by email and updates by WhatsApp.",
+              "Many matters — inheritance, property, litigation — can be handled entirely by power of attorney. Some procedures do require you to appear in person at specific stages, notably the conciliation hearing in divorce cases. The firm tells you from the start whether and when you would need to travel.",
           },
           {
             question: "Is my foreign divorce recognized in Tunisia?",
@@ -1192,7 +1192,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         ],
         checklistTitle: "ما يتولاه المكتب عنكم",
         checklist: [
-          "الطلاق والقضايا العائلية تُدار في تونس وأنتم في بلد إقامتكم.",
+          "الطلاق والقضايا العائلية: إعداد ومتابعة من الخارج، مع حضور شخصي فقط في الجلسات التي يفرضها القانون.",
           "الميراث: الجرد والقسمة وبيع العقارات دون تنقل في كل مرحلة.",
           "شراء أو بيع عقار: التثبت من الرسم العقاري، الإمضاء بالتوكيل ومتابعة الترسيم.",
           "النزاعات والاستخلاص: نيابة كاملة أمام المحاكم التونسية.",
@@ -1208,7 +1208,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
           {
             question: "هل يمكن متابعة قضيتي في تونس دون السفر؟",
             answer:
-              "نعم. بتوكيل يُمضى في القنصلية التونسية ببلد إقامتكم، ينوب المكتب عنكم أمام المحاكم والإدارات، ولا يلزم الحضور إلا في حالات نادرة.",
+              "كثير من الملفات (الميراث، العقارات، النزاعات) تُدار كاملة بالتوكيل القنصلي. لكن بعض الإجراءات تستوجب حضورا شخصيا في مراحل محددة — خاصة جلسة الصلح في قضايا الطلاق. يخبركم المكتب منذ البداية إن كان التنقل ضروريا ومتى.",
           },
           {
             question: "كيف أُعدّ توكيلا من الخارج؟",
