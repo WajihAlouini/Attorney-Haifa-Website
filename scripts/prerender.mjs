@@ -27,6 +27,7 @@ const BASE_ROUTES = [
   "/consultation-juridique-tunisie",
   "/code-du-travail-tunisie",
   "/avocat-penal-tunisie",
+  "/avocat-tunisiens-etranger",
   "/avocat-kairouan",
   "/avocat-divorce-kairouan",
   "/avocat-immobilier-kairouan",

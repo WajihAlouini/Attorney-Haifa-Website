@@ -469,6 +469,33 @@ export const seoData: Record<string, LocalizedSEOData> = {
     },
   },
 
+  "/avocat-tunisiens-etranger": {
+    fr: {
+      title: "Avocat Tunisiens à l'Étranger | Suivi à Distance",
+      description:
+        "Avocate pour Tunisiens résidant à l'étranger : procuration, divorce international, succession, immobilier. Suivi à distance dans toute la Tunisie, réponse rapide par WhatsApp.",
+      keywords:
+        "avocat tunisiens à l'étranger, avocat TRE, procuration tunisie, divorce international tunisie, succession tunisie à distance",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+    en: {
+      title: "English-Speaking Lawyer in Tunisia | Remote Cases",
+      description:
+        "English-speaking lawyer in Tunisia for expats, investors and clients abroad. Property purchase, international divorce, inheritance — handled remotely with written updates.",
+      keywords:
+        "english speaking lawyer tunisia, lawyer for foreigners tunisia, buy property tunisia, international divorce tunisia",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+    ar: {
+      title: "محامية للتونسيين بالخارج | متابعة عن بُعد وواتساب",
+      description:
+        "محامية للتونسيين المقيمين بالخارج: توكيل، طلاق دولي، ميراث وعقارات. متابعة الملفات عن بعد في كامل تونس مع رد سريع عبر واتساب وتقارير مكتوبة.",
+      keywords:
+        "محامي للتونسيين بالخارج, توكيل من الخارج تونس, طلاق دولي تونس, ميراث تونس من الخارج",
+      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+    },
+  },
+
   "/values": {
     fr: {
       title: "Nos Valeurs | Cabinet Maître Haifa Guedhami Alouini",

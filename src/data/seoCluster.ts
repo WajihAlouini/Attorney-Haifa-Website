@@ -1071,6 +1071,164 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
       },
     },
   },
+  "/avocat-tunisiens-etranger": {
+    path: "/avocat-tunisiens-etranger",
+    localized: {
+      fr: {
+        navLabel: "Tunisiens à l'étranger",
+        heading:
+          "Avocat pour Tunisiens à l'étranger : vos dossiers suivis en Tunisie",
+        lede: "Procurations, divorce international, successions et immobilier : le cabinet gère vos affaires en Tunisie pendant que vous vivez en France, en Europe, au Canada ou dans le Golfe — sans multiplier les allers-retours.",
+        description:
+          "Avocate pour les Tunisiens résidant à l'étranger : procuration, divorce international, succession, immobilier et litiges suivis à distance partout en Tunisie.",
+        keywords:
+          "avocat tunisiens à l'étranger, avocat TRE, procuration tunisie depuis l'étranger, divorce international tunisie, succession tunisie à distance",
+        highlights: [
+          "Suivi à distance éprouvé : échanges par WhatsApp, e-mail et visioconférence, avec un compte rendu écrit après chaque étape.",
+          "Procuration et représentation : vous signez au consulat de Tunisie de votre pays, le cabinet agit devant les tribunaux et administrations.",
+          "Dossiers transfrontaliers : divorce et garde entre deux pays, exequatur des jugements étrangers, successions et partages à distance.",
+        ],
+        checklistTitle: "Ce que le cabinet prend en charge",
+        checklist: [
+          "Divorce et affaires familiales menés en Tunisie pendant que vous restez dans votre pays de résidence.",
+          "Successions : inventaire, partage et vente des biens sans déplacement à chaque étape.",
+          "Achat ou vente immobilière : vérification foncière, signature par procuration et suivi de l'enregistrement.",
+          "Litiges et recouvrements : représentation complète devant les tribunaux tunisiens.",
+        ],
+        processTitle: "Comment démarrer depuis l'étranger",
+        process: [
+          "Premier échange par WhatsApp ou visioconférence pour évaluer le dossier.",
+          "Le cabinet prépare le texte exact de la procuration à signer au consulat de Tunisie.",
+          "Vous transmettez les pièces par e-mail ; le cabinet engage la procédure en Tunisie.",
+          "Vous recevez un compte rendu écrit après chaque audience ou démarche.",
+        ],
+        faqs: [
+          {
+            question: "Puis-je gérer un dossier en Tunisie sans m'y déplacer ?",
+            answer:
+              "Oui. Avec une procuration établie au consulat de Tunisie, le cabinet vous représente devant les tribunaux et administrations. Un déplacement n'est nécessaire que dans de rares cas.",
+          },
+          {
+            question: "Comment établir une procuration depuis l'étranger ?",
+            answer:
+              "Le cabinet vous prépare le texte exact de la procuration ; vous la signez au consulat de Tunisie de votre pays de résidence, puis vous l'envoyez au cabinet.",
+          },
+          {
+            question:
+              "Mon divorce prononcé à l'étranger est-il valable en Tunisie ?",
+            answer:
+              "Un jugement étranger doit passer par la procédure d'exequatur pour produire ses effets en Tunisie. Le cabinet prépare le dossier et suit la procédure jusqu'à la décision.",
+          },
+          {
+            question:
+              "Le cabinet peut-il vendre ou acheter un bien immobilier pour moi ?",
+            answer:
+              "Oui : vérification du titre foncier, rédaction du compromis et de l'acte, signature par procuration et suivi de l'enregistrement — avec un compte rendu à chaque étape.",
+          },
+        ],
+      },
+      en: {
+        navLabel: "English-Speaking Lawyer",
+        heading: "English-speaking lawyer in Tunisia for clients abroad",
+        lede: "Property purchases, international divorce, inheritance and business matters handled across Tunisia for expats, investors and binational families — managed remotely, explained in clear English.",
+        description:
+          "English-speaking lawyer in Tunisia: property purchase for foreigners, international divorce, inheritance and litigation, handled remotely with written updates.",
+        keywords:
+          "english speaking lawyer tunisia, lawyer for foreigners tunisia, buy property tunisia lawyer, international divorce tunisia, inheritance tunisia foreigners",
+        highlights: [
+          "Consultations in English, French or Arabic — advice you actually understand, with a written summary after each step.",
+          "Power of attorney: signed at a Tunisian consulate or legalized in your country; the firm then acts before Tunisian courts and authorities.",
+          "Cross-border files: marriage and divorce between two countries, recognition of foreign judgments (exequatur), estates with heirs abroad.",
+        ],
+        checklistTitle: "What the firm handles for you",
+        checklist: [
+          "Property purchase or sale as a foreigner: title verification, prior authorization where required, contracts and registration.",
+          "International family matters: divorce, custody and alimony coordinated between Tunisia and your country of residence.",
+          "Inheritance in Tunisia with heirs abroad: inventory, division and sale of assets.",
+          "Business and contract disputes before Tunisian courts, with full representation.",
+        ],
+        processTitle: "How it works from abroad",
+        process: [
+          "First exchange by WhatsApp or video call to assess your case.",
+          "The firm prepares the exact power of attorney to sign at a consulate or have legalized locally.",
+          "You send the documents by email; the firm opens the procedure in Tunisia.",
+          "You receive a written update after every hearing or step.",
+        ],
+        faqs: [
+          {
+            question: "Can foreigners buy property in Tunisia?",
+            answer:
+              "Yes, with conditions: most purchases by foreigners require prior authorization from the regional governor, and agricultural land is restricted. The firm verifies the title and handles the authorization and registration.",
+          },
+          {
+            question: "Do I need to travel to Tunisia for my case?",
+            answer:
+              "Rarely. With a power of attorney the firm represents you fully; most files are handled with documents sent by email and updates by WhatsApp or video call.",
+          },
+          {
+            question: "Is my foreign divorce recognized in Tunisia?",
+            answer:
+              "A foreign judgment must go through the exequatur procedure to take effect in Tunisia. The firm prepares the file and follows the procedure through to the decision.",
+          },
+          {
+            question: "What languages does the firm work in?",
+            answer:
+              "English, French and Arabic — for consultations, correspondence and the documents in your file.",
+          },
+        ],
+      },
+      ar: {
+        navLabel: "التونسيون بالخارج",
+        heading: "محامية للتونسيين بالخارج: ملفاتكم في تونس تُدار عن بُعد",
+        lede: "توكيل، طلاق دولي، ميراث وعقارات: يتولى المكتب ملفاتكم في كامل تونس وأنتم في فرنسا أو أوروبا أو كندا أو الخليج، دون تنقلات متكررة.",
+        description:
+          "محامية للتونسيين المقيمين بالخارج: التوكيل، الطلاق الدولي، الميراث، شراء وبيع العقارات والنزاعات — متابعة عن بعد في كامل تونس مع تقارير مكتوبة.",
+        keywords:
+          "محامي للتونسيين بالخارج, توكيل من الخارج تونس, طلاق دولي تونس, ميراث تونس من الخارج, شراء عقار في تونس من الخارج",
+        highlights: [
+          "متابعة عن بعد مجرّبة: تواصل عبر واتساب والبريد الإلكتروني والفيديو، مع تقرير مكتوب بعد كل مرحلة.",
+          "التوكيل والنيابة: تمضون التوكيل في القنصلية التونسية ببلد إقامتكم، وينوب المكتب عنكم أمام المحاكم والإدارات.",
+          "ملفات عابرة للحدود: طلاق وحضانة بين بلدين، إكساء الأحكام الأجنبية بالصيغة التنفيذية، ميراث وقسمة عن بعد.",
+        ],
+        checklistTitle: "ما يتولاه المكتب عنكم",
+        checklist: [
+          "الطلاق والقضايا العائلية تُدار في تونس وأنتم في بلد إقامتكم.",
+          "الميراث: الجرد والقسمة وبيع العقارات دون تنقل في كل مرحلة.",
+          "شراء أو بيع عقار: التثبت من الرسم العقاري، الإمضاء بالتوكيل ومتابعة الترسيم.",
+          "النزاعات والاستخلاص: نيابة كاملة أمام المحاكم التونسية.",
+        ],
+        processTitle: "كيف تبدأون من الخارج",
+        process: [
+          "تواصل أول عبر واتساب أو مكالمة فيديو لتقييم الملف.",
+          "يعدّ المكتب نص التوكيل المطلوب لإمضائه في القنصلية التونسية.",
+          "ترسلون الوثائق عبر البريد الإلكتروني ويباشر المكتب الإجراءات في تونس.",
+          "تتوصلون بتقرير مكتوب بعد كل جلسة أو إجراء.",
+        ],
+        faqs: [
+          {
+            question: "هل يمكن متابعة قضيتي في تونس دون السفر؟",
+            answer:
+              "نعم. بتوكيل يُمضى في القنصلية التونسية ببلد إقامتكم، ينوب المكتب عنكم أمام المحاكم والإدارات، ولا يلزم الحضور إلا في حالات نادرة.",
+          },
+          {
+            question: "كيف أُعدّ توكيلا من الخارج؟",
+            answer:
+              "يعدّ المكتب نص التوكيل المطلوب بدقة، تمضونه في القنصلية التونسية ببلد إقامتكم ثم ترسلونه إلى المكتب.",
+          },
+          {
+            question: "هل يُعترف بالطلاق الصادر في الخارج داخل تونس؟",
+            answer:
+              "الحكم الأجنبي يحتاج إجراء الإكساء بالصيغة التنفيذية لينتج آثاره في تونس، والمكتب يتولى إعداد الملف ومتابعة الإجراء حتى صدور القرار.",
+          },
+          {
+            question: "هل يمكن بيع أو شراء عقار في تونس وأنا مقيم بالخارج؟",
+            answer:
+              "نعم: التثبت من الرسم العقاري، تحرير العقود، الإمضاء بالتوكيل ومتابعة الترسيم — مع تقرير مكتوب في كل مرحلة.",
+          },
+        ],
+      },
+    },
+  },
   ...kairouanLandingPages,
 };
 
