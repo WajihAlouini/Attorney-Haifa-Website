@@ -1,16 +1,6 @@
 # robots.txt - Maître Haifa Guedhami Alouini
 
-# Allow all search engines to crawl the live site
 User-agent: *
 Allow: /
 
-# Block development and build artifacts (not served in production)
-Disallow: /node_modules/
-Disallow: /src/
-Disallow: /.git/
-
-# Sitemap locations
 Sitemap: https://maitre-haifaguedhami.me/sitemap.xml
-
-# Preferred host
-Host: https://maitre-haifaguedhami.me

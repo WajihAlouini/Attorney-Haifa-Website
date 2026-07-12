@@ -85,9 +85,111 @@ async function getBlogRoutes() {
   return [...slugs].sort().map((slug) => `/actualites/${slug}`);
 }
 
-async function getPrerenderTargets() {
+// Latest known change date per blog slug, from the `updated:` (preferred) or
+// `date:` frontmatter field, across all language variants of the post.
+async function getBlogLastmods() {
+  const languages = await fs.readdir(BLOG_DIR, { withFileTypes: true });
+  const lastmods = new Map();
+
+  for (const language of languages) {
+    if (!language.isDirectory()) continue;
+
+    const languageDir = path.join(BLOG_DIR, language.name);
+    const entries = await fs.readdir(languageDir, { withFileTypes: true });
+
+    for (const entry of entries) {
+      if (!entry.isFile() || path.extname(entry.name) !== ".md") continue;
+
+      const slug = entry.name.replace(/\.md$/i, "");
+      const content = await fs.readFile(
+        path.join(languageDir, entry.name),
+        "utf8"
+      );
+      const match =
+        content.match(/^updated:\s*"?(\d{4}-\d{2}-\d{2})"?\s*$/m) ||
+        content.match(/^date:\s*"?(\d{4}-\d{2}-\d{2})"?\s*$/m);
+      if (!match) continue;
+
+      const existing = lastmods.get(slug);
+      if (!existing || match[1] > existing) {
+        lastmods.set(slug, match[1]);
+      }
+    }
+  }
+
+  return lastmods;
+}
+
+const SITEMAP_LOCALES = ["fr", "en", "ar"];
+
+function sitemapEntriesForRoute(routePath, lastmod, options = {}) {
+  const alternateMarkup = [
+    { locale: "fr", href: buildPublicUrl(routePath, "fr") },
+    { locale: "en", href: buildPublicUrl(routePath, "en") },
+    { locale: "ar", href: buildPublicUrl(routePath, "ar") },
+    { locale: "x-default", href: buildPublicUrl(routePath, "fr") },
+  ]
+    .map(
+      (link) =>
+        `    <xhtml:link rel="alternate" hreflang="${link.locale}" href="${link.href}"/>`
+    )
+    .join("\n");
+
+  return SITEMAP_LOCALES.map((locale) => {
+    const lines = [
+      "  <url>",
+      `    <loc>${buildPublicUrl(routePath, locale)}</loc>`,
+    ];
+    if (lastmod) {
+      lines.push(`    <lastmod>${lastmod}</lastmod>`);
+    }
+    lines.push(alternateMarkup);
+    if (options.image) {
+      lines.push(
+        "    <image:image>",
+        `      <image:loc>${options.image}</image:loc>`,
+        "    </image:image>"
+      );
+    }
+    lines.push("  </url>");
+    return lines.join("\n");
+  });
+}
+
+// The sitemap is generated from the same route list that drives prerendering,
+// so a new page or blog post can never be missing from it. lastmod is only
+// emitted where we have a real signal (blog frontmatter); static pages carry
+// none rather than a made-up date.
+function buildSitemapXml(blogRoutes, blogLastmods) {
+  const newestPostDate = [...blogLastmods.values()].sort().pop();
+  const entries = [];
+
+  for (const route of BASE_ROUTES) {
+    entries.push(
+      ...sitemapEntriesForRoute(
+        route,
+        route === "/actualites" ? newestPostDate : undefined,
+        route === "/" ? { image: `${PUBLIC_ORIGIN}/office/entry.webp` } : {}
+      )
+    );
+  }
+
+  for (const route of blogRoutes) {
+    const slug = route.split("/").pop();
+    entries.push(...sitemapEntriesForRoute(route, blogLastmods.get(slug)));
+  }
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${entries.join("\n")}
+</urlset>
+`;
+}
+
+async function getPrerenderTargets(blogRoutes) {
   const targets = new Map();
-  const blogRoutes = await getBlogRoutes();
   const standardRoutes = [...BASE_ROUTES, ...blogRoutes];
 
   for (const route of standardRoutes) {
@@ -306,7 +408,8 @@ async function main() {
     }
   });
   const page = await context.newPage();
-  const targets = await getPrerenderTargets();
+  const blogRoutes = await getBlogRoutes();
+  const targets = await getPrerenderTargets(blogRoutes);
 
   try {
     for (const target of targets) {
@@ -316,6 +419,13 @@ async function main() {
       await prerenderRoute(page, target, baseUrl);
       process.stdout.write("done\n");
     }
+
+    const blogLastmods = await getBlogLastmods();
+    const sitemapXml = buildSitemapXml(blogRoutes, blogLastmods);
+    await fs.writeFile(path.join(DIST_DIR, "sitemap.xml"), sitemapXml, "utf8");
+    console.log(
+      `Sitemap generated with ${targets.length} URLs -> dist/sitemap.xml`
+    );
   } finally {
     await browser.close();
     await new Promise((resolve, reject) => {
