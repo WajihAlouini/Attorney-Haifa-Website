@@ -1085,7 +1085,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
           "avocat tunisiens à l'étranger, avocat TRE, procuration tunisie depuis l'étranger, divorce international tunisie, succession tunisie à distance",
         highlights: [
           "Suivi à distance éprouvé : échanges par WhatsApp et e-mail, avec un compte rendu écrit après chaque étape.",
-          "Procuration et représentation : vous signez au consulat de Tunisie de votre pays, le cabinet agit devant les tribunaux et administrations.",
+          "Procuration et représentation : le cabinet vous indique la marche à suivre pour établir la procuration, puis agit en votre nom devant les tribunaux et administrations.",
           "Dossiers transfrontaliers : divorce et garde entre deux pays, exequatur des jugements étrangers, successions et partages à distance.",
         ],
         checklistTitle: "Ce que le cabinet prend en charge",
@@ -1098,7 +1098,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         processTitle: "Comment démarrer depuis l'étranger",
         process: [
           "Premier échange par WhatsApp pour évaluer le dossier.",
-          "Le cabinet prépare le texte exact de la procuration à signer au consulat de Tunisie.",
+          "Le cabinet prépare le texte exact de la procuration et vous indique la marche à suivre depuis votre pays de résidence.",
           "Vous transmettez les pièces par e-mail ; le cabinet engage la procédure en Tunisie.",
           "Vous recevez un compte rendu écrit après chaque audience ou démarche.",
         ],
@@ -1106,12 +1106,12 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
           {
             question: "Puis-je gérer un dossier en Tunisie sans m'y déplacer ?",
             answer:
-              "Beaucoup de dossiers (successions, immobilier, litiges) se gèrent entièrement par procuration consulaire. Certaines procédures exigent en revanche une présence personnelle à des étapes précises — notamment l'audience de conciliation en matière de divorce. Le cabinet vous dit dès le départ si et quand un déplacement sera nécessaire.",
+              "Beaucoup de dossiers (successions, immobilier, litiges) se gèrent entièrement par procuration. Certaines procédures exigent en revanche une présence personnelle à des étapes précises — notamment l'audience de conciliation en matière de divorce. Le cabinet vous dit dès le départ si et quand un déplacement sera nécessaire.",
           },
           {
             question: "Comment établir une procuration depuis l'étranger ?",
             answer:
-              "Le cabinet vous prépare le texte exact de la procuration ; vous la signez au consulat de Tunisie de votre pays de résidence, puis vous l'envoyez au cabinet.",
+              "Le cabinet vous prépare le texte exact de la procuration et vous indique, selon votre pays de résidence, la marche à suivre pour l'établir et la faire parvenir au cabinet.",
           },
           {
             question:
@@ -1137,7 +1137,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
           "english speaking lawyer tunisia, lawyer for foreigners tunisia, buy property tunisia lawyer, international divorce tunisia, inheritance tunisia foreigners",
         highlights: [
           "Consultations in English, French or Arabic — advice you actually understand, with a written summary after each step.",
-          "Power of attorney: signed at a Tunisian consulate or legalized in your country; the firm then acts before Tunisian courts and authorities.",
+          "Power of attorney: the firm prepares the exact document and tells you how to establish it from your country, then acts on your behalf before Tunisian courts and authorities.",
           "Cross-border files: marriage and divorce between two countries, recognition of foreign judgments (exequatur), estates with heirs abroad.",
         ],
         checklistTitle: "What the firm handles for you",
@@ -1150,7 +1150,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         processTitle: "How it works from abroad",
         process: [
           "First exchange by WhatsApp to assess your case.",
-          "The firm prepares the exact power of attorney to sign at a consulate or have legalized locally.",
+          "The firm prepares the exact power of attorney and tells you how to establish it from your country.",
           "You send the documents by email; the firm opens the procedure in Tunisia.",
           "You receive a written update after every hearing or step.",
         ],
@@ -1187,7 +1187,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
           "محامي للتونسيين بالخارج, توكيل من الخارج تونس, طلاق دولي تونس, ميراث تونس من الخارج, شراء عقار في تونس من الخارج",
         highlights: [
           "متابعة عن بعد مجرّبة: تواصل عبر واتساب والبريد الإلكتروني، مع تقرير مكتوب بعد كل مرحلة.",
-          "التوكيل والنيابة: تمضون التوكيل في القنصلية التونسية ببلد إقامتكم، وينوب المكتب عنكم أمام المحاكم والإدارات.",
+          "التوكيل والنيابة: يعدّ المكتب نص التوكيل ويرشدكم إلى طريقة إعداده من بلد إقامتكم، ثم ينوب عنكم أمام المحاكم والإدارات.",
           "ملفات عابرة للحدود: طلاق وحضانة بين بلدين، إكساء الأحكام الأجنبية بالصيغة التنفيذية، ميراث وقسمة عن بعد.",
         ],
         checklistTitle: "ما يتولاه المكتب عنكم",
@@ -1200,7 +1200,7 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         processTitle: "كيف تبدأون من الخارج",
         process: [
           "تواصل أول عبر واتساب لتقييم الملف.",
-          "يعدّ المكتب نص التوكيل المطلوب لإمضائه في القنصلية التونسية.",
+          "يعدّ المكتب نص التوكيل المطلوب ويرشدكم إلى طريقة إعداده من بلد إقامتكم.",
           "ترسلون الوثائق عبر البريد الإلكتروني ويباشر المكتب الإجراءات في تونس.",
           "تتوصلون بتقرير مكتوب بعد كل جلسة أو إجراء.",
         ],
@@ -1208,12 +1208,12 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
           {
             question: "هل يمكن متابعة قضيتي في تونس دون السفر؟",
             answer:
-              "كثير من الملفات (الميراث، العقارات، النزاعات) تُدار كاملة بالتوكيل القنصلي. لكن بعض الإجراءات تستوجب حضورا شخصيا في مراحل محددة — خاصة جلسة الصلح في قضايا الطلاق. يخبركم المكتب منذ البداية إن كان التنقل ضروريا ومتى.",
+              "كثير من الملفات (الميراث، العقارات، النزاعات) تُدار كاملة بالتوكيل. لكن بعض الإجراءات تستوجب حضورا شخصيا في مراحل محددة — خاصة جلسة الصلح في قضايا الطلاق. يخبركم المكتب منذ البداية إن كان التنقل ضروريا ومتى.",
           },
           {
             question: "كيف أُعدّ توكيلا من الخارج؟",
             answer:
-              "يعدّ المكتب نص التوكيل المطلوب بدقة، تمضونه في القنصلية التونسية ببلد إقامتكم ثم ترسلونه إلى المكتب.",
+              "يعدّ المكتب نص التوكيل المطلوب بدقة ويرشدكم إلى طريقة إعداده حسب بلد إقامتكم وإرساله إلى المكتب.",
           },
           {
             question: "هل يُعترف بالطلاق الصادر في الخارج داخل تونس؟",
