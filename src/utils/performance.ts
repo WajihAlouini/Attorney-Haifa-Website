@@ -1,26 +1,13 @@
 // Performance monitoring utilities
+//
+// Core Web Vitals are reported through Google's web-vitals library so that
+// each metric is sent to GA4 exactly ONCE per page, with its final value,
+// when the page is hidden. The previous hand-rolled PerformanceObservers
+// fired a GA event for every layout-shift entry and every LCP candidate,
+// which flooded the property (~7 CLS events per page view) with partial
+// running values that were meaningless to aggregate.
 
-interface WebVitalMetric {
-  name: string;
-  value: number;
-  rating: "good" | "needs-improvement" | "poor";
-  delta?: number;
-  id?: string;
-}
-
-interface LayoutShift extends PerformanceEntry {
-  value: number;
-  hadRecentInput: boolean;
-}
-
-interface FirstInput extends PerformanceEntry {
-  processingStart: number;
-}
-
-interface LargestContentfulPaint extends PerformanceEntry {
-  renderTime: number;
-  loadTime: number;
-}
+import { onCLS, onINP, onLCP, type Metric } from "web-vitals";
 
 export const measurePageLoad = () => {
   if (typeof window === "undefined" || !window.performance) return null;
@@ -40,82 +27,24 @@ export const measurePageLoad = () => {
   };
 };
 
-export const measureWebVitals = (
-  callback: (metric: WebVitalMetric) => void
-) => {
-  if (typeof window === "undefined") return;
+// Google's documented GA4 pattern for web-vitals:
+// https://github.com/GoogleChrome/web-vitals#send-the-results-to-google-analytics
+function sendToAnalytics(metric: Metric) {
+  if (!window.gtag) return;
 
-  // Largest Contentful Paint (LCP)
-  const observer = new PerformanceObserver((list) => {
-    const entries = list.getEntries() as LargestContentfulPaint[];
-    const lastEntry = entries[entries.length - 1];
-    callback({
-      name: "LCP",
-      value: lastEntry.renderTime || lastEntry.loadTime,
-      rating:
-        lastEntry.renderTime < 2500
-          ? "good"
-          : lastEntry.renderTime < 4000
-            ? "needs-improvement"
-            : "poor",
-    });
+  window.gtag("event", metric.name, {
+    // GA4 event values must be integers; CLS is a small decimal, so it is
+    // sent multiplied by 1000 (standard web-vitals convention).
+    value: Math.round(
+      metric.name === "CLS" ? metric.delta * 1000 : metric.delta
+    ),
+    // Unique per page load — lets reports deduplicate if a metric is ever
+    // reported more than once (e.g. after a back/forward cache restore).
+    metric_id: metric.id,
+    metric_value: metric.value,
+    metric_rating: metric.rating,
   });
-
-  try {
-    observer.observe({ entryTypes: ["largest-contentful-paint"] });
-  } catch {
-    // LCP not supported
-  }
-
-  // First Input Delay (FID)
-  const fidObserver = new PerformanceObserver((list) => {
-    const entries = list.getEntries() as FirstInput[];
-    entries.forEach((entry) => {
-      callback({
-        name: "FID",
-        value: entry.processingStart - entry.startTime,
-        rating:
-          entry.processingStart - entry.startTime < 100
-            ? "good"
-            : entry.processingStart - entry.startTime < 300
-              ? "needs-improvement"
-              : "poor",
-      });
-    });
-  });
-
-  try {
-    fidObserver.observe({ entryTypes: ["first-input"] });
-  } catch {
-    // FID not supported
-  }
-
-  // Cumulative Layout Shift (CLS)
-  let clsValue = 0;
-  const clsObserver = new PerformanceObserver((list) => {
-    for (const entry of list.getEntries() as LayoutShift[]) {
-      if (!entry.hadRecentInput) {
-        clsValue += entry.value;
-        callback({
-          name: "CLS",
-          value: clsValue,
-          rating:
-            clsValue < 0.1
-              ? "good"
-              : clsValue < 0.25
-                ? "needs-improvement"
-                : "poor",
-        });
-      }
-    }
-  });
-
-  try {
-    clsObserver.observe({ entryTypes: ["layout-shift"] });
-  } catch {
-    // CLS not supported
-  }
-};
+}
 
 export function reportWebVitals() {
   if (typeof window === "undefined") return;
@@ -132,13 +61,9 @@ export function reportWebVitals() {
     }
   });
 
-  measureWebVitals((metric) => {
-    if (window.gtag) {
-      window.gtag("event", metric.name, {
-        value: Math.round(metric.value),
-        metric_rating: metric.rating,
-        metric_delta: metric.delta,
-      });
-    }
-  });
+  // Each handler reports once, with the final value, when the page is
+  // hidden. INP replaces FID, which Google retired in 2024.
+  onCLS(sendToAnalytics);
+  onINP(sendToAnalytics);
+  onLCP(sendToAnalytics);
 }
