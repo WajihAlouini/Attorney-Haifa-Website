@@ -27,7 +27,7 @@ export const ar: Translation = {
     bookOnline: "احجز عبر الإنترنت",
     secondary: "مجالات تخصصنا",
     whatsapp: "واتساب",
-    contact: "راسلوا المكتب",
+    contact: "مراسلة المكتب",
   },
   heroMetrics: [
     { value: "25+", label: "سنة من التميز القانوني" },
@@ -172,7 +172,7 @@ export const ar: Translation = {
   form: {
     nameLabel: "الاسم الكامل",
     namePlaceholder: "أدخل اسمك الكامل",
-    emailPlaceholder: "بريدك@الإلكتروني.com",
+    emailPlaceholder: "name@example.com",
     orgLabel: "الشركة / المدينة",
     orgPlaceholder: "مثال: شركة أو مدينة",
     messageLabel: "وصف القضية",

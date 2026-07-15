@@ -53,6 +53,23 @@
   }
 }
 
+/* ------------------------------------------------------------
+   RTL fix — the marquee is a direction-agnostic belt. In an RTL
+   flow the track is right-anchored and the duplicated copy lands
+   off-screen to the LEFT, so translateX(-50%) drains the visible
+   copy leftward with nothing refilling from the right: the belt
+   scrolls out to a blank gap instead of looping. Forcing LTR
+   geometry on the track reproduces the working LTR case (clone to
+   the right, refilling seamlessly) while the cards keep RTL text.
+   ------------------------------------------------------------ */
+:global([dir="rtl"]) .marquee {
+  direction: ltr;
+}
+
+:global([dir="rtl"]) .card {
+  direction: rtl;
+}
+
 /* ---- Card ---- */
 .card {
   flex: 0 0 clamp(300px, 25vw, 358px);
