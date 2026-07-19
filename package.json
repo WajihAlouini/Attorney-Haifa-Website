@@ -21,6 +21,7 @@
     "clean": "rm -rf dist node_modules/.vite"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "dotenv": "^17.2.3",
     "framer-motion": "^12.34.3",
     "lucide-react": "^0.556.0",
