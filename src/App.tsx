@@ -7,6 +7,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { defaultTranslation, loadTranslation } from "@/data/translations";
 import { whatsappNumber, whatsappPrefill } from "@/data/constants";
 import { seoClusterPaths } from "@/data/seoCluster";
@@ -450,6 +451,7 @@ function App() {
     <HelmetProvider>
       <BrowserRouter>
         <AppContent />
+        <SpeedInsights />
       </BrowserRouter>
     </HelmetProvider>
   );
