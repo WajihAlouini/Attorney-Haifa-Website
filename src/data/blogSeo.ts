@@ -13,6 +13,62 @@ interface BlogGroup {
 
 const blogGroups: BlogGroup[] = [
   {
+    slug: "cheques-sans-provision-tunisie-nouvelle-loi",
+    resources: {
+      fr: [
+        {
+          path: "/avocat-affaires-tunisie",
+          label: "Guide affaires Tunisie",
+          description: "Contrats, recouvrement de créances et litiges commerciaux.",
+        },
+        {
+          path: "/avocat-penal-tunisie",
+          label: "Guide droit pénal Tunisie",
+          description: "Défense pénale, y compris les dossiers de chèques encore poursuivis.",
+        },
+        {
+          path: "/consultation-juridique-tunisie",
+          label: "Consultation juridique",
+          description: "Un diagnostic rapide de votre dossier de chèque impayé.",
+        },
+      ],
+      en: [
+        {
+          path: "/avocat-affaires-tunisie",
+          label: "Business Tunisia guide",
+          description: "Contracts, debt recovery and commercial disputes.",
+        },
+        {
+          path: "/avocat-penal-tunisie",
+          label: "Criminal law Tunisia guide",
+          description: "Criminal defence, including cheque cases still prosecuted.",
+        },
+        {
+          path: "/consultation-juridique-tunisie",
+          label: "Legal consultation",
+          description: "A quick diagnosis of your unpaid-cheque file.",
+        },
+      ],
+      ar: [
+        {
+          path: "/avocat-affaires-tunisie",
+          label: "دليل الأعمال في تونس",
+          description: "العقود واستخلاص الديون والنزاعات التجارية.",
+        },
+        {
+          path: "/avocat-penal-tunisie",
+          label: "دليل القانون الجزائي في تونس",
+          description: "الدفاع الجزائي، بما في ذلك ملفات الشيكات التي ما زالت محل تتبع.",
+        },
+        {
+          path: "/consultation-juridique-tunisie",
+          label: "استشارة قانونية",
+          description: "تشخيص سريع لملف الشيك غير المدفوع.",
+        },
+      ],
+    },
+  },
+  {
     slug: "reforme-famille-garde-partagee-tunisie",
     resources: {
       fr: [
