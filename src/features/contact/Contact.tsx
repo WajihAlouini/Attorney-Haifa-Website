@@ -1,4 +1,4 @@
-import { FC, useState, useRef } from "react";
+import { FC, useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Check, Copy } from "lucide-react";
 import toast from "react-hot-toast";
@@ -67,6 +67,12 @@ const ContactComponent: FC<ContactProps> = ({
   const [submittedRecently, setSubmittedRecently] = useState(false);
   const cooldownRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  useEffect(() => {
+    return () => {
+      if (cooldownRef.current) clearTimeout(cooldownRef.current);
+    };
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -104,6 +110,7 @@ const ContactComponent: FC<ContactProps> = ({
         toast.success(t.successMessage, { id: toastId });
         // 30-second cooldown to prevent repeated submissions
         setSubmittedRecently(true);
+        if (cooldownRef.current) clearTimeout(cooldownRef.current);
         cooldownRef.current = setTimeout(() => setSubmittedRecently(false), 30_000);
       } else {
         throw new Error(result.message || "Form submission failed");

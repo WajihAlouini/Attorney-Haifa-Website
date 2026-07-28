@@ -19,6 +19,7 @@ function getFooterCopy(locale: string) {
       resources: "المحتوى",
       guides: "الأدلة القانونية",
       blog: "المستجدات",
+      cookies: "إعدادات ملفات تعريف الارتباط",
     };
   }
 
@@ -29,6 +30,7 @@ function getFooterCopy(locale: string) {
       resources: "Resources",
       guides: "Legal Guides",
       blog: "Legal News",
+      cookies: "Manage cookies",
     };
   }
 
@@ -38,6 +40,7 @@ function getFooterCopy(locale: string) {
     resources: "Ressources",
     guides: "Guides juridiques",
     blog: "Actualités",
+    cookies: "Gérer les cookies",
   };
 }
 
@@ -50,12 +53,13 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
   const withLocalePath = (pathname: string) => localizedTo(pathname, locale);
 
   const scrollToSection = (sectionId: string) => {
-    const performScroll = () => {
-      if (sectionId === "hero") {
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-        return;
-      }
+    if (sectionId === "hero") {
+      if (routePath !== "/") navigate(withLocalePath("/"));
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      return;
+    }
 
+    const performScroll = () => {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -67,9 +71,25 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
       return;
     }
 
-    navigate(withLocalePath("/"));
-    window.setTimeout(performScroll, 320);
+    // Off the homepage, hand the target to useScrollToSection via navigation
+    // state — it owns post-navigation scrolling (scrolling here would race
+    // its scroll-to-top and lose).
+    navigate(withLocalePath("/"), { state: { scrollTo: sectionId } });
   };
+
+  // Quick links render as real anchors (crawlable hrefs to the standalone
+  // routes) while clicks keep the designed scroll-to-section behavior.
+  const sectionLink = (sectionId: string, pathname: string, label: string) => (
+    <Link
+      to={withLocalePath(pathname)}
+      onClick={(event) => {
+        event.preventDefault();
+        scrollToSection(sectionId);
+      }}
+    >
+      {label}
+    </Link>
+  );
 
   return (
     <footer className={styles.footer}>
@@ -82,36 +102,11 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
         <div className={styles.column}>
           <h3>{copy.quickLinks}</h3>
           <div className={styles.links}>
-            <button
-              type="button"
-              className={styles.scrollLink}
-              onClick={() => scrollToSection("hero")}
-            >
-              {copy.home}
-            </button>
-            <Link to={withLocalePath("/about")}>
-              {t.nav.about}
-            </Link>
-            <button
-              type="button"
-              className={styles.scrollLink}
-              onClick={() => scrollToSection("practice")}
-            >
-              {t.nav.practice}
-            </button>
-            <Link to={withLocalePath("/values")}>
-              {t.nav.values}
-            </Link>
-            <Link to={withLocalePath("/services")}>
-              {t.nav.guides || copy.guides}
-            </Link>
-            <button
-              type="button"
-              className={styles.scrollLink}
-              onClick={() => scrollToSection("contact")}
-            >
-              {t.nav.consult}
-            </button>
+            {sectionLink("hero", "/", copy.home)}
+            {sectionLink("about", "/about", t.nav.about)}
+            {sectionLink("practice", "/services", t.nav.practice)}
+            {sectionLink("values", "/values", t.nav.values)}
+            {sectionLink("contact", "/contact", t.nav.consult)}
           </div>
         </div>
 
@@ -141,6 +136,15 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
 
       <div className={styles.bottom}>
         <p>© {year} Haifa Guedhami Alouini. {t.allRightsReserved || "All rights reserved."}</p>
+        <button
+          type="button"
+          className={styles.cookieManage}
+          onClick={() =>
+            window.dispatchEvent(new Event("openCookiePreferences"))
+          }
+        >
+          {copy.cookies}
+        </button>
         <p className={styles.credit}>
           {t.developedBy}{" "}
           <a

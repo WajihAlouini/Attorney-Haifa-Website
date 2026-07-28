@@ -16,8 +16,13 @@ export function useScrollProgress(): UseScrollProgressReturn {
       const documentHeight = document.documentElement.scrollHeight;
       const scrollTop = window.scrollY;
 
+      // Pages shorter than the viewport have nothing to scroll — avoid 0/0
+      // producing NaN (which ends up in width and aria-valuenow).
       const totalScrollableHeight = documentHeight - windowHeight;
-      const progress = (scrollTop / totalScrollableHeight) * 100;
+      const progress =
+        totalScrollableHeight > 0
+          ? Math.min(100, Math.max(0, (scrollTop / totalScrollableHeight) * 100))
+          : 0;
 
       setScrollProgress(progress);
       setShowScrollTop(scrollTop > 300);

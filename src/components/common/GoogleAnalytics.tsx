@@ -55,6 +55,9 @@ export const GoogleAnalytics = () => {
   const location = useLocation();
   const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
   const initializedRef = useRef(false);
+  // Guards against double page_view on landing: initialize() sends a config
+  // for the entry path, and the route-change effect below also runs on mount.
+  const lastTrackedPathRef = useRef<string | null>(null);
 
   // Consent defaults are set in index.html (must run before gtag.js loads).
 
@@ -75,9 +78,11 @@ export const GoogleAnalytics = () => {
       script.async = true;
       document.head.appendChild(script);
 
+      const path = currentPath();
       window.gtag!("js", new Date());
-      window.gtag!("config", measurementId, configParams(currentPath()));
+      window.gtag!("config", measurementId, configParams(path));
 
+      lastTrackedPathRef.current = path;
       initializedRef.current = true;
     };
 
@@ -131,11 +136,11 @@ export const GoogleAnalytics = () => {
   useEffect(() => {
     if (!measurementId || !window.gtag || !initializedRef.current) return;
 
-    window.gtag(
-      "config",
-      measurementId,
-      configParams(location.pathname + location.search)
-    );
+    const path = location.pathname + location.search;
+    if (path === lastTrackedPathRef.current) return;
+
+    lastTrackedPathRef.current = path;
+    window.gtag("config", measurementId, configParams(path));
   }, [location.pathname, location.search, measurementId]);
 
   return null;

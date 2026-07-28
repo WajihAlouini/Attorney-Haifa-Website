@@ -31,7 +31,12 @@ export function CookieConsent({ t }: CookieConsentProps) {
     const saved = localStorage.getItem("cookie_preferences");
     if (saved) {
       try {
-        return JSON.parse(saved) as CookiePreferences;
+        const parsed = JSON.parse(saved) as CookiePreferences | null;
+        // Stored "null" or a non-object parses fine but would crash on
+        // property access — merge over defaults only when it's an object.
+        if (parsed && typeof parsed === "object") {
+          return { ...DEFAULT_PREFERENCES, ...parsed };
+        }
       } catch {
         return DEFAULT_PREFERENCES;
       }
@@ -50,6 +55,17 @@ export function CookieConsent({ t }: CookieConsentProps) {
       return () => clearTimeout(timer);
     }
   }, [hasConsent]);
+
+  // Lets the visitor change their mind after dismissing the banner — the
+  // footer's "manage cookies" button dispatches this event.
+  useEffect(() => {
+    const reopen = () => {
+      setShowSettings(true);
+      setIsVisible(true);
+    };
+    window.addEventListener("openCookiePreferences", reopen);
+    return () => window.removeEventListener("openCookiePreferences", reopen);
+  }, []);
 
   const saveAndClose = useCallback((prefs: CookiePreferences) => {
     setIsHiding(true);

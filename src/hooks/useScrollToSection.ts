@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { routeToSection } from "@/data/seo";
+import { splitLocalePathname } from "@/utils/localeRoutes";
 
 // Hook to scroll to section on route change
 export function useScrollToSection() {
@@ -14,23 +15,46 @@ export function useScrollToSection() {
       return;
     }
 
-    const sectionId = routeToSection[location.pathname];
+    // A navigation can carry an explicit target (e.g. footer quick links
+    // scroll to a homepage section); otherwise derive it from the route.
+    // routeToSection is keyed on unprefixed paths ("/about"), so strip the
+    // /en and /ar locale prefixes before looking up.
+    const stateTarget = (location.state as { scrollTo?: string } | null)
+      ?.scrollTo;
+    const { routePath } = splitLocalePathname(location.pathname);
+    const sectionId = stateTarget ?? routeToSection[routePath];
 
-    if (!sectionId) {
+    if (!sectionId || sectionId === "hero") {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
       return;
     }
 
-    if (sectionId === "hero") {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-      return;
-    }
+    // Sections are lazy-loaded, so the target may mount well after the
+    // route changes — poll until it exists instead of guessing a delay.
+    let cancelled = false;
+    const deadline = Date.now() + 4000;
+    const tryScroll = () => {
+      if (cancelled) return;
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: stateTarget ? "smooth" : "auto",
+          block: "start",
+        });
+        return;
+      }
+      if (Date.now() < deadline) {
+        // setTimeout rather than requestAnimationFrame: rAF stops firing in
+        // backgrounded tabs, which would strand the pending scroll.
+        window.setTimeout(tryScroll, 100);
+      } else if (!stateTarget) {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      }
+    };
+    tryScroll();
 
-    const element = document.getElementById(sectionId);
-    if (element) {
-      window.scrollTo({ top: element.offsetTop, left: 0, behavior: "auto" });
-    } else {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    }
-  }, [location.pathname]);
+    return () => {
+      cancelled = true;
+    };
+  }, [location.pathname, location.state]);
 }

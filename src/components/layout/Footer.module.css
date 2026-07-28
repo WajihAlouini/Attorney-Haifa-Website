@@ -107,28 +107,6 @@
   transform: translateX(var(--footer-link-shift));
 }
 
-.scrollLink {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  background: transparent;
-  color: var(--footer-text);
-  text-align: start;
-  cursor: pointer;
-  font: inherit;
-  transition: all 0.3s ease;
-  transform-origin: left;
-  display: inline-block;
-  width: fit-content;
-  max-width: 100%;
-  align-self: flex-start;
-}
-
-.scrollLink:hover {
-  color: var(--accent);
-  transform: translateX(var(--footer-link-shift));
-}
-
 .bottom {
   border-top: 1px solid var(--footer-border);
   padding-top: 1.5rem;
@@ -148,6 +126,25 @@
 .credit {
   font-size: 0.8rem;
   opacity: 0.85;
+}
+
+.cookieManage {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: var(--footer-text);
+  font: inherit;
+  font-size: 0.8rem;
+  opacity: 0.85;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.3s ease;
+}
+
+.cookieManage:hover {
+  color: var(--accent);
 }
 
 .link {
@@ -186,8 +183,7 @@
   right: 0;
 }
 
-:global([dir="rtl"]) .links a,
-:global([dir="rtl"]) .scrollLink {
+:global([dir="rtl"]) .links a {
   align-self: flex-end;
   text-align: right;
   transform-origin: right;

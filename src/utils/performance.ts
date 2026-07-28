@@ -12,18 +12,23 @@ import { onCLS, onINP, onLCP, type Metric } from "web-vitals";
 export const measurePageLoad = () => {
   if (typeof window === "undefined" || !window.performance) return null;
 
-  const perfData = window.performance.timing;
-  const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-  const connectTime = perfData.responseEnd - perfData.requestStart;
-  const renderTime = perfData.domComplete - perfData.domLoading;
+  // PerformanceNavigationTiming timestamps are all relative to the navigation
+  // start, so no navigationStart subtraction is needed (unlike the deprecated
+  // performance.timing API, whose loadEventEnd was still 0 while the load
+  // handler ran — producing huge negative values).
+  const nav = window.performance.getEntriesByType("navigation")[0] as
+    | PerformanceNavigationTiming
+    | undefined;
+  // loadEventEnd stays 0 until the load event has fully finished.
+  if (!nav || nav.loadEventEnd <= 0) return null;
 
   return {
-    pageLoadTime,
-    connectTime,
-    renderTime,
-    dns: perfData.domainLookupEnd - perfData.domainLookupStart,
-    tcp: perfData.connectEnd - perfData.connectStart,
-    ttfb: perfData.responseStart - perfData.navigationStart, // Time to First Byte
+    pageLoadTime: Math.round(nav.loadEventEnd),
+    connectTime: Math.round(nav.responseEnd - nav.requestStart),
+    renderTime: Math.round(nav.domComplete - nav.responseEnd),
+    dns: Math.round(nav.domainLookupEnd - nav.domainLookupStart),
+    tcp: Math.round(nav.connectEnd - nav.connectStart),
+    ttfb: Math.round(nav.responseStart), // Time to First Byte
   };
 };
 
@@ -49,7 +54,7 @@ function sendToAnalytics(metric: Metric) {
 export function reportWebVitals() {
   if (typeof window === "undefined") return;
 
-  window.addEventListener("load", () => {
+  const sendPageLoad = () => {
     const metrics = measurePageLoad();
     if (metrics && window.gtag) {
       window.gtag("event", "page_performance", {
@@ -59,7 +64,17 @@ export function reportWebVitals() {
         tcp_time: metrics.tcp,
       });
     }
-  });
+  };
+
+  // loadEventEnd is only populated once the load event has finished, so
+  // measure a macrotask later. If load already fired (warm cache, late
+  // mount), a "load" listener would never run — send directly instead.
+  const scheduleSend = () => window.setTimeout(sendPageLoad, 0);
+  if (document.readyState === "complete") {
+    scheduleSend();
+  } else {
+    window.addEventListener("load", scheduleSend, { once: true });
+  }
 
   // Each handler reports once, with the final value, when the page is
   // hidden. INP replaces FID, which Google retired in 2024.

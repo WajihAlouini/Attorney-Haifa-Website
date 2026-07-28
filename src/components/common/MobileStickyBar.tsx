@@ -15,7 +15,8 @@ export const MobileStickyBar: FC<Props> = ({
   return (
     <div className="mobile-sticky-bar">
       <a
-        href={`tel:${whatsappNumber}`}
+        // RFC 3966 forbids spaces in tel: URIs — some dialers reject them.
+        href={`tel:${whatsappNumber.replace(/\s/g, "")}`}
         className="sticky-btn sticky-call"
         aria-label={t.callAction || "Appeler"}
       >

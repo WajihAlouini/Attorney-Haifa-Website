@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { trackBookingOpen } from "@/utils/analyticsHelpers";
 
 const CAL_SCRIPT_SRC = "https://app.cal.com/embed/embed.js";
 const CAL_NAMESPACE = "wajjih-alouini-eis3ub";
@@ -107,7 +108,12 @@ export function CalComWidget() {
     bootstrapCal(windowRef);
 
     const handlePreload = () => initializeCal(windowRef);
-    const handleOpen = () => openCalModal(windowRef);
+    // Tracked here (the single cal:open listener) so every booking CTA —
+    // current or future — is counted without wiring each dispatcher.
+    const handleOpen = () => {
+      trackBookingOpen();
+      openCalModal(windowRef);
+    };
 
     window.addEventListener("cal:preload", handlePreload);
     window.addEventListener("cal:open", handleOpen);
