@@ -12,25 +12,6 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Translation } from "@/types";
 import styles from "./ServiceDetailPage.module.css";
 import { localizedTo } from "@/utils/localeRoutes";
-import familyImage from "@/assets/services/family.webp";
-import businessImage from "@/assets/services/business.webp";
-import realEstateImage from "@/assets/services/real-estate.webp";
-import criminalImage from "@/assets/services/criminal.webp";
-
-const serviceImages: Record<ServiceDetailKey, string> = {
-  family: familyImage,
-  business: businessImage,
-  realEstate: realEstateImage,
-  criminal: criminalImage,
-};
-
-// Keeps the attorney's face in frame within the panoramic crop
-const serviceImageFocus: Record<ServiceDetailKey, string> = {
-  family: "60% 18%",
-  business: "38% 18%",
-  realEstate: "45% 15%",
-  criminal: "50% 26%",
-};
 
 const Contact = lazy(() =>
   import("@/features/contact").then((module) => ({
@@ -100,15 +81,16 @@ export function ServiceDetailPage({
   return (
     <div className={styles.page}>
       <div className={styles.container}>
-        <section className={styles.hero}>
+        <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
+          <Link to={localizedTo("/services", locale)}>
+            {uiCopy.servicesLabel}
+          </Link>
+          <span>/</span>
+          <span>{detail.title}</span>
+        </nav>
+
+        <section className={`glass-panel ${styles.hero}`}>
           <div className={styles.heroCopy}>
-            <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
-              <Link to={localizedTo("/services", locale)}>
-                {uiCopy.servicesLabel}
-              </Link>
-              <span>/</span>
-              <span>{detail.title}</span>
-            </nav>
             <span className={styles.eyebrow}>{detail.eyebrow}</span>
             <h1 className="text-gradient-gold">{detail.title}</h1>
             <p className={styles.lede}>{detail.lede}</p>
@@ -117,7 +99,7 @@ export function ServiceDetailPage({
           <div className={styles.heroActions}>
             <a
               href={whatsappLink}
-              className={`btn whatsapp btn-magnetic ${styles.heroButton}`}
+              className={`btn whatsapp btn-magnetic btn-glow ${styles.heroButton}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -126,7 +108,7 @@ export function ServiceDetailPage({
             </a>
 
             <Link
-              className={`btn primary btn-magnetic ${styles.heroButton}`}
+              className={`btn primary btn-magnetic btn-glow ${styles.heroButton}`}
               to={buildLinkTarget(guideLink.path, locale)}
             >
               {detail.secondaryCta}
@@ -141,21 +123,8 @@ export function ServiceDetailPage({
           </div>
         </section>
 
-        <figure className={styles.photoStrip}>
-          <img
-            src={serviceImages[serviceKey]}
-            // The figcaption below already announces the name — an identical
-            // alt would make screen readers say it twice.
-            alt=""
-            style={{ objectPosition: serviceImageFocus[serviceKey] }}
-            loading="eager"
-            decoding="async"
-          />
-          <figcaption>{t.brandName}</figcaption>
-        </figure>
-
         <div className={styles.trustWrap}>
-          <TrustBadges t={t} variant="compact" />
+          <TrustBadges t={t} />
         </div>
 
         <section className={styles.mainGrid}>

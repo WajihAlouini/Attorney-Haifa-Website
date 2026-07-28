@@ -191,59 +191,11 @@ const shortTermRentals = frame(
   `
 );
 
-// 5. Cheques Reform — new-generation cheque with verification badge
-const cheques = frame(
-  `
-    <!-- back cheque (depth) -->
-    <g transform="translate(320 310) rotate(-10)" opacity=".22">
-      <rect x="-210" y="-95" width="420" height="190" rx="10" fill="${GOLD}"/>
-    </g>
-    <!-- main cheque -->
-    <g transform="translate(320 310) rotate(-6)">
-      <rect x="-210" y="-95" width="420" height="190" rx="10" fill="url(#gold)" opacity=".95"/>
-      <rect x="-202" y="-87" width="404" height="174" rx="8" fill="${INK_DEEP}" opacity=".9"/>
-      <!-- bank name + date -->
-      <rect x="-182" y="-68" width="120" height="10" rx="3" fill="url(#gold)" opacity=".8"/>
-      <rect x="102" y="-68" width="80" height="10" rx="3" fill="${GOLD}" opacity=".6"/>
-      <!-- payee line -->
-      <rect x="-182" y="-30" width="264" height="7" rx="3" fill="${GOLD}" opacity=".55"/>
-      <!-- amount box -->
-      <rect x="102" y="-44" width="80" height="32" rx="4" fill="none" stroke="${GOLD_LIGHT}" stroke-width="2" stroke-opacity=".85"/>
-      <rect x="112" y="-33" width="60" height="9" rx="3" fill="url(#gold)" opacity=".85"/>
-      <!-- second line -->
-      <rect x="-182" y="-6" width="200" height="7" rx="3" fill="${GOLD}" opacity=".45"/>
-      <!-- signature -->
-      <path d="M 96 46 q 18 -26 34 -6 q 12 15 26 -8 q 10 -16 26 -2"
-            fill="none" stroke="${GOLD_LIGHT}" stroke-width="3" stroke-linecap="round" stroke-opacity=".9"/>
-      <!-- MICR strip -->
-      <g fill="${GOLD_LIGHT}" opacity=".7">
-        <rect x="-182" y="62" width="26" height="8" rx="2"/>
-        <rect x="-148" y="62" width="18" height="8" rx="2"/>
-        <rect x="-122" y="62" width="30" height="8" rx="2"/>
-        <rect x="-84" y="62" width="20" height="8" rx="2"/>
-        <rect x="-56" y="62" width="28" height="8" rx="2"/>
-        <rect x="-20" y="62" width="18" height="8" rx="2"/>
-      </g>
-    </g>
-    <!-- verification badge overlay -->
-    <g transform="translate(462 428)">
-      <circle r="50" fill="${INK_DEEP}" opacity=".9"/>
-      <circle r="50" fill="none" stroke="${GOLD_HIGHLIGHT}" stroke-width="8"/>
-      <path d="M -20 2 L -6 18 L 24 -16" fill="none" stroke="${GOLD_HIGHLIGHT}"
-            stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-    <!-- label -->
-    <text x="320" y="560" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="600" fill="${GOLD_LIGHT}" text-anchor="middle" letter-spacing="3">CHÈQUE SANS PROVISION</text>
-    <text x="320" y="590" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#cbd5e1" text-anchor="middle" opacity=".75" letter-spacing="8">LOI N° 2024-41</text>
-  `
-);
-
 const images = [
   { file: "blog-inheritance.jpg", svg: inheritance },
   { file: "blog-startup.jpg", svg: startup },
   { file: "blog-dataprotection.jpg", svg: dataProtection },
   { file: "blog-rentals.jpg", svg: shortTermRentals },
-  { file: "blog-cheques.jpg", svg: cheques },
 ];
 
 for (const { file, svg } of images) {

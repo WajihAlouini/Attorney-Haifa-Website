@@ -1,203 +1,116 @@
-/* ============================================================
-   VALUES — the firm's charter, engraved as ledger rows.
-   Each principle is a full-width row: gold diamond marker +
-   folio number, Playfair title, detail. Hairline rules between
-   rows, a warm sweep on hover, staggered scroll reveal.
-   ============================================================ */
-
-.ledger {
-  max-width: 1100px;
+/* Glassmorphism Values Section */
+.grid {
+  display: grid;
+  /* Force 4 columns on desktop to keep them in one row */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 var(--spacing-md);
-  border-bottom: 1px solid
-    color-mix(in srgb, var(--accent) 28%, transparent);
 }
 
-.row {
+.card {
   position: relative;
-  display: grid;
-  grid-template-columns: 96px minmax(220px, 300px) 1fr;
-  column-gap: clamp(1.5rem, 4vw, 3.5rem);
-  align-items: start;
-  padding: 2.4rem 1.25rem;
-  border-top: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
+  text-align: start;
+  box-shadow: var(--card-shadow);
 }
 
-/* Warm tint that sweeps in from the reading edge */
-.row::before {
+:global([data-theme="dark"]) .card {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Subtle gradient overlay */
+.card::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    90deg,
-    var(--accent-soft) 0%,
-    transparent 70%
+    180deg,
+    var(--surface-overlay) 0%,
+    transparent 100%
   );
-  transform: translateX(-101%);
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+  transition: opacity 0.4s ease;
   pointer-events: none;
 }
 
-:global([dir="rtl"]) .row::before {
-  background: linear-gradient(
-    -90deg,
-    var(--accent-soft) 0%,
-    transparent 70%
-  );
-  transform: translateX(101%);
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: var(--card-shadow-hover);
 }
 
-.row:hover::before {
-  transform: translateX(0);
+.card:hover::before {
+  opacity: 1;
 }
 
-/* ---- Marker: rotated diamond + folio number ---- */
-.marker {
-  position: relative;
-  z-index: 1;
+.iconWrapper {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.9rem;
-  padding-top: 0.2rem;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px; /* Soft square */
+  background: linear-gradient(135deg, var(--accent-soft), transparent);
+  border: 1px solid var(--border-hover);
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  transition: all 0.4s ease;
 }
 
-.diamond {
-  width: 46px;
-  height: 46px;
-  display: grid;
-  place-items: center;
-  border: 1.5px solid var(--accent);
-  border-radius: 6px;
-  background: var(--accent-soft);
-  color: var(--accent-fg);
-  transform: rotate(45deg);
-  transition:
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    background 0.4s ease,
-    color 0.4s ease,
-    box-shadow 0.4s ease;
-}
-
-.diamond svg {
-  transform: rotate(-45deg);
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.row:hover .diamond {
-  transform: rotate(0deg);
+.card:hover .iconWrapper {
   background: var(--accent);
-  color: var(--accent-contrast, #fff);
-  box-shadow: 0 0 22px var(--accent-glow, rgba(212, 175, 55, 0.35));
+  color: var(--accent-contrast);
+  border-color: var(--accent);
+  transform: scale(1.1) rotate(3deg); /* Dynamic subtle movement */
+  box-shadow: 0 0 20px var(--accent-glow); /* Gold glow */
 }
 
-.row:hover .diamond svg {
-  transform: rotate(0deg);
-}
-
-.folio {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  color: var(--accent-fg);
-  font-variant-numeric: tabular-nums;
-}
-
-.rowTitle {
-  position: relative;
-  z-index: 1;
+.card h3 {
   font-family: var(--font-heading);
-  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+  font-size: 1.5rem;
   font-weight: 500;
-  letter-spacing: -0.015em;
-  line-height: 1.2;
   color: var(--text);
   margin: 0;
-  text-wrap: balance;
-  transition: color 0.3s ease;
+  letter-spacing: -0.02em;
 }
 
-.row:hover .rowTitle {
-  color: var(--accent-fg);
-}
-
-.rowDetail {
-  position: relative;
-  z-index: 1;
+.card p {
   font-family: var(--font-body);
-  font-size: 1.02rem;
+  font-size: 1rem;
   color: var(--text-dim);
-  line-height: 1.75;
+  line-height: 1.7;
   margin: 0;
-  max-width: 58ch;
 }
 
-/* ---- Staggered reveal when the section scrolls in ---- */
-@media (prefers-reduced-motion: no-preference) {
-  :global(.fade-in-section) .row {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-
-  :global(.fade-in-section.fade-in-visible) .row {
-    animation: rowRise 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: calc(var(--i, 0) * 95ms);
+/* Responsive */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 on tablets/smaller desktops */
+    gap: 2rem;
   }
 }
 
-@keyframes rowRise {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ---- Responsive ---- */
-@media (max-width: 900px) {
-  .row {
-    grid-template-columns: 72px 1fr;
-    row-gap: 0.7rem;
-    padding: 2rem 0.75rem;
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; /* Stack on mobile */
+    gap: 1.5rem;
   }
 
-  .marker {
-    grid-row: 1 / span 2;
-  }
-
-  .diamond {
-    width: 40px;
-    height: 40px;
-  }
-
-  .rowDetail {
-    grid-column: 2;
-  }
-}
-
-@media (max-width: 560px) {
-  .row {
-    grid-template-columns: 1fr;
-    padding: 1.8rem 0.5rem;
-  }
-
-  .marker {
-    grid-row: auto;
-    flex-direction: row;
-    gap: 0.8rem;
-    padding-top: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .row::before,
-  .diamond,
-  .diamond svg,
-  .rowTitle {
-    transition: none;
+  .card {
+    padding: 2rem;
+    align-items: flex-start;
+    text-align: start;
   }
 }

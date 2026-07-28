@@ -1,4 +1,4 @@
-import { CSSProperties, FC, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { TranslationProps } from "@/types";
 import styles from "./PracticeAreas.module.css";
@@ -79,24 +79,21 @@ export const PracticeAreas: FC<PracticeAreasProps> = ({ t, locale = "fr" }) => {
         <p className="section-eyebrow">{t.practiceEyebrow}</p>
         <h2>{t.practiceHeading}</h2>
       </div>
-      <div className={styles.rail}>
+      <div className={styles.grid}>
         {t.practiceAreas.map((area, index) => (
           <Link
             key={area.title}
             to={localizedTo(urls[index] || "/services", locale)}
-            className={styles.panel}
-            style={{ "--i": index } as CSSProperties}
+            className={styles.card}
           >
-            <span className={styles.frame} aria-hidden="true" />
-            <span className={styles.etching} aria-hidden="true">
+            <span className={styles.badgeIcon} aria-hidden="true">
               {icons[index]}
             </span>
-            <div className={styles.panelBody}>
-              <h3 className={styles.title}>{area.title}</h3>
-              <p className={styles.summary}>{area.summary}</p>
-            </div>
-            <span className={styles.arrowBadge} aria-hidden="true">
-              →
+            <h3 className={styles.title}>{area.title}</h3>
+            <p className={styles.summary}>{area.summary}</p>
+            <span className={styles.cta} aria-hidden="true">
+              {t.ctas.secondary || "Learn more"}
+              <span className={styles.ctaArrow}>→</span>
             </span>
           </Link>
         ))}

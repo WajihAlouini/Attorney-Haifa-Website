@@ -1,306 +1,196 @@
-/* ============================================================
-   EXPERTISE — engraved plaques. Four panels framed by a
-   hairline gold border, the domain's icon etched huge as
-   line-art. The hovered/focused plaque expands and INVERTS:
-   cream flips to deep ink, the etching glows gold, and the
-   summary + a single arrow affordance rise in.
-   ============================================================ */
-
-.rail {
-  display: flex;
-  gap: 1rem;
+/* 4-card layout: 4-up on wide screens, 2x2 in the mid zone, single column on
+   mobile. Avoids the "lonely card wrapping below 3" awkward state of an
+   auto-fit grid when item count is 4. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   max-width: 1240px;
   margin: 0 auto;
 }
 
-.panel {
-  /* plaque tokens — light theme at rest */
-  --plaque-bg: var(--panel);
-  --plaque-fg: var(--text);
-  --plaque-muted: var(--muted);
-
-  position: relative;
-  flex: 1 1 0;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 380px;
-  padding: 1.7rem 1.6rem;
-  border-radius: 18px;
-  overflow: hidden;
-  text-decoration: none;
-  background: var(--plaque-bg);
-  color: var(--plaque-fg);
-  border: 1px solid var(--border);
-  box-shadow: var(--card-shadow);
-  cursor: pointer;
-  transition:
-    flex-grow 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 0.5s ease,
-    border-color 0.5s ease,
-    box-shadow 0.45s ease;
-}
-
-/* The inversion: deep ink plaque when active */
-.panel:hover,
-.panel:focus-visible,
-.panel:focus-within {
-  --plaque-bg: #211b12;
-  --plaque-fg: #f8f3e6;
-  --plaque-muted: rgba(248, 243, 230, 0.88);
-
-  flex-grow: 2.05;
-  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
-  box-shadow: var(--card-shadow-hover);
-}
-
-:global([data-theme="dark"]) .panel {
-  backdrop-filter: blur(24px) saturate(120%);
-  -webkit-backdrop-filter: blur(24px) saturate(120%);
-}
-
-:global([data-theme="dark"]) .panel:hover,
-:global([data-theme="dark"]) .panel:focus-visible,
-:global([data-theme="dark"]) .panel:focus-within {
-  --plaque-bg: #241d12;
-}
-
-.panel:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-/* ---- Certificate frame: hairline gold, 10px inset ---- */
-.frame {
-  position: absolute;
-  inset: 10px;
-  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
-  border-radius: 11px;
-  pointer-events: none;
-  transition: border-color 0.5s ease;
-}
-
-.panel:hover .frame,
-.panel:focus-visible .frame {
-  border-color: color-mix(in srgb, var(--accent) 75%, transparent);
-}
-
-/* ---- Etched watermark: the domain icon as huge line-art ---- */
-.etching {
-  position: absolute;
-  top: -6%;
-  inset-inline-end: -14%;
-  width: min(74%, 300px);
-  aspect-ratio: 1;
-  color: var(--accent);
-  opacity: 0.14;
-  pointer-events: none;
-  transition:
-    opacity 0.5s ease,
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.etching svg {
-  width: 100%;
-  height: 100%;
-  stroke-width: 0.55;
-}
-
-.panel:hover .etching,
-.panel:focus-visible .etching {
-  opacity: 0.28;
-  transform: rotate(6deg) scale(1.06);
-}
-
-:global([dir="rtl"]) .etching {
-  transform: scaleX(-1);
-}
-
-:global([dir="rtl"]) .panel:hover .etching,
-:global([dir="rtl"]) .panel:focus-visible .etching {
-  transform: scaleX(-1) rotate(6deg) scale(1.06);
-}
-
-/* ---- Text block ---- */
-.panelBody {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding-inline-end: 2.9rem;
-}
-
-.title {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(1.28rem, 1.55vw, 1.58rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.18;
-  margin: 0;
-  color: var(--plaque-fg);
-  text-wrap: balance;
-  transition: color 0.5s ease;
-}
-
-.summary {
-  color: var(--plaque-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin: 0;
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(10px);
-  overflow: hidden;
-  transition:
-    max-height 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.4s ease 0.08s,
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.05s,
-    color 0.5s ease;
-}
-
-.panel:hover .summary,
-.panel:focus-visible .summary,
-.panel:focus-within .summary {
-  max-height: 10em;
-  opacity: 1;
-  transform: translateY(0);
-  margin-top: 0.7rem;
-}
-
-/* ---- Single affordance: gold arrow, swings in ---- */
-.arrowBadge {
-  position: absolute;
-  bottom: 1.5rem;
-  inset-inline-end: 1.5rem;
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #171207;
-  font-size: 1.2rem;
-  line-height: 1;
-  opacity: 0;
-  transform: translateY(10px) scale(0.82);
-  transition:
-    opacity 0.4s ease 0.1s,
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
-}
-
-.panel:hover .arrowBadge,
-.panel:focus-visible .arrowBadge,
-.panel:focus-within .arrowBadge {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-:global([dir="rtl"]) .arrowBadge {
-  transform: translateY(10px) scale(0.82) scaleX(-1);
-}
-
-:global([dir="rtl"]) .panel:hover .arrowBadge,
-:global([dir="rtl"]) .panel:focus-visible .arrowBadge,
-:global([dir="rtl"]) .panel:focus-within .arrowBadge {
-  transform: translateY(0) scale(1) scaleX(-1);
-}
-
-/* ---- Staggered entrance once the section reveals ---- */
-@media (prefers-reduced-motion: no-preference) {
-  :global(.fade-in-section) .panel {
-    opacity: 0;
-    transform: translateY(26px);
-  }
-
-  :global(.fade-in-section.fade-in-visible) .panel {
-    animation: panelRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: calc(var(--i, 0) * 110ms);
-  }
-}
-
-@keyframes panelRise {
-  from {
-    opacity: 0;
-    transform: translateY(26px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ---- Mid + small screens: grid, everything visible ---- */
-@media (max-width: 1020px) {
-  .rail {
-    display: grid;
+@media (max-width: 1100px) {
+  .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    gap: 1.5rem;
     max-width: 760px;
-  }
-
-  .panel {
-    min-height: 280px;
-  }
-
-  .summary {
-    max-height: none;
-    opacity: 1;
-    transform: none;
-    overflow: visible;
-    margin-top: 0.7rem;
-  }
-
-  .arrowBadge {
-    opacity: 1;
-    transform: none;
-  }
-
-  :global([dir="rtl"]) .arrowBadge {
-    transform: scaleX(-1);
   }
 }
 
 @media (max-width: 600px) {
-  .rail {
+  .grid {
     grid-template-columns: 1fr;
-    gap: 1.1rem;
-  }
-
-  .panel {
-    min-height: 235px;
+    gap: 1.25rem;
   }
 }
 
-/* ---- Reduced motion: static, fully legible ---- */
-@media (prefers-reduced-motion: reduce) {
-  .panel,
-  .frame,
-  .etching,
-  .title,
-  .summary,
-  .arrowBadge {
-    transition: none;
-  }
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 360px;
+  padding: 2.75rem 2rem 2rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
 
-  .panel:hover,
-  .panel:focus-visible,
-  .panel:focus-within {
-    flex-grow: 1;
-  }
+:global([data-theme="dark"]) .card {
+  backdrop-filter: blur(24px) saturate(120%);
+  -webkit-backdrop-filter: blur(24px) saturate(120%);
+}
 
-  .panel:hover .etching {
-    transform: none;
-  }
+/* Decorative corner brackets — top-left + bottom-right */
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--accent);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+  opacity: 0.85;
+}
 
+.card::before {
+  top: 16px;
+  left: 16px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.card::after {
+  bottom: 16px;
+  right: 16px;
+  border-left: 0;
+  border-top: 0;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--border-hover);
+}
+
+.card:hover::before {
+  transform: translate(-3px, -3px);
+}
+
+.card:hover::after {
+  transform: translate(3px, 3px);
+}
+
+/* Badge icon in top-right — gold pill that fills on hover */
+.badgeIcon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  border-radius: 50%;
+  color: var(--accent-fg);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.badgeIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.card:hover .badgeIcon {
+  background: var(--accent);
+  color: var(--accent-contrast, #fff);
+  transform: scale(1.06);
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 1.5rem 0 0.85rem;
+  max-width: 14ch;
+  line-height: 1.15;
+  position: relative;
+  z-index: 1;
+}
+
+.summary {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.cta {
+  margin-top: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent-fg);
+  align-self: flex-start;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 3px;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaArrow {
+  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
+  letter-spacing: 0;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.card:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+:global([dir="rtl"]) .ctaArrow {
+  transform: scaleX(-1);
+}
+
+:global([dir="rtl"]) .card:hover .ctaArrow {
+  transform: translateX(-4px) scaleX(-1);
+}
+
+/* RTL needs the badge on the left */
+:global([dir="rtl"]) .badgeIcon {
+  right: auto;
+  left: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    min-height: 300px;
+    padding: 2.25rem 1.5rem 1.75rem;
+  }
+  .title {
+    font-size: 1.45rem;
+  }
   .summary {
-    max-height: none;
-    opacity: 1;
-    transform: none;
-    margin-top: 0.7rem;
-  }
-
-  .arrowBadge {
-    opacity: 1;
-    transform: none;
+    font-size: 0.95rem;
   }
 }

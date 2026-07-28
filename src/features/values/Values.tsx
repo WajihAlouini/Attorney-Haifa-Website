@@ -1,4 +1,4 @@
-import { CSSProperties, FC } from "react";
+import { FC } from "react";
 import { TranslationProps } from "@/types";
 import { Scale, Award, FileText, HeartHandshake } from "lucide-react";
 import styles from "./Values.module.css";
@@ -12,25 +12,16 @@ export const Values: FC<TranslationProps> = ({ t }) => {
         <p className="section-eyebrow">{t.valuesEyebrow}</p>
         <h2>{t.valuesHeading}</h2>
       </div>
-      <div className={styles.ledger}>
+      <div className={styles.grid}>
         {t.values.map((value, index) => {
           const Icon = icons[index] || Scale;
           return (
-            <article
-              key={value.title}
-              className={styles.row}
-              style={{ "--i": index } as CSSProperties}
-            >
-              <div className={styles.marker} aria-hidden="true">
-                <span className={styles.diamond}>
-                  <Icon strokeWidth={1.5} size={20} />
-                </span>
-                <span className={styles.folio}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+            <article key={value.title} className={styles.card}>
+              <div className={styles.iconWrapper}>
+                <Icon strokeWidth={1.5} size={32} />
               </div>
-              <h3 className={styles.rowTitle}>{value.title}</h3>
-              <p className={styles.rowDetail}>{value.detail}</p>
+              <h3>{value.title}</h3>
+              <p>{value.detail}</p>
             </article>
           );
         })}

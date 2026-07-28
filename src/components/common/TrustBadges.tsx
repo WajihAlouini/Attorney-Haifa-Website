@@ -5,7 +5,6 @@ import styles from "./TrustBadges.module.css";
 
 interface TrustBadgesProps {
   t: Translation;
-  variant?: "default" | "compact";
 }
 
 const GOOGLE_BUSINESS_URL =
@@ -18,10 +17,7 @@ const GOOGLE_BUSINESS_URL =
 const GOOGLE_RATING = googleRating.rating.toFixed(1);
 const STAR_COUNT = Math.round(googleRating.rating);
 
-export const TrustBadges: FC<TrustBadgesProps> = ({
-  t,
-  variant = "default",
-}) => {
+export const TrustBadges: FC<TrustBadgesProps> = ({ t }) => {
   const member =
     t.trustBadgeMember ?? "Membre de l'Ordre National des Avocats de Tunisie";
   const ratingLabel = t.trustBadgeRatingLabel ?? "Note Google";
@@ -30,13 +26,8 @@ export const TrustBadges: FC<TrustBadgesProps> = ({
   const court =
     t.trustBadgeCourt ?? "Cabinet habilité près la Cour de Cassation";
 
-  const rootClass =
-    variant === "compact"
-      ? `${styles.trustBadges} ${styles.compact}`
-      : styles.trustBadges;
-
   return (
-    <div className={rootClass}>
+    <div className={styles.trustBadges}>
       <div className={styles.badge}>
         <div className={styles.iconWrapper}>
           <svg
