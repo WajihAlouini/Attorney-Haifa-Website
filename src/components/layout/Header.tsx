@@ -29,12 +29,10 @@ export const Header: FC<HeaderProps> = ({ locale, setLocale, t, theme, toggleThe
       const el = document.getElementById(sectionId);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     } else {
-      // Navigate to homepage first, then scroll after render
-      navigate(withLocalePath("/"));
-      setTimeout(() => {
-        const el = document.getElementById(sectionId);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }, 300);
+      // Hand the target to useScrollToSection via navigation state — it
+      // owns post-navigation scrolling and waits for lazy sections, so no
+      // guessed delay (and no race with its scroll-to-top).
+      navigate(withLocalePath("/"), { state: { scrollTo: sectionId } });
     }
   };
 

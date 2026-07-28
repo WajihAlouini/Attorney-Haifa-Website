@@ -166,6 +166,16 @@ function AppContent() {
     }
   }, [theme, hasExplicitTheme]);
 
+  // Keep <html lang/dir> in sync with the route locale. The prerendered
+  // HTML ships the right values per page, but client-side language
+  // switching would otherwise leave them stale — Arabic content in an LTR
+  // page with lang="fr" (all [dir="rtl"] CSS silently inert).
+  useEffect(() => {
+    const html = document.documentElement;
+    html.setAttribute("lang", locale);
+    html.setAttribute("dir", locale === "ar" ? "rtl" : "ltr");
+  }, [locale]);
+
   const handleSetLocale = (nextLocale: string) => {
     const resolvedLocale: SupportedLocale = isSupportedLocale(nextLocale)
       ? nextLocale

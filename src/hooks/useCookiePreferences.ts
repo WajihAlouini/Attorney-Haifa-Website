@@ -22,7 +22,13 @@ export function useCookiePreferences(): CookiePreferences {
       const saved = localStorage.getItem("cookie_preferences");
       if (saved) {
         try {
-          setPreferences(JSON.parse(saved));
+          const parsed = JSON.parse(saved) as CookiePreferences | null;
+          // Stored "null" or a non-object parses fine but would break
+          // consumers reading .analytics — merge over defaults only when
+          // it's an object.
+          if (parsed && typeof parsed === "object") {
+            setPreferences({ ...DEFAULT_PREFERENCES, ...parsed });
+          }
         } catch {
           // Use defaults
         }
