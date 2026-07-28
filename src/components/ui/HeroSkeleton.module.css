@@ -1,0 +1,156 @@
+/* Mirrors Hero.module.css geometry (shell padding, stage grid, column
+   ratio) so the swap to the real hero causes no visible layout jump. */
+
+.hero {
+  --hero-bg: #ede7db;
+  --hero-bg-soft: #e6e0d4;
+  --hero-divider: rgba(27, 23, 19, 0.1);
+  --bone: rgba(27, 23, 19, 0.07);
+  --bone-shine: rgba(27, 23, 19, 0.12);
+  position: relative;
+  overflow: clip;
+  background: linear-gradient(180deg, var(--hero-bg) 0%, var(--hero-bg-soft) 100%);
+  border-bottom: 1px solid var(--hero-divider);
+  animation: skeletonIn 0.3s ease-out both;
+}
+
+:global([data-theme="dark"]) .hero {
+  --hero-bg: #0a0f16;
+  --hero-bg-soft: #070b11;
+  --hero-divider: rgba(255, 255, 255, 0.04);
+  --bone: rgba(240, 235, 228, 0.06);
+  --bone-shine: rgba(240, 235, 228, 0.11);
+}
+
+.shell {
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(5rem, 6vw, 5.5rem) clamp(1.25rem, 5vw, 4.5rem) 0;
+}
+
+.stage {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+  min-height: min(52vh, 480px);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 600px;
+}
+
+.bone {
+  display: block;
+  border-radius: 8px;
+  background: var(--bone);
+  position: relative;
+  overflow: hidden;
+}
+
+.bone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, var(--bone-shine), transparent);
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+.brand {
+  width: 34%;
+  height: 1.4rem;
+  margin-bottom: 0.55rem;
+}
+
+.role {
+  width: 46%;
+  height: 0.9rem;
+  margin-bottom: 1.6rem;
+}
+
+.headingA {
+  width: 88%;
+  height: clamp(2rem, 2.9vw, 2.9rem);
+  margin-bottom: 0.5rem;
+}
+
+.headingB {
+  width: 64%;
+  height: clamp(2rem, 2.9vw, 2.9rem);
+  margin-bottom: 1.4rem;
+}
+
+.ledeA {
+  width: 92%;
+  height: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.ledeB {
+  width: 70%;
+  height: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.9rem;
+}
+
+.pill {
+  width: 150px;
+  height: 46px;
+  border-radius: 999px;
+}
+
+.figureColumn {
+  display: flex;
+  justify-content: center;
+}
+
+.figure {
+  width: min(100%, 330px);
+  aspect-ratio: 3 / 4;
+  border-radius: 18px;
+}
+
+@keyframes shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes skeletonIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .stage {
+    grid-template-columns: 1fr;
+  }
+
+  .figureColumn {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    animation: none;
+  }
+
+  .bone::after {
+    animation: none;
+  }
+}

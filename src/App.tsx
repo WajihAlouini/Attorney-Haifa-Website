@@ -17,6 +17,7 @@ import { reportWebVitals } from "@/utils/performance";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { SEO } from "@/components/common/SEO";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
+import { HeroSkeleton } from "@/components/ui/HeroSkeleton";
 import {
   buildLocalizedPath,
   getQueryLocale,
@@ -257,7 +258,10 @@ function AppContent() {
           path="/"
           element={
             <AnimatedPage>
-              <Suspense fallback={<LoadingFallback />}>
+              {/* Hero-shaped skeleton instead of the generic spinner: the
+                  homepage is the one route where a loader visibly replaces
+                  prerendered content while the chunk loads. */}
+              <Suspense fallback={<HeroSkeleton />}>
                 <Home
                   t={t}
                   locale={locale}
