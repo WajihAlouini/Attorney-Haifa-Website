@@ -117,16 +117,16 @@ export const Hero: FC<HeroProps> = ({ t, whatsappLink, locale }) => {
   const heroRef = useRef<HTMLElement>(null);
   const figureRef = useRef<HTMLDivElement>(null);
   const tiltRef = useRef<HTMLDivElement>(null);
-  const portraitImgRef = useRef<HTMLImageElement>(null);
   const [portraitLoaded, setPortraitLoaded] = useState(false);
 
   // Reveal the portrait the instant its pixels are ready — no fixed-timer
-  // hold. Covers images already cached before React attached onLoad.
-  useEffect(() => {
-    if (portraitImgRef.current?.complete) {
+  // hold. A callback ref (not an effect) so images already cached before
+  // React attached onLoad are caught at the earliest possible moment.
+  const portraitImgRef = (node: HTMLImageElement | null) => {
+    if (node?.complete) {
       setPortraitLoaded(true);
     }
-  }, []);
+  };
 
   // Cursor-tracking spotlight + 3D portrait tilt. Pointer-driven,
   // rAF-batched, and skipped entirely for touch / reduced-motion.

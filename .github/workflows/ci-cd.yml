@@ -170,4 +170,6 @@ jobs:
       - run: npm ci
 
       - name: Audit production dependencies
-        run: npm audit --audit-level=high --omit=dev
+        # Wrapper around `npm audit --omit=dev` that fails on high/critical
+        # advisories except documented inapplicable ones (see script).
+        run: node scripts/audit-security.mjs
