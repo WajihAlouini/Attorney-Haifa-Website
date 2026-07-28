@@ -382,6 +382,17 @@ async function prerenderRoute(page, target, baseUrl) {
 
   html = injectAlternateLinks(html, target.visitRoute);
 
+  // Arabic pages render (almost) no Latin text above the fold, so the
+  // Latin font preloads go unclaimed there — Chrome logs "preloaded but
+  // not used" on every load and the bytes are wasted on the critical
+  // path. FR/EN pages consume them immediately and keep them.
+  if (normalizeRoute(target.outputRoute).startsWith("/ar")) {
+    html = html.replace(
+      /\s*<link rel="preload" as="font"[^>]*href="\/fonts\/[^"]*"[^>]*>/g,
+      ""
+    );
+  }
+
   const outputFile = routeToOutputFile(target.outputRoute);
   await fs.mkdir(path.dirname(outputFile), { recursive: true });
   await fs.writeFile(outputFile, html, "utf8");
