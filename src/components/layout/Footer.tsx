@@ -19,7 +19,6 @@ function getFooterCopy(locale: string) {
       resources: "المحتوى",
       guides: "الأدلة القانونية",
       blog: "المستجدات",
-      cookies: "إعدادات ملفات تعريف الارتباط",
     };
   }
 
@@ -30,7 +29,6 @@ function getFooterCopy(locale: string) {
       resources: "Resources",
       guides: "Legal Guides",
       blog: "Legal News",
-      cookies: "Manage cookies",
     };
   }
 
@@ -40,7 +38,6 @@ function getFooterCopy(locale: string) {
     resources: "Ressources",
     guides: "Guides juridiques",
     blog: "Actualités",
-    cookies: "Gérer les cookies",
   };
 }
 
@@ -136,15 +133,6 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
 
       <div className={styles.bottom}>
         <p>© {year} Haifa Guedhami Alouini. {t.allRightsReserved || "All rights reserved."}</p>
-        <button
-          type="button"
-          className={styles.cookieManage}
-          onClick={() =>
-            window.dispatchEvent(new Event("openCookiePreferences"))
-          }
-        >
-          {copy.cookies}
-        </button>
         <p className={styles.credit}>
           {t.developedBy}{" "}
           <a

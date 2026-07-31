@@ -56,17 +56,6 @@ export function CookieConsent({ t }: CookieConsentProps) {
     }
   }, [hasConsent]);
 
-  // Lets the visitor change their mind after dismissing the banner — the
-  // footer's "manage cookies" button dispatches this event.
-  useEffect(() => {
-    const reopen = () => {
-      setShowSettings(true);
-      setIsVisible(true);
-    };
-    window.addEventListener("openCookiePreferences", reopen);
-    return () => window.removeEventListener("openCookiePreferences", reopen);
-  }, []);
-
   const saveAndClose = useCallback((prefs: CookiePreferences) => {
     setIsHiding(true);
     setTimeout(() => {
