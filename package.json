@@ -21,6 +21,7 @@
     "clean": "rm -rf dist node_modules/.vite"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.1.0",
     "dotenv": "^17.2.3",
     "framer-motion": "^12.34.3",
     "lucide-react": "^0.556.0",
