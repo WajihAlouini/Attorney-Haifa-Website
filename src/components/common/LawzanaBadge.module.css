@@ -1,0 +1,41 @@
+.badgeLink {
+  display: inline-block;
+  width: var(--badge-width);
+  line-height: 0;
+  border-radius: 12px;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.25s ease;
+}
+
+.badgeLink:hover,
+.badgeLink:focus-visible {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.badgeLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.badgeImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* The crest is a flat navy/teal shield; a soft drop shadow is what lifts it
+     off the warm page ground instead of looking pasted on. */
+  filter: drop-shadow(0 6px 18px rgba(5, 11, 53, 0.28));
+}
+
+.badgeLink:hover .badgeImg,
+.badgeLink:focus-visible .badgeImg {
+  filter: drop-shadow(0 10px 26px rgba(5, 11, 53, 0.36));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badgeLink,
+  .badgeLink:hover,
+  .badgeLink:focus-visible {
+    transition: none;
+    transform: none;
+  }
+}

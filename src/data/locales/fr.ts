@@ -294,6 +294,7 @@ export const fr: Translation = {
   trustBadgeRatingAria:
     "Note Google 5 sur 5 étoiles, voir les avis sur Google Maps",
   trustBadgeCourt: "Cabinet habilité près la Cour de Cassation",
+  lawzanaRecognition: "Distingué sur Lawzana",
   blog: {
     eyebrow: "Publications & Actualités",
     heading: "Le Journal Juridique",

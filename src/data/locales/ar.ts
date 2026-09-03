@@ -285,6 +285,7 @@ export const ar: Translation = {
   trustBadgeRatingLabel: "تقييم Google",
   trustBadgeRatingAria: "تقييم Google 5 من 5 نجوم، اقرأ المراجعات على خرائط Google",
   trustBadgeCourt: "مكتب محامٍ معتمد لدى محكمة التعقيب",
+  lawzanaRecognition: "تكريم على منصة Lawzana",
   blog: {
     eyebrow: "منشورات ومستجدات",
     heading: "المجلة القانونية",

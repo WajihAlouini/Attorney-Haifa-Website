@@ -191,6 +191,7 @@ export interface Translation {
   trustBadgeRatingLabel?: string;
   trustBadgeRatingAria?: string;
   trustBadgeCourt?: string;
+  lawzanaRecognition?: string;
 
   // Blog
   blog?: {

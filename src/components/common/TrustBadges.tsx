@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Translation } from "@/types";
 import googleRating from "@/data/google-rating.json";
 import styles from "./TrustBadges.module.css";
+import { LawzanaBadge } from "./LawzanaBadge";
 
 interface TrustBadgesProps {
   t: Translation;
@@ -25,6 +26,7 @@ export const TrustBadges: FC<TrustBadgesProps> = ({ t }) => {
     t.trustBadgeRatingAria ?? "Note Google 5 sur 5 étoiles, voir les avis";
   const court =
     t.trustBadgeCourt ?? "Cabinet habilité près la Cour de Cassation";
+  const lawzanaLabel = t.lawzanaRecognition ?? "Distingué sur Lawzana";
 
   return (
     <div className={styles.trustBadges}>
@@ -102,6 +104,14 @@ export const TrustBadges: FC<TrustBadgesProps> = ({ t }) => {
           </svg>
         </div>
         <span>{court}</span>
+      </div>
+      {/* The crests carry their own lettering, so they run bare at a size
+          where that lettering is actually legible — pairing them with
+          repeated text shrank them to the point of being unreadable. Both
+          share one grid cell so the row stays four columns. */}
+      <div className={styles.lawzanaBadges}>
+        <LawzanaBadge variant="firm" width={96} label={lawzanaLabel} />
+        <LawzanaBadge variant="lawyer" width={96} label={lawzanaLabel} />
       </div>
     </div>
   );

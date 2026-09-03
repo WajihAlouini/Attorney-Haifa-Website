@@ -291,6 +291,7 @@ export const en: Translation = {
   trustBadgeRatingAria:
     "Google rating 5 out of 5 stars, read reviews on Google Maps",
   trustBadgeCourt: "Firm Registered with the Court of Cassation",
+  lawzanaRecognition: "Recognized on Lawzana",
   blog: {
     eyebrow: "Publications & Insights",
     heading: "The Legal Journal",

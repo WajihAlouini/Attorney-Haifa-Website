@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getSeoClusterPages } from "@/data/seoCluster";
 import { Translation } from "@/types";
 import styles from "./Footer.module.css";
+import { LawzanaBadge } from "@/components/common/LawzanaBadge";
 import { localizedTo, splitLocalePathname } from "@/utils/localeRoutes";
 
 interface FooterProps {
@@ -19,6 +20,7 @@ function getFooterCopy(locale: string) {
       resources: "المحتوى",
       guides: "الأدلة القانونية",
       blog: "المستجدات",
+      recognition: "تكريم على منصة Lawzana",
     };
   }
 
@@ -29,6 +31,7 @@ function getFooterCopy(locale: string) {
       resources: "Resources",
       guides: "Legal Guides",
       blog: "Legal News",
+      recognition: "Recognized on Lawzana",
     };
   }
 
@@ -38,6 +41,7 @@ function getFooterCopy(locale: string) {
     resources: "Ressources",
     guides: "Guides juridiques",
     blog: "Actualités",
+    recognition: "Distingué sur Lawzana",
   };
 }
 
@@ -94,6 +98,26 @@ export const Footer: FC<FooterProps> = ({ t, year, locale }) => {
         <div className={styles.brandBlock}>
           <p className={styles.brandName}>{t.brandName}</p>
           <p className={styles.blurb}>{t.footerBlurb}</p>
+
+          {/* Third-party recognition — the wording credits Lawzana for the
+              distinction rather than asserting it in the firm's own voice. */}
+          <div className={styles.recognition}>
+            <p className={styles.recognitionLabel}>
+              {t.lawzanaRecognition ?? copy.recognition}
+            </p>
+            <div className={styles.recognitionBadges}>
+              <LawzanaBadge
+                variant="firm"
+                width={104}
+                label={t.lawzanaRecognition ?? copy.recognition}
+              />
+              <LawzanaBadge
+                variant="lawyer"
+                width={104}
+                label={t.lawzanaRecognition ?? copy.recognition}
+              />
+            </div>
+          </div>
         </div>
 
         <div className={styles.column}>
