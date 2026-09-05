@@ -8,6 +8,7 @@ import { SEO } from "@/components/common/SEO";
 import {
   getBlogRelatedResources,
 } from "@/data/blogSeo";
+import { ogImageForCover } from "@/data/seo";
 import { getPostBySlug } from "@/utils/markdown";
 import styles from "./BlogPost.module.css";
 import { localizedTo } from "@/utils/localeRoutes";
@@ -60,7 +61,7 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
       <SEO
         title={`${meta.title} | Maitre Haifa Guedhami Alouini`}
         description={meta.description}
-        image={meta.image}
+        image={ogImageForCover(meta.image)}
         locale={contentLocale}
         type="article"
         publishedTime={meta.date}

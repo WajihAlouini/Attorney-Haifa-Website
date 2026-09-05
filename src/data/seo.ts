@@ -1,5 +1,18 @@
 import { getSeoClusterPage } from "@/data/seoCluster";
 
+// The 1200x630 JPEG social card. Scrapers crop previews to 1.91:1 and are
+// unreliable with WebP, so og:image points here rather than at the portrait
+// office photo (683x816 WebP) the page itself renders.
+// Regenerate with: node scripts/generate-og-cards.mjs
+export const OG_IMAGE = "/og/default.jpg";
+
+// Article covers stay square (640x640) because that is the shape the article
+// header renders. Their 1200x630 share cards live alongside under /og.
+export function ogImageForCover(cover?: string): string {
+  const match = /^\/(blog-[a-z]+\.jpg)$/.exec(cover ?? "");
+  return match ? `/og/${match[1]}` : OG_IMAGE;
+}
+
 export interface SEOData {
   title: string;
   description: string;
@@ -24,7 +37,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "Besoin d'un avocat en Tunisie ? Cabinet à Kairouan, dossiers suivis à Tunis et dans tout le pays : divorce, immobilier, affaires, contentieux. Consultation rapide.",
       keywords:
         "avocat tunisie, avocat kairouan, avocat tunis, droit de la famille, divorce tunisie, droit immobilier, droit des affaires, محامي القيروان",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     en: {
       title: "Lawyer in Tunisia - Kairouan & Tunis | Haifa Guedhami Alouini",
@@ -32,7 +45,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "Need a lawyer in Tunisia? Law firm in Kairouan, handling cases in Tunis and nationwide: divorce, real estate, business and litigation. Fast consultation.",
       keywords:
         "lawyer tunisia, lawyer kairouan, lawyer tunis, family law, divorce tunisia, real estate law, business law",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     ar: {
       title: "محامية في تونس، مقرها القيروان | هيفاء القضامي العلويني",
@@ -40,7 +53,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "تحتاج محامي في تونس؟ مكتب محاماة مقره القيروان مع متابعة الملفات في تونس العاصمة وكامل البلاد وعن بعد: طلاق، عقار، أعمال ونزاعات. استشارة سريعة.",
       keywords:
         "محامي تونس, محامي القيروان, محامي قانون الاسرة, طلاق تونس, قانون عقاري, قانون اعمال",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
   },
 
@@ -287,7 +300,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "Cabinet d'avocat à Kairouan. Divorce, garde, immobilier et affaires. Rendez-vous rapide, suivi local et à distance. Appelez maintenant pour une consultation.",
       keywords:
         "avocat kairouan, avocat a kairouan, cabinet avocat kairouan, consultation juridique kairouan",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     en: {
       title: "Lawyer in Kairouan | Divorce, Property, Business",
@@ -295,7 +308,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "Law firm in Kairouan for individuals and companies: divorce, real estate, business law and legal consultation. Fast appointments and personalized follow-up.",
       keywords:
         "lawyer kairouan, attorney kairouan, law firm kairouan, legal consultation kairouan",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     ar: {
       title: "محامية في القيروان | طلاق وعقار وأعمال",
@@ -303,7 +316,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "مكتب محاماة في القيروان لفائدة الأفراد والمؤسسات: طلاق وعقار وأعمال واستشارة قانونية. مواعيد سريعة ومتابعة شخصية محلية وعن بعد.",
       keywords:
         "محامي القيروان, محامية القيروان, مكتب محاماة القيروان, استشارة قانونية القيروان",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
   },
 
@@ -395,7 +408,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "Consultation juridique à Kairouan pour particuliers, familles et entreprises. Diagnostic clair, options légales et plan d'action personnalisé.",
       keywords:
         "consultation juridique kairouan, avocat kairouan consultation, conseil juridique kairouan, rendez-vous avocat kairouan",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     en: {
       title: "Legal Consultation Kairouan | Fast & Clear",
@@ -403,7 +416,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "Legal consultation in Kairouan for individuals, families and companies. Clear diagnosis, legal options and a personalized action plan for your case.",
       keywords:
         "legal consultation kairouan, lawyer consultation kairouan, legal advice kairouan, lawyer appointment kairouan",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     ar: {
       title: "استشارة قانونية في القيروان | جواب سريع",
@@ -411,7 +424,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "استشارة قانونية في القيروان للأفراد والعائلات والشركات. تشخيص قانوني واضح وخيارات متعددة وخطة عمل مخصصة لكل قضية. موعد سريع ومتابعة.",
       keywords:
         "استشارة قانونية القيروان, محامي القيروان استشارة, نصيحة قانونية القيروان, موعد محامي القيروان",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
   },
 
@@ -449,7 +462,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "Consultation juridique rapide en Tunisie avec plan d'action clair pour particuliers et entreprises. Au cabinet à Kairouan ou à distance, suivi personnalisé.",
       keywords:
         "consultation juridique tunisie, rendez-vous avocat tunisie, conseil juridique kairouan tunis",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     en: {
       title: "Legal Consultation Tunisia | Kairouan Office",
@@ -457,7 +470,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "Fast legal consultation in Tunisia with a clear action plan for individuals and companies. At the Kairouan office or remotely, with personalized follow-up.",
       keywords:
         "legal consultation tunisia, lawyer appointment tunisia, legal advice kairouan tunis",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     ar: {
       title: "استشارة قانونية في تونس | رد سريع عبر واتساب أو بالمكتب",
@@ -465,7 +478,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "استشارة قانونية سريعة في تونس في الطلاق والعقارات والأعمال مع خطة عمل واضحة. خبرة تفوق 25 سنة — بالمكتب في القيروان أو عن بُعد لكامل تونس وللمقيمين بالخارج.",
       keywords:
         "استشارة قانونية تونس, استشارة قانونية في الطلاق, موعد محامي تونس, نصيحة قانونية القيروان تونس",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
   },
 
@@ -476,7 +489,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "Avocate pour Tunisiens résidant à l'étranger : procuration, divorce international, succession, immobilier. Suivi à distance dans toute la Tunisie, réponse rapide par WhatsApp.",
       keywords:
         "avocat tunisiens à l'étranger, avocat TRE, procuration tunisie, divorce international tunisie, succession tunisie à distance",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     en: {
       title: "English-Speaking Lawyer in Tunisia | Remote Cases",
@@ -484,7 +497,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "English-speaking lawyer in Tunisia for expats, investors and clients abroad. Property purchase, international divorce, inheritance — handled remotely with written updates.",
       keywords:
         "english speaking lawyer tunisia, lawyer for foreigners tunisia, buy property tunisia, international divorce tunisia",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     ar: {
       title: "محامية للتونسيين بالخارج | متابعة عن بُعد وواتساب",
@@ -492,7 +505,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "محامية للتونسيين المقيمين بالخارج: توكيل، طلاق دولي، ميراث وعقارات. متابعة الملفات عن بعد في كامل تونس مع رد سريع عبر واتساب وتقارير مكتوبة.",
       keywords:
         "محامي للتونسيين بالخارج, توكيل من الخارج تونس, طلاق دولي تونس, ميراث تونس من الخارج",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
   },
 
@@ -528,7 +541,7 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "Contactez Maître Haifa Guedhami Alouini pour une consultation juridique. Réponse rapide par WhatsApp ou email ; cabinet à Kairouan, rendez-vous à Tunis et dans toute la Tunisie.",
       keywords:
         "contact avocat tunisie, consultation juridique tunis, avocat kairouan whatsapp",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     en: {
       title: "Contact | Lawyer Kairouan & Tunis | WhatsApp",
@@ -536,14 +549,14 @@ export const seoData: Record<string, LocalizedSEOData> = {
         "Contact Attorney Haifa Guedhami Alouini for a legal consultation in Tunisia. Fast response via WhatsApp or email; office in Kairouan, appointments in Tunis and nationwide.",
       keywords:
         "contact lawyer tunisia, legal consultation tunis, lawyer kairouan whatsapp",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     ar: {
       title: "تواصل معنا | محامية القيروان وتونس | واتساب",
       description:
         "تواصل مع المحامية هيفاء القضامي العلويني لاستشارة قانونية في تونس. رد سريع عبر واتساب أو البريد الإلكتروني؛ المكتب بالقيروان مع مواعيد في تونس العاصمة وكامل البلاد.",
       keywords: "تواصل محامي تونس, استشارة قانونية تونس, محامي القيروان واتساب",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
   },
 
@@ -553,21 +566,21 @@ export const seoData: Record<string, LocalizedSEOData> = {
       description:
         "Analyses et actualités juridiques en Tunisie par Maître Haifa Guedhami Alouini. Restez informé des dernières évolutions du droit tunisien.",
       keywords: "actualites juridiques tunisie, blog avocat tunisie",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     en: {
       title: "Legal News | Haifa Guedhami Alouini Law Firm",
       description:
         "Legal analysis and news from Tunisia by Attorney Haifa Guedhami Alouini. Stay informed about the latest developments in Tunisian law and legislation.",
       keywords: "legal news tunisia, law blog tunisia, attorney insights",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
     ar: {
       title: "المستجدات القانونية | مكتب هيفاء القضامي",
       description:
         "تحليلات وأخبار قانونية من تونس بقلم المحامية هيفاء القضامي العلويني. ابقوا على اطلاع بآخر تطورات القانون والتشريعات التونسية.",
       keywords: "اخبار قانونية تونس, مدونة محامي تونس",
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     },
   },
 };
@@ -585,7 +598,7 @@ export function getSEOData(path: string, locale: "fr" | "en" | "ar"): SEOData {
       title: clusterPage.heading,
       description: clusterPage.description,
       keywords: clusterPage.keywords,
-      image: "https://maitre-haifaguedhami.me/office/entry.webp",
+      image: OG_IMAGE,
     };
   }
 

@@ -53,6 +53,13 @@ function ogLocale(locale: SiteLocale) {
   return "fr_TN";
 }
 
+function ogImageAlt(locale: SiteLocale) {
+  if (locale === "ar") return "الأستاذة هيفاء القضامي العلويني، محامية في تونس";
+  if (locale === "en")
+    return "Haifa Guedhami Alouini, lawyer in Tunisia — Kairouan";
+  return "Maître Haifa Guedhami Alouini, avocate en Tunisie — Kairouan";
+}
+
 function getAlternateLinks(path: string) {
   return [
     { locale: "fr", href: toLocaleUrl(path, "fr") },
@@ -82,6 +89,11 @@ export function SEO({
   const finalDescription = description || defaultSEO.description;
   const finalKeywords = keywords || defaultSEO.keywords;
   const finalImage = image || defaultSEO.image;
+  const absoluteImage = finalImage
+    ? finalImage.startsWith("http")
+      ? finalImage
+      : `${SITE_URL}${finalImage}`
+    : undefined;
   const url = toCanonicalUrl(path, normalizedLocale);
   const structuredData = getStructuredData(
     getStructuredDataPath(path),
@@ -100,11 +112,7 @@ export function SEO({
           "@type": "Article",
           headline: finalTitle,
           description: finalDescription,
-          image: finalImage
-            ? finalImage.startsWith("http")
-              ? finalImage
-              : `${SITE_URL}${finalImage}`
-            : undefined,
+          image: absoluteImage,
           url,
           datePublished: publishedTime || undefined,
           dateModified: modifiedTime || publishedTime || undefined,
@@ -160,28 +168,27 @@ export function SEO({
         property="og:site_name"
         content="Cabinet Maitre Haifa Guedhami Alouini"
       />
-      {finalImage && (
-        <meta
-          property="og:image"
-          content={
-            finalImage.startsWith("http")
-              ? finalImage
-              : `${SITE_URL}${finalImage}`
-          }
-        />
+      {absoluteImage && (
+        <meta property="og:image" content={absoluteImage} />
+      )}
+      {absoluteImage && (
+        <meta property="og:image:secure_url" content={absoluteImage} />
+      )}
+      {absoluteImage && (
+        <meta property="og:image:type" content="image/jpeg" />
+      )}
+      {/* Declared so the large card renders on the first scrape, before the
+          crawler has fetched and measured the file itself. */}
+      {absoluteImage && <meta property="og:image:width" content="1200" />}
+      {absoluteImage && <meta property="og:image:height" content="630" />}
+      {absoluteImage && (
+        <meta property="og:image:alt" content={ogImageAlt(normalizedLocale)} />
       )}
 
       <meta name="twitter:title" content={finalTitle} />
       <meta name="twitter:description" content={finalDescription} />
-      {finalImage && (
-        <meta
-          name="twitter:image"
-          content={
-            finalImage.startsWith("http")
-              ? finalImage
-              : `${SITE_URL}${finalImage}`
-          }
-        />
+      {absoluteImage && (
+        <meta name="twitter:image" content={absoluteImage} />
       )}
       <meta name="twitter:card" content="summary_large_image" />
 
