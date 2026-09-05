@@ -13,7 +13,7 @@
 }
 
 .eyebrow {
-  color: var(--accent);
+  color: var(--accent-text);
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.78rem;
@@ -96,7 +96,7 @@
 
 .sectionCta {
   margin: 0;
-  color: var(--accent-dark);
+  color: var(--accent-text);
   font-size: 0.95rem;
   font-weight: 500;
 }
@@ -175,7 +175,7 @@
 }
 
 .linkArrow {
-  color: var(--accent);
+  color: var(--accent-text);
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }

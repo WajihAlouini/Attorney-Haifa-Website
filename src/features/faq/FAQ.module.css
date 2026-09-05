@@ -44,12 +44,12 @@
 }
 
 .question:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .icon {
   font-size: 1.5rem;
-  color: var(--accent);
+  color: var(--accent-text);
   line-height: 1;
   margin-left: 1rem;
 }

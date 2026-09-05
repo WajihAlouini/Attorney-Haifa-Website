@@ -28,8 +28,11 @@
   --accent: #8F7209;
   --accent-light: #d4af37;
   --accent-dark: #7A5F07;
-  --accent-fg: #7A5F07;
-  --accent-fg-hover: #6B5306;
+  /* Gold as text: deepened so it clears WCAG AA (4.5:1) on every light
+     surface. The old #7A5F07 only reached 4.31:1 on --bg-alt. */
+  --accent-fg: #6B5306;
+  --accent-fg-hover: #5F4A05;
+  --accent-text: #6B5306;
   --accent-contrast: #ffffff;
   --accent-soft: rgba(143, 114, 9, 0.12);
   --accent-glow: rgba(143, 114, 9, 0.25);
@@ -91,11 +94,14 @@
   --lang-toggle-bg: rgba(28, 25, 23, 0.05);
   --lang-hover-bg: rgba(28, 25, 23, 0.08);
 
-  /* Footer */
+  /* Footer — dark in both themes, so its gold stays the light one:
+     --accent on #141210 is only 4.07:1, --accent-dark 3.09:1. */
   --footer-bg: #141210;
   --footer-text: #a8a29e;
   --footer-heading: #f5f5f4;
   --footer-border: rgba(255, 255, 255, 0.06);
+  --footer-accent: #d4af37;
+  --footer-accent-hover: #f3e5ab;
 
   /* Layout */
   --container-width: 1200px;
@@ -124,7 +130,9 @@
   --surface: rgba(15, 20, 30, 0.8);
   --text: #e2e8f0;
   --text-dim: #94a3b8;
-  --muted: #64748b;
+  /* Lifted from #64748b, which sat at 4.29:1 on --bg and 3.8:1 on panels —
+     under WCAG AA for the body copy that uses it. */
+  --muted: #7a8699;
 
   --accent: #d4af37;
   --accent-light: #f3e5ab;
@@ -134,6 +142,7 @@
   --accent-contrast: #05080f;
   --accent-soft: rgba(212, 175, 55, 0.1);
   --accent-glow: rgba(212, 175, 55, 0.3);
+  --accent-text: #d4af37;
 
   --cta: #d4af37;
   --cta-hover: #e6c964;
@@ -191,6 +200,8 @@
 
   --footer-bg: #0a0a0f;
   --footer-text: #a8a29e;
+  --footer-accent: #d4af37;
+  --footer-accent-hover: #f3e5ab;
   --footer-heading: #f5f5f4;
   --footer-border: rgba(255, 255, 255, 0.05);
   color-scheme: dark;

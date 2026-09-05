@@ -43,7 +43,7 @@
 }
 
 .trustList li::marker {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 /* ---- Pillars column ---- */
@@ -57,7 +57,7 @@
   gap: 0.6rem;
   font-family: var(--font-heading);
   font-size: 1.3rem;
-  color: var(--accent);
+  color: var(--accent-text);
   margin: 0 0 1.5rem;
   padding-bottom: 0.9rem;
   border-bottom: 1px solid var(--border);
@@ -66,7 +66,7 @@
 .pillarsIcon {
   width: 22px;
   height: 22px;
-  color: var(--accent);
+  color: var(--accent-text);
   flex-shrink: 0;
 }
 

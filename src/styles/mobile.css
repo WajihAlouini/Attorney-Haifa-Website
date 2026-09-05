@@ -258,7 +258,7 @@
   .sticky-call {
     background: transparent;
     border-top: 1px solid transparent;
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .sticky-call:hover {

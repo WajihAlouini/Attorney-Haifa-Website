@@ -40,7 +40,7 @@
   width: 56px;
   height: 56px;
   margin: 0 auto 1.5rem;
-  color: var(--accent);
+  color: var(--accent-text);
   opacity: 0.9;
   transition: all 0.3s ease;
 }
@@ -59,7 +59,7 @@
   display: block;
   font-size: 2.5rem;
   font-family: "Playfair Display", serif;
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: 0.5rem;
   line-height: 1;
 }

@@ -34,7 +34,7 @@
   height: 40px;
   border-radius: 50%;
   background: var(--accent-soft);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .iconWrapper svg {
@@ -109,7 +109,7 @@
 .googleStars {
   display: inline-flex;
   gap: 1px;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .googleStars svg {
