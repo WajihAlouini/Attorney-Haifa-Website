@@ -623,16 +623,16 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
       fr: {
         navLabel: "Code du travail Tunisie",
         heading:
-          "Code du travail en Tunisie 2025 : droits, obligations et réforme",
-        lede: "Décryptage du code du travail tunisien et de la réforme 2025 : contrats, licenciement, congés, heures supplémentaires et droits des salariés du secteur privé.",
+          "Code du travail en Tunisie 2026 : droits, obligations et réforme",
+        lede: "Décryptage du code du travail tunisien tel qu'il s'applique en 2026, après la réforme de 2025 : contrats, licenciement, congés, heures supplémentaires et droits des salariés du secteur privé.",
         description:
-          "Guide complet sur le code du travail en Tunisie 2025. Droits des salariés, contrats, licenciement, congés et réforme du droit du travail tunisien.",
+          "Guide complet sur le code du travail en Tunisie 2026. Droits des salariés, contrats, licenciement, congés et réforme du droit du travail tunisien.",
         keywords:
-          "code de travail tunisie 2025, code du travail tunisie, loi de travail 2025, code de travail tunisie secteur privé, droit du travail tunisie",
+          "code de travail tunisie 2026, code de travail tunisie 2025, code du travail tunisie, loi de travail tunisie, code de travail tunisie secteur privé, droit du travail tunisie",
         highlights: [
           "Analyse des droits et obligations du salarié et de l'employeur selon le code du travail tunisien.",
           "Accompagnement en cas de licenciement abusif, rupture de contrat ou litige prud'homal.",
-          "Conseil sur les nouvelles dispositions de la réforme du code du travail 2025.",
+          "Conseil sur les nouvelles dispositions issues de la réforme du code du travail de 2025.",
         ],
         checklistTitle: "Sujets couverts",
         checklist: [
@@ -655,9 +655,9 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         faqs: [
           {
             question:
-              "Quels sont les principaux changements du code du travail 2025 ?",
+              "Quels sont les principaux changements du code du travail applicables en 2026 ?",
             answer:
-              "La réforme renforce la protection des salariés en matière de licenciement, actualise les dispositions sur le travail à distance et révise les conditions du contrat à durée déterminée.",
+              "La réforme de 2025, en vigueur en 2026, renforce la protection des salariés en matière de licenciement, actualise les dispositions sur le travail à distance et révise les conditions du contrat à durée déterminée.",
           },
           {
             question:
@@ -681,12 +681,12 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
       en: {
         navLabel: "Tunisia Labour Code",
         heading:
-          "Tunisia Labour Code 2025: rights, obligations and reform",
-        lede: "Understanding the Tunisian labour code and the 2025 reform: contracts, dismissal, leave, overtime and private sector employee rights.",
+          "Tunisia Labour Code 2026: rights, obligations and reform",
+        lede: "Understanding the Tunisian labour code as it applies in 2026, after the 2025 reform: contracts, dismissal, leave, overtime and private sector employee rights.",
         description:
-          "Complete guide to the Tunisia labour code 2025. Employee rights, contracts, dismissal, leave and labour law reform in Tunisia.",
+          "Complete guide to the Tunisia labour code 2026. Employee rights, contracts, dismissal, leave and labour law reform in Tunisia.",
         keywords:
-          "tunisia labour code 2025, labor law tunisia, employment law tunisia, worker rights tunisia, labour code reform tunisia",
+          "tunisia labour code 2026, tunisia labour code 2025, labor law tunisia, employment law tunisia, worker rights tunisia, labour code reform tunisia",
         highlights: [
           "Analysis of employee and employer rights under Tunisian labour law.",
           "Support for wrongful dismissal, contract breach or labour disputes.",
@@ -713,9 +713,9 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         faqs: [
           {
             question:
-              "What are the main changes in the 2025 labour code?",
+              "What are the main changes in the labour code applying in 2026?",
             answer:
-              "The reform strengthens employee protection in dismissal matters, updates remote work provisions and revises fixed-term contract conditions.",
+              "The 2025 reform, in force in 2026, strengthens employee protection in dismissal matters, updates remote work provisions and revises fixed-term contract conditions.",
           },
           {
             question: "How to challenge wrongful dismissal in Tunisia?",
@@ -739,12 +739,12 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
       ar: {
         navLabel: "مجلة الشغل تونس",
         heading:
-          "مجلة الشغل في تونس 2025: حقوق والتزامات وإصلاح",
-        lede: "فهم مجلة الشغل التونسية وإصلاح 2025: العقود والطرد والعطل والساعات الإضافية وحقوق العاملين في القطاع الخاص.",
+          "مجلة الشغل في تونس 2026: حقوق والتزامات وإصلاح",
+        lede: "فهم مجلة الشغل التونسية كما تُطبّق في 2026 بعد إصلاح 2025: العقود والطرد والعطل والساعات الإضافية وحقوق العاملين في القطاع الخاص.",
         description:
-          "دليل شامل حول مجلة الشغل في تونس 2025. حقوق العمال والعقود والطرد والعطل وإصلاح قانون الشغل التونسي.",
+          "دليل شامل حول مجلة الشغل في تونس 2026. حقوق العمال والعقود والطرد والعطل وإصلاح قانون الشغل التونسي.",
         keywords:
-          "مجلة الشغل تونس 2025, قانون الشغل تونس, حقوق العمال تونس, إصلاح مجلة الشغل, code de travail tunisie",
+          "مجلة الشغل تونس 2026, مجلة الشغل تونس 2025, قانون الشغل تونس, حقوق العمال تونس, إصلاح مجلة الشغل, code de travail tunisie",
         highlights: [
           "تحليل حقوق والتزامات الأجير والمؤجر حسب مجلة الشغل التونسية.",
           "مرافقة في حالات الطرد التعسفي وفسخ العقد والنزاعات الشغلية.",
@@ -770,9 +770,9 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
         ],
         faqs: [
           {
-            question: "ما هي أهم تغييرات مجلة الشغل 2025؟",
+            question: "ما هي أهم تغييرات مجلة الشغل المطبّقة في 2026؟",
             answer:
-              "يعزز الإصلاح حماية العمال في مجال الطرد ويحدث أحكام العمل عن بعد ويراجع شروط العقود محددة المدة.",
+              "يعزز إصلاح 2025، الساري في 2026، حماية العمال في مجال الطرد ويحدث أحكام العمل عن بعد ويراجع شروط العقود محددة المدة.",
           },
           {
             question: "كيف يتم الطعن في الطرد التعسفي في تونس؟",

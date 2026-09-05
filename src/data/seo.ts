@@ -430,27 +430,27 @@ export const seoData: Record<string, LocalizedSEOData> = {
 
   "/code-du-travail-tunisie": {
     fr: {
-      title: "Code du Travail Tunisie 2025 | Droits et Réforme",
+      title: "Code du Travail Tunisie 2026 | Droits et Réforme",
       description:
-        "Guide avocat sur le code du travail en Tunisie 2025 : contrats, licenciement, congés, réforme et droits des salariés. Consultation au cabinet ou à distance.",
+        "Guide avocat sur le code du travail en Tunisie 2026 : contrats, licenciement, congés, réforme de 2025 et droits des salariés. Consultation au cabinet ou à distance.",
       keywords:
-        "code de travail tunisie 2025, code du travail tunisie, loi de travail 2025, code de travail tunisie secteur privé, droit du travail tunisie",
+        "code de travail tunisie 2026, code de travail tunisie 2025, code du travail tunisie, loi de travail tunisie, code de travail tunisie secteur privé, droit du travail tunisie",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
     },
     en: {
-      title: "Tunisia Labour Code 2025 | Rights & Reform",
+      title: "Tunisia Labour Code 2026 | Rights & Reform",
       description:
-        "Attorney guide to Tunisia labour code 2025: contracts, dismissal, leave, reform and employee rights. Consultation at the Kairouan office or remotely.",
+        "Attorney guide to Tunisia labour code 2026: contracts, dismissal, leave, the 2025 reform and employee rights. Consultation at the Kairouan office or remotely.",
       keywords:
-        "tunisia labour code 2025, labor law tunisia, employment law tunisia, worker rights tunisia, labour code reform tunisia",
+        "tunisia labour code 2026, tunisia labour code 2025, labor law tunisia, employment law tunisia, worker rights tunisia, labour code reform tunisia",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
     },
     ar: {
-      title: "مجلة الشغل تونس 2025 | حقوق وإصلاح",
+      title: "مجلة الشغل تونس 2026 | حقوق وإصلاح",
       description:
-        "دليل محامية حول مجلة الشغل في تونس 2025: العقود والطرد والعطل والإصلاح وحقوق العمال. استشارة قانونية متخصصة بالمكتب في القيروان أو عن بعد.",
+        "دليل محامية حول مجلة الشغل في تونس 2026: العقود والطرد والعطل وإصلاح 2025 وحقوق العمال. استشارة قانونية متخصصة بالمكتب في القيروان أو عن بعد.",
       keywords:
-        "مجلة الشغل تونس 2025, قانون الشغل تونس, حقوق العمال تونس, إصلاح مجلة الشغل",
+        "مجلة الشغل تونس 2026, مجلة الشغل تونس 2025, قانون الشغل تونس, حقوق العمال تونس, إصلاح مجلة الشغل",
       image: "https://maitre-haifaguedhami.me/office/office1.webp",
     },
   },
