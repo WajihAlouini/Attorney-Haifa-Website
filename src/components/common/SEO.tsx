@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
-import { getSEOData } from "@/data/seo";
+import { getSEOData, OG_IMAGE } from "@/data/seo";
 import { getStructuredData } from "@/data/seoStructuredData";
 import {
   buildLocalizedUrl,
@@ -88,7 +88,10 @@ export function SEO({
   const finalTitle = title || defaultSEO.title;
   const finalDescription = description || defaultSEO.description;
   const finalKeywords = keywords || defaultSEO.keywords;
-  const finalImage = image || defaultSEO.image;
+  // Last resort so no page can ship without a share card: route data may
+  // omit an image, and 42 pages once drifted onto WebP office photos that
+  // scrapers crop or reject.
+  const finalImage = image || defaultSEO.image || OG_IMAGE;
   const absoluteImage = finalImage
     ? finalImage.startsWith("http")
       ? finalImage
