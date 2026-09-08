@@ -64,20 +64,24 @@ export const en: Translation = {
   practiceHeading: "Tailored Legal Solutions.",
   practiceAreas: [
     {
+      id: "family",
       title: "Family & Inheritance Law",
       summary:
         "Divorce proceedings, child custody, international family law, and complex estate liquidation.",
     },
     {
+      id: "business",
       title: "Business & Corporate Law",
       summary: "Company formation, commercial contracts, and mergers.",
     },
     {
+      id: "property",
       title: "Real Estate & Property",
       summary:
         "Transaction security, title disputes, construction law, and property management advisory.",
     },
     {
+      id: "criminal",
       title: "Criminal Law",
       summary:
         "Defence at police custody, investigation and trial; civil-party representation for victims.",

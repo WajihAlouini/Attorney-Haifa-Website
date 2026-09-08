@@ -2,6 +2,7 @@ export interface BlogPostMeta {
   slug: string;
   title: string;
   date: string;
+  updated?: string;
   description: string;
   author: string;
   image?: string;
@@ -112,6 +113,7 @@ export function getAllPosts(lang = "fr"): BlogPostMeta[] {
       lang: fileLang,
       title: (data.title as string) || "Untitled",
       date: (data.date as string) || "1970-01-01",
+      updated: data.updated as string | undefined,
       description: (data.description as string) || "",
       author: (data.author as string) || "Maître Haifa Guedhami Alouini",
       image: data.image as string | undefined,
@@ -147,6 +149,7 @@ export function getPostBySlug(
         lang: candidateLang,
         title: (data.title as string) || "Untitled",
         date: (data.date as string) || "1970-01-01",
+        updated: data.updated as string | undefined,
         description: (data.description as string) || "",
         author: (data.author as string) || "Maître Haifa Guedhami Alouini",
         image: data.image as string | undefined,

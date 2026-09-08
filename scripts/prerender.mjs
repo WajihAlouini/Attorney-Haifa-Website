@@ -2,6 +2,7 @@ import http from "node:http";
 import path from "node:path";
 import { promises as fs } from "node:fs";
 import { chromium } from "playwright";
+import { gzipSync, brotliCompressSync } from "node:zlib";
 
 const DIST_DIR = path.resolve(process.cwd(), "dist");
 const BLOG_DIR = path.resolve(process.cwd(), "src", "content", "blog");
@@ -34,7 +35,6 @@ const BASE_ROUTES = [
   "/avocat-affaires-kairouan",
   "/consultation-juridique-kairouan",
 ];
-
 
 function normalizeRoute(route) {
   if (route === "/") {
@@ -372,8 +372,13 @@ function routeToOutputFile(route) {
 async function prerenderRoute(page, target, baseUrl) {
   const url = `${baseUrl}${target.visitRoute}`;
   await page.goto(url, { waitUntil: "networkidle" });
-  await page.waitForSelector("#root");
-  await page.waitForTimeout(150);
+  await page.waitForSelector("#root h1");
+  const expectedCanonical = `${PUBLIC_ORIGIN}${normalizeRoute(target.outputRoute)}`;
+  await page.waitForFunction(
+    (expected) =>
+      document.querySelector('link[rel="canonical"]')?.href === expected,
+    expectedCanonical
+  );
 
   let html = await page.content();
   if (!html.trimStart().toLowerCase().startsWith("<!doctype")) {
@@ -396,6 +401,10 @@ async function prerenderRoute(page, target, baseUrl) {
   const outputFile = routeToOutputFile(target.outputRoute);
   await fs.mkdir(path.dirname(outputFile), { recursive: true });
   await fs.writeFile(outputFile, html, "utf8");
+  // Vite compresses the empty app shell before prerendering. Replace those
+  // sidecars with the final page so compressed responses carry the same SEO.
+  await fs.writeFile(`${outputFile}.gz`, gzipSync(html));
+  await fs.writeFile(`${outputFile}.br`, brotliCompressSync(html));
 }
 
 async function main() {
@@ -435,6 +444,14 @@ async function main() {
     const blogLastmods = await getBlogLastmods();
     const sitemapXml = buildSitemapXml(blogRoutes, blogLastmods);
     await fs.writeFile(path.join(DIST_DIR, "sitemap.xml"), sitemapXml, "utf8");
+    await fs.writeFile(
+      path.join(DIST_DIR, "sitemap.xml.gz"),
+      gzipSync(sitemapXml)
+    );
+    await fs.writeFile(
+      path.join(DIST_DIR, "sitemap.xml.br"),
+      brotliCompressSync(sitemapXml)
+    );
     console.log(
       `Sitemap generated with ${targets.length} URLs -> dist/sitemap.xml`
     );

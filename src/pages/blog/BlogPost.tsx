@@ -5,9 +5,7 @@ import remarkGfm from "remark-gfm";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Calendar, Tag } from "lucide-react";
 import { SEO } from "@/components/common/SEO";
-import {
-  getBlogRelatedResources,
-} from "@/data/blogSeo";
+import { getBlogRelatedResources } from "@/data/blogSeo";
 import { ogImageForCover } from "@/data/seo";
 import { getPostBySlug } from "@/utils/markdown";
 import styles from "./BlogPost.module.css";
@@ -22,6 +20,7 @@ function getUiCopy(locale: string) {
     return {
       backLabel: "Back to articles",
       resourcesTitle: "Related legal resources",
+      updatedLabel: "Updated",
     };
   }
 
@@ -29,12 +28,14 @@ function getUiCopy(locale: string) {
     return {
       backLabel: "العودة الى الاخبار",
       resourcesTitle: "موارد قانونية مرتبطة",
+      updatedLabel: "آخر تحديث",
     };
   }
 
   return {
     backLabel: "Retour aux actualites",
     resourcesTitle: "Ressources juridiques liees",
+    updatedLabel: "Mis à jour",
   };
 }
 
@@ -43,12 +44,7 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
   const post = slug ? getPostBySlug(slug, locale, true) : null;
 
   if (!post) {
-    return (
-      <Navigate
-        to={localizedTo("/actualites", locale)}
-        replace
-      />
-    );
+    return <Navigate to={localizedTo("/actualites", locale)} replace />;
   }
 
   const { meta, content } = post;
@@ -65,7 +61,7 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
         locale={contentLocale}
         type="article"
         publishedTime={meta.date}
-        modifiedTime={meta.date}
+        modifiedTime={meta.updated || meta.date}
         author={meta.author}
       />
 
@@ -92,6 +88,24 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
             <h1 className="text-gradient-gold">{meta.title}</h1>
 
             <div className={styles.metaInfo}>
+              <Link
+                className={styles.metaItem}
+                rel="author"
+                to={localizedTo("/about", contentLocale)}
+              >
+                {meta.author}
+              </Link>
+              {meta.updated && meta.updated !== meta.date && (
+                <span className={styles.metaItem}>
+                  {uiCopy.updatedLabel}:{" "}
+                  <time dateTime={meta.updated}>
+                    {new Date(`${meta.updated}T12:00:00`).toLocaleDateString(
+                      contentLocale === "ar" ? "ar-TN" : contentLocale,
+                      { year: "numeric", month: "long", day: "numeric" }
+                    )}
+                  </time>
+                </span>
+              )}
               <div className={styles.metaItem}>
                 <Calendar size={16} />
                 <time dateTime={meta.date}>
@@ -115,7 +129,14 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <img src={meta.image} alt={meta.title} width="800" height="400" loading="eager" fetchPriority="high" />
+              <img
+                src={meta.image}
+                alt={meta.title}
+                width="800"
+                height="400"
+                loading="eager"
+                fetchPriority="high"
+              />
             </motion.div>
           )}
         </header>

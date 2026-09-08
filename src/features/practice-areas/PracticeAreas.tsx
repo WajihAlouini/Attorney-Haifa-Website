@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
-import { TranslationProps } from "@/types";
+import { PracticeAreaId, TranslationProps } from "@/types";
 import styles from "./PracticeAreas.module.css";
 import { localizedTo } from "@/utils/localeRoutes";
 
@@ -9,9 +9,9 @@ interface PracticeAreasProps extends TranslationProps {
 }
 
 export const PracticeAreas: FC<PracticeAreasProps> = ({ t, locale = "fr" }) => {
-  const icons: Record<number, ReactElement> = {
+  const icons: Record<PracticeAreaId, ReactElement> = {
     // Family & Inheritance Law
-    0: (
+    family: (
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -23,7 +23,7 @@ export const PracticeAreas: FC<PracticeAreasProps> = ({ t, locale = "fr" }) => {
       </svg>
     ),
     // Business & Corporate Law
-    1: (
+    business: (
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -36,7 +36,7 @@ export const PracticeAreas: FC<PracticeAreasProps> = ({ t, locale = "fr" }) => {
       </svg>
     ),
     // Real Estate & Property
-    2: (
+    property: (
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -48,7 +48,7 @@ export const PracticeAreas: FC<PracticeAreasProps> = ({ t, locale = "fr" }) => {
       </svg>
     ),
     // Criminal Law — scales of justice
-    3: (
+    criminal: (
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -66,11 +66,11 @@ export const PracticeAreas: FC<PracticeAreasProps> = ({ t, locale = "fr" }) => {
     ),
   };
 
-  const urls: Record<number, string> = {
-    0: "/services/droit-de-la-famille",
-    1: "/services/droit-des-affaires",
-    2: "/services/droit-immobilier",
-    3: "/services/droit-penal",
+  const urls: Record<PracticeAreaId, string> = {
+    family: "/services/droit-de-la-famille",
+    business: "/services/droit-des-affaires",
+    property: "/services/droit-immobilier",
+    criminal: "/services/droit-penal",
   };
 
   return (
@@ -80,14 +80,14 @@ export const PracticeAreas: FC<PracticeAreasProps> = ({ t, locale = "fr" }) => {
         <h2>{t.practiceHeading}</h2>
       </div>
       <div className={styles.grid}>
-        {t.practiceAreas.map((area, index) => (
+        {t.practiceAreas.map((area) => (
           <Link
-            key={area.title}
-            to={localizedTo(urls[index] || "/services", locale)}
+            key={area.id}
+            to={localizedTo(urls[area.id], locale)}
             className={styles.card}
           >
             <span className={styles.badgeIcon} aria-hidden="true">
-              {icons[index]}
+              {icons[area.id]}
             </span>
             <h3 className={styles.title}>{area.title}</h3>
             <p className={styles.summary}>{area.summary}</p>

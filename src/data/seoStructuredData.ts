@@ -131,26 +131,27 @@ function createLegalServiceGraph(options: {
     },
     createBreadcrumbList(options.locale, options.breadcrumbs),
     {
-      "@type": "LegalService",
+      "@type": "Service",
       "@id": `${canonicalUrl}#service`,
       name: options.name,
       description: options.description,
       url: canonicalUrl,
-      inLanguage: resolveInLanguage(options.locale),
       provider: { "@id": BUSINESS_ID },
-      availableLanguage: [
-        { "@type": "Language", name: "French", alternateName: "fr" },
-        { "@type": "Language", name: "English", alternateName: "en" },
-        { "@type": "Language", name: "Arabic", alternateName: "ar" },
-      ],
-      serviceType: options.serviceType || options.name,
-      areaServed:
-        options.areaServed ||
-        [
-          { "@type": "City", name: "Kairouan" },
-          { "@type": "City", name: "Tunis" },
-          { "@type": "Country", name: "Tunisia" },
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: toCanonicalUrl("/contact", options.locale),
+        availableLanguage: [
+          { "@type": "Language", name: "French", alternateName: "fr" },
+          { "@type": "Language", name: "English", alternateName: "en" },
+          { "@type": "Language", name: "Arabic", alternateName: "ar" },
         ],
+      },
+      serviceType: options.serviceType || options.name,
+      areaServed: options.areaServed || [
+        { "@type": "City", name: "Kairouan" },
+        { "@type": "City", name: "Tunis" },
+        { "@type": "Country", name: "Tunisia" },
+      ],
     },
   ];
 
@@ -217,13 +218,7 @@ function homeStructuredData(locale: Locale) {
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
-            dayOfWeek: [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-            ],
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
             opens: "09:00",
             closes: "18:00",
           },
@@ -453,10 +448,10 @@ export function getStructuredData(path: string, locale: Locale) {
           inLanguage: resolveInLanguage(resolvedLocale),
           publisher: { "@id": BUSINESS_ID },
           blogPost: posts.map((post) => ({
-          "@type": "BlogPosting",
-          headline: post.title,
-          url: toCanonicalUrl(`/actualites/${post.slug}`, resolvedLocale),
-          datePublished: post.date,
+            "@type": "BlogPosting",
+            headline: post.title,
+            url: toCanonicalUrl(`/actualites/${post.slug}`, resolvedLocale),
+            datePublished: post.date,
             description: post.description,
             ...(post.image
               ? {
@@ -513,14 +508,17 @@ export function getStructuredData(path: string, locale: Locale) {
           url: pageUrl,
           inLanguage: resolveInLanguage(postLocale),
           datePublished: post.meta.date,
-          dateModified: post.meta.date,
-          isPartOf: { "@id": `${toCanonicalUrl("/actualites", resolvedLocale)}#blog` },
+          dateModified: post.meta.updated || post.meta.date,
+          isPartOf: {
+            "@id": `${toCanonicalUrl("/actualites", resolvedLocale)}#blog`,
+          },
           mainEntityOfPage: pageUrl,
           ...(imageUrl ? { image: imageUrl } : {}),
           author: {
             "@type": "Person",
             "@id": ATTORNEY_ID,
             name: post.meta.author,
+            url: toCanonicalUrl("/about", postLocale),
           },
           publisher: { "@id": BUSINESS_ID },
           ...(post.meta.tags && post.meta.tags.length > 0

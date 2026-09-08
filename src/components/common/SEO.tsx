@@ -142,7 +142,7 @@ export function SEO({
         lang={normalizedLocale}
         dir={normalizedLocale === "ar" ? "rtl" : "ltr"}
       />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content="index, follow, max-image-preview:large" />
       <title>{finalTitle}</title>
       <meta name="description" content={finalDescription} />
       {finalKeywords && <meta name="keywords" content={finalKeywords} />}
@@ -171,15 +171,11 @@ export function SEO({
         property="og:site_name"
         content="Cabinet Maitre Haifa Guedhami Alouini"
       />
-      {absoluteImage && (
-        <meta property="og:image" content={absoluteImage} />
-      )}
+      {absoluteImage && <meta property="og:image" content={absoluteImage} />}
       {absoluteImage && (
         <meta property="og:image:secure_url" content={absoluteImage} />
       )}
-      {absoluteImage && (
-        <meta property="og:image:type" content="image/jpeg" />
-      )}
+      {absoluteImage && <meta property="og:image:type" content="image/jpeg" />}
       {/* Declared so the large card renders on the first scrape, before the
           crawler has fetched and measured the file itself. */}
       {absoluteImage && <meta property="og:image:width" content="1200" />}
@@ -190,9 +186,7 @@ export function SEO({
 
       <meta name="twitter:title" content={finalTitle} />
       <meta name="twitter:description" content={finalDescription} />
-      {absoluteImage && (
-        <meta name="twitter:image" content={absoluteImage} />
-      )}
+      {absoluteImage && <meta name="twitter:image" content={absoluteImage} />}
       <meta name="twitter:card" content="summary_large_image" />
 
       {type === "article" && publishedTime && (

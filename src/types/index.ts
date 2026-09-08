@@ -1,3 +1,5 @@
+export type PracticeAreaId = "family" | "business" | "property" | "criminal";
+
 // Translation types
 export interface Translation {
   // Navigation
@@ -63,6 +65,7 @@ export interface Translation {
   practiceEyebrow: string;
   practiceHeading: string;
   practiceAreas: Array<{
+    id: PracticeAreaId;
     title: string;
     summary: string;
   }>;

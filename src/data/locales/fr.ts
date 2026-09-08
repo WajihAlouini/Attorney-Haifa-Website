@@ -64,20 +64,24 @@ export const fr: Translation = {
   practiceHeading: "Solutions Juridiques Adaptées.",
   practiceAreas: [
     {
+      id: "family",
       title: "Droit de la Famille",
       summary:
         "Procédures de divorce, garde d'enfants, droit international de la famille et liquidation de successions.",
     },
     {
+      id: "business",
       title: "Droit des Affaires",
       summary: "Création d'entreprises, contrats commerciaux et fusions.",
     },
     {
+      id: "property",
       title: "Droit Immobilier",
       summary:
         "Sécurité des transactions, litiges de propriété, droit de la construction et gestion immobilière.",
     },
     {
+      id: "criminal",
       title: "Droit Pénal",
       summary:
         "Défense en garde à vue, instruction et audience ; représentation des victimes en partie civile.",
