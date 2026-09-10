@@ -125,6 +125,33 @@ export interface Translation {
   // Form
   formTitle: string;
   form: {
+    locale: "fr" | "en" | "ar";
+    language: string;
+    preferenceLabel: string;
+    methods: { email: string; whatsapp: string };
+    phoneLabel: string;
+    countryLabel: string;
+    countrySearch: string;
+    countryEmpty: string;
+    topicLabel: string;
+    topics: {
+      unspecified: string;
+      family: string;
+      property: string;
+      business: string;
+      criminal: string;
+      other: string;
+    };
+    requiredError: string;
+    emailError: string;
+    phoneError: string;
+    messageError: string;
+    confirmationTitle: string;
+    confirmationMessage: string;
+    newRequest: string;
+    cooldownMessage: string;
+    failureMessage: string;
+    timeoutMessage: string;
     nameLabel: string;
     namePlaceholder: string;
     emailPlaceholder: string;

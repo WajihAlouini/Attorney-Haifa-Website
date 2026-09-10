@@ -1,17 +1,14 @@
-import { FC, useState, useRef, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { FC, useState } from "react";
 import { Check, Copy } from "lucide-react";
-import toast from "react-hot-toast";
 import { PhoneNumber } from "@/components/common/PhoneNumber";
-import { trackFormSubmission } from "@/utils/analyticsHelpers";
+import type { Translation } from "@/types";
+import { ConsultationForm } from "./ConsultationForm";
 import styles from "./Contact.module.css";
 
 // Obfuscate the email address and form endpoint to prevent antivirus false positives
 const EMAIL_USER = "maitrealouiniguedhami";
 const EMAIL_DOMAIN = "gmail.com";
 const CONTACT_EMAIL = `${EMAIL_USER}@${EMAIL_DOMAIN}`;
-
-const API_ENDPOINT = ["https://", "api.web3forms", ".com", "/submit"].join("");
 
 interface ContactProps {
   t: {
@@ -23,14 +20,7 @@ interface ContactProps {
       office: string;
     };
     contactOffice: string;
-    form: {
-      nameLabel: string;
-      namePlaceholder: string;
-      emailPlaceholder: string;
-      messageLabel: string;
-      messagePlaceholder: string;
-      submit: string;
-    };
+    form: Translation["form"];
     mapLabel: string;
     mapLinkLabel: string;
     emailLabel: string;
@@ -48,13 +38,6 @@ interface ContactProps {
   hideHeader?: boolean;
 }
 
-interface ContactFormInputs {
-  name: string;
-  email: string;
-  message: string;
-  honeypot: boolean;
-}
-
 const ContactComponent: FC<ContactProps> = ({
   t,
   whatsappLink,
@@ -64,63 +47,6 @@ const ContactComponent: FC<ContactProps> = ({
   hideHeader,
 }) => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
-  const [submittedRecently, setSubmittedRecently] = useState(false);
-  const cooldownRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (cooldownRef.current) clearTimeout(cooldownRef.current);
-    };
-  }, []);
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { isSubmitting, errors },
-  } = useForm<ContactFormInputs>();
-
-  const onSubmit = async (data: ContactFormInputs) => {
-    // Basic anti-spam
-    if (data.honeypot) return;
-
-    const formData = new FormData();
-    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
-    formData.append("name", data.name);
-    formData.append("email", data.email);
-    formData.append("message", data.message);
-    formData.append("to_email", CONTACT_EMAIL);
-    formData.append("subject", "Nouvelle demande de consultation - Site Web");
-    formData.append("from_name", "Site Web - Haifa Guedhami Alouini");
-
-    // Add loading toast
-    const toastId = toast.loading(t.submitting);
-
-    try {
-      const response = await fetch(API_ENDPOINT, {
-        method: "POST",
-        body: formData,
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        trackFormSubmission("contact");
-        reset();
-        toast.success(t.successMessage, { id: toastId });
-        // 30-second cooldown to prevent repeated submissions
-        setSubmittedRecently(true);
-        if (cooldownRef.current) clearTimeout(cooldownRef.current);
-        cooldownRef.current = setTimeout(() => setSubmittedRecently(false), 30_000);
-      } else {
-        throw new Error(result.message || "Form submission failed");
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast.error(t.errorMessage, { id: toastId });
-    }
-  };
-
   const copyToClipboard = async (text: string, field: string) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -171,7 +97,11 @@ const ContactComponent: FC<ContactProps> = ({
                   title={t.copy}
                   aria-label={t.copy}
                 >
-                  {copiedField === "whatsapp" ? <Check size={14} /> : <Copy size={14} />}
+                  {copiedField === "whatsapp" ? (
+                    <Check size={14} />
+                  ) : (
+                    <Copy size={14} />
+                  )}
                 </button>
               </div>
             </li>
@@ -192,18 +122,18 @@ const ContactComponent: FC<ContactProps> = ({
                 <span>{t.contact.email}</span>
               </div>
               <div className={styles.itemWithCopy}>
-                <a href={`mailto:${CONTACT_EMAIL}`}>
-                  {CONTACT_EMAIL}
-                </a>
+                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
                 <button
                   className={styles.copyBtn}
-                  onClick={() =>
-                    copyToClipboard(CONTACT_EMAIL, "email")
-                  }
+                  onClick={() => copyToClipboard(CONTACT_EMAIL, "email")}
                   title={t.copy}
                   aria-label={t.copy}
                 >
-                  {copiedField === "email" ? <Check size={14} /> : <Copy size={14} />}
+                  {copiedField === "email" ? (
+                    <Check size={14} />
+                  ) : (
+                    <Copy size={14} />
+                  )}
                 </button>
               </div>
             </li>
@@ -230,50 +160,7 @@ const ContactComponent: FC<ContactProps> = ({
           </ul>
         </div>
 
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="checkbox"
-            style={{ display: "none" }}
-            {...register("honeypot")}
-          />
-
-          <label>
-            {t.form.nameLabel}
-            <input
-              type="text"
-              placeholder={t.form.namePlaceholder}
-              {...register("name", { required: true })}
-              className={errors.name ? styles.inputError : ""}
-            />
-          </label>
-
-          <label>
-            {t.emailLabel}
-            <input
-              type="email"
-              placeholder={t.form.emailPlaceholder}
-              {...register("email", {
-                required: true,
-                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              })}
-              className={errors.email ? styles.inputError : ""}
-            />
-          </label>
-
-          <label>
-            {t.form.messageLabel}
-            <textarea
-              rows={4}
-              placeholder={t.form.messagePlaceholder}
-              {...register("message", { required: true, minLength: 10 })}
-              className={errors.message ? styles.inputError : ""}
-            ></textarea>
-          </label>
-
-          <button type="submit" className="btn primary" disabled={isSubmitting || submittedRecently}>
-            {isSubmitting ? t.submitting : t.form.submit}
-          </button>
-        </form>
+        <ConsultationForm t={t} />
       </div>
 
       <div className={styles.mapCard} aria-label={t.mapLabel}>

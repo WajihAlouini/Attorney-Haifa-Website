@@ -173,7 +173,7 @@ export const en: Translation = {
     },
   ],
   consultEyebrow: "Contact",
-  consultHeading: "Ready to Regain Your Serenity?",
+  consultHeading: "Request a consultation",
   contact: {
     whatsapp: "WhatsApp",
     email: "Email",
@@ -182,13 +182,46 @@ export const en: Translation = {
   contactOffice: "Beb Djelladine next to Dhib Pharmacy, Martyrs Street",
   formTitle: "Send us a message",
   form: {
+    locale: "en",
+    language: "English",
+    preferenceLabel: "How would you like us to contact you?",
+    methods: { email: "Email", whatsapp: "WhatsApp" },
+    phoneLabel: "WhatsApp number",
+    countryLabel: "Country code",
+    countrySearch: "Search country or code",
+    countryEmpty: "No matching country",
+    topicLabel: "Type of legal matter",
+    topics: {
+      unspecified: "Select a category",
+      family: "Family law",
+      property: "Property law",
+      business: "Business law",
+      criminal: "Criminal law",
+      other: "Another question",
+    },
+    requiredError: "Please complete this field.",
+    emailError: "Enter a valid email address, such as name@example.com.",
+    phoneError:
+      "Check the country and enter your WhatsApp number without the international calling code.",
+    messageError:
+      "Please write at least 10 characters to explain your request.",
+    confirmationTitle: "Your request has been sent",
+    confirmationMessage:
+      "The firm will contact you using your preferred method. This does not confirm an appointment: the date and arrangements will be agreed with you.",
+    newRequest: "Send another request",
+    cooldownMessage: "You can send another request in 30 seconds.",
+    failureMessage:
+      "We could not confirm that your request was sent. Your text has been kept. Try again or contact the firm by WhatsApp or email.",
+    timeoutMessage:
+      "Sending is taking longer than expected and could not be confirmed. Your text has been kept. Contact the firm if needed before sending your request again.",
     nameLabel: "Full Name",
     namePlaceholder: "Enter your full name",
     emailPlaceholder: "your@email.com",
     orgLabel: "Company / City",
     orgPlaceholder: "e.g., Company Ltd. or City",
-    messageLabel: "Case Description",
-    messagePlaceholder: "Briefly describe your situation",
+    messageLabel: "Tell us about your situation",
+    messagePlaceholder:
+      "How can we help you?",
     submit: "Send Request",
     defaultName: "Prospective Client",
     defaultOrg: "Individual",

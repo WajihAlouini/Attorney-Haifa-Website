@@ -174,7 +174,7 @@ export const fr: Translation = {
     },
   ],
   consultEyebrow: "Contact",
-  consultHeading: "Prêt(e) à Retrouver Votre Sérénité ?",
+  consultHeading: "Demander une consultation",
   contact: {
     whatsapp: "WhatsApp",
     email: "Email",
@@ -183,13 +183,46 @@ export const fr: Translation = {
   contactOffice: "Beb Djelladine à côté de pharmacie Dhib, Rue des Martyrs",
   formTitle: "Envoyez-nous un message",
   form: {
+    locale: "fr",
+    language: "Français",
+    preferenceLabel: "Comment souhaitez-vous être recontacté(e) ?",
+    methods: { email: "Email", whatsapp: "WhatsApp" },
+    phoneLabel: "Numéro WhatsApp",
+    countryLabel: "Indicatif du pays",
+    countrySearch: "Rechercher un pays ou un indicatif",
+    countryEmpty: "Aucun pays correspondant",
+    topicLabel: "Nature de votre affaire",
+    topics: {
+      unspecified: "Choisir une catégorie",
+      family: "Droit de la famille",
+      property: "Droit immobilier",
+      business: "Droit des affaires",
+      criminal: "Droit pénal",
+      other: "Autre demande",
+    },
+    requiredError: "Veuillez remplir ce champ.",
+    emailError: "Entrez une adresse email valide, par exemple nom@exemple.com.",
+    phoneError:
+      "Vérifiez le pays et entrez votre numéro WhatsApp sans l’indicatif international.",
+    messageError:
+      "Veuillez écrire au moins 10 caractères pour préciser votre demande.",
+    confirmationTitle: "Votre demande a été envoyée",
+    confirmationMessage:
+      "Le cabinet vous recontactera selon votre préférence. Aucun rendez-vous n’est confirmé à ce stade : la date et les modalités seront convenues avec vous.",
+    newRequest: "Envoyer une autre demande",
+    cooldownMessage: "Vous pourrez envoyer une autre demande dans 30 secondes.",
+    failureMessage:
+      "L’envoi n’a pas pu être confirmé. Votre texte est conservé. Réessayez ou contactez le cabinet par WhatsApp ou email.",
+    timeoutMessage:
+      "L’envoi prend plus de temps que prévu et n’a pas pu être confirmé. Votre texte est conservé. Contactez le cabinet si besoin avant de renvoyer votre demande.",
     nameLabel: "Nom Complet",
     namePlaceholder: "Entrez votre nom complet",
     emailPlaceholder: "votre@email.com",
     orgLabel: "Société / Ville",
     orgPlaceholder: "ex: Société SARL ou Ville",
-    messageLabel: "Description du Cas",
-    messagePlaceholder: "Décrivez brièvement votre situation",
+    messageLabel: "Parlez-nous de votre situation",
+    messagePlaceholder:
+      "Comment pouvons-nous vous aider ?",
     submit: "Envoyer la Demande",
     defaultName: "Client Potentiel",
     defaultOrg: "Particulier",
