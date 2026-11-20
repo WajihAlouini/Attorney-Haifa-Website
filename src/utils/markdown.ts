@@ -15,6 +15,29 @@ export interface BlogPost {
   content: string;
 }
 
+type DatedPost = Pick<BlogPostMeta, "date" | "updated">;
+
+/** The date shown to readers: the last update when there is one, else the publication date. */
+export function getDisplayDate(post: DatedPost): string {
+  return post.updated || post.date;
+}
+
+/** Newest first by displayed date, then by publication date. Dates are ISO YYYY-MM-DD strings. */
+export function compareByDisplayDate(a: DatedPost, b: DatedPost): number {
+  return (
+    getDisplayDate(b).localeCompare(getDisplayDate(a)) ||
+    b.date.localeCompare(a.date)
+  );
+}
+
+/** Formats an ISO date for display, anchored at midday so time zones cannot shift the day. */
+export function formatPostDate(date: string, locale: string): string {
+  return new Date(`${date}T12:00:00`).toLocaleDateString(
+    locale === "ar" ? "ar-TN" : locale,
+    { year: "numeric", month: "long", day: "numeric" }
+  );
+}
+
 /**
  * Parses YAML frontmatter from a markdown string.
  * Uses a line-by-line approach for maximum robustness across all OS line endings.
@@ -121,9 +144,7 @@ export function getAllPosts(lang = "fr"): BlogPostMeta[] {
     });
   }
 
-  return posts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  return posts.sort(compareByDisplayDate);
 }
 
 export function getPostBySlug(

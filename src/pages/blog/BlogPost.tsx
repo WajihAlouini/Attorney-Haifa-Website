@@ -7,7 +7,11 @@ import { ArrowLeft, ArrowRight, Calendar, Tag } from "lucide-react";
 import { SEO } from "@/components/common/SEO";
 import { getBlogRelatedResources } from "@/data/blogSeo";
 import { ogImageForCover } from "@/data/seo";
-import { getPostBySlug } from "@/utils/markdown";
+import {
+  formatPostDate,
+  getDisplayDate,
+  getPostBySlug,
+} from "@/utils/markdown";
 import styles from "./BlogPost.module.css";
 import { localizedTo } from "@/utils/localeRoutes";
 
@@ -20,7 +24,6 @@ function getUiCopy(locale: string) {
     return {
       backLabel: "Back to articles",
       resourcesTitle: "Related legal resources",
-      updatedLabel: "Updated",
     };
   }
 
@@ -28,14 +31,12 @@ function getUiCopy(locale: string) {
     return {
       backLabel: "العودة الى الاخبار",
       resourcesTitle: "موارد قانونية مرتبطة",
-      updatedLabel: "آخر تحديث",
     };
   }
 
   return {
     backLabel: "Retour aux actualites",
     resourcesTitle: "Ressources juridiques liees",
-    updatedLabel: "Mis à jour",
   };
 }
 
@@ -95,28 +96,10 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
               >
                 {meta.author}
               </Link>
-              {meta.updated && meta.updated !== meta.date && (
-                <span className={styles.metaItem}>
-                  {uiCopy.updatedLabel}:{" "}
-                  <time dateTime={meta.updated}>
-                    {new Date(`${meta.updated}T12:00:00`).toLocaleDateString(
-                      contentLocale === "ar" ? "ar-TN" : contentLocale,
-                      { year: "numeric", month: "long", day: "numeric" }
-                    )}
-                  </time>
-                </span>
-              )}
               <div className={styles.metaItem}>
                 <Calendar size={16} />
-                <time dateTime={meta.date}>
-                  {new Date(meta.date).toLocaleDateString(
-                    contentLocale === "ar" ? "ar-TN" : contentLocale,
-                    {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    }
-                  )}
+                <time dateTime={getDisplayDate(meta)}>
+                  {formatPostDate(getDisplayDate(meta), contentLocale)}
                 </time>
               </div>
             </div>

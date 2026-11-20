@@ -7,7 +7,7 @@ import {
   getSeoClusterUiCopy,
 } from "@/data/seoCluster";
 import { getClusterRelatedBlogSlugs } from "@/data/blogSeo";
-import { getPostBySlug } from "@/utils/markdown";
+import { compareByDisplayDate, getPostBySlug } from "@/utils/markdown";
 import { PhoneNumber } from "@/components/common/PhoneNumber";
 import styles from "./SeoClusterPage.module.css";
 import { localizedTo, splitLocalePathname } from "@/utils/localeRoutes";
@@ -28,12 +28,7 @@ export const SeoClusterPage: FC<SeoClusterPageProps> = ({
   const pageData = getSeoClusterPage(routePath, locale);
 
   if (!pageData) {
-    return (
-      <Navigate
-        to={localizedTo("/services", locale)}
-        replace
-      />
-    );
+    return <Navigate to={localizedTo("/services", locale)} replace />;
   }
 
   const uiCopy = getSeoClusterUiCopy(locale);
@@ -43,10 +38,7 @@ export const SeoClusterPage: FC<SeoClusterPageProps> = ({
   const relatedArticles = getClusterRelatedBlogSlugs(pageData.path)
     .map((slug) => getPostBySlug(slug, locale, true))
     .filter((post): post is NonNullable<typeof post> => post !== null)
-    .sort(
-      (a, b) =>
-        new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime()
-    )
+    .sort((a, b) => compareByDisplayDate(a.meta, b.meta))
     .slice(0, 3);
   const detailSections = [
     {

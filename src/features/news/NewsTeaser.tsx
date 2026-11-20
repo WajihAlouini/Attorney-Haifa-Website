@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { getAllPosts } from "@/utils/markdown";
+import { formatPostDate, getAllPosts, getDisplayDate } from "@/utils/markdown";
 import { Translation } from "@/types";
 import { localizedTo } from "@/utils/localeRoutes";
 import styles from "./NewsTeaser.module.css";
@@ -16,13 +16,6 @@ export const NewsTeaser: FC<NewsTeaserProps> = ({ t, locale }) => {
   if (!posts.length) {
     return null;
   }
-
-  const formatDate = (date: string) =>
-    new Date(date).toLocaleDateString(locale === "ar" ? "ar-TN" : locale, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
 
   // Rendered twice so the CSS marquee loops seamlessly (translateX(-50%)).
   const marqueePosts = [...posts, ...posts];
@@ -64,8 +57,8 @@ export const NewsTeaser: FC<NewsTeaserProps> = ({ t, locale }) => {
                 </div>
 
                 <div className={styles.body}>
-                  <time className={styles.date} dateTime={post.date}>
-                    {formatDate(post.date)}
+                  <time className={styles.date} dateTime={getDisplayDate(post)}>
+                    {formatPostDate(getDisplayDate(post), locale)}
                   </time>
                   <h3 className={styles.title}>{post.title}</h3>
                   <p className={styles.excerpt}>{post.description}</p>
@@ -83,7 +76,10 @@ export const NewsTeaser: FC<NewsTeaserProps> = ({ t, locale }) => {
       </div>
 
       <div className={styles.viewAllWrap}>
-        <Link to={localizedTo("/actualites", locale)} className={styles.viewAll}>
+        <Link
+          to={localizedTo("/actualites", locale)}
+          className={styles.viewAll}
+        >
           {t.blog?.viewAll ?? "Voir toutes les actualités"}
           <span className={styles.arrow} aria-hidden="true">
             →

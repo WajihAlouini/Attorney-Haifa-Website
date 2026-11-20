@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { motion, Variants } from "framer-motion";
-import { getAllPosts } from "@/utils/markdown";
+import { formatPostDate, getAllPosts, getDisplayDate } from "@/utils/markdown";
 import { Calendar, ArrowRight } from "lucide-react";
 import { Translation } from "@/types";
 import styles from "./BlogIndex.module.css";
@@ -73,15 +73,8 @@ const BlogIndex: FC<{ locale?: string; t?: Translation }> = ({
                 <div className={styles.meta}>
                   <div className={styles.metaItem}>
                     <Calendar className={styles.icon} />
-                    <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString(
-                        locale === "ar" ? "ar-TN" : locale,
-                        {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        }
-                      )}
+                    <time dateTime={getDisplayDate(post)}>
+                      {formatPostDate(getDisplayDate(post), locale)}
                     </time>
                   </div>
                 </div>
