@@ -1,13 +1,14 @@
 ---
 title: "Can Foreigners Buy Property in Tunisia? 2026 Legal Guide"
 date: "2026-02-18"
+updated: "2026-11-20"
 description: "Yes — with the Governor's permit. What foreigners can and cannot buy in Tunisia, the currency transfer rules, and how to secure your purchase step by step."
 
 image: "/blog-realestate.jpg"
 tags: ["Property Law", "Foreign Investment", "Real Estate"]
 ---
 
-Buying property in Tunisia as a foreign national or a non-resident Tunisian is an attractive opportunity — but one governed by strict legal rules. With new reforms on the horizon, understanding the current framework is essential before you sign anything.
+Buying property in Tunisia as a foreign national is an attractive opportunity — but one governed by strict legal rules. Tunisians living abroad follow simpler rules, covered below. With new reforms on the horizon, understanding the current framework is essential before you sign anything.
 
 ## The Golden Rule: The Governor's Permit
 
@@ -22,6 +23,17 @@ Unlike property purchases in Europe, buying real estate in Tunisia as a foreigne
 ### What Is Strictly Prohibited:
 
 - **Agricultural land** cannot be purchased by foreigners. Tunisian law firmly protects national farmland.
+
+## Are You a Tunisian Living Abroad?
+
+The Governor's permit applies to foreign buyers. A Tunisian living abroad buys like any other Tunisian, including when they also hold another nationality, provided they can prove their Tunisian nationality. A few points still need particular care:
+
+- **Signing remotely**: you can give a specific power of attorney to a relative or your lawyer to sign the preliminary agreement and the deed of sale. It is normally made at the Tunisian consulate in your country of residence and must describe the property and the transaction precisely.
+- **Transferring funds through a bank**: pay the price through a bank and keep every record of the transfers from abroad. They can matter if you later want to transfer the proceeds of a resale back abroad under the foreign exchange rules.
+- **Checking the title before paying**: ask for a recent extract of the land title to confirm the registered owner, mortgages and any seizures. Inherited property is often held in joint ownership, in which case every co-owner must agree to the sale.
+- **Buying with a foreign spouse**: if the property is bought jointly with a spouse of foreign nationality, the spouse's share is subject to the rules for foreigners.
+
+The steps below apply to foreign buyers.
 
 ## A Secure Step-by-Step Acquisition Process
 

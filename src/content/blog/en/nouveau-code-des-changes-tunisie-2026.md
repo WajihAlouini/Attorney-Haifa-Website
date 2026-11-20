@@ -1,44 +1,47 @@
 ---
-title: "Tunisia's New Foreign Exchange Code 2026: A Game-Changer for Startups and Freelancers"
+title: "Tunisia's New Foreign Exchange Code 2026: Where the Bill Stands and What It Could Change"
 date: "2026-02-12"
-description: "The proposed new Tunisian Foreign Exchange Code allows residents to hold foreign currency accounts, eases crypto regulation, and eliminates criminal penalties for minor infractions."
+updated: "2026-11-20"
+description: "Tunisia's new foreign exchange code: where the bill stands in Parliament in November 2026, the changes under discussion for businesses and freelancers, and the rules that still apply."
 
 image: "/blog-business.jpg"
 tags: ["Business Law", "Foreign Exchange", "Startups", "Freelance"]
 ---
 
-This is the reform Tunisia's entire entrepreneurial ecosystem has been waiting for. The old Foreign Exchange Code (dating back to 1976) was suffocating innovation, discouraging freelancers, and pushing tech startups to relocate abroad (the so-called "brain drain").
+Tunisia's foreign exchange rules still rest on Law No. 76-18 of 21 January 1976. Startups, service exporters and freelancers have long called for a more flexible framework for receiving and making payments abroad. A new Foreign Exchange Code is under discussion, but **it has not been adopted yet**.
 
-The **new Foreign Exchange Code** — currently in final adoption at Parliament (expected Q1 2026) — promises a radical liberalisation.
+## Where does the reform stand in November 2026?
 
-Here is what it means in practice for investors, SMEs, and the new generation of Tunisian entrepreneurs.
+- In spring 2026, the Finance and Budget Committee of the Assembly of the Representatives of the People examined a bill for a new Foreign Exchange Code. It heard several business organisations, including CONECT on 1 June 2026.
+- On 13 November 2026, during a plenary session, an MP criticised the Central Bank and the government for delaying the transmission of the updated text to Parliament.
+- No plenary vote has been announced so far. The original timetable, which aimed for adoption in the first quarter of 2026, was not met.
 
-## 1. Foreign Currency Accounts for Residents
+Sources: [BusinessNews, 2 June 2026](https://businessnews.com.tn/2026/06/02/code-des-changes-a-larp-la-conect-presente-sa-vision-dune-reforme-strategique/1404328/); [La Presse, via allAfrica, 14 November 2026](https://fr.allafrica.com/stories/202611150012.html).
 
-The most anticipated change: the end of the prohibition on holding foreign currencies (EUR, USD) for Tunisian residents engaged in economic activity.
+## What the reform could change
 
-Previously, all export revenues had to be instantly converted to Tunisian Dinars. Under the new law:
+The points below are the ones that keep coming up in the debate. Nothing is final until the text is voted and published in the Official Journal.
 
-- Exporting businesses, labelled startups, and **registered freelancers (with a patente)** will be able to open and fund accounts in foreign currency.
-- They can use these funds to pay international service providers, buy software licences, host servers, or run global digital advertising campaigns (Google Ads, Facebook Ads) — all without the cumbersome Central Bank Transfer Authorisation (AT) process.
+### 1. More freedom for everyday transactions
 
-## 2. Decriminalisation of Minor Exchange Violations
+Employers' organisations are asking for the principle of freedom of economic transactions to be written into law, for restrictions to be limited to cases the law defines, and for firm deadlines on administrative decisions. For a startup or freelancer, the practical issue is paying more easily for software, hosting, online advertising or foreign service providers.
 
-The old exchange legislation was punishingly repressive, criminalising (and even imprisoning) business leaders for simple administrative oversights.
+### 2. More proportionate penalties
 
-The new law fundamentally shifts this approach. Unintentional or minor exchange violations will result in **administrative sanctions and financial penalties** rather than criminal prosecution. This significantly reduces legal risk for CFOs and company directors.
+Under the current regime, exchange breaches can lead to criminal prosecution. The proposals under discussion draw a clearer line between formal breaches and serious offences, so that heavy penalties are kept for the most serious cases.
 
-## 3. A Framework for Cryptocurrencies and Digital Payments
+### 3. A framework for digital assets
 
-The old code completely ignored digital assets. The new text takes a step into the future:
+A legal framework for digital assets is among the requests made before the committee. Until a text provides for one, assume the current rules apply.
 
-- It creates a regulated legal framework for **international digital payment platforms** (such as PayPal and Stripe), enabling Tunisians to send and receive global payments seamlessly (subject to bilateral agreements).
-- It allows the declaration and holding of virtual/digital assets under a strict framework defined by the Central Bank.
+### 4. Tunisians living abroad
 
-## 4. A Major Win for Foreign Investors
+MPs are calling for clear mechanisms to make it easier for Tunisians abroad to invest in the country. The details will depend on the text that is finally adopted.
 
-To attract foreign capital, the law guarantees **immediate and total freedom to repatriate** profits, dividends, and proceeds from asset sales. Foreign portfolio investment (on the Tunis Stock Exchange) also benefits from significantly streamlined procedures.
+## What applies today
 
-> **Legal Note**: While the law promises exciting changes, its implementation will depend on subsequent Central Bank circulars. If you are restructuring your startup's international cash flow or freelance billing operations, it is essential to consult a business law specialist to anticipate the new reporting requirements.
+Until the new code is adopted and published, the 1976 law and the Central Bank of Tunisia's regulations remain in force. Transactions with other countries normally go through an approved intermediary, which in practice means your bank.
 
-Contact our firm for a review of your international contracts in light of this landmark new Code.
+> **Note from our firm**: do not structure your international receipts, accounts or payments around a reform that has not been voted. Check first with your bank and a lawyer what the current rules allow.
+
+Do you invoice foreign clients or pay providers outside Tunisia? The firm can review your contracts and payment flows against the rules in force today.

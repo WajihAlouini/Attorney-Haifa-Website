@@ -1,44 +1,47 @@
 ---
-title: "Nouveau Code des Changes (2026) : Fin du parcours du combattant pour les startups et les freelances"
+title: "Nouveau Code des Changes (2026) : où en est le projet et ce qu'il pourrait changer"
 date: "2026-02-12"
-description: "Le projet de loi sur le nouveau Code des Changes tunisien en 2026. Ouverture des comptes en devises, crypto-monnaies et facilitation des exportations de services."
+updated: "2026-11-20"
+description: "Nouveau Code des changes en Tunisie : état du projet au Parlement en novembre 2026, pistes discutées pour les entreprises et les freelances, et règles qui restent applicables."
 
 image: "/blog-business.jpg"
 tags: ["Droit des Affaires", "Code des Changes", "Startups", "Freelance"]
 ---
 
-C’est la réforme que tout l'écosystème entrepreneurial tunisien attendait depuis des décennies. L'obsolescence de l'ancien Code des Changes (datant de 1976) étouffait l'innovation, décourageait les freelances et poussait de nombreuses startups technologiques à s'expatrier (le phénomène de la "fuite des cerveaux").
+La réglementation tunisienne des changes repose toujours sur la loi n° 76-18 du 21 janvier 1976. Startups, exportateurs de services et freelances attendent depuis longtemps un texte plus souple pour encaisser et payer à l'étranger. Un nouveau Code des changes est en discussion, mais **il n'est pas encore adopté**.
 
-Le projet du **nouveau Code des Changes**, actuellement en phase d'adoption finale au Parlement (prévue pour le premier trimestre 2026), promet une libéralisation radicale.
+## Où en est la réforme en novembre 2026 ?
 
-Voici les principales avancées juridiques qui vont transformer le quotidien des investisseurs, des TPE/PME et des jeunes créateurs d'entreprise en Tunisie.
+- Au printemps 2026, la commission des Finances et du budget de l'Assemblée des représentants du peuple a examiné une proposition de loi portant nouveau Code des changes. Elle a auditionné plusieurs acteurs économiques, dont la CONECT le 1er juin 2026.
+- Le 13 novembre 2026, en séance plénière, un député a reproché à la Banque centrale et au gouvernement de tarder à transmettre au Parlement la version actualisée du texte.
+- Aucun vote en séance plénière n'a été annoncé à ce jour. Le calendrier initial, qui visait une adoption au premier trimestre 2026, n'a pas été tenu.
 
-## 1. La libéralisation des Comptes en Devises pour les Résidents
+Sources : [BusinessNews, 2 juin 2026](https://businessnews.com.tn/2026/06/02/code-des-changes-a-larp-la-conect-presente-sa-vision-dune-reforme-strategique/1404328/) ; [La Presse, via allAfrica, 14 novembre 2026](https://fr.allafrica.com/stories/202611150012.html).
 
-C'est sans doute la mesure la plus attendue : la fin de l'interdiction de détenir des devises étrangères (EUR, USD) pour les résidents tunisiens exerçant une activité économique.
+## Ce que la réforme pourrait changer
 
-Auparavant, toute recette d'exportation devait être instantanément convertie en dinars tunisiens. Désormais :
+Les pistes ci-dessous sont celles qui reviennent dans les débats. Rien n'est définitif tant que le texte n'est pas voté et publié au Journal officiel.
 
-- Les entreprises exportatrices, les startups labellisées, et les **freelances enregistrés (patente)** pourront ouvrir et alimenter des comptes en devises locales.
-- Ils pourront utiliser ces devises pour payer des prestataires étrangers, acheter des logiciels, héberger des serveurs ou lancer des campagnes publicitaires internationales en ligne (Google Ads, Facebook Ads) sans passer par les lourdes procédures d'Autorisation de Transfert (AT) de la Banque Centrale.
+### 1. Plus de liberté pour les opérations courantes
 
-## 2. Dépénalisation des infractions de change "mineures"
+Les organisations patronales demandent de consacrer le principe de liberté des transactions économiques, de limiter les restrictions aux cas définis par la loi et d'imposer des délais précis aux décisions administratives. Pour une startup ou un freelance, l'enjeu concret est de pouvoir payer plus simplement des logiciels, un hébergement, de la publicité en ligne ou des prestataires étrangers.
 
-La réglementation des changes était extrêmement répressive, pénalisant (voire emprisonnant) des chefs d'entreprise pour de simples oublis déclaratifs.
+### 2. Des sanctions mieux proportionnées
 
-La nouvelle loi transforme l'approche pénale. Les infractions de change non intentionnelles ou mineures entraîneront désormais des sanctions administratives et des pénalités financières, plutôt que des poursuites pénales lourdes. Cela sécurise considérablement le statut des directeurs financiers et des chefs d'entreprise.
+Le régime actuel peut entraîner des poursuites pénales pour des manquements de change. Les propositions discutées distinguent plus nettement les manquements formels des infractions graves, afin de réserver les sanctions lourdes aux cas les plus sérieux.
 
-## 3. L'intégration des Crypto-monnaies et Nouveaux Moyens de Paiement
+### 3. Un cadre pour les actifs numériques
 
-L'ancien code ignorait totalement l'existence des actifs virtuels. Le nouveau texte fait un pas vers l'avenir :
+L'encadrement des actifs numériques fait partie des demandes exprimées devant la commission. Tant qu'aucun texte ne le prévoit, il faut considérer que la réglementation actuelle s'applique.
 
-- Il crée un cadre juridique réglementé pour les **plateformes de paiement numérique internationales** (comme PayPal ou Stripe), permettant (sous réserve d'accords bilatéraux) aux Tunisiens de recevoir et d'émettre des paiements mondiaux fluides.
-- Il permet (dans un cadre strict défini par la BCT) la déclaration et la détention d'actifs numériques/cryptographiques.
+### 4. Les Tunisiens résidant à l'étranger
 
-## 4. Une aubaine pour les Investisseurs Étrangers
+Des députés demandent des mécanismes clairs pour faciliter l'investissement des Tunisiens de l'étranger dans le pays. Les modalités précises dépendront du texte finalement adopté.
 
-Pour attirer les capitaux étrangers, la loi garantit la liberté absolue et immédiate **de rapatriement des bénéfices, dividendes, et des revenus de cession**. L'investissement étranger en portefeuille (à la Bourse de Tunis) bénéficie également de procédures drastiquement allégées.
+## Ce qui s'applique aujourd'hui
 
-> **Conseil Juridique** : Si la loi promet de belles ouvertures, son application dépendra des circulaires de la BCT. Si vous envisagez de restructurer votre flux de trésorerie international pour votre startup ou activité de freelance, il est essentiel de consulter un avocat en Droit des Affaires pour anticiper les nouveaux mécanismes déclaratifs.
+Jusqu'à l'adoption et la publication du nouveau code, la loi de 1976 et la réglementation de la Banque centrale de Tunisie restent applicables. Les opérations avec l'étranger passent en principe par un intermédiaire agréé, c'est-à-dire votre banque.
 
-Contactez notre cabinet pour auditer vos contrats internationaux à l'aune de ce nouveau Code historique.
+> **Conseil du cabinet** : ne structurez pas vos encaissements, vos comptes ou vos paiements internationaux en anticipant une réforme qui n'est pas votée. Vérifiez d'abord avec votre banque et un avocat ce que les règles actuelles permettent.
+
+Vous facturez des clients étrangers ou payez des prestataires hors de Tunisie ? Le cabinet peut examiner vos contrats et vos flux au regard des règles en vigueur aujourd'hui.

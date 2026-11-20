@@ -657,7 +657,13 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
             question:
               "Quels sont les principaux changements du code du travail applicables en 2026 ?",
             answer:
-              "La réforme de 2025, en vigueur en 2026, renforce la protection des salariés en matière de licenciement, actualise les dispositions sur le travail à distance et révise les conditions du contrat à durée déterminée.",
+              "La loi n° 2025-9 du 21 mai 2025 fait du contrat à durée indéterminée la règle : le CDD n'est plus admis que dans les cas limités prévus par la loi, comme un surcroît temporaire d'activité, le remplacement d'un salarié absent ou des travaux saisonniers. Elle interdit aussi la sous-traitance de main-d'œuvre. Les contrats en cours et les recours à des prestataires doivent être revus au regard de ces règles.",
+          },
+          {
+            question:
+              "La sous-traitance de main-d'œuvre est-elle encore autorisée ?",
+            answer:
+              "Non. Depuis la loi de 2025, une entreprise ne peut plus mettre ses salariés à la disposition d'une autre pour exercer l'activité de celle-ci, sous peine de sanctions. La frontière avec une véritable prestation de services dépend des faits : faites vérifier les contrats concernés avant tout contrôle.",
           },
           {
             question:
@@ -715,7 +721,12 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
             question:
               "What are the main changes in the labour code applying in 2026?",
             answer:
-              "The 2025 reform, in force in 2026, strengthens employee protection in dismissal matters, updates remote work provisions and revises fixed-term contract conditions.",
+              "Law No. 2025-9 of 21 May 2025 makes the permanent contract the rule: a fixed-term contract is now allowed only in the limited cases the law sets out, such as a temporary increase in activity, replacing an absent employee or seasonal work. It also bans labour subcontracting. Existing contracts and outsourcing arrangements should be reviewed against these rules.",
+          },
+          {
+            question: "Is labour subcontracting still allowed in Tunisia?",
+            answer:
+              "No. Since the 2025 law, a company may no longer place its employees at another company's disposal to carry out that company's own activity, and breaches are penalised. Whether an arrangement is a genuine service contract depends on the facts, so have the contracts concerned reviewed before any inspection.",
           },
           {
             question: "How to challenge wrongful dismissal in Tunisia?",
@@ -772,7 +783,12 @@ export const seoClusterPages: Record<string, SeoClusterPageDefinition> = {
           {
             question: "ما هي أهم تغييرات مجلة الشغل المطبّقة في 2026؟",
             answer:
-              "يعزز إصلاح 2025، الساري في 2026، حماية العمال في مجال الطرد ويحدث أحكام العمل عن بعد ويراجع شروط العقود محددة المدة.",
+              "يجعل القانون عدد 9 لسنة 2025 المؤرخ في 21 ماي 2025 عقد الشغل غير محدد المدة هو القاعدة: لم يعد العقد محدد المدة جائزا إلا في الحالات المحدودة التي ينص عليها القانون، مثل الارتفاع الظرفي في حجم العمل أو تعويض أجير متغيب أو الأشغال الموسمية. كما يمنع المناولة في اليد العاملة. لذلك يجب مراجعة العقود الجارية والتعامل مع المزودين على ضوء هذه القواعد.",
+          },
+          {
+            question: "هل ما زالت المناولة في اليد العاملة مسموحا بها؟",
+            answer:
+              "لا. منذ قانون 2025 لم يعد بإمكان مؤسسة وضع أجرائها على ذمة مؤسسة أخرى لممارسة نشاطها، وتترتب على المخالفة عقوبات. ويتوقف التمييز بينها وبين إسداء خدمات حقيقي على الوقائع، لذا يُنصح بمراجعة العقود المعنية قبل أي تفقد.",
           },
           {
             question: "كيف يتم الطعن في الطرد التعسفي في تونس؟",

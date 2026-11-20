@@ -78,6 +78,11 @@ const blogGroups: BlogGroup[] = [
           description: "Audit foncier, baux, contrats et contentieux immobiliers.",
         },
         {
+          path: "/avocat-tunisiens-etranger",
+          label: "Tunisiens à l'étranger",
+          description: "Achat, procuration et suivi du dossier sans vous déplacer.",
+        },
+        {
           path: "/avocat-immobilier-tunisie",
           label: "Guide immobilier Tunisie",
           description: "Vérification foncière, contrats et gestion du risque.",
@@ -95,6 +100,11 @@ const blogGroups: BlogGroup[] = [
           description: "Title review, leases, contracts and property disputes.",
         },
         {
+          path: "/avocat-tunisiens-etranger",
+          label: "Tunisians living abroad",
+          description: "Buying, powers of attorney and case follow-up without travelling.",
+        },
+        {
           path: "/avocat-immobilier-tunisie",
           label: "Real estate Tunisia guide",
           description: "Title verification, contracts and risk management.",
@@ -110,6 +120,11 @@ const blogGroups: BlogGroup[] = [
           path: "/services/droit-immobilier",
           label: "خدمة القانون العقاري",
           description: "تدقيق الملكية والكراء والعقود والنزاعات العقارية.",
+        },
+        {
+          path: "/avocat-tunisiens-etranger",
+          label: "التونسيون بالخارج",
+          description: "الشراء والتوكيل ومتابعة الملف دون التنقل إلى تونس.",
         },
         {
           path: "/avocat-immobilier-tunisie",
@@ -181,62 +196,6 @@ const blogGroups: BlogGroup[] = [
     },
   },
   {
-    slug: "reforme-code-du-travail-2025",
-    resources: {
-      fr: [
-        {
-          path: "/consultation-juridique-tunisie",
-          label: "Consultation juridique",
-          description: "Analyser rapidement l'impact d'une réforme sur votre dossier.",
-        },
-        {
-          path: "/services/droit-des-affaires",
-          label: "Service droit des affaires",
-          description: "Support contractuel et contentieux pour l'entreprise.",
-        },
-        {
-          path: "/consultation-juridique-kairouan",
-          label: "Consultation juridique à Kairouan",
-          description: "Page locale pour obtenir un diagnostic et un plan d'action rapidement.",
-        },
-      ],
-      en: [
-        {
-          path: "/consultation-juridique-tunisie",
-          label: "Legal consultation",
-          description: "Quick guidance on how a reform affects your legal situation.",
-        },
-        {
-          path: "/services/droit-des-affaires",
-          label: "Business law service",
-          description: "Contract and dispute support for business operations.",
-        },
-        {
-          path: "/consultation-juridique-kairouan",
-          label: "Legal consultation in Kairouan",
-          description: "Local page to get a diagnosis and an action plan quickly.",
-        },
-      ],
-      ar: [
-        {
-          path: "/consultation-juridique-tunisie",
-          label: "استشارة قانونية",
-          description: "توجيه سريع لفهم أثر الإصلاح القانوني على وضعيتك.",
-        },
-        {
-          path: "/services/droit-des-affaires",
-          label: "خدمة قانون الأعمال",
-          description: "دعم تعاقدي ونزاعي للمؤسسات والمهنيين.",
-        },
-        {
-          path: "/consultation-juridique-kairouan",
-          label: "استشارة قانونية في القيروان",
-          description: "صفحة محلية للحصول على تشخيص قانوني وخطة عمل سريعة.",
-        },
-      ],
-    },
-  },
-  {
     slug: "egalite-succession-tunisie-debat-2026",
     resources: {
       fr: [
@@ -253,7 +212,7 @@ const blogGroups: BlogGroup[] = [
         {
           path: "/consultation-juridique-kairouan",
           label: "Consultation juridique à Kairouan",
-          description: "Anticiper votre succession avant l'entrée en vigueur de la réforme.",
+          description: "Préparer une donation, un testament ou un partage.",
         },
       ],
       en: [
@@ -270,7 +229,7 @@ const blogGroups: BlogGroup[] = [
         {
           path: "/consultation-juridique-kairouan",
           label: "Legal consultation in Kairouan",
-          description: "Plan your estate ahead of the reform's entry into force.",
+          description: "Prepare a gift, a will or an estate division.",
         },
       ],
       ar: [
@@ -287,119 +246,7 @@ const blogGroups: BlogGroup[] = [
         {
           path: "/consultation-juridique-kairouan",
           label: "استشارة قانونية في القيروان",
-          description: "تخطيط تركتك قبل دخول الإصلاح حيّز النفاذ.",
-        },
-      ],
-    },
-  },
-  {
-    slug: "startup-act-tunisie-amendements-2026",
-    resources: {
-      fr: [
-        {
-          path: "/services/droit-des-affaires",
-          label: "Service droit des affaires",
-          description: "Sociétés, pactes d'actionnaires, levées de fonds et stock-options.",
-        },
-        {
-          path: "/avocat-affaires-tunisie",
-          label: "Guide affaires Tunisie",
-          description: "Structuration juridique des startups et des PME.",
-        },
-        {
-          path: "/avocat-affaires-kairouan",
-          label: "Avocat affaires à Kairouan",
-          description: "Page locale pour entrepreneurs, contrats et financements.",
-        },
-      ],
-      en: [
-        {
-          path: "/services/droit-des-affaires",
-          label: "Business law service",
-          description: "Companies, shareholder agreements, fundraising and stock options.",
-        },
-        {
-          path: "/avocat-affaires-tunisie",
-          label: "Business Tunisia guide",
-          description: "Legal structuring for startups and SMEs.",
-        },
-        {
-          path: "/avocat-affaires-kairouan",
-          label: "Business lawyer in Kairouan",
-          description: "Local page for founders, contracts and financing.",
-        },
-      ],
-      ar: [
-        {
-          path: "/services/droit-des-affaires",
-          label: "خدمة قانون الأعمال",
-          description: "الشركات، اتفاقيات الشركاء، جمع الأموال، والأسهم التحفيزية.",
-        },
-        {
-          path: "/avocat-affaires-tunisie",
-          label: "دليل الأعمال في تونس",
-          description: "الهيكلة القانونية للشركات الناشئة والمؤسسات الصغرى والمتوسطة.",
-        },
-        {
-          path: "/avocat-affaires-kairouan",
-          label: "محامية أعمال في القيروان",
-          description: "صفحة محلية للمؤسّسين والعقود والتمويل.",
-        },
-      ],
-    },
-  },
-  {
-    slug: "location-touristique-tunisie-reglementation-2026",
-    resources: {
-      fr: [
-        {
-          path: "/services/droit-immobilier",
-          label: "Service droit immobilier",
-          description: "Baux, copropriété, régularisation et gestion de biens.",
-        },
-        {
-          path: "/avocat-immobilier-tunisie",
-          label: "Guide immobilier Tunisie",
-          description: "Structuration, baux et gestion du risque locatif.",
-        },
-        {
-          path: "/avocat-immobilier-kairouan",
-          label: "Avocat immobilier à Kairouan",
-          description: "Page locale pour propriétaires et litiges immobiliers.",
-        },
-      ],
-      en: [
-        {
-          path: "/services/droit-immobilier",
-          label: "Real estate law service",
-          description: "Leases, co-ownership, regularisation and property management.",
-        },
-        {
-          path: "/avocat-immobilier-tunisie",
-          label: "Real estate Tunisia guide",
-          description: "Structuring, leases and rental risk management.",
-        },
-        {
-          path: "/avocat-immobilier-kairouan",
-          label: "Real estate lawyer in Kairouan",
-          description: "Local page for owners and property disputes.",
-        },
-      ],
-      ar: [
-        {
-          path: "/services/droit-immobilier",
-          label: "خدمة القانون العقاري",
-          description: "الكراء والملكية المشتركة والتسوية وإدارة العقارات.",
-        },
-        {
-          path: "/avocat-immobilier-tunisie",
-          label: "دليل العقار في تونس",
-          description: "الهيكلة والكراء وإدارة مخاطر الإيجار.",
-        },
-        {
-          path: "/avocat-immobilier-kairouan",
-          label: "محامية عقارية في القيروان",
-          description: "صفحة محلية للمالكين والنزاعات العقارية.",
+          description: "تحضير الهبة أو الوصية أو قسمة التركة.",
         },
       ],
     },

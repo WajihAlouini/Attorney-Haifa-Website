@@ -177,6 +177,42 @@
   color: var(--text);
 }
 
+.tableWrap {
+  margin: 2rem 0 2.5rem;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.content th,
+.content td {
+  padding: 0.75rem 1rem;
+  text-align: start;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+
+.content th {
+  background: var(--accent-soft);
+  color: var(--accent-fg);
+  font-weight: 600;
+}
+
+.content td:first-child {
+  font-weight: 600;
+}
+
+.content tbody tr:last-child td {
+  border-bottom: none;
+}
+
 .content img {
   max-width: 100%;
   border-radius: 8px;
@@ -281,6 +317,16 @@
   .content {
     padding: 2rem;
     font-size: 1.05rem;
+  }
+
+  .content table {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .content th,
+  .content td {
+    padding: 0.55rem 0.5rem;
   }
 
   .heroImage {

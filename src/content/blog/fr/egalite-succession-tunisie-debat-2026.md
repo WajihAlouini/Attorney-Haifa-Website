@@ -1,60 +1,75 @@
 ---
-title: "Égalité successorale en Tunisie : pourquoi le débat revient en 2026"
+title: "Héritage en Tunisie en 2026 : qui hérite de quoi, et où en est l'égalité ?"
 date: "2026-03-10"
-description: "Après huit ans de silence politique, le projet de loi sur l'égalité successorale entre hommes et femmes revient devant le Parlement tunisien. Ce qui pourrait changer pour chaque famille."
+updated: "2026-11-20"
+description: "Héritage en Tunisie : le tableau des parts de chaque héritier selon le Code du statut personnel, des exemples de partage, et le point sur l'égalité successorale en 2026."
 
 image: "/blog-inheritance.jpg"
-tags: ["Droit de la Famille", "Succession", "Héritage", "Réforme 2026"]
+tags: ["Droit de la Famille", "Succession", "Héritage"]
 ---
 
-Le débat le plus controversé du droit de la famille tunisien revient sur le devant de la scène : **l'égalité successorale entre hommes et femmes**. Porté initialement par la Commission des libertés individuelles et de l'égalité (COLIBE) en 2018, puis mis en sommeil pendant huit ans, le projet de loi est à nouveau à l'ordre du jour parlementaire en 2026.
+**En bref : aucune loi sur l'égalité dans l'héritage n'a été adoptée.** En 2026, les successions sont toujours partagées selon le Code du statut personnel (CSP). Voici qui hérite de quoi, avec des exemples concrets.
 
-Derrière la technicité du texte se cache une question sociale majeure : des millions de familles tunisiennes voient leur patrimoine transmis selon des règles jugées obsolètes par une partie croissante de la société.
+## Qui hérite de quoi ?
 
-## La règle actuelle : « au mâle, la part de deux femelles »
+Dans ce tableau, « enfants » désigne les enfants du défunt et les enfants de ses fils.
 
-Le Code du Statut Personnel et la Majalla héritent directement des principes de la jurisprudence classique :
+| Héritier | Part | Article du CSP |
+| --- | --- | --- |
+| Fils | Ce qui reste après les parts fixes. Avec des filles, chaque fils reçoit le double de la part d'une fille. | 103, 119 |
+| Fille unique, sans frère | La moitié (1/2) | 103 |
+| Deux filles ou plus, sans frère | Les deux tiers (2/3), partagés à égalité | 103 |
+| Filles avec un ou plusieurs frères | Elles héritent avec leurs frères : chaque fille reçoit la moitié de la part d'un fils | 103 |
+| Épouse | 1/4 sans enfants, 1/8 s'il y a des enfants | 102 |
+| Époux | 1/2 sans enfants, 1/4 s'il y a des enfants | 101 |
+| Père | 1/6 s'il y a un fils ; 1/6 plus le reste s'il n'y a que des filles ; tout le reste s'il n'y a pas d'enfants | 99 |
+| Mère | 1/6 s'il y a des enfants ou plusieurs frères et sœurs ; 1/3 sinon. Avec le père et un conjoint : 1/3 de ce qui reste après la part du conjoint | 107 |
+| Frères et sœurs | N'héritent pas en présence d'un fils, d'un petit-fils par un fils ou du père | 130, 140 |
+| Petits-enfants d'un enfant décédé avant le défunt | Legs obligatoire : la part qu'aurait reçue leur parent, au maximum 1/3 | 191, 192 |
 
-- Le fils reçoit **le double de la part** de sa sœur.
-- La veuve hérite d'**un huitième** de la succession si elle a des enfants, d'un quart sinon.
-- Les règles de « Ta'sib » peuvent priver les filles uniques d'une partie de l'héritage au profit d'oncles ou de cousins masculins.
+## La règle tunisienne qui protège les filles
 
-Pour une famille ayant deux enfants, un garçon et une fille, le garçon reçoit automatiquement deux tiers du patrimoine transmissible. Cette asymétrie, tolérée par la loi, est de plus en plus contestée par les héritières tunisiennes — notamment dans les familles disposant d'un patrimoine immobilier important.
+Lorsqu'il n'y a pas de fils, les filles et les filles du fils reçoivent le reste de la succession **même si le défunt laisse des frères, des oncles paternels ou leurs descendants** (article 143 bis). Une fille unique n'a donc pas à partager avec ses oncles ou ses cousins.
 
-## Ce que propose le projet de loi 2026
+Seule exception : si le père du défunt est vivant, il reçoit 1/6 plus le reste (article 99).
 
-Le texte remis sur la table reprend les grandes lignes du projet COLIBE avec quelques ajustements :
+## Trois exemples de partage
 
-### 1. L'égalité comme règle par défaut
+**1. Une épouse, un fils et une fille.** L'épouse reçoit 1/8. Le reste est partagé entre les enfants, le fils recevant le double de la fille :
 
-La nouvelle loi inverserait le principe : **l'égalité parfaite entre héritiers** deviendrait la règle, indépendamment du sexe. Le partage se ferait à parts égales entre tous les enfants du défunt.
+- Épouse : 1/8
+- Fils : 7/12
+- Fille : 7/24
 
-### 2. Une option de « retour aux règles classiques »
+**2. Un époux, une fille et un frère de la défunte, dont le père est décédé.** L'époux reçoit 1/4. La fille reçoit 1/2, plus le reste grâce à l'article 143 bis :
 
-Pour respecter les convictions religieuses individuelles, le projet prévoit une **option de testament** par laquelle le testateur, de son vivant, peut choisir d'appliquer les règles successorales classiques. Cette option serait formelle, devant notaire, et opposable à tous les héritiers.
+- Époux : 1/4
+- Fille : 3/4
+- Frère : rien
 
-### 3. Réforme du Ta'sib
+**3. Un époux et les deux parents, sans enfants.** L'époux reçoit 1/2. La mère reçoit 1/3 de ce qui reste, et le père le solde :
 
-Le mécanisme du Ta'sib — qui permet à des parents collatéraux masculins (oncles, cousins) d'hériter au détriment des filles — serait **supprimé** par défaut dans le nouveau régime. Les enfants du défunt seraient toujours prioritaires, quel que soit leur sexe.
+- Époux : 1/2
+- Mère : 1/6
+- Père : 1/3
 
-## Les lignes de fracture
+Ces exemples supposent qu'aucun autre héritier n'existe. Le moindre parent supplémentaire peut changer le calcul.
 
-Le projet divise profondément le paysage politique et religieux :
+## Ce qu'un testament peut et ne peut pas faire
 
-- Les partis progressistes et les associations féministes (notamment l'ATFD) le soutiennent comme une étape historique vers l'égalité réelle.
-- Les partis à référence islamique et certains oulémas s'y opposent, estimant qu'il contredit des règles coraniques explicites.
-- Le Mufti de la République a rappelé la position traditionnelle, tout en reconnaissant la compétence exclusive du législateur.
+- **Pas de legs à un héritier** et **pas plus du tiers** de la succession, sauf si les héritiers y consentent après le décès (article 179).
+- **Un legs à une personne qui n'hérite pas** s'exécute sans l'accord des héritiers s'il ne dépasse pas le tiers (article 187).
+- **Une donation de son vivant** permet de transmettre un bien à une personne précise, par exemple à une fille. Elle obéit à des formes strictes, surtout pour un immeuble.
 
-Entre les deux, une majorité silencieuse de familles tunisiennes attend avant tout de la **clarté** sur ce qui s'appliquera à leurs successions futures.
+## Et l'égalité dans l'héritage ?
 
-## L'impact concret si la loi passe
+- **2018** : la Commission des libertés individuelles et de l'égalité (COLIBE) recommande l'égalité successorale. Le Conseil des ministres adopte un projet de loi le 23 novembre 2018. Il prévoit l'égalité par défaut, avec la possibilité de choisir de son vivant les règles actuelles.
+- **2019** : le texte est examiné en commission à l'Assemblée, puis bloqué. Il n'est jamais soumis au vote.
+- **Depuis** : le président Kaïs Saïed s'est publiquement prononcé contre l'égalité successorale, et le Parlement élu en 2019 a été dissous en 2022.
+- **Novembre 2026** : aucune nouvelle loi n'a été adoptée. Le débat se poursuit surtout au sein de la société civile.
 
-Pour chaque famille, l'adoption du texte changerait plusieurs choses :
+> **Note du cabinet** : ce tableau simplifie des règles qui dépendent de la composition exacte de la famille (grands-parents, demi-frères et sœurs, petits-enfants…). Avant tout partage, toute donation ou tout testament, faites calculer les parts par un professionnel.
 
-- Les successions ouvertes **après l'entrée en vigueur** seraient partagées selon les nouvelles règles.
-- Les testaments rédigés avant la loi devraient être **réévalués** à la lumière du nouveau régime.
-- Les transmissions anticipées (donations, partages du vivant) deviendraient **stratégiquement plus importantes** pour les familles souhaitant figer leur volonté dans l'ancien cadre.
+Sources : [CSP, articles 99 à 112](https://www.jurisitetunisie.com/tunisie/codes/csp/Csp1090.htm) ; [CSP, articles 122 à 143 bis](https://www.jurisitetunisie.com/tunisie/codes/csp/Csp1100.htm) ; [CSP, article 179](https://www.jurisitetunisie.com/tunisie/codes/csp/Csp1140.htm) ; [CSP, legs obligatoire](https://www.jurisitetunisie.com/tunisie/codes/csp/Csp1155.htm) ; [Middle East Eye, sur le sort du projet de loi](https://www.middleeasteye.net/fr/reportages/en-tunisie-le-projet-de-loi-sur-legalite-successorale-victime-des-calculs-politiques).
 
-> **Note de notre cabinet** : Que la loi passe ou non, 2026 est l'année où les Tunisiens doivent **relire leurs documents patrimoniaux**. Un testament rédigé en 2010 n'aura pas les mêmes effets selon le régime qui s'appliquera à votre succession. Nous conseillons à toutes les familles disposant d'un patrimoine immobilier ou d'une entreprise familiale d'anticiper dès maintenant.
-
-Notre cabinet accompagne les familles de Kairouan et de Tunis dans la rédaction de testaments conformes, la planification patrimoniale et la gestion de successions complexes — y compris lorsque plusieurs héritiers résident à l'étranger.
+Le cabinet accompagne les familles de Kairouan et de Tunis dans le règlement des successions, le calcul des parts, la rédaction des donations et des testaments et le partage des biens, y compris lorsque des héritiers vivent à l'étranger.

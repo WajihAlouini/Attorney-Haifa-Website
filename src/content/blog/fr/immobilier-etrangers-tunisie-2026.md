@@ -1,13 +1,14 @@
 ---
 title: "Immobilier : Le guide pour les étrangers achetant en Tunisie"
 date: "2026-02-18"
-description: "Autorisation du Gouverneur, régime fiscal et nouvelles réformes : Tout ce qu'un non-résident ou étranger doit savoir pour acheter un bien immobilier en Tunisie."
+updated: "2026-11-20"
+description: "Autorisation du Gouverneur, transfert des fonds et étapes de l'achat : ce qu'un étranger ou un Tunisien vivant à l'étranger doit savoir pour acheter un bien immobilier en Tunisie."
 
 image: "/blog-realestate.jpg"
 tags: ["Droit Immobilier", "Investissement Étranger", "Achat"]
 ---
 
-L'acquisition d'un bien immobilier en Tunisie par un ressortissant étranger (ou un Tunisien non-résident) est un processus attractif mais strictement encadré par la loi. Face à l'engouement pour l'immobilier tunisien, le législateur prévoit des réformes visant à faciliter la régularisation des biens appartenant aux étrangers.
+L'acquisition d'un bien immobilier en Tunisie par un ressortissant étranger est un processus attractif mais strictement encadré par la loi. Les Tunisiens qui vivent à l'étranger suivent des règles plus simples, présentées plus bas. Face à l'engouement pour l'immobilier tunisien, le législateur prévoit des réformes visant à faciliter la régularisation des biens appartenant aux étrangers.
 
 Quelles sont les règles incontournables à respecter en 2026 ?
 
@@ -24,6 +25,17 @@ Contrairement à l'achat immobilier en Europe, l'acquisition d'un bien en Tunisi
 ### Ce qui est strictement interdit :
 
 - L'achat de terres agricoles par des étrangers. La loi tunisienne protège fermement le domaine agricole national.
+
+## Vous êtes Tunisien et vivez à l'étranger ?
+
+L'autorisation du Gouverneur concerne les acheteurs étrangers. Un Tunisien résidant à l'étranger achète comme tout Tunisien, y compris lorsqu'il possède aussi une autre nationalité, à condition de justifier de sa nationalité tunisienne. Quelques points demandent toutefois une attention particulière :
+
+- **Signer à distance** : vous pouvez donner une procuration spéciale à un proche ou à votre avocat pour signer la promesse et l'acte de vente. Elle se fait en principe auprès du consulat de Tunisie de votre pays de résidence et doit décrire précisément le bien et l'opération.
+- **Transférer les fonds par la voie bancaire** : faites passer le prix par une banque et conservez tous les justificatifs de virement depuis l'étranger. Ils peuvent compter si vous souhaitez un jour retransférer le produit d'une revente, selon la réglementation des changes.
+- **Vérifier le titre avant de payer** : demandez un extrait récent du titre foncier pour connaître le propriétaire inscrit, les hypothèques et les éventuelles saisies. Un bien hérité est souvent en indivision : tous les copropriétaires doivent alors consentir à la vente.
+- **Acheter avec un conjoint étranger** : si le bien est acquis avec un conjoint de nationalité étrangère, la part de ce dernier relève des règles applicables aux étrangers.
+
+Les étapes ci-dessous concernent les acheteurs étrangers.
 
 ## Les étapes clés d'une acquisition sécurisée
 

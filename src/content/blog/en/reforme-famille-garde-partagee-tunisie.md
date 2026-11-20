@@ -1,45 +1,43 @@
 ---
-title: "Shared Custody in Tunisia: What the 2026 Reform Could Change"
+title: "Shared Custody in Tunisia: What the October 2026 Proposal Would Change"
 date: "2026-02-15"
-description: "Tunisia's proposed Personal Status Code reform could introduce joint custody for the first time. What divorcing parents should know about custody and fathers' and mothers' rights."
+updated: "2026-11-20"
+description: "Shared custody in Tunisia: what the Personal Status Code says today, what the text filed with Parliament on 14 October 2026 proposes, and what it means for divorcing parents."
 
 image: "/blog-family.jpg"
 tags: ["Family Law", "Divorce", "Child Custody"]
 ---
 
-Tunisia has long been a pioneer in the Arab world for women's rights and family legislation, thanks to the landmark Personal Status Code (CSP) of 1956. Today, a proposed **new "Tunisian Family Code"** is at the heart of parliamentary and legal debate, promising the most significant changes to family law in decades.
+Child custody after divorce remains one of the most sensitive questions in Tunisian family law. In October 2026, a text proposing shared custody and alternating residence was filed with the Assembly of the Representatives of the People. **It has not yet been examined or voted on**, so the current rules of the Personal Status Code (CSP) still apply.
 
-The most revolutionary change: the potential introduction of **shared custody** (co-parenting) after divorce.
+## What the law says today
 
-## The Current Law: Mother Priority
+- **The judge decides who has custody.** When a marriage ends during both spouses' lifetimes, custody (hadhana) is given to one parent or to a third party. The judge decides based on the child's best interests (Article 67 of the CSP). In practice, it is most often given to the mother.
+- **A custodial mother holds some guardianship powers.** She can act on the child's travel, schooling and accounts. The parent without custody keeps visiting rights.
+- **Remarriage does not automatically end custody.** The CSP's general rule is that a custodial mother should not be remarried, but the judge can let her keep custody if the child's interests justify it (Article 58). The question is decided by the judge, case by case.
 
-Under the current CSP, upon dissolution of marriage, custody (Hadhana) is awarded in this order:
+## The text filed on 14 October 2026
 
-1. The mother
-2. The father (or maternal grandmother in certain cases)
+According to the Tunisian press, the International Organisation for the Protection of Mediterranean Children filed a proposed text with Parliament on 14 October 2026. It asked to be heard by the relevant parliamentary committee. The text draws on French, German and Swiss models in particular.
 
-In practice, the vast majority of Tunisian courts award custody to the mother automatically. The father receives legal guardianship (El Wilaya) but is limited to weekend visitation. This routinely creates conflicts over everyday decisions — travel abroad, school choice, medical treatment — and limits a father's presence in the child's daily life.
+According to published reports, it provides for:
 
-## The Co-Parenting Revolution
+- **Joint parental responsibility**: both parents remain responsible for major decisions about the child.
+- **The option of alternating residence**, for example three days with one parent and four with the other, where the legal, social and psychological conditions are met.
+- **Judicial control**: shared custody would be an additional option, not an automatic rule. The judge would consider a social inquiry, housing, how close the two homes are, and whether the child can stay in the same school.
+- **Child support kept but adjustable**: it would not end automatically and could be recalculated according to the time spent with each parent and their resources.
 
-The reform bill seeks to fundamentally change this asymmetric model. Child psychologists and family law specialists broadly agree: a child thrives when both parents are involved.
+Reports differ on one point: one presents alternating residence as an option, another describes equal time with each parent. The full text has not been officially published.
 
-### 1. Joint Physical Custody as a Legal Option
+Sources: [Réalités, 20 October 2026](https://realites.com.tn/fr/garde-partagee-et-residence-alternee-une-proposition-de-loi-deposee-a-larp/); [BusinessNews, 21 October 2026](https://businessnews.com.tn/2026/10/21/garde-partagee-des-enfants-un-projet-de-loi-ouvre-une-nouvelle-voie-apres-le-divorce/1424163/).
 
-For the first time, Tunisian law could explicitly provide for alternating physical custody (e.g., one week with the mother, the next with the father) when logistical conditions permit and when it serves the child's best interests.
+## What this means for you today
 
-### 2. Shared Legal Guardianship
+Nothing changes until the text is adopted and published. But parents can already arrange for both of them to stay closely involved:
 
-To remove the need for one parent to seek the other's permission for every administrative step (passport renewal, hospital consent, school registration), the reform proposes **shared parental authority by default**.
+- In a **divorce by mutual consent**, the spouses can propose a detailed visiting and residence schedule to the judge.
+- In a contested divorce, a parent asking for more time with the child must show in practical terms that it serves the child's interests: housing, availability, school and stability.
 
-### 3. A More Active Family Court Judge
+> **Note from our firm**: give the judge a specific, realistic plan rather than a request in principle. That is what carries the most weight in custody decisions.
 
-Judges will gain greater powers to assess each parent's psychological and financial suitability. The reflexive, automatic award of custody to the mother will no longer be an absolute rule — both parents will stand before the court on an equal legal footing.
-
-## Why This Reform Matters
-
-Tunisian courts are overwhelmed with post-divorce disputes over denied visitation rights and unpaid child support. By promoting peaceful co-parenting, the law aims to hold both partners accountable and minimise the emotional trauma of separation for children.
-
-> **Note from our firm**: This law is not yet voted, but it is already influencing judicial practice. Family courts are increasingly open to amicable agreements that emphasise strong involvement from both parents.
-
-If you are navigating a divorce or separation and want to proactively protect your child's future, our firm specialises in negotiated divorce agreements (divorce by mutual consent) that place the child's best interests at the centre of every decision.
+Preparing for a divorce or looking to change custody arrangements? The firm can help you build a proposal centred on your child's interests.

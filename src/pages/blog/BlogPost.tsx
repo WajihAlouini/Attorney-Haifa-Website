@@ -145,6 +145,13 @@ const BlogPost: FC<{ locale?: string }> = ({ locale = "fr" }) => {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
+              table({ children }: React.ComponentPropsWithoutRef<"table">) {
+                return (
+                  <div className={styles.tableWrap}>
+                    <table>{children}</table>
+                  </div>
+                );
+              },
               code({
                 inline,
                 children,

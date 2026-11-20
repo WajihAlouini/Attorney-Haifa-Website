@@ -59,12 +59,12 @@
     },
     {
       "source": "/actualites/labour-code-reform-2025",
-      "destination": "/en/actualites/reforme-code-du-travail-2025",
+      "destination": "/en/code-du-travail-tunisie",
       "statusCode": 301
     },
     {
       "source": "/en/actualites/labour-code-reform-2025",
-      "destination": "/en/actualites/reforme-code-du-travail-2025",
+      "destination": "/en/code-du-travail-tunisie",
       "statusCode": 301
     },
     {
@@ -99,12 +99,12 @@
     },
     {
       "source": "/actualites/islah-majallat-alshughl-2025",
-      "destination": "/ar/actualites/reforme-code-du-travail-2025",
+      "destination": "/ar/code-du-travail-tunisie",
       "statusCode": 301
     },
     {
       "source": "/ar/actualites/islah-majallat-alshughl-2025",
-      "destination": "/ar/actualites/reforme-code-du-travail-2025",
+      "destination": "/ar/code-du-travail-tunisie",
       "statusCode": 301
     },
     {
@@ -150,6 +150,51 @@
     {
       "source": "/ar/actualites/protection-donnees-personnelles-tunisie-2026",
       "destination": "/ar/services/droit-des-affaires",
+      "statusCode": 301
+    },
+    {
+      "source": "/actualites/location-touristique-tunisie-reglementation-2026",
+      "destination": "/services/droit-immobilier",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/actualites/location-touristique-tunisie-reglementation-2026",
+      "destination": "/en/services/droit-immobilier",
+      "statusCode": 301
+    },
+    {
+      "source": "/ar/actualites/location-touristique-tunisie-reglementation-2026",
+      "destination": "/ar/services/droit-immobilier",
+      "statusCode": 301
+    },
+    {
+      "source": "/actualites/startup-act-tunisie-amendements-2026",
+      "destination": "/services/droit-des-affaires",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/actualites/startup-act-tunisie-amendements-2026",
+      "destination": "/en/services/droit-des-affaires",
+      "statusCode": 301
+    },
+    {
+      "source": "/ar/actualites/startup-act-tunisie-amendements-2026",
+      "destination": "/ar/services/droit-des-affaires",
+      "statusCode": 301
+    },
+    {
+      "source": "/actualites/reforme-code-du-travail-2025",
+      "destination": "/code-du-travail-tunisie",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/actualites/reforme-code-du-travail-2025",
+      "destination": "/en/code-du-travail-tunisie",
+      "statusCode": 301
+    },
+    {
+      "source": "/ar/actualites/reforme-code-du-travail-2025",
+      "destination": "/ar/code-du-travail-tunisie",
       "statusCode": 301
     }
   ]
