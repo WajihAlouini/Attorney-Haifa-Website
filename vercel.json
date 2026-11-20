@@ -136,6 +136,21 @@
       "source": "/ar/actualites/qanoon-alsarf-aljadid-tunis-2026",
       "destination": "/ar/actualites/nouveau-code-des-changes-tunisie-2026",
       "statusCode": 301
+    },
+    {
+      "source": "/actualites/protection-donnees-personnelles-tunisie-2026",
+      "destination": "/services/droit-des-affaires",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/actualites/protection-donnees-personnelles-tunisie-2026",
+      "destination": "/en/services/droit-des-affaires",
+      "statusCode": 301
+    },
+    {
+      "source": "/ar/actualites/protection-donnees-personnelles-tunisie-2026",
+      "destination": "/ar/services/droit-des-affaires",
+      "statusCode": 301
     }
   ]
 }

@@ -117,40 +117,7 @@ const startup = frame(
   `
 );
 
-// 3. Data Protection — shield with lock
-const dataProtection = frame(
-  `
-    <!-- decorative nodes -->
-    <g opacity=".4">
-      <circle cx="110" cy="130" r="3" fill="${GOLD_LIGHT}"/>
-      <circle cx="540" cy="150" r="3" fill="${GOLD_LIGHT}"/>
-      <circle cx="120" cy="500" r="3" fill="${GOLD_LIGHT}"/>
-      <circle cx="540" cy="470" r="3" fill="${GOLD_LIGHT}"/>
-      <line x1="110" y1="130" x2="320" y2="280" stroke="${GOLD}" stroke-width="1"/>
-      <line x1="540" y1="150" x2="320" y2="280" stroke="${GOLD}" stroke-width="1"/>
-      <line x1="120" y1="500" x2="320" y2="420" stroke="${GOLD}" stroke-width="1"/>
-      <line x1="540" y1="470" x2="320" y2="420" stroke="${GOLD}" stroke-width="1"/>
-    </g>
-    <!-- shield -->
-    <path d="M 320 150 L 460 200 L 460 340 Q 460 440 320 500 Q 180 440 180 340 L 180 200 Z"
-          fill="url(#gold)" opacity=".95"/>
-    <path d="M 320 170 L 440 212 L 440 340 Q 440 425 320 478 Q 200 425 200 340 L 200 212 Z"
-          fill="${INK_DEEP}" opacity=".92"/>
-    <!-- lock body -->
-    <rect x="275" y="310" width="90" height="80" rx="8" fill="url(#gold)"/>
-    <!-- lock shackle -->
-    <path d="M 290 310 L 290 285 Q 290 260 320 260 Q 350 260 350 285 L 350 310"
-          stroke="${GOLD_LIGHT}" stroke-width="10" fill="none" stroke-linecap="round"/>
-    <!-- keyhole -->
-    <circle cx="320" cy="340" r="8" fill="${INK_DEEP}"/>
-    <rect x="316" y="346" width="8" height="22" rx="2" fill="${INK_DEEP}"/>
-    <!-- label -->
-    <text x="320" y="560" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="600" fill="${GOLD_LIGHT}" text-anchor="middle" letter-spacing="3">DONNÉES PERSONNELLES</text>
-    <text x="320" y="590" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#cbd5e1" text-anchor="middle" opacity=".75" letter-spacing="8">RGPD TUNISIE 2026</text>
-  `
-);
-
-// 4. Short-term Rentals — house silhouette with key
+// 3. Short-term Rentals — house silhouette with key
 const shortTermRentals = frame(
   `
     <!-- skyline silhouette (far) -->
@@ -194,7 +161,6 @@ const shortTermRentals = frame(
 const images = [
   { file: "blog-inheritance.jpg", svg: inheritance },
   { file: "blog-startup.jpg", svg: startup },
-  { file: "blog-dataprotection.jpg", svg: dataProtection },
   { file: "blog-rentals.jpg", svg: shortTermRentals },
 ];
 

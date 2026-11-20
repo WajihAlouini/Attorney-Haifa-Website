@@ -349,62 +349,6 @@ const blogGroups: BlogGroup[] = [
     },
   },
   {
-    slug: "protection-donnees-personnelles-tunisie-2026",
-    resources: {
-      fr: [
-        {
-          path: "/services/droit-des-affaires",
-          label: "Service droit des affaires",
-          description: "Conformité, contrats et politiques internes pour entreprises.",
-        },
-        {
-          path: "/consultation-juridique-tunisie",
-          label: "Consultation juridique",
-          description: "Diagnostic rapide de votre niveau de conformité RGPD / INPDP.",
-        },
-        {
-          path: "/avocat-affaires-kairouan",
-          label: "Avocat affaires à Kairouan",
-          description: "Page locale pour mise en conformité et contrats fournisseurs.",
-        },
-      ],
-      en: [
-        {
-          path: "/services/droit-des-affaires",
-          label: "Business law service",
-          description: "Compliance, contracts and internal policies for businesses.",
-        },
-        {
-          path: "/consultation-juridique-tunisie",
-          label: "Legal consultation",
-          description: "Quick assessment of your GDPR / INPDP compliance level.",
-        },
-        {
-          path: "/avocat-affaires-kairouan",
-          label: "Business lawyer in Kairouan",
-          description: "Local page for compliance work and vendor contracts.",
-        },
-      ],
-      ar: [
-        {
-          path: "/services/droit-des-affaires",
-          label: "خدمة قانون الأعمال",
-          description: "المطابقة والعقود والسياسات الداخلية للمؤسسات.",
-        },
-        {
-          path: "/consultation-juridique-tunisie",
-          label: "استشارة قانونية",
-          description: "تشخيص سريع لمستوى مطابقتك لمتطلبات الـ RGPD / الهيئة الوطنية.",
-        },
-        {
-          path: "/avocat-affaires-kairouan",
-          label: "محامية أعمال في القيروان",
-          description: "صفحة محلية لأعمال المطابقة وعقود مزوّدي الخدمات.",
-        },
-      ],
-    },
-  },
-  {
     slug: "location-touristique-tunisie-reglementation-2026",
     resources: {
       fr: [
